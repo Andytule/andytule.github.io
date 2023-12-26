@@ -1,28 +1,22 @@
 import React from "react";
+import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Projects from "./pages/Projects/Projects";
+import Contact from "./pages/Contact/Contact";
+import SideBar from "./components/Sidebar/SideBar";
 
 const App: React.FC = () => (
-  <Router>
-    <div className="App">
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/projects">Projects</a>
-          </li>
-        </ul>
-      </nav>
-
+  <div className="app">
+    <Router>
+      <SideBar />
       <Routes>
-        <Route path="/projects" element={<Projects />} />
         <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
-    </div>
-  </Router>
+    </Router>
+  </div>
 );
 
 export default App;
