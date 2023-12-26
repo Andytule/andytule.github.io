@@ -1,9 +1,10 @@
 import React from "react";
+import "./Home.scss";
 
 const Home: React.FC = () => {
   return (
     <div className="home">
-      <h2>Welcome to the Home Page</h2>
+      <h2>Hello! I'm Andy</h2>
     </div>
   );
 };
