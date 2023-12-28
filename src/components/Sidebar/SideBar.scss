@@ -9,16 +9,16 @@
 }
 
 .bm-burger-bars {
-  background: $blue-1;
+  background: $gray-3;
 }
 
 .bm-burger-button button:focus {
-  outline: 2px solid $blue-2;
+  outline: 2px solid $blue-1;
   outline-offset: 8px;
 }
 
 .bm-burger-bars-hover {
-  background: $blue-2;
+  background: $blue-1;
 }
 
 .bm-cross-button {
@@ -28,6 +28,19 @@
 
 .bm-cross {
   background: $gray-3;
+}
+
+.bm-cross-button button:hover + span span.bm-cross {
+  background-color: $blue-1;
+}
+
+.bm-cross-button button:focus {
+  outline: 2px solid $blue-1;
+  outline-offset: 2px;
+}
+
+.bm-cross-button button:focus + span span.bm-cross {
+  background-color: $blue-1;
 }
 
 .bm-menu-wrap {
@@ -42,17 +55,27 @@
 }
 
 .bm-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 0.8em;
 }
 
 .bm-item {
+  align-items: center;
   color: inherit;
-  display: inline-block;
+  display: flex !important;
   text-decoration: none;
+
+  .svg-inline--fa {
+    width: 1em;
+    height: 1em;
+    margin-right: 1em;
+  }
 }
 
 .bm-item:hover {
-  color: $gray-3;
+  color: $blue-1;
   text-decoration: underline;
 }
 
