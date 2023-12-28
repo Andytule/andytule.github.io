@@ -7,6 +7,7 @@ import {
   faHome,
   faLaptopCode,
   faBriefcase,
+  faFile,
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -34,6 +35,10 @@ const SideBar: React.FC = () => {
       <Link to="/experiences" onClick={closeMenu}>
         <FontAwesomeIcon icon={faBriefcase} />
         Work Experience
+      </Link>
+      <Link to="/resume" onClick={closeMenu}>
+        <FontAwesomeIcon icon={faFile} />
+        Resume
       </Link>
       <Link to="/contact" onClick={closeMenu}>
         <FontAwesomeIcon icon={faAddressCard} />
