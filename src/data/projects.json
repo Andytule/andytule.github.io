@@ -11,14 +11,16 @@
       "Node.js",
       "MySQL",
       "PHP"
-    ]
+    ],
+    "imageName": "rate-my-course.png"
   },
   {
     "title": "Chess",
     "description": "Chess with friends. Strategic gameplay and a user-friendly interface for an engaging experience.",
     "demoLink": "https://andytule.github.io/chess/",
     "githubLink": "https://github.com/Andytule/chess",
-    "technologies": ["JavaScript", "React", "RxJs", "Node.js"]
+    "technologies": ["JavaScript", "React", "RxJs", "Node.js"],
+    "imageName": "chess.png"
   },
   {
     "title": "Covid Tracker",
@@ -31,27 +33,31 @@
       "Material-UI",
       "Charts.js",
       "Node.js"
-    ]
+    ],
+    "imageName": "covid-tracker.png"
   },
   {
     "title": "Blokus",
     "description": "Blokus on a 3D board for 2-4 players. Play with friends online in a captivating setting.",
     "demoLink": "https://andytule.github.io/blokkus/",
     "githubLink": "https://github.com/Andytule/blokkus",
-    "technologies": ["HTML", "CSS", "JavaScript", "Three.js", "jQuery"]
+    "technologies": ["HTML", "CSS", "JavaScript", "Three.js", "jQuery"],
+    "imageName": "blokus.png"
   },
   {
     "title": "A Star Pathfinder",
     "description": "A* Pathfinding Visualizer: Explore, create, and solve mazes for hands-on learning.",
     "demoLink": "https://andytule.github.io/a-star-pathfinder/",
     "githubLink": "https://github.com/Andytule/a-star-pathfinder",
-    "technologies": ["HTML", "CSS", "JavaScript"]
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "imageName": "a-star-pathfinder.png"
   },
   {
     "title": "Electro Magnetic Roomba",
     "description": "Experience the fully autonomous Android-controlled Roomba, utilizing electromagnets for efficient and thorough metal cleanup.",
     "demoLink": null,
     "githubLink": "https://github.com/Andytule/electromagnetic-robot",
-    "technologies": ["Python", "C++", "Arduino", "Raspberry Pi"]
+    "technologies": ["Python", "C++", "Arduino", "Raspberry Pi"],
+    "imageName": "electro-magnetic-roomba.png"
   }
 ]

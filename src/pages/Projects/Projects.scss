@@ -1,7 +1,17 @@
+@import "../../App.scss";
+
 .projects {
   align-items: center;
+  background-color: $gray-2;
   display: flex;
   height: 100vh;
   justify-content: center;
   padding: 1em;
+
+  .projects-container {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
 }
