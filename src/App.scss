@@ -9,6 +9,7 @@ p,
 ul,
 li {
   margin: 0;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -19,6 +20,5 @@ li {
   background-repeat: no-repeat;
   color: $black-1;
   font-family: "Proxima Nova", sans-serif;
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
 }

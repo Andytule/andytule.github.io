@@ -12,7 +12,7 @@
       "MySQL",
       "PHP"
     ],
-    "imageName": "rate-my-course.png"
+    "imageName": "rateMyCourse"
   },
   {
     "title": "Chess",
@@ -20,7 +20,7 @@
     "demoLink": "https://andytule.github.io/chess/",
     "githubLink": "https://github.com/Andytule/chess",
     "technologies": ["JavaScript", "React", "RxJs", "Node.js"],
-    "imageName": "chess.png"
+    "imageName": "chess"
   },
   {
     "title": "Covid Tracker",
@@ -34,7 +34,7 @@
       "Charts.js",
       "Node.js"
     ],
-    "imageName": "covid-tracker.png"
+    "imageName": "covidTracker"
   },
   {
     "title": "Blokus",
@@ -42,7 +42,7 @@
     "demoLink": "https://andytule.github.io/blokkus/",
     "githubLink": "https://github.com/Andytule/blokkus",
     "technologies": ["HTML", "CSS", "JavaScript", "Three.js", "jQuery"],
-    "imageName": "blokus.png"
+    "imageName": "blokus"
   },
   {
     "title": "A Star Pathfinder",
@@ -50,7 +50,7 @@
     "demoLink": "https://andytule.github.io/a-star-pathfinder/",
     "githubLink": "https://github.com/Andytule/a-star-pathfinder",
     "technologies": ["HTML", "CSS", "JavaScript"],
-    "imageName": "a-star-pathfinder.png"
+    "imageName": "aStarPathfinder"
   },
   {
     "title": "Electro Magnetic Roomba",
@@ -58,6 +58,6 @@
     "demoLink": null,
     "githubLink": "https://github.com/Andytule/electromagnetic-robot",
     "technologies": ["Python", "C++", "Arduino", "Raspberry Pi"],
-    "imageName": "electro-magnetic-roomba.png"
+    "imageName": "electroMagneticRoomba"
   }
 ]

@@ -10,14 +10,14 @@ const Home: React.FC = () => {
           sequence={[
             "Hi! I'm Andy.",
             5000,
-            "こんにちは！私はアンディです。",
+            "アンディです。",
             5000,
             "Have a wonderful day.",
             5000,
             "素敵な一日を",
             5000,
           ]}
-          style={{ fontSize: "2em" }}
+          style={{ fontSize: "3em" }}
           repeat={Infinity}
         />
       </h2>

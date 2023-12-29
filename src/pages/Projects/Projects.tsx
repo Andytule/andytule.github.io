@@ -15,7 +15,6 @@ export interface Project {
 const Projects: React.FC = () => {
   return (
     <div className="projects">
-      <h2>Welcome to the Projects Page</h2>
       <div className="projects-container">
         {projectData.map((project: Project, index: number) => (
           <ProjectCard key={index} project={project} />
