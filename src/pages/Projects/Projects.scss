@@ -1,17 +1,14 @@
 @import "../../App.scss";
 
 .projects {
-  align-items: center;
   background-color: $gray-2;
   display: flex;
-  height: 100vh;
   justify-content: center;
-  overflow: scroll;
-  padding: 1em;
 
   .projects-container {
     display: flex;
     flex-direction: column;
     gap: 2em;
+    margin: 5vh 15vw;
   }
 }
