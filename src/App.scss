@@ -16,6 +16,11 @@ body {
   background-color: $gray-2;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .app {
   background-image: url("./assets/images/wallpaper.jpg");
   background-size: cover;
@@ -23,5 +28,6 @@ body {
   background-repeat: no-repeat;
   color: $black-1;
   font-family: "Proxima Nova", sans-serif;
+  font-size: $font-size-base;
   height: 100%;
 }

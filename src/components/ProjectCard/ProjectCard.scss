@@ -10,16 +10,21 @@
     width: 267px;
   }
 
-  div {
-    flex-grow: 1;
-  }
-
   .project-title {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+
+    .project-demo {
+      // font-size: 1rem;
+    }
   }
 
   .project-description {
     margin-bottom: 1rem;
+  }
+
+  .project-technologies {
+    display: flex;
+    gap: 1em;
   }
 }

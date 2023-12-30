@@ -1,0 +1,9 @@
+@import "../../App.scss";
+
+.chip {
+  align-items: center;
+  background-color: $gray-1;
+  border-radius: 4px;
+  display: inline-flex;
+  padding: 2px 4px;
+}

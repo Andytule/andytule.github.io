@@ -5,8 +5,9 @@ import { TypeAnimation } from "react-type-animation";
 const Home: React.FC = () => {
   return (
     <div className="home">
-      <h2 className="header">
+      <h2 className="home-header-wrapper">
         <TypeAnimation
+          className="home-header"
           sequence={[
             "Hi! I'm Andy.",
             5000,
@@ -17,7 +18,6 @@ const Home: React.FC = () => {
             "素敵な一日を",
             5000,
           ]}
-          style={{ fontSize: "3em" }}
           repeat={Infinity}
         />
       </h2>
