@@ -2,29 +2,39 @@
 
 .project {
   display: flex;
+  gap: 2em;
 
   .project-image {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 150px;
-    margin-right: 1rem;
     width: 267px;
   }
 
-  .project-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  .project-content {
+    .project-title {
+      align-items: center;
+      display: flex;
+      font-size: $font-size-large;
+      margin-bottom: 0.5rem;
 
-    .project-demo {
-      // font-size: 1rem;
+      .project-demo {
+        color: $gray-3;
+        font-size: 0.7em;
+        margin-left: 0.5em;
+
+        &:hover {
+          color: $blue-1;
+        }
+      }
     }
-  }
 
-  .project-description {
-    margin-bottom: 1rem;
-  }
+    .project-description {
+      margin-bottom: 1rem;
+    }
 
-  .project-technologies {
-    display: flex;
-    gap: 1em;
+    .project-technologies {
+      display: flex;
+      gap: 1em;
+    }
   }
 }

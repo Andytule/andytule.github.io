@@ -51,7 +51,7 @@
 .bm-menu {
   background: $gray-1;
   padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
+  font-size: $font-size-medium;
 }
 
 .bm-item-list {
@@ -72,11 +72,11 @@
     height: 1em;
     margin-right: 1em;
   }
-}
 
-.bm-item:hover {
-  color: $blue-1;
-  text-decoration: underline;
+  &:hover {
+    color: $blue-1;
+    text-decoration: underline;
+  }
 }
 
 .bm-overlay {

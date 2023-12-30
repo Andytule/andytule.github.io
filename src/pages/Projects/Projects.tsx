@@ -1,7 +1,7 @@
 import React from "react";
 import "./Projects.scss";
-import projectData from "../../data/projects.json";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import projectsData from "../../data/projectsData";
 
 export interface Project {
   title: string;
@@ -16,7 +16,7 @@ const Projects: React.FC = () => {
   return (
     <div className="projects">
       <div className="projects-container">
-        {projectData.map((project: Project, index: number) => (
+        {projectsData.map((project: Project, index: number) => (
           <ProjectCard key={index} project={project} />
         ))}
       </div>

@@ -5,7 +5,8 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Chip from "../Chip/Chip";
 import "./ProjectCard.scss";
 import { Project } from "../../pages/Projects/Projects";
-import images from "../../utils/images";
+import projectImages from "../../utils/projectImages";
+import techHomePageConfig from "../../data/technologyHomePage";
 
 interface ProjectCardProps {
   project: Project;
@@ -16,10 +17,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <div className="project">
       <img
         className="project-image"
-        src={images[project.imageName]}
+        src={projectImages[project.imageName]}
         alt={project.title}
       />
-      <div>
+      <div className="project-content">
         <h3 className="project-title">
           {project.title}
           {project.demoLink && (
@@ -28,6 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
+              title="Demo Link"
             >
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </a>
@@ -36,17 +38,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         <p className="project-description">{project.description}</p>
 
-        <p>
-          Github:{" "}
-          <a href={project.githubLink}>
-            <FontAwesomeIcon icon={faGithub} />
-            {project.githubLink}
-          </a>
-        </p>
-
         <div className="project-technologies">
           {project.technologies.map((tech, index) => (
-            <Chip key={index} technology={tech} />
+            <Chip
+              key={index}
+              technology={techHomePageConfig[tech].originalName}
+              link={techHomePageConfig[tech].link}
+            />
           ))}
         </div>
       </div>

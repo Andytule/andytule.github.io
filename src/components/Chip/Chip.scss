@@ -6,4 +6,9 @@
   border-radius: 4px;
   display: inline-flex;
   padding: 2px 4px;
+
+  &:hover {
+    background-color: $blue-1;
+    color: $gray-1;
+  }
 }
