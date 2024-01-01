@@ -3,19 +3,19 @@
 .project {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 
   .project-image {
     background-position: center;
     background-size: cover;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    min-height: 300px;
+    height: 300px;
   }
 
   .project-details {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: 0.5rem;
 
     .project-title {
       font-size: $font-size-large;
@@ -23,7 +23,9 @@
 
     .project-technologies {
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
+      column-gap: 1rem;
+      row-gap: 0.5rem;
     }
   }
 }

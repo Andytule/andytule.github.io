@@ -4,13 +4,19 @@
   background-color: $gray-2;
 
   .projects-container {
-    padding: 10vh 15vw;
+    padding: 6vh 15vw;
 
-    .projects-header-wrapper {
-      align-items: center;
+    .sleeping-cat-container {
+      border-bottom: 1px solid $gray-1;
       display: flex;
-      height: 10vh;
+      height: 150px;
       justify-content: center;
+      overflow: hidden;
+
+      .sleeping-cat {
+        margin-left: 50px;
+        width: 150px;
+      }
     }
   }
 }
