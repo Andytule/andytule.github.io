@@ -2,13 +2,14 @@
 
 .chip {
   align-items: center;
-  background-color: $gray-1;
+  background-color: $blue-2;
   border-radius: 4px;
+  color: $gray-3;
   display: inline-flex;
   padding: 2px 4px;
 
   &:hover {
-    background-color: $blue-1;
-    color: $gray-1;
+    background-color: $gray-3;
+    color: $black-1;
   }
 }
