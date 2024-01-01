@@ -50,15 +50,18 @@
 
 .bm-menu {
   background: $gray-1;
-  padding: 2.5em 1.5em 0;
+  padding: 3.3em 2.3em 0;
   font-size: $font-size-medium;
+
+  .active-link {
+    color: $blue-1;
+  }
 }
 
 .bm-item-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0.8em;
 }
 
 .bm-item {

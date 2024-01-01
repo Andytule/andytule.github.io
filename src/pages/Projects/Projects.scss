@@ -5,5 +5,16 @@
 
   .projects-container {
     padding: 10vh 15vw;
+
+    .projects-header-wrapper {
+      align-items: center;
+      display: flex;
+      height: 10vh;
+      justify-content: center;
+
+      .projects-header {
+        font-size: $font-size-large;
+      }
+    }
   }
 }
