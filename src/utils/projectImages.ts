@@ -5,11 +5,11 @@ import covidTracker from "../assets/images/covid-tracker.png";
 import electroMagneticRoomba from "../assets/images/electro-magnetic-roomba.png";
 import rateMyCourse from "../assets/images/rate-my-course.png";
 
-interface ProjectImages {
+interface Images {
   [key: string]: any;
 }
 
-const projectImages: ProjectImages = {
+const images: Images = {
   aStarPathfinder,
   blokus,
   chess,
@@ -18,4 +18,4 @@ const projectImages: ProjectImages = {
   rateMyCourse,
 };
 
-export default projectImages;
+export default images;

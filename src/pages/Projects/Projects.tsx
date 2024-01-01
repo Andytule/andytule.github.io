@@ -1,6 +1,7 @@
 import React from "react";
 import "./Projects.scss";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import projectsData from "../../data/projectsData";
 
 export interface Project {
@@ -16,9 +17,13 @@ const Projects: React.FC = () => {
   return (
     <div className="projects">
       <div className="projects-container">
-        {projectsData.map((project: Project, index: number) => (
-          <ProjectCard key={index} project={project} />
-        ))}
+        <ResponsiveMasonry columnsCountBreakPoints={{ 1200: 1, 1201: 2 }}>
+          <Masonry gutter="20px">
+            {projectsData.map((project: Project, index: number) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       </div>
     </div>
   );

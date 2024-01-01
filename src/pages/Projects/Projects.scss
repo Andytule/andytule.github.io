@@ -2,13 +2,8 @@
 
 .projects {
   background-color: $gray-2;
-  display: flex;
-  justify-content: center;
 
   .projects-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4em;
-    margin: 5vh 20vw;
+    padding: 10vh 15vw;
   }
 }

@@ -1,8 +1,8 @@
-interface TechHomePageConfig {
+interface TechnologyData {
   [key: string]: { originalName: string; link: string };
 }
 
-const techHomePageConfig: TechHomePageConfig = {
+const technologyData: TechnologyData = {
   typescript: {
     originalName: "TypeScript",
     link: "https://www.typescriptlang.org/",
@@ -37,4 +37,4 @@ const techHomePageConfig: TechHomePageConfig = {
   },
 };
 
-export default techHomePageConfig;
+export default technologyData;
