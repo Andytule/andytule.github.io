@@ -17,10 +17,10 @@ const Projects: React.FC = () => {
   return (
     <div className="projects">
       <div className="projects-container">
-        <ResponsiveMasonry columnsCountBreakPoints={{ 1200: 1, 1201: 2 }}>
-          <Masonry gutter="20px">
+        <ResponsiveMasonry columnsCountBreakPoints={{ 1000: 1, 1001: 2 }}>
+          <Masonry gutter="2.5rem">
             {projectsData.map((project: Project, index: number) => (
-              <ProjectCard key={index} project={project} />
+              <ProjectCard project={project} />
             ))}
           </Masonry>
         </ResponsiveMasonry>
