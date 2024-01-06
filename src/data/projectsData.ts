@@ -2,7 +2,7 @@ const projectsData = [
   {
     title: "Rate My Course",
     description:
-      "Rate courses, engage in discussions, and receive valuable tips for an enriched learning experience.",
+      "Rate My Course empowers students to share insights and feedback on courses. Engage in meaningful discussions, discover valuable tips, and elevate your learning journey. Enhance your academic experience with this collaborative platform.",
     demoLink: "https://andytule.github.io/rate-my-course/",
     githubLink: "https://github.com/Andytule/rate-my-course",
     technologies: [
@@ -18,7 +18,7 @@ const projectsData = [
   {
     title: "Chess",
     description:
-      "Chess with friends. Strategic gameplay and a user-friendly interface for an engaging experience.",
+      "Chess with Friends offers a user-friendly interface for online multiplayer chess. Immerse yourself in strategic gameplay, connect with friends, and enjoy an engaging chess experience in real-time.",
     demoLink: "https://andytule.github.io/chess/",
     githubLink: "https://github.com/Andytule/chess",
     technologies: ["javascript", "react", "rxjs", "nodejs"],
@@ -27,7 +27,7 @@ const projectsData = [
   {
     title: "Covid Tracker",
     description:
-      "Stay informed with real-time Covid-19 data. Fetches live cases & visualizations.",
+      "Covid Tracker provides real-time data on Covid-19 cases. Stay informed with live updates, interactive visualizations, and insightful charts. Gain a comprehensive view of the pandemic's impact on a user-friendly platform.",
     demoLink: "https://andytule.github.io/covid-app/",
     githubLink: "https://github.com/Andytule/covid-app",
     technologies: ["javascript", "react", "materialui", "chartsjs", "nodejs"],
@@ -36,7 +36,7 @@ const projectsData = [
   {
     title: "Blokus",
     description:
-      "Blokus on a 3D board for 2-4 players. Play with friends online in a captivating setting.",
+      "Blokus brings 3D board game excitement to online play. Join friends, strategize moves, and experience captivating gameplay. Immerse yourself in a dynamic and interactive environment for a thrilling gaming session.",
     demoLink: "https://andytule.github.io/blokkus/",
     githubLink: "https://github.com/Andytule/blokkus",
     technologies: ["html", "css", "javascript", "threejs", "jquery"],
@@ -45,7 +45,7 @@ const projectsData = [
   {
     title: "A Star Pathfinder",
     description:
-      "A* Pathfinding Visualizer: Explore, create, and solve mazes for hands-on learning.",
+      "A* Pathfinder Visualizer lets you explore, create, and solve mazes. Dive into hands-on learning of pathfinding algorithms with intuitive visual representations. Unleash your creativity and problem-solving skills in this interactive tool.",
     demoLink: "https://andytule.github.io/a-star-pathfinder/",
     githubLink: "https://github.com/Andytule/a-star-pathfinder",
     technologies: ["html", "css", "javascript"],
@@ -54,7 +54,7 @@ const projectsData = [
   {
     title: "Electro Magnetic Roomba",
     description:
-      "Experience the fully autonomous Android-controlled Roomba, utilizing electromagnets for efficient and thorough metal cleanup.",
+      "Electro Magnetic Roomba is an autonomous cleaning robot powered by Android. Efficiently control metal cleanup using electromagnets. Explore the future of smart cleaning technology with this innovative and automated solution.",
     demoLink: null,
     githubLink: "https://github.com/Andytule/electromagnetic-robot",
     technologies: ["python", "cpp", "arduino", "raspberrypi"],

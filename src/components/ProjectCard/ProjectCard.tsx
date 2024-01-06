@@ -4,20 +4,24 @@ import { Project } from "../../pages/Projects/Projects";
 import projectImages from "../../utils/projectImages";
 import Chip from "../Chip/Chip";
 import technologyData from "../../data/technologyData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const backgroundImageStyle = {
-    backgroundImage: `url(${projectImages[project.imageName]})`,
-  };
-
   return (
-    <div className="project">
-      <div className="project-image" style={backgroundImageStyle}></div>
-      <div className="project-details">
+    <div className="project-card">
+      <img
+        alt={project.title}
+        className="project-image"
+        src={projectImages[project.imageName]}
+      />
+      <div className="project-background"></div>
+      <div className="project-content">
         <h2 className="project-title">{project.title}</h2>
         <p className="project-description">{project.description}</p>
         <div className="project-technologies">
@@ -28,6 +32,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               link={technologyData[technology].link}
             />
           ))}
+        </div>
+        <div className="project-links">
+          {project.demoLink && (
+            <a
+              href={project.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-demo"
+            >
+              Live Demo <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </a>
+          )}
+          <a
+            href={project.githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-github"
+          >
+            <FontAwesomeIcon icon={faGithub} /> View Source
+          </a>
         </div>
       </div>
     </div>

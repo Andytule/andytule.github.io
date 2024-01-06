@@ -1,16 +1,14 @@
 @import "../../App.scss";
 
 .chip {
-  align-items: center;
-  background-color: $blue-2;
+  background-color: $gray-3;
+  border: solid 2px $blue-1;
   border-radius: 4px;
-  color: $gray-3;
-  display: inline-flex;
-  height: 24px;
-  padding: 3px 6px;
+  color: $black-1;
+  padding: 8px;
 
   &:hover {
-    background-color: $gray-3;
-    color: $black-1;
+    background-color: $blue-1;
+    color: $gray-3;
   }
 }
