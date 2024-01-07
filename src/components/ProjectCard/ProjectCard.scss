@@ -27,13 +27,11 @@
   }
 
   .project-background {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    height: 110%;
-    width: 83%;
     background: url("../../assets/images/project-card-divider.svg");
     background-size: cover;
+    height: 110%;
+    position: absolute;
+    width: 83%;
 
     @include tablet {
       display: none;
@@ -47,16 +45,16 @@
     z-index: 2;
 
     @include tablet {
-      width: 100%;
-      padding: 35px;
       box-sizing: border-box;
+      padding: 35px;
+      width: 100%;
     }
 
     .project-title {
       font-size: $font-size-large;
       line-height: 38px;
-      margin-top: 0;
       margin-bottom: 30px;
+      margin-top: 0;
     }
 
     .project-description {
@@ -72,26 +70,25 @@
     }
 
     .project-links {
+      align-items: center;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       gap: 20px;
-      align-items: center;
 
       .project-demo,
       .project-github {
+        border-radius: 4px;
         box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
           0 1px 3px rgba(0, 0, 0, 0.08);
         display: inline-block;
-        padding: 0 14px;
-        line-height: 40px;
-        font-size: 0.9em;
-        font-weight: 600;
+        font-size: $font-size-small;
         letter-spacing: 0.025em;
-        white-space: nowrap;
+        line-height: 40px;
+        padding: 0 14px;
         text-decoration: none;
-        border-radius: 4px;
         transition: all 0.15s ease;
+        white-space: nowrap;
 
         &.project-demo {
           background: $blue-1;
