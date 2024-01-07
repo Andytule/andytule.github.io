@@ -1,14 +1,18 @@
 @import "../../App.scss";
 
 .chip {
-  background-color: $gray-3;
-  border: solid 2px $blue-1;
+  border: solid 2px $blue-3;
   border-radius: 4px;
-  color: $black-1;
+  color: $black-2;
+  font-family: "Proxima Nova Light", sans-serif;
+  font-size: $font-size-small;
+  font-weight: 400;
   padding: 8px;
 
   &:hover {
-    background-color: $blue-1;
-    color: $gray-3;
+    background-color: $blue-3;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    color: $white;
+    transform: translateY(-1px);
   }
 }

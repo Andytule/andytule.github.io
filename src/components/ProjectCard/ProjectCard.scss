@@ -1,23 +1,22 @@
 @import "../../App.scss";
 
 .project-card {
-  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.05),
+    0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   margin-bottom: 60px;
-  background-color: $gray-3;
-  border-radius: 4px;
-  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.05),
-    0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  position: relative;
 
   @include mobile {
     margin-bottom: 40px;
   }
 
   .project-image {
-    left: 0;
+    left: -10%;
     position: absolute;
     top: 0;
     width: 80%;
@@ -42,6 +41,7 @@
   }
 
   .project-content {
+    background-color: $white;
     padding: 60px;
     width: 50%;
     z-index: 2;
@@ -53,12 +53,10 @@
     }
 
     .project-title {
-      color: $blue-1;
-      font-weight: 500;
-      font-size: 1.8em;
+      font-size: $font-size-large;
       line-height: 38px;
       margin-top: 0;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
     .project-description {
@@ -74,34 +72,49 @@
     }
 
     .project-links {
-      align-items: center;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       gap: 20px;
+      align-items: center;
 
       .project-demo,
       .project-github {
-        background: $blue-1;
-        border-radius: 4px;
         box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
           0 1px 3px rgba(0, 0, 0, 0.08);
-        box-sizing: border-box;
-        color: white;
         display: inline-block;
+        padding: 0 14px;
+        line-height: 40px;
         font-size: 0.9em;
         font-weight: 600;
         letter-spacing: 0.025em;
-        line-height: 40px;
-        padding: 0 14px;
-        text-decoration: none;
-        transition: all 0.15s ease;
         white-space: nowrap;
-      }
+        text-decoration: none;
+        border-radius: 4px;
+        transition: all 0.15s ease;
 
-      .project-github {
-        background: $gray-2;
-        color: $black-1;
+        &.project-demo {
+          background: $blue-1;
+          color: white;
+
+          &:hover {
+            background: $blue-2;
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+              0 3px 6px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+          }
+        }
+
+        &.project-github {
+          background: $white;
+          color: $blue-1;
+
+          &:hover {
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+              0 3px 6px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+          }
+        }
       }
     }
   }
