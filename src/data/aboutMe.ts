@@ -11,7 +11,7 @@ const aboutData: AboutItem[] = [
   {
     input: "Andy.contactInfo",
     return:
-      '["<a href="mailto:andytule321@gmail.com">andytule321@gmail.com</a>", "<a rel="noopener" href="https://www.linkedin.com/in/justin-chi-64b12b37">LinkedIn</a>", "<a rel="noopener" href="https://github.com/vai0">github</a>"]',
+      '["<a href="mailto:andytule321@gmail.com" target="_blank">andytule321@gmail.com</a>", "<a rel="noopener" href="https://www.linkedin.com/in/andy-tu-le/" target="_blank">LinkedIn</a>", "<a rel="noopener" href="https://github.com/Andytule" target="_blank">github</a>"]',
   },
   {
     input: "Andy.resume",
