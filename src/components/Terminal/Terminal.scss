@@ -3,7 +3,7 @@
 .terminal {
   .terminal-header {
     align-items: center;
-    background-color: $black-2;
+    background-color: $blue-3;
     border-radius: 10px 10px 0 0;
     display: flex;
     height: 28px;
@@ -33,7 +33,7 @@
   }
 
   .terminal-window {
-    background-image: url("../../assets/images/terminal-background.jpg");
+    background-image: url("../../assets/images/terminal-background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
