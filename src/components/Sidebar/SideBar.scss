@@ -9,16 +9,16 @@
 }
 
 .bm-burger-bars {
-  background: $black-1;
+  background: $blue-1;
 }
 
 .bm-burger-button button:focus {
-  outline: 2px solid $blue-1;
+  outline: 2px solid $blue-2;
   outline-offset: 8px;
 }
 
 .bm-burger-bars-hover {
-  background: $blue-1;
+  background: $blue-2;
 }
 
 .bm-cross-button {
@@ -31,16 +31,16 @@
 }
 
 .bm-cross-button button:hover + span span.bm-cross {
-  background-color: $blue-1;
+  background-color: $blue-2;
 }
 
 .bm-cross-button button:focus {
-  outline: 2px solid $blue-1;
+  outline: 2px solid $blue-2;
   outline-offset: 2px;
 }
 
 .bm-cross-button button:focus + span span.bm-cross {
-  background-color: $blue-1;
+  background-color: $blue-2;
 }
 
 .bm-menu-wrap {
@@ -84,7 +84,7 @@
   }
 
   &:hover {
-    color: $blue-1;
+    color: $blue-2;
     text-decoration: underline;
   }
 }
