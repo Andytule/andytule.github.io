@@ -12,7 +12,7 @@ li {
 }
 
 body {
-  background-color: $gray;
+  background-color: $blue-5;
 }
 
 a {
@@ -21,12 +21,14 @@ a {
 }
 
 .app {
-  background-image: url("./assets/images/wallpaper.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   color: $black-1;
   font-family: "Proxima Nova", sans-serif;
   font-size: $font-size-base;
   height: 100%;
+
+  .routes {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 40px;
+  }
 }

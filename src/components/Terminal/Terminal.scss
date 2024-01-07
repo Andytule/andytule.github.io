@@ -1,0 +1,55 @@
+@import "../../App.scss";
+
+.terminal {
+  .terminal-header {
+    align-items: center;
+    background-color: $black-2;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    height: 28px;
+    justify-content: flex-start;
+
+    .header-button {
+      border-radius: 50%;
+      height: 12px;
+      margin-left: 9px;
+      width: 12px;
+    }
+
+    .red {
+      background-color: #f96256;
+      border: solid 1px #f65549;
+    }
+
+    .yellow {
+      background-color: #fdbc3d;
+      border: solid 1px #ffb524;
+    }
+
+    .green {
+      background-color: #33c948;
+      border: solid 1px #2dbb41;
+    }
+  }
+
+  .terminal-window {
+    background-image: url("../../assets/images/terminal-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 50px 100px rgba(50, 50, 93, 0.15),
+      0 15px 35px rgba(50, 50, 93, 0.2), 0 5px 15px rgba(0, 0, 0, 0.12);
+
+    .terminal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 40px;
+
+      .code-statement {
+        @include code-statement;
+      }
+    }
+  }
+}

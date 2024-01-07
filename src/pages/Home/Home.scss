@@ -1,19 +1,13 @@
 @import "../../App.scss";
 
 .home {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: flex-start;
-  margin: 0 15vw;
+  .home-container {
+    padding-top: 80px;
 
-  .home-header-wrapper {
-    margin-bottom: 5em;
-    min-width: 50vw;
-    text-align: center;
-
-    .home-header {
+    .home-portfolio-name {
+      font-family: "Proxima Nova Light", sans-serif;
       font-size: $font-size-xlarge;
+      margin-bottom: 40px;
     }
   }
 }

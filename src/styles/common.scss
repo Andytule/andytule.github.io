@@ -1,6 +1,7 @@
 @mixin section-title-styles {
   font-size: $font-size-large;
   text-align: center;
+  padding-top: 40px;
   margin-bottom: 80px;
 
   @include mobile {
@@ -14,5 +15,27 @@
     margin: 0 auto;
     margin-top: 30px;
     width: 50px;
+  }
+}
+
+@mixin code-statement {
+  line-height: 24px;
+
+  a {
+    color: $blue-1;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .input-statement {
+    color: $black-1;
+    display: flex;
+    align-items: center;
+  }
+
+  .return-statement {
+    color: $purple;
   }
 }

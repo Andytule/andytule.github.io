@@ -15,12 +15,10 @@ export interface Project {
 const Projects: React.FC = () => {
   return (
     <div className="projects">
-      <div className="projects-container">
-        <h2 className="section-title">Projects</h2>
-        {projectsData.map((project: Project, index: number) => (
-          <ProjectCard project={project} />
-        ))}
-      </div>
+      <h2 className="section-title">Projects</h2>
+      {projectsData.map((project: Project, index: number) => (
+        <ProjectCard project={project} />
+      ))}
     </div>
   );
 };

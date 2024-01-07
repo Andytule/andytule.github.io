@@ -1,15 +1,7 @@
 @import "../../App.scss";
 
 .projects {
-  background-color: $gray;
-
-  .projects-container {
-    margin: 0 auto;
-    max-width: 1000px;
-    padding: 40px;
-
-    .section-title {
-      @include section-title-styles;
-    }
+  .section-title {
+    @include section-title-styles;
   }
 }
