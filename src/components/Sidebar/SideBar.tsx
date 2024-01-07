@@ -10,6 +10,7 @@ import {
   faFile,
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
+import SleepingCat from "../../assets/images/sleeping-cat.svg";
 
 const SideBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,6 +66,11 @@ const SideBar: React.FC = () => {
         <FontAwesomeIcon icon={faAddressCard} />
         Contact
       </Link>
+      <img
+        alt="Sleeping Cat"
+        className="sleeping-cat-image"
+        src={SleepingCat}
+      />
     </BurgerMenu>
   );
 };

@@ -9,7 +9,7 @@
 }
 
 .bm-burger-bars {
-  background: $gray-1;
+  background: $black-1;
 }
 
 .bm-burger-button button:focus {
@@ -49,12 +49,19 @@
 }
 
 .bm-menu {
-  background: $gray-3;
-  padding: 3.3em 2.3em 0;
+  background: $white;
+  padding: 60px 40px;
   font-size: $font-size-medium;
 
   .active-link {
     color: $blue-1;
+  }
+
+  .sleeping-cat-image {
+    bottom: -20px;
+    left: 10px;
+    position: absolute;
+    width: 25%;
   }
 }
 
