@@ -43,9 +43,11 @@ const SideBar: React.FC = () => {
         Projects
       </Link>
       <Link
-        to="/experiences"
+        to="/work-experience"
         onClick={closeMenu}
-        className={location.pathname === "/experiences" ? "active-link" : ""}
+        className={
+          location.pathname === "/work-experience" ? "active-link" : ""
+        }
       >
         <FontAwesomeIcon icon={faBriefcase} />
         Work Experience

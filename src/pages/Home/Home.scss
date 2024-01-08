@@ -2,7 +2,7 @@
 
 .home {
   .home-container {
-    padding-top: 80px;
+    @include page-container;
 
     .home-portfolio-name {
       font-family: "Proxima Nova Light", sans-serif;
