@@ -7,13 +7,8 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-bottom: 60px;
   overflow: hidden;
   position: relative;
-
-  @include mobile {
-    margin-bottom: 40px;
-  }
 
   .project-image {
     left: -10%;

@@ -5,7 +5,7 @@
 @mixin section-title-styles {
   font-size: $font-size-large;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 
   @include mobile {
     margin-bottom: 40px;

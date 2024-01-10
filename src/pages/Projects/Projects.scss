@@ -3,6 +3,13 @@
 .projects {
   .projects-container {
     @include page-container;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @include mobile {
+      gap: 40px;
+    }
 
     .section-title {
       @include section-title-styles;
