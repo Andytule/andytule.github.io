@@ -10,7 +10,7 @@ const workExperiences = [
       "Refactored and redesigned the employee benefits setup process to reduce configuration process by 2 pages, by developing a compressed benefits setup terminal component [.Net, React]",
     ],
     technologies: ["jest", "lint", "typescript", "react"],
-    logoName: "ceridian_logo",
+    logoName: "ceridianLogo",
   },
   {
     company: "Tesla",
@@ -32,7 +32,7 @@ const workExperiences = [
       "materialui",
       "ngxtranslate",
     ],
-    logoName: "tesla_motors_logo",
+    logoName: "teslaMotorsLogo",
   },
   {
     company: "Caliber Communications",
@@ -55,7 +55,7 @@ const workExperiences = [
       "docker",
       "nginx",
     ],
-    logoName: "caliber_communications.jpeg",
+    logoName: "caliberCommunicationsLogo",
   },
   {
     company: "Evenica",
@@ -69,7 +69,7 @@ const workExperiences = [
       "Implemented a payment terminal, providing a secure payment pipeline and ensuring the safety of client payment information by configuring the payment connector component using Adyen's API [.Net]",
     ],
     technologies: ["dynamics365", "react", ".net", "adyen"],
-    logoName: "evenica.jpeg",
+    logoName: "evenicaLogo",
   },
 ];
 

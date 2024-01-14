@@ -2,11 +2,18 @@ import React from "react";
 import "./WorkExperience.scss";
 import { Chrono } from "react-chrono";
 import WorkExperienceCard from "../../components/WorkExperienceCard/WorkExperienceCard";
+import CompanyLogo from "../../components/CompanyLogo/CompanyLogo";
 import workExperiences from "../../data/workExperienceData";
+import companyLogos from "../../utils/companyLogos";
 
 const WorkExperiences: React.FC = () => {
   const events = workExperiences.map((experience, index) => ({
-    title: experience.company,
+    title: (
+      <CompanyLogo
+        title={experience.company}
+        imageUrl={companyLogos[experience.logoName]}
+      />
+    ),
     cardDetailedText: <WorkExperienceCard experience={experience} />,
   }));
 
@@ -25,6 +32,8 @@ const WorkExperiences: React.FC = () => {
           mode="VERTICAL"
           theme={customTheme}
           hideControls
+          disableClickOnCircle
+          disableNavOnKey
         />
       </div>
     </div>
