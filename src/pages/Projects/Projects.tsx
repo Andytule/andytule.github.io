@@ -2,7 +2,7 @@ import React from "react";
 import "./Projects.scss";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import projectsData from "../../data/projectsData";
-import { Project } from "../../types/Projects";
+import { Project } from "../../types/Project";
 
 const Projects: React.FC = () => {
   return (
