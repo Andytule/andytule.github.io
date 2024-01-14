@@ -1,10 +1,6 @@
 import React from "react";
 import "./Chip.scss";
-
-interface ChipProps {
-  text: string;
-  link?: string;
-}
+import { ChipProps } from "../../types/Chip";
 
 const Chip: React.FC<ChipProps> = ({ text, link }) => {
   return (

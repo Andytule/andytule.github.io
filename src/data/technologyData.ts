@@ -16,7 +16,7 @@ const technologyData: TechnologyData = {
     originalName: "JavaScript",
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
-  rxjs: { originalName: "RxJs", link: "https://rxjs.dev/" },
+  rxjs: { originalName: "RxJS", link: "https://rxjs.dev/" },
   chartsjs: { originalName: "Charts.js", link: "https://www.chartjs.org/" },
   html: {
     originalName: "HTML",
@@ -35,6 +35,24 @@ const technologyData: TechnologyData = {
     originalName: "Raspberry Pi",
     link: "https://www.raspberrypi.org/",
   },
+  jest: { originalName: "Jest", link: "https://jestjs.io/" },
+  lint: { originalName: "Lint", link: "https://eslint.org/" },
+  semanticui: { originalName: "Semantic UI", link: "https://semantic-ui.com/" },
+  ngxtranslate: {
+    originalName: "NGX-Translate",
+    link: "https://github.com/ngx-translate/core",
+  },
+  express: { originalName: "Express", link: "https://expressjs.com/" },
+  knex: { originalName: "Knex", link: "http://knexjs.org/" },
+  postgres: { originalName: "PostgreSQL", link: "https://www.postgresql.org/" },
+  docker: { originalName: "Docker", link: "https://www.docker.com/" },
+  nginx: { originalName: "Nginx", link: "https://www.nginx.com/" },
+  dynamics365: {
+    originalName: "Dynamics 365",
+    link: "https://dynamics.microsoft.com/en-us/",
+  },
+  adyen: { originalName: "Adyen", link: "https://www.adyen.com/" },
+  angular: { originalName: "Angular", link: "https://angular.io/" },
 };
 
 export default technologyData;

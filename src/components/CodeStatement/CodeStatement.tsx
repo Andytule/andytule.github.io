@@ -1,10 +1,6 @@
 import React from "react";
 import "./CodeStatement.scss";
-
-type CodeStatementProps = {
-  input: string;
-  return: string;
-};
+import { CodeStatementProps } from "../../types/CodeStatement";
 
 const CodeStatement: React.FC<CodeStatementProps> = ({
   input,

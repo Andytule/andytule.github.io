@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProjectCard.scss";
-import { Project } from "../../pages/Projects/Projects";
+import { Project } from "../../types/Projects";
 import projectImages from "../../utils/projectImages";
 import Chip from "../Chip/Chip";
 import technologyData from "../../data/technologyData";
