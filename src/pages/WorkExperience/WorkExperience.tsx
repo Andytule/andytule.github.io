@@ -25,7 +25,7 @@ const WorkExperiences: React.FC = () => {
     <div className="work-experience">
       <div className="work-experience-container">
         <h2 className="section-title">Work Experience</h2>
-        <VerticalTimeline layout="1-column">
+        <VerticalTimeline layout="1-column" lineColor="#99b9e8">
           {workExperiences.map((experience, index) => (
             <VerticalTimelineElement
               key={index}
@@ -33,7 +33,6 @@ const WorkExperiences: React.FC = () => {
               contentStyle={{ background: "#fff", color: "#000" }}
               contentArrowStyle={{ borderRight: "7px solid #fff" }}
               date={experience.startDate}
-              iconStyle={{}}
               icon={
                 <CompanyLogo
                   title={experience.company}
