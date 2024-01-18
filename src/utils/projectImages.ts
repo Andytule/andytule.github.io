@@ -4,6 +4,7 @@ import chess from "../assets/images/chess.png";
 import covidTracker from "../assets/images/covid-tracker.png";
 import electroMagneticRoomba from "../assets/images/electro-magnetic-roomba.png";
 import rateMyCourse from "../assets/images/rate-my-course.png";
+import truckLoadVisualizer from "../assets/images/truck-load-visualizer.png";
 
 interface Images {
   [key: string]: any;
@@ -16,6 +17,7 @@ const images: Images = {
   covidTracker,
   electroMagneticRoomba,
   rateMyCourse,
+  truckLoadVisualizer,
 };
 
 export default images;

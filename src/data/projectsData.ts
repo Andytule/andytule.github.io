@@ -16,6 +16,15 @@ const projectsData = [
     imageName: "rateMyCourse",
   },
   {
+    title: "Truck Load Visualizer",
+    description:
+      "Visualize in 3D the most optimal way to configure and load shipping cargo on truck beds. Make the life of a truck loading technician easier, quicker, and, most importantly, safer.",
+    demoLink: null,
+    githubLink: "https://github.com/Andytule/truck-load-visualizer",
+    technologies: ["cpp", "javascript", "unity"],
+    imageName: "truckLoadVisualizer",
+  },
+  {
     title: "Chess",
     description:
       "Chess with Friends offers a user-friendly interface for online multiplayer chess. Immerse yourself in strategic gameplay, connect with friends, and enjoy an engaging chess experience in real-time.",
