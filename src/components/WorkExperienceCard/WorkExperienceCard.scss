@@ -1,0 +1,26 @@
+@import "../../App.scss";
+
+.work-experience-card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .work-experience-header {
+    .work-experience-position {
+      font-size: $font-size-medium;
+    }
+    .work-experience-subheader {
+      color: $black-2;
+    }
+  }
+
+  .work-experience-responsibilities {
+    line-height: 27px;
+  }
+
+  .work-experience-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

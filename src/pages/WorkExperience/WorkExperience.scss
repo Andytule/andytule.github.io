@@ -1,11 +1,30 @@
 @import "../../App.scss";
 
 .work-experience {
-  .work-experience-container {
+  &-container {
     @include page-container;
 
     .section-title {
       @include section-title-styles;
+    }
+
+    .vertical-timeline-element {
+      &-content {
+        padding: 40px;
+
+        h2 {
+          font-size: $font-size-large;
+        }
+
+        p {
+          font-size: $font-size-base;
+          margin: unset;
+        }
+      }
+
+      &-date {
+        display: none;
+      }
     }
   }
 }

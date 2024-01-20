@@ -11,16 +11,6 @@ import workExperiences from "../../data/workExperienceData";
 import companyLogos from "../../utils/companyLogos";
 
 const WorkExperiences: React.FC = () => {
-  const events = workExperiences.map((experience, index) => ({
-    title: (
-      <CompanyLogo
-        title={experience.company}
-        imageUrl={companyLogos[experience.logoName]}
-      />
-    ),
-    cardDetailedText: <WorkExperienceCard experience={experience} />,
-  }));
-
   return (
     <div className="work-experience">
       <div className="work-experience-container">
@@ -32,7 +22,7 @@ const WorkExperiences: React.FC = () => {
               className="vertical-timeline-element"
               contentStyle={{ background: "#fff", color: "#000" }}
               contentArrowStyle={{ borderRight: "7px solid #fff" }}
-              date={experience.startDate}
+              dateClassName="vertical-timeline-date"
               icon={
                 <CompanyLogo
                   title={experience.company}

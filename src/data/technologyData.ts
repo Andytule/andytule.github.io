@@ -54,6 +54,7 @@ const technologyData: TechnologyData = {
   adyen: { originalName: "Adyen", link: "https://www.adyen.com/" },
   angular: { originalName: "Angular", link: "https://angular.io/" },
   unity: { originalName: "Unity", link: "https://unity.com/" },
+  dotnet: { originalName: ".NET", link: "https://dotnet.microsoft.com/" },
 };
 
 export default technologyData;

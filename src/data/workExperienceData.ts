@@ -5,11 +5,9 @@ const workExperiences = [
     location: "Toronto, ON",
     startDate: "Sept 2023",
     endDate: "Present",
-    responsibilities: [
-      "Automated unit tests for UI components, reducing debugging time by developing mock test suites, integrating tests into a CI/CD pipeline, and implementing a test reporting system. [Jest, Lint]",
-      "Refactored and redesigned the employee benefits setup process to reduce configuration process by 2 pages, by developing a compressed benefits setup terminal component [.Net, React]",
-    ],
-    technologies: ["jest", "lint", "typescript", "react"],
+    responsibilities:
+      "As a Software Engineer Intern at Ceridian, I focused on enhancing the quality and efficiency of UI components. I automated unit tests, reducing debugging time, and streamlined the employee benefits setup process by developing a compressed benefits setup terminal component.",
+    technologies: ["jest", "lint", "typescript", "react", "dotnet", "mysql"],
     logoName: "ceridianLogo",
   },
   {
@@ -18,13 +16,10 @@ const workExperiences = [
     location: "Fremont, CA",
     startDate: "Jan 2022",
     endDate: "Dec 2022",
-    responsibilities: [
-      "Increased daily service center productivity by 13% by implementing a workplace gamification system, tracking and analyzing vehicle technician performance data, displayed in a scoreboard solution [.NET, React, Semantic UI]",
-      "Spearheaded the development of a locale-based microservice component, enhancing language support for the Tesla Servicing Center management system through the utilization of HTTP and NGX-Translate [Node]",
-      "Streamlined service technician workflow by automating routine processes, reducing navigation steps and organizing system data through implementing custom command shortcuts and an accessible table system for clients and inventory [Angular, Material UI]",
-    ],
+    responsibilities:
+      "As a Full Stack Developer Intern at Caliber Communications, I optimized the workflow efficiency of security applications. I developed personalized dashboard interfaces, incorporated additional functionality, and deployed automated SQL scripts for maintaining database integrity. Additionally, I contributed to the deployment of a secure and scalable security reporting system.",
     technologies: [
-      ".net",
+      "dotnet",
       "react",
       "semanticui",
       "nodejs",
@@ -40,12 +35,8 @@ const workExperiences = [
     location: "Stoney Creek, ON",
     startDate: "Sept 2021",
     endDate: "Dec 2021",
-    responsibilities: [
-      "Optimized the workflow efficiency of security application users by 15% through the development of personalized dashboard interfaces, making use of web sockets for constant device data updates, and implementing system alerts [Angular, RxJS]",
-      "Incorporated additional functionality into the dashboard, assisting the security team in seamlessly monitoring and controlling the surveillance system by implementing various web component widgets and APIs for controlling security devices. [Express, Knex]",
-      "Deployed automated SQL scripts to maintain database integrity by purging 3.5 TB of obsolete assets through periodic scanning and filtering of outdated assets, logging system notifications, and compressing large files [Postgres]",
-      "Deployed a secure and scalable security reporting system with enhanced performance and reliability by leveraging containerization, traffic routing, and SSL termination [Docker, Nginx]",
-    ],
+    responsibilities:
+      "At Evenica, I revamped the customer shopping experience by modernizing the e-commerce website. I reduced the frontend codebase, implemented a secure payment pipeline through a payment terminal, and ensured the safety of client payment information using Adyen's API.",
     technologies: [
       "angular",
       "rxjs",
@@ -63,12 +54,9 @@ const workExperiences = [
     location: "Burlington, ON",
     startDate: "May 2021",
     endDate: "Aug 2021",
-    responsibilities: [
-      "Revamped the customer shopping experience for increased ease of accessibility by modernizing the e-commerce website through updated web components and personalized marketing assets [Dynamics 365]",
-      "Reduced the frontend codebase of the e-commerce solution by 35% by streamlining development through customizable component templates and creating a plug-and-play UI library [React]",
-      "Implemented a payment terminal, providing a secure payment pipeline and ensuring the safety of client payment information by configuring the payment connector component using Adyen's API [.Net]",
-    ],
-    technologies: ["dynamics365", "react", ".net", "adyen"],
+    responsibilities:
+      "During my internship as a Web Developer at Evenica, I made substantial contributions to improving the customer shopping experience. I modernized the e-commerce website by updating web components and introducing personalized marketing assets, resulting in increased ease of accessibility. To streamline development, I reduced the frontend codebase by 35% through the creation of customizable component templates and a plug-and-play UI library. Additionally, I implemented a payment terminal, ensuring a secure payment pipeline and protecting client payment information by configuring the payment connector component using Adyen's API.",
+    technologies: ["dynamics365", "react", "dotnet", "adyen"],
     logoName: "evenicaLogo",
   },
 ];
