@@ -35,12 +35,12 @@
 }
 
 .bm-cross-button button:focus {
-  outline: 2px solid $blue-2;
+  outline: 2px solid $blue-1;
   outline-offset: 2px;
 }
 
 .bm-cross-button button:focus + span span.bm-cross {
-  background-color: $blue-2;
+  background-color: $blue-1;
 }
 
 .bm-menu-wrap {
