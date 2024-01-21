@@ -1,0 +1,14 @@
+@import "../../App.scss";
+
+.resume {
+  .resume-container {
+    @include page-container;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    .section-title {
+      @include section-title-styles;
+    }
+  }
+}
