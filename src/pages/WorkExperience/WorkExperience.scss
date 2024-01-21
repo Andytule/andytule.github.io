@@ -12,6 +12,10 @@
       &-content {
         padding: 40px;
 
+        @include mobile {
+          padding: 20px;
+        }
+
         h2 {
           color: $black-1;
           font-size: $font-size-large;
