@@ -1,6 +1,8 @@
 @import "../../App.scss";
 
 .work-experience-card {
+  // border: 1px solid red;
+  color: $black-1;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -10,17 +12,27 @@
       font-size: $font-size-medium;
     }
     .work-experience-subheader {
-      color: $black-2;
+      color: $blue-1;
+
+      .work-experience-company-link:hover {
+        color: $blue-2;
+        text-decoration: underline;
+      }
     }
   }
 
   .work-experience-responsibilities {
-    line-height: 27px;
+    line-height: 25px;
   }
 
   .work-experience-technologies {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+  }
+
+  .work-experience-date {
+    color: $black-2;
+    text-align: end;
   }
 }

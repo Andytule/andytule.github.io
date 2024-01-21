@@ -16,7 +16,15 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
       <div className="work-experience-header">
         <h2 className="work-experience-position">{experience.position}</h2>
         <p className="work-experience-subheader">
-          {experience.company} - {experience.location}
+          <a
+            className="work-experience-company-link"
+            href={experience.companyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {experience.company}
+          </a>{" "}
+          - {experience.location}
         </p>
       </div>
       <p className="work-experience-responsibilities">
@@ -30,6 +38,9 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
             link={technologyData[technology].link}
           />
         ))}
+      </div>
+      <div className="work-experience-date">
+        {experience.startDate} - {experience.endDate}
       </div>
     </div>
   );

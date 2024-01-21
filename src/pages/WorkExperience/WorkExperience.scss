@@ -13,16 +13,18 @@
         padding: 40px;
 
         h2 {
+          color: $black-1;
           font-size: $font-size-large;
         }
 
         p {
+          color: $black-1;
           font-size: $font-size-base;
           margin: unset;
         }
       }
 
-      &-date {
+      .vertical-timeline-date.vertical-timeline-element-date {
         display: none;
       }
     }
