@@ -15,17 +15,6 @@
         @include mobile {
           padding: 20px;
         }
-
-        h2 {
-          color: $black-1;
-          font-size: $font-size-large;
-        }
-
-        p {
-          color: $black-1;
-          font-size: $font-size-base;
-          margin: unset;
-        }
       }
 
       .vertical-timeline-date.vertical-timeline-element-date {

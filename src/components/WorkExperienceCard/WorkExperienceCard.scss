@@ -8,10 +8,12 @@
 
   .work-experience-header {
     .work-experience-position {
+      color: $black-1;
       font-size: $font-size-medium;
     }
     .work-experience-subheader {
       color: $blue-1;
+      margin: unset;
 
       .work-experience-company-link:hover {
         color: $blue-2;
@@ -22,6 +24,7 @@
 
   .work-experience-responsibilities {
     line-height: 25px;
+    margin: unset;
   }
 
   .work-experience-technologies {
