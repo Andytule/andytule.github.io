@@ -1,0 +1,11 @@
+@import "../../App.scss";
+
+.contact {
+  .contact-container {
+    @include page-container;
+
+    .section-title {
+      @include section-title-styles;
+    }
+  }
+}

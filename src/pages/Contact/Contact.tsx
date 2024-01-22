@@ -1,9 +1,12 @@
 import React from "react";
+import "./Contact.scss";
 
 const Contact: React.FC = () => {
   return (
     <div className="contact">
-      <h2>Welcome to the Contact Page</h2>
+      <div className="contact-container">
+        <h2 className="section-title">Contact</h2>
+      </div>
     </div>
   );
 };
