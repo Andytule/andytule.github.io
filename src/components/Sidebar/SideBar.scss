@@ -89,6 +89,13 @@
   }
 }
 
+.sidebar-divider {
+  background-color: $gray;
+  height: 1px;
+  margin: 10px auto;
+  width: 90%;
+}
+
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }

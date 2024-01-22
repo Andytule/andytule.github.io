@@ -12,22 +12,13 @@ const Resume: React.FC = () => {
 
   useEffect(() => {
     pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
-  }, []);
-
-  useEffect(() => {
-    pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
-
     const handleResize = () => {
       if (containerRef.current) {
         setContainerWidth(containerRef.current.clientWidth);
       }
     };
-
     window.addEventListener("resize", handleResize);
-
-    // Initial width calculation
     handleResize();
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };

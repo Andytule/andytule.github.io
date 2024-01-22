@@ -10,6 +10,7 @@ import {
   faFile,
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import SleepingCat from "../../assets/images/sleeping-cat.svg";
 
 const SideBar: React.FC = () => {
@@ -68,6 +69,25 @@ const SideBar: React.FC = () => {
         <FontAwesomeIcon icon={faAddressCard} />
         Contact
       </Link>
+      <div className="sidebar-divider"></div>
+      <a
+        href="https://github.com/Andytule"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={closeMenu}
+      >
+        <FontAwesomeIcon icon={faGithub} />
+        GitHub
+      </a>
+      <a
+        href="https://www.linkedin.com/in/andy-tu-le/"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={closeMenu}
+      >
+        <FontAwesomeIcon icon={faLinkedin} />
+        LinkedIn
+      </a>
       <img
         alt="Sleeping Cat"
         className="sleeping-cat-image"

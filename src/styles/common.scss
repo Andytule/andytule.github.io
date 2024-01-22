@@ -33,9 +33,10 @@
 
   a {
     color: $blue-1;
+    text-decoration: underline;
 
     &:hover {
-      text-decoration: underline;
+      color: $blue-3;
     }
   }
 
