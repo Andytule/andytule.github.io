@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.22f706a5.css",
+    "main.js": "/static/js/main.8a41c83d.js",
+    "static/media/rate-my-course.png": "/static/media/rate-my-course.6ee154cf9cf8e9375455.png",
+    "static/media/blokus.png": "/static/media/blokus.a0504838d711be7a7676.png",
+    "static/media/electro-magnetic-roomba.png": "/static/media/electro-magnetic-roomba.0210fd53bbf0cf3f4fbb.png",
+    "static/media/terminal-background.png": "/static/media/terminal-background.1239342873aee0b3ddcb.png",
+    "static/media/truck-load-visualizer.png": "/static/media/truck-load-visualizer.16436f286e1677875ca5.png",
+    "static/media/chess.png": "/static/media/chess.d1bc649866698843b7b9.png",
+    "static/media/contact-card-image.png": "/static/media/contact-card-image.96dd27b302985d2228d1.png",
+    "static/media/a-star-pathfinder.png": "/static/media/a-star-pathfinder.a2f3fcca8a5ed8d8ca95.png",
+    "static/media/ProximaNovaRegular.ttf": "/static/media/ProximaNovaRegular.8181ca4b7c2d1189d78a.ttf",
+    "static/media/ProximaNovaLight.ttf": "/static/media/ProximaNovaLight.6a1d74c873cf56f89e33.ttf",
+    "static/media/covid-tracker.png": "/static/media/covid-tracker.67ed0fc0860b9f07dae2.png",
+    "static/media/sleeping-cat.svg": "/static/media/sleeping-cat.cd4b1a7e1f076dc62c6b7182b9d63582.svg",
+    "index.html": "/index.html",
+    "static/media/project-card-divider.svg": "/static/media/project-card-divider.7b3fb567fa07d18427cb.svg",
+    "main.22f706a5.css.map": "/static/css/main.22f706a5.css.map",
+    "main.8a41c83d.js.map": "/static/js/main.8a41c83d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.22f706a5.css",
+    "static/js/main.8a41c83d.js"
+  ]
+}
