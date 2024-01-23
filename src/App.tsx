@@ -11,7 +11,6 @@ import SideBar from "./components/SideBar/SideBar";
 const App: React.FC = () => (
   <div className="app">
     <Router>
-      gi
       <SideBar />
       <div className="routes">
         <Routes>
