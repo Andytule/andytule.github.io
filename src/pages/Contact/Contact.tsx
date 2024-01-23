@@ -3,7 +3,7 @@ import "./Contact.scss";
 import { PopupModal } from "react-calendly";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import BongoCat from "../../assets/images/bongo-cat.png";
+import ContactCardImage from "../../assets/images/contact-card-image.png";
 
 const Contact: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +22,13 @@ const Contact: React.FC = () => {
     <div className="contact">
       <div className="contact-container">
         <h2 className="section-title">Contact</h2>
-        <div className="contact-information">
-          <img className="bongo-cat-picture" alt="Bongo Cat" src={BongoCat} />
-          <h2 className="contact-sub-header">Lets Connect</h2>
+        <div className="contact-card">
+          <img
+            className="contact-card-image"
+            alt="Bongo Cat"
+            src={ContactCardImage}
+          />
+          <h2 className="contact-header">Lets Connect</h2>
           <p className="contact-description">
             Hello! Actively exploring full-time and internship positions in
             software engineering. Passionate about impactful solutions and eager

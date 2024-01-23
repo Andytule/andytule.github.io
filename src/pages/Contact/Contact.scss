@@ -8,27 +8,28 @@
       @include section-title-styles;
     }
 
-    .contact-information {
+    .contact-card {
       @include card;
-      background-color: $white;
-      padding: 60px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      gap: 15px;
+      padding: 60px;
 
-      .bongo-cat-picture {
-        // border: 1px solid red;
-        width: 200px;
+      @include tablet {
+        padding: 30px;
       }
 
-      .contact-sub-header {
-        margin-bottom: 30px;
+      .contact-card-image {
+        margin: 0 auto;
+        width: 80%;
+      }
+
+      .contact-header {
+        color: $blue-1;
       }
 
       .contact-description {
         line-height: 27px;
-        margin-bottom: 30px;
-        text-align: center;
       }
 
       .contact-links {

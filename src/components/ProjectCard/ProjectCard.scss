@@ -32,14 +32,13 @@
   }
 
   .project-content {
-    background-color: $white;
     padding: 60px;
     width: 50%;
     z-index: 2;
 
     @include tablet {
       box-sizing: border-box;
-      padding: 35px;
+      padding: 30px;
       width: 100%;
     }
 
