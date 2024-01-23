@@ -7,5 +7,74 @@
     .section-title {
       @include section-title-styles;
     }
+
+    .contact-information {
+      background-color: $white;
+      border-radius: 4px;
+      box-shadow: 0 50px 100px rgba(50, 50, 93, 0.05),
+        0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .bongo-cat-picture {
+        // border: 1px solid red;
+        width: 200px;
+      }
+
+      .contact-sub-header {
+        margin-bottom: 30px;
+      }
+
+      .contact-description {
+        line-height: 27px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .contact-links {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px;
+
+        .calendly-button {
+          @include button;
+
+          background: $blue-1;
+          color: white;
+
+          &:hover {
+            background: $blue-2;
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+              0 3px 6px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+          }
+
+          .paper-plane-icon {
+            margin-right: 10px;
+          }
+        }
+
+        .email-link {
+          @include button;
+
+          background: $white;
+          color: $blue-1;
+
+          &:hover {
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+              0 3px 6px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+          }
+
+          .envelope-icon {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
   }
 }
