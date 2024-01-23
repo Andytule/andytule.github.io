@@ -33,13 +33,12 @@
   }
 
   .terminal-window {
+    @include card;
     background-image: url("../../assets/images/terminal-background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0 0 4px 4px;
-    box-shadow: 0 50px 100px rgba(50, 50, 93, 0.15),
-      0 15px 35px rgba(50, 50, 93, 0.2), 0 5px 15px rgba(0, 0, 0, 0.12);
 
     .terminal-content {
       display: flex;
