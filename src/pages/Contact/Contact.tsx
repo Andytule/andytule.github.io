@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
         <div className="contact-card">
           <img
             className="contact-card-image"
-            alt="Bongo Cat"
+            alt="Chu Chu Train"
             src={ContactCardImage}
           />
           <h2 className="contact-header">Lets Connect</h2>

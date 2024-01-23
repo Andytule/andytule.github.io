@@ -64,6 +64,35 @@
   white-space: nowrap;
 }
 
+@mixin primary-button {
+  background: $blue-1;
+  color: white;
+
+  &:hover {
+    background: $blue-2;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+}
+
+@mixin secondary-button {
+  background: $white;
+  color: $blue-1;
+
+  &:hover {
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+}
+
+@mixin button-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
 @mixin card {
   background-color: $white;
   border-radius: 4px;

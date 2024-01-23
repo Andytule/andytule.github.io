@@ -12,7 +12,7 @@
       @include card;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 30px;
       padding: 60px;
 
       @include tablet {
@@ -21,11 +21,12 @@
 
       .contact-card-image {
         margin: 0 auto;
-        width: 80%;
+        width: 75%;
       }
 
       .contact-header {
         color: $blue-1;
+        font-size: $font-size-large;
       }
 
       .contact-description {
@@ -33,44 +34,23 @@
       }
 
       .contact-links {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 20px;
+        @include button-list;
 
         .calendly-button {
           @include button;
-
-          background: $blue-1;
-          color: white;
-
-          &:hover {
-            background: $blue-2;
-            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
-              0 3px 6px rgba(0, 0, 0, 0.08);
-            transform: translateY(-1px);
-          }
+          @include primary-button;
 
           .paper-plane-icon {
-            margin-right: 10px;
+            margin-right: 5px;
           }
         }
 
         .email-link {
           @include button;
-
-          background: $white;
-          color: $blue-1;
-
-          &:hover {
-            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
-              0 3px 6px rgba(0, 0, 0, 0.08);
-            transform: translateY(-1px);
-          }
+          @include secondary-button;
 
           .envelope-icon {
-            margin-right: 10px;
+            margin-right: 5px;
           }
         }
       }

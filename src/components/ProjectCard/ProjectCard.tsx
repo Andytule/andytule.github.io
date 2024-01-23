@@ -41,7 +41,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               rel="noopener noreferrer"
               className="project-demo"
             >
-              Live Demo <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+              Live Demo{" "}
+              <FontAwesomeIcon
+                className="arrow-icon"
+                icon={faArrowUpRightFromSquare}
+              />
             </a>
           )}
           <a
@@ -50,7 +54,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             rel="noopener noreferrer"
             className="project-github"
           >
-            <FontAwesomeIcon icon={faGithub} /> View Source
+            <FontAwesomeIcon className="github-icon" icon={faGithub} /> View
+            Source
           </a>
         </div>
       </div>
