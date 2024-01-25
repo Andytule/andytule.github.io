@@ -5,7 +5,7 @@ type AboutItem = {
 
 const aboutData: AboutItem[] = [
   {
-    input: "Andy.contactInfo",
+    input: "Andy.externalLinks",
     return:
       '["<a href="mailto:Andytule321@gmail.com" target="_blank">Andytule321@gmail.com</a>", "<a rel="noopener" href="https://www.linkedin.com/in/andy-tu-le/" target="_blank">LinkedIn</a>", "<a rel="noopener" href="https://github.com/Andytule" target="_blank">Github</a>"]',
   },
