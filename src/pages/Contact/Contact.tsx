@@ -27,6 +27,7 @@ const Contact: React.FC = () => {
             className="contact-card-image"
             alt="Chu Chu Train"
             src={ContactCardImage}
+            loading="lazy"
           />
           <h2 className="contact-header">Lets Connect</h2>
           <p className="contact-description">

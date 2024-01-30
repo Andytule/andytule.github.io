@@ -8,7 +8,13 @@ interface CompanyLogoProps {
 
 const CompanyLogo: React.FC<CompanyLogoProps> = ({ title, imageUrl }) => (
   <div className="company-logo">
-    <img src={imageUrl} alt={title} title={title} className="logo" />
+    <img
+      src={imageUrl}
+      alt={title}
+      title={title}
+      className="logo"
+      loading="lazy"
+    />
   </div>
 );
 

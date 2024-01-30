@@ -7,6 +7,8 @@ import technologyData from "../../data/technologyData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 interface ProjectCardProps {
   project: Project;
@@ -15,15 +17,28 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div className="project-card">
-      <img
-        alt={project.title}
-        className="project-image"
-        src={projectImages[project.imageName]}
-      />
+      {project.imageName ? (
+        <img
+          alt={project.title}
+          className="project-image"
+          src={projectImages[project.imageName]}
+          loading="lazy"
+        />
+      ) : (
+        <Skeleton height={200} />
+      )}
       <div className="project-background"></div>
       <div className="project-content">
-        <h2 className="project-title">{project.title}</h2>
-        <p className="project-description">{project.description}</p>
+        {project.title ? (
+          <h2 className="project-title">{project.title}</h2>
+        ) : (
+          <Skeleton width={200} />
+        )}
+        {project.description ? (
+          <p className="project-description">{project.description}</p>
+        ) : (
+          <Skeleton count={3} />
+        )}
         <div className="project-technologies">
           {project.technologies.map((technology, index) => (
             <Chip
@@ -49,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             </a>
           )}
           <a
-            href={project.githubLink}
+            href={project.githubLink || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="project-github"

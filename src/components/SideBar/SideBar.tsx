@@ -92,6 +92,7 @@ const SideBar: React.FC = () => {
         alt="Sleeping Cat"
         className="sleeping-cat-image"
         src={SleepingCat}
+        loading="lazy"
       />
     </BurgerMenu>
   );
