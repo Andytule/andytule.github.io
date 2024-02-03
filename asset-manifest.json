@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a3b0b1e1.css",
-    "main.js": "/static/js/main.528c7b47.js",
+    "main.css": "/static/css/main.1a9175d5.css",
+    "main.js": "/static/js/main.0a4058df.js",
     "static/media/rate-my-course.png": "/static/media/rate-my-course.6ee154cf9cf8e9375455.png",
     "static/media/blokus.png": "/static/media/blokus.a0504838d711be7a7676.png",
     "static/media/electro-magnetic-roomba.png": "/static/media/electro-magnetic-roomba.0210fd53bbf0cf3f4fbb.png",
@@ -17,11 +17,11 @@
     "static/media/sleeping-cat.svg": "/static/media/sleeping-cat.cd4b1a7e1f076dc62c6b7182b9d63582.svg",
     "index.html": "/index.html",
     "static/media/project-card-divider.svg": "/static/media/project-card-divider.7b3fb567fa07d18427cb.svg",
-    "main.a3b0b1e1.css.map": "/static/css/main.a3b0b1e1.css.map",
-    "main.528c7b47.js.map": "/static/js/main.528c7b47.js.map"
+    "main.1a9175d5.css.map": "/static/css/main.1a9175d5.css.map",
+    "main.0a4058df.js.map": "/static/js/main.0a4058df.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3b0b1e1.css",
-    "static/js/main.528c7b47.js"
+    "static/css/main.1a9175d5.css",
+    "static/js/main.0a4058df.js"
   ]
 }
