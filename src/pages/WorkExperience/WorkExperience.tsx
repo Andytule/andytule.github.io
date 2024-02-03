@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./WorkExperience.scss";
 import {
   VerticalTimeline,
@@ -9,31 +9,53 @@ import WorkExperienceCard from "../../components/WorkExperienceCard/WorkExperien
 import CompanyLogo from "../../components/CompanyLogo/CompanyLogo";
 import workExperiences from "../../data/workExperienceData";
 import companyLogos from "../../utils/companyLogos";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const WorkExperiences: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 750);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <div className="work-experience">
       <div className="work-experience-container">
-        <h2 className="section-title">Work Experience</h2>
-        <VerticalTimeline layout="1-column" lineColor="#99b9e8">
-          {workExperiences.map((experience, index) => (
-            <VerticalTimelineElement
-              key={index}
-              className="vertical-timeline-element"
-              contentStyle={{ background: "#fff", color: "#000" }}
-              contentArrowStyle={{ borderRight: "7px solid #fff" }}
-              dateClassName="vertical-timeline-date"
-              icon={
-                <CompanyLogo
-                  title={experience.company}
-                  imageUrl={companyLogos[experience.logoName]}
-                />
-              }
-            >
-              <WorkExperienceCard experience={experience} />
-            </VerticalTimelineElement>
-          ))}
-        </VerticalTimeline>
+        {loading ? (
+          <div className="loading-spinner-container">
+            <ClipLoader size={150} color="#ffffff" loading={loading} />
+          </div>
+        ) : (
+          <>
+            <h2 className="section-title">Work Experience</h2>
+            <VerticalTimeline layout="1-column" lineColor="#99b9e8">
+              {workExperiences.map((experience, index) => (
+                <VerticalTimelineElement
+                  key={index}
+                  className="vertical-timeline-element"
+                  contentStyle={{ background: "#fff", color: "#000" }}
+                  contentArrowStyle={{ borderRight: "7px solid #fff" }}
+                  dateClassName="vertical-timeline-date"
+                  icon={
+                    <CompanyLogo
+                      title={experience.company}
+                      imageUrl={companyLogos[experience.logoName]}
+                    />
+                  }
+                >
+                  <WorkExperienceCard experience={experience} />
+                </VerticalTimelineElement>
+              ))}
+            </VerticalTimeline>
+          </>
+        )}
       </div>
     </div>
   );
