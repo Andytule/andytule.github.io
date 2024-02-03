@@ -3,7 +3,7 @@ import "./Resume.scss";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-import ClipLoader from "react-spinners/ClipLoader";
+import Loader from "../../components/Loader/Loader";
 
 const Resume: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,9 +41,7 @@ const Resume: React.FC = () => {
     <div className="resume">
       <div className="resume-container">
         {loading ? (
-          <div className="loading-spinner-container">
-            <ClipLoader size={150} color="#ffffff" loading={loading} />
-          </div>
+          <Loader loading={loading} />
         ) : (
           <>
             <h2 className="section-title">Resume</h2>

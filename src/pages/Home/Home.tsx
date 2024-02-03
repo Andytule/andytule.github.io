@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Home.scss";
 import Terminal from "../../components/Terminal/Terminal";
-import ClipLoader from "react-spinners/ClipLoader";
+import Loader from "../../components/Loader/Loader";
 
 const Home: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -21,9 +21,7 @@ const Home: React.FC = () => {
     <div className="home">
       <div className="home-container">
         {loading ? (
-          <div className="loading-spinner-container">
-            <ClipLoader size={150} color="#ffffff" loading={loading} />
-          </div>
+          <Loader loading={loading} />
         ) : (
           <>
             <h2 className="home-portfolio-name">Andy Le</h2>

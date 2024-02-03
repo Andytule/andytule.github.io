@@ -7,13 +7,6 @@
   @include mobile {
     gap: 40px;
   }
-
-  .loading-spinner-container {
-    align-items: center;
-    display: flex;
-    height: calc(100vh - 120px);
-    justify-content: center;
-  }
 }
 
 @mixin section-title-styles {

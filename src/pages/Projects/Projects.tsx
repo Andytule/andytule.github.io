@@ -3,7 +3,7 @@ import "./Projects.scss";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import projectsData from "../../data/projectsData";
 import { Project } from "../../types/Project";
-import ClipLoader from "react-spinners/ClipLoader";
+import Loader from "../../components/Loader/Loader";
 
 const Projects: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -23,9 +23,7 @@ const Projects: React.FC = () => {
     <div className="projects">
       <div className="projects-container">
         {loading ? (
-          <div className="loading-spinner-container">
-            <ClipLoader size={150} color="#ffffff" loading={loading} />
-          </div>
+          <Loader loading={loading} />
         ) : (
           <>
             <h2 className="section-title">Projects</h2>

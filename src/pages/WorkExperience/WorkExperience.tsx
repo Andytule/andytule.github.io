@@ -9,7 +9,7 @@ import WorkExperienceCard from "../../components/WorkExperienceCard/WorkExperien
 import CompanyLogo from "../../components/CompanyLogo/CompanyLogo";
 import workExperiences from "../../data/workExperienceData";
 import companyLogos from "../../utils/companyLogos";
-import ClipLoader from "react-spinners/ClipLoader";
+import Loader from "../../components/Loader/Loader";
 
 const WorkExperiences: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -29,9 +29,7 @@ const WorkExperiences: React.FC = () => {
     <div className="work-experience">
       <div className="work-experience-container">
         {loading ? (
-          <div className="loading-spinner-container">
-            <ClipLoader size={150} color="#ffffff" loading={loading} />
-          </div>
+          <Loader loading={loading} />
         ) : (
           <>
             <h2 className="section-title">Work Experience</h2>

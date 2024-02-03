@@ -4,7 +4,7 @@ import { PopupModal } from "react-calendly";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import ContactCardImage from "../../assets/images/contact-card-image.png";
-import ClipLoader from "react-spinners/ClipLoader";
+import Loader from "../../components/Loader/Loader";
 
 const Contact: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +35,7 @@ const Contact: React.FC = () => {
     <div className="contact">
       <div className="contact-container">
         {loading ? (
-          <div className="loading-spinner-container">
-            <ClipLoader size={150} color="#ffffff" loading={loading} />
-          </div>
+          <Loader loading={loading} />
         ) : (
           <>
             <h2 className="section-title">Contact</h2>
