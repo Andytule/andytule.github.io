@@ -1,5 +1,5 @@
 import caliberCommunicationsLogo from "../assets/icons/caliber-communications-logo.jpeg";
-import ceridianLogo from "../assets/icons/ceridian-logo.jpeg";
+import dayforceLogo from "../assets/icons/dayforce-logo.jpeg";
 import evenicaLogo from "../assets/icons/evenica-logo.jpeg";
 import teslaMotorsLogo from "../assets/icons/tesla-motors-logo.jpeg";
 
@@ -9,7 +9,7 @@ interface CompanyLogos {
 
 const companyLogos: CompanyLogos = {
   caliberCommunicationsLogo,
-  ceridianLogo,
+  dayforceLogo,
   evenicaLogo,
   teslaMotorsLogo,
 };

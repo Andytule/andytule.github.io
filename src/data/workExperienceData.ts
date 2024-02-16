@@ -1,7 +1,7 @@
 const workExperiences = [
   {
-    company: "Ceridian",
-    companyLink: "https://www.ceridian.com/",
+    company: "Dayforce",
+    companyLink: "https://www.dayforce.com/",
     position: "Software Engineer Intern",
     location: "Toronto, ON",
     startDate: "Sept 2023",
@@ -9,7 +9,7 @@ const workExperiences = [
     responsibilities:
       "As a Software Engineer Intern at Ceridian, I focused on enhancing the quality and efficiency of UI components. I automated unit tests, reducing debugging time, and streamlined the employee benefits setup process by developing a compressed benefits setup terminal component.",
     technologies: ["jest", "lint", "typescript", "react", "dotnet", "mysql"],
-    logoName: "ceridianLogo",
+    logoName: "dayforceLogo",
   },
   {
     company: "Tesla",
