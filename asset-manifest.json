@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1a9175d5.css",
-    "main.js": "/static/js/main.0a4058df.js",
+    "main.js": "/static/js/main.0878dc56.js",
     "static/media/rate-my-course.png": "/static/media/rate-my-course.6ee154cf9cf8e9375455.png",
     "static/media/blokus.png": "/static/media/blokus.a0504838d711be7a7676.png",
     "static/media/electro-magnetic-roomba.png": "/static/media/electro-magnetic-roomba.0210fd53bbf0cf3f4fbb.png",
@@ -18,10 +18,10 @@
     "index.html": "/index.html",
     "static/media/project-card-divider.svg": "/static/media/project-card-divider.7b3fb567fa07d18427cb.svg",
     "main.1a9175d5.css.map": "/static/css/main.1a9175d5.css.map",
-    "main.0a4058df.js.map": "/static/js/main.0a4058df.js.map"
+    "main.0878dc56.js.map": "/static/js/main.0878dc56.js.map"
   },
   "entrypoints": [
     "static/css/main.1a9175d5.css",
-    "static/js/main.0a4058df.js"
+    "static/js/main.0878dc56.js"
   ]
 }
