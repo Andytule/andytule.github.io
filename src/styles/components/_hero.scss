@@ -41,21 +41,35 @@ $card-hover-bg: #006bff;
       calc((min(100vw, #{$max-width}) - 2 * max(1.5rem, 4vw) - 5 * #{$spacing-gutter}) / 6)
       calc((min(100vw, #{$max-width}) - 2 * max(1.5rem, 4vw) - 5 * #{$spacing-gutter}) / 6);
     grid-template-areas:
-      "main  main  main  main  job    job"
-      "main  main  main  main  resume resume"
-      "proj  proj  cal   email gh     li";
+      'main  main  main  main  job    job'
+      'main  main  main  main  resume resume'
+      'cal   email gh     li    proj  proj';
 
     // Mobile: stack vertically
     @media (max-width: 767px) {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: none;
       grid-template-areas:
-        "main   main"
-        "job    job"
-        "resume resume"
-        "proj   proj"
-        "cal    email"
-        "gh     li";
+        'main   main'
+        'job    job'
+        'resume resume'
+        'proj   proj'
+        'cal    email'
+        'gh     li';
+    }
+
+    // Small mobile
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'main'
+        'job'
+        'resume'
+        'proj'
+        'cal'
+        'email'
+        'gh'
+        'li';
     }
   }
 
@@ -66,7 +80,10 @@ $card-hover-bg: #006bff;
     border-radius: $radius-xl;
     position: relative;
     overflow: hidden;
-    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    transition:
+      background 0.25s,
+      border-color 0.25s,
+      transform 0.2s;
 
     // Job + Resume hover → blue
     &--job:hover,
@@ -108,7 +125,9 @@ $card-hover-bg: #006bff;
     &::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 1px;
       background: linear-gradient(90deg, $primary-container 0%, transparent 70%);
     }
@@ -136,7 +155,9 @@ $card-hover-bg: #006bff;
     color: $text-primary;
     margin-bottom: 8px;
 
-    &-accent { color: $primary; }
+    &-accent {
+      color: $primary;
+    }
   }
 
   &__sub {
@@ -168,22 +189,21 @@ $card-hover-bg: #006bff;
     animation: pulse-dot 2.5s ease-in-out infinite;
   }
 
-  // Avatar as absolute background — fills bottom 55% of the main card
+  // Avatar — large, fills bottom-right of the main card
   &__main-illustration {
     position: absolute;
     bottom: 0;
-    left: 0;
     right: 0;
-    top: 42%;
+    width: 82%;
+    top: 18%;
     pointer-events: none;
-    overflow: hidden;
   }
 
   &__main-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    object-position: bottom center;
+    object-position: bottom right;
     display: block;
     opacity: 0.95;
     mix-blend-mode: screen;
@@ -201,7 +221,9 @@ $card-hover-bg: #006bff;
     &::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 1px;
       background: linear-gradient(90deg, $primary-container 0%, transparent 60%);
     }
@@ -263,10 +285,19 @@ $card-hover-bg: #006bff;
     justify-content: space-between;
   }
 
+  &__resume-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+  }
+
   &__resume-icon {
     color: $primary;
     flex-shrink: 0;
     transition: color 0.25s;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   &__resume-title {
@@ -276,9 +307,6 @@ $card-hover-bg: #006bff;
     color: $text-primary;
     line-height: 1;
     transition: color 0.25s;
-    flex: 1;
-    display: flex;
-    align-items: center;
   }
 
   &__resume-actions {
@@ -297,7 +325,10 @@ $card-hover-bg: #006bff;
     padding: 7px 14px;
     border: 1px solid rgba($primary, 0.3);
     border-radius: $radius-md;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    transition:
+      background 0.2s,
+      border-color 0.2s,
+      color 0.2s;
     cursor: pointer;
     background: transparent;
     font-family: $font-body;
@@ -310,15 +341,7 @@ $card-hover-bg: #006bff;
   }
 
   &__resume-watermark {
-    position: absolute;
-    bottom: -16px; right: 10px;
-    font-family: $font-display;
-    font-size: 6rem;
-    font-weight: 900;
-    color: rgba($primary, 0.04);
-    pointer-events: none;
-    line-height: 1;
-    user-select: none;
+    display: none;
   }
 
   // ── 4. Featured Project (2×1) ─────────────────────────────────────────────
@@ -328,7 +351,9 @@ $card-hover-bg: #006bff;
     flex-direction: row;
     overflow: hidden;
 
-    &:hover .hero__project-screenshot { transform: scale(1.04); }
+    &:hover .hero__project-screenshot {
+      transform: scale(1.04);
+    }
     &:hover {
       border-color: rgba($primary, 0.3);
       transform: translateY(-2px);
@@ -396,9 +421,11 @@ $card-hover-bg: #006bff;
 
   &__project-links {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
     margin-top: 6px;
+    flex-wrap: wrap;
   }
 
   &__project-link {
@@ -411,19 +438,25 @@ $card-hover-bg: #006bff;
     transition: color 0.2s;
     width: fit-content;
 
-    &:hover { color: $primary; }
-    &--live { color: $primary; &:hover { opacity: 0.75; } }
+    &:hover {
+      color: $primary;
+    }
+    &--live {
+      color: $primary;
+      &:hover {
+        opacity: 0.75;
+      }
+    }
   }
 
   // ── 5–8. Social tiles (1×1 squares) ──────────────────────────────────────
-  // On desktop, row height = $unit = column width → perfect square
-  // On mobile, we use aspect-ratio as fallback
   &__card--social {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 14px 16px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
     text-decoration: none;
     cursor: pointer;
 
@@ -433,84 +466,128 @@ $card-hover-bg: #006bff;
   }
 
   &__social-icon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: auto;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
     transition: transform 0.2s;
 
-    .hero__card--social:hover & { transform: scale(1.1); }
+    .hero__card--social:hover & {
+      transform: scale(1.1);
+    }
   }
 
   &__social-label {
     @include label-caps;
-    font-size: 0.6rem;
-    margin-top: 10px;
+    font-size: 0.65rem;
+    text-align: center;
     transition: color 0.25s;
   }
 
+  // handle hidden — removed per design
   &__social-handle {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: $text-primary;
-    margin-top: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-    transition: color 0.25s;
+    display: none;
   }
 
   &__card--calendly {
     grid-area: cal;
     background: $surface-container;
-    .hero__social-icon  { color: $primary; }
-    .hero__social-label { color: $text-muted; }
+    .hero__social-icon {
+      color: $primary;
+    }
+    .hero__social-label {
+      color: $text-muted;
+    }
     &:hover {
-      background: #006bff; border-color: transparent; transform: translateY(-2px);
-      .hero__social-icon  { color: white; }
-      .hero__social-label { color: rgba(white, 0.65); }
-      .hero__social-handle { color: white; }
+      background: #006bff;
+      border-color: transparent;
+      transform: translateY(-2px);
+      .hero__social-icon {
+        color: white;
+      }
+      .hero__social-label {
+        color: rgba(white, 0.65);
+      }
+      .hero__social-handle {
+        color: white;
+      }
     }
   }
 
   &__card--email {
     grid-area: email;
     background: $surface-container;
-    .hero__social-icon  { color: $primary; }
-    .hero__social-label { color: $text-muted; }
+    .hero__social-icon {
+      color: $primary;
+    }
+    .hero__social-label {
+      color: $text-muted;
+    }
     &:hover {
-      background: $card-hover-bg; border-color: transparent; transform: translateY(-2px);
-      .hero__social-icon  { color: white; }
-      .hero__social-label { color: rgba(white, 0.65); }
-      .hero__social-handle { color: white; }
+      background: $card-hover-bg;
+      border-color: transparent;
+      transform: translateY(-2px);
+      .hero__social-icon {
+        color: white;
+      }
+      .hero__social-label {
+        color: rgba(white, 0.65);
+      }
+      .hero__social-handle {
+        color: white;
+      }
     }
   }
 
   &__card--github {
     grid-area: gh;
     background: $surface-container;
-    .hero__social-icon  { color: $text-primary; }
-    .hero__social-label { color: $text-muted; }
+    .hero__social-icon {
+      color: $text-primary;
+    }
+    .hero__social-label {
+      color: $text-muted;
+    }
     &:hover {
-      background: $card-hover-bg; border-color: transparent; transform: translateY(-2px);
-      .hero__social-icon  { color: white; }
-      .hero__social-label { color: rgba(white, 0.65); }
-      .hero__social-handle { color: white; }
+      background: $card-hover-bg;
+      border-color: transparent;
+      transform: translateY(-2px);
+      .hero__social-icon {
+        color: white;
+      }
+      .hero__social-label {
+        color: rgba(white, 0.65);
+      }
+      .hero__social-handle {
+        color: white;
+      }
     }
   }
 
   &__card--linkedin {
     grid-area: li;
     background: $surface-container;
-    .hero__social-icon  { color: #0a66c2; }
-    .hero__social-label { color: $text-muted; }
-    .hero__social-handle { color: $text-primary; }
+    .hero__social-icon {
+      color: #0a66c2;
+    }
+    .hero__social-label {
+      color: $text-muted;
+    }
+    .hero__social-handle {
+      color: $text-primary;
+    }
     &:hover {
-      background: #0a66c2; border-color: transparent; transform: translateY(-2px);
-      .hero__social-icon  { color: white; }
-      .hero__social-label { color: rgba(white, 0.65); }
-      .hero__social-handle { color: white; }
+      background: #0a66c2;
+      border-color: transparent;
+      transform: translateY(-2px);
+      .hero__social-icon {
+        color: white;
+      }
+      .hero__social-label {
+        color: rgba(white, 0.65);
+      }
+      .hero__social-handle {
+        color: white;
+      }
     }
   }
 
@@ -569,6 +646,77 @@ $card-hover-bg: #006bff;
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+// ── Mobile overrides ──────────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .hero {
+    padding: 2rem 1rem;
+
+    &__card--main {
+      min-height: 320px;
+    }
+
+    &__headline {
+      font-size: 3rem;
+    }
+
+    // On mobile the avatar overlaps text — scale back
+    &__main-illustration {
+      width: 70%;
+      top: 35%;
+    }
+
+    // Social tiles: square via aspect-ratio
+    &__card--social {
+      min-height: unset;
+    }
+
+    // Project meta full width on mobile
+    &__card--project {
+      flex-direction: column;
+    }
+
+    &__project-img {
+      height: 140px;
+      flex: unset;
+    }
+
+    &__project-meta {
+      width: 100%;
+      padding: 14px 16px;
+    }
+
+    &__project-overlay {
+      background: linear-gradient(to bottom, transparent 30%, rgba(#1c1c1f, 0.95) 100%);
+    }
+
+    // Resume heading row wraps nicely
+    &__resume-heading {
+      gap: 10px;
+    }
+
+    &__resume-title {
+      font-size: 1.75rem;
+    }
+
+    // Job card: centre content
+    &__card--job {
+      justify-content: flex-start;
+      padding-top: 1.25rem;
+    }
+
+    // PDF viewer
+    &__pdf-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 }
