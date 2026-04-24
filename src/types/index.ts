@@ -1,3 +1,5 @@
+// ─── Shared TypeScript interfaces for the portfolio ───────────────────────────
+
 export interface NavItem {
   label: string;
   href: string;
@@ -26,6 +28,16 @@ export interface Project {
   sourceUrl?: string;
   image?: string;
   featured?: boolean;
+}
+
+export interface Education {
+  school: string;
+  schoolLink: string;
+  degree: string;
+  field: string;
+  location: string;
+  startDate: string;
+  endDate: string;
 }
 
 export interface SocialLink {

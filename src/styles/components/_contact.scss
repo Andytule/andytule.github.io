@@ -18,7 +18,13 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, $primary-container, $secondary-container, transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        $primary-container,
+        $secondary-container,
+        transparent
+      );
     }
   }
 
@@ -85,7 +91,9 @@
     font-family: $font-body;
     font-size: 0.875rem;
     font-weight: 600;
-    transition: filter 0.2s, box-shadow 0.2s;
+    transition:
+      filter 0.2s,
+      box-shadow 0.2s;
 
     &:hover {
       filter: brightness(1.1);
@@ -104,7 +112,9 @@
     font-family: $font-body;
     font-size: 0.875rem;
     font-weight: 600;
-    transition: border-color 0.2s, color 0.2s;
+    transition:
+      border-color 0.2s,
+      color 0.2s;
 
     &:hover {
       border-color: $secondary;

@@ -50,8 +50,18 @@
   text-transform: uppercase;
 }
 
-.text-primary   { color: $text-primary; }
-.text-secondary { color: $text-secondary; }
-.text-muted     { color: $text-muted; }
-.text-pink      { color: $primary; }
-.text-lavender  { color: $secondary; }
+.text-primary {
+  color: $text-primary;
+}
+.text-secondary {
+  color: $text-secondary;
+}
+.text-muted {
+  color: $text-muted;
+}
+.text-pink {
+  color: $primary;
+}
+.text-lavender {
+  color: $secondary;
+}

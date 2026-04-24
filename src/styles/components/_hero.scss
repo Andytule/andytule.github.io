@@ -216,7 +216,9 @@
     padding: 6px 10px;
     border: 1px solid $border;
     border-radius: $radius-md;
-    transition: border-color 0.2s, color 0.2s;
+    transition:
+      border-color 0.2s,
+      color 0.2s;
     align-self: flex-end;
 
     &:hover {
@@ -265,7 +267,9 @@
     font-family: $font-body;
     font-size: 0.875rem;
     font-weight: 600;
-    transition: filter 0.2s, box-shadow 0.2s;
+    transition:
+      filter 0.2s,
+      box-shadow 0.2s;
 
     &:hover {
       filter: brightness(1.1);
@@ -275,6 +279,11 @@
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
