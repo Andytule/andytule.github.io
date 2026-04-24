@@ -11,6 +11,7 @@
 | Framework | React 19 + TypeScript |
 | Bundler | Vite 8 |
 | Styling | SCSS (BEM methodology) |
+| PDF Viewer | react-pdf + pdfjs-dist |
 | Linting | ESLint + Prettier |
 | Deployment | GitHub Actions → GitHub Pages |
 
@@ -28,7 +29,7 @@ src/
 │   │       └── index.tsx         # Footer with links
 │   ├── sections/
 │   │   ├── Hero/
-│   │   │   └── index.tsx         # Landing hero: intro, Dotmatics job card, CV download, booking
+│   │   │   └── index.tsx         # Landing hero: bento grid, resume viewer, booking
 │   │   ├── Skills/
 │   │   │   └── index.tsx         # Technical skills grid
 │   │   ├── Timeline/
@@ -71,7 +72,8 @@ src/
 
 ```
 public/
-├── resume.pdf                    # ← Place your resume PDF here (required for download button)
+├── andy_le_resume.pdf            # ← Place your resume PDF here (required for viewer + download)
+├── andy-avatar.png               # Hero illustration (stick figure with laptop & cat)
 ├── chord-shift-preview.png       # Chord-Shift app screenshot (used in hero bento + projects)
 └── dotmatics-logo.png            # Dotmatics company logo (used in hero job card)
 ```
@@ -139,13 +141,28 @@ All portfolio content is managed in a single file: **`src/data/index.ts`**.
 
 ### Color System
 Palette is **Deep Slate & Electric Blue** — defined in `src/styles/abstracts/_variables.scss`.
-Primary accent: `#60b4ff` / `#2196f3`. Replace the pink `$primary` vars to retheme.
+Primary accent: `#60a5fa` / `#3b82f6`. Replace the `$primary` vars to retheme.
 
 ### Hero Bento Layout
-The hero uses an asymmetric CSS grid (`1.6fr 320px` top row, `1.4fr 1fr 1fr` bottom row) for a dynamic bento feel. Bottom-left card shows the Chord-Shift screenshot as a CSS background image pulled from `public/chord-shift-preview.png`.
+The hero uses a **uniform 6-column × 3-row CSS grid** where every row is the same height (`repeat(3, 220px)`). Cards:
+- **Main identity** (cols 1–4, rows 1–2): name, location, status, avatar illustration
+- **Currently At** (cols 5–6, row 1): current job card
+- **Resume** (cols 5–6, row 2): View + Download buttons, inline PDF viewer below bento
+- **Featured Project** (cols 1–2, row 3): Chord-Shift screenshot + links
+- **Social tiles** (cols 3–6, row 3): Schedule, Email, GitHub, LinkedIn — each 1×1
 
-### Resume Button
-The navbar Resume button uses `download="Andy_Le_Resume.pdf"` — place your PDF at `public/resume.pdf` before deploying.
+All non-main, non-project cards animate to **electric blue** on hover with text adapting for contrast.
+
+### Resume PDF Viewer
+The Resume card has two buttons:
+- **View** — smooth-scrolls to an inline `react-pdf` viewer rendered below the bento grid
+- **Download** — triggers a direct PDF download (`andy_le_resume.pdf`)
+
+The PDF worker is loaded from `unpkg.com/pdfjs-dist` (no bundling needed).
+Place your resume at `public/andy_le_resume.pdf` before deploying.
+
+### Social Icons
+All four 1×1 social tiles (Schedule, Email, GitHub, LinkedIn) default to the dark gray card color and flip to their brand blue on hover. Icon size is `30×30px` for better visual weight.
 
 ### Contact Section
 Includes three info cards (email, phone, Calendly) and a full Calendly inline iframe embed. Update the Calendly URL (`calendly.com/andytule321`) if your username differs.
@@ -174,4 +191,7 @@ npm run format        # Prettier format all src files
 - **Component convention**: `ComponentName/index.tsx` folders, never flat `.tsx` files.
 - **Deployment**: GitHub Actions (`deploy.yml`) builds and deploys to GitHub Pages on every push to `main`.
 - **No external UI library** — all UI is hand-crafted SCSS.
-- **Color theme**: Electric Blue (`#60b4ff`, `#2196f3`) — replaces original pink accent.
+- **Color theme**: Electric Blue (`#60a5fa`, `#3b82f6`) on Deep Slate backgrounds.
+- **PDF viewing**: `react-pdf` v9 + `pdfjs-dist` v4. Worker loaded from unpkg CDN. File at `public/andy_le_resume.pdf`.
+- **Bento grid**: 6 cols × 3 equal rows (`repeat(3, 220px)`). All rows are the same height — no asymmetric row sizing.
+- **Hover behavior**: All dark-gray cards (job, resume, social tiles) animate to electric/brand blue on hover. Text colors adapt to remain visible on the blue background.

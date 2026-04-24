@@ -152,9 +152,7 @@
     border: 1px solid rgba($primary, 0.15);
     border-radius: $radius-xl;
     overflow: hidden;
-    transition:
-      border-color 0.25s,
-      box-shadow 0.25s;
+    transition: border-color 0.25s, box-shadow 0.25s;
 
     &:hover {
       border-color: rgba($primary, 0.3);
@@ -182,9 +180,7 @@
       object-position: top left;
       display: block;
       opacity: 0.92;
-      transition:
-        opacity 0.3s,
-        transform 0.4s;
+      transition: opacity 0.3s, transform 0.4s;
     }
 
     &-overlay {

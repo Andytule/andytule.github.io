@@ -1,20 +1,25 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// ── Bento layout ─────────────────────────────────────────────────────────────
-//
-//  Desktop grid (6 cols × auto rows):
-//  [  main (3)  ][  main (3)  ][  project (2)  ][  project (2)  ][ job (2) ]
-//  Rows: main spans 2 rows, project spans 2, job 1, resume 1, socials 2×2
-//
-//  Simplified named areas:
-//
-//  "main    main    project project"
-//  "main    main    job     job    "
-//  "resume  resume  gh      li     "
-//  "resume  resume  email   cal    "
-//
 // ─────────────────────────────────────────────────────────────────────────────
+//  Atomic square unit = 1 column in a 6-col grid.
+//
+//  Grid (6 cols × 3 rows, all rows = 1 unit tall):
+//
+//  "main  main  main  main  job    job  "   row 1
+//  "main  main  main  main  resume resume"  row 2
+//  "proj  proj  cal   email gh     li   "   row 3
+//
+//  • main      = 4 units wide × 2 units tall
+//  • job       = 2 units wide × 1 unit tall
+//  • resume    = 2 units wide × 1 unit tall
+//  • proj      = 2 units wide × 1 unit tall
+//  • cal/email/gh/li = 1×1 (the atomic square)
+//
+//  Unit size = (container-width - 5 gaps) / 6
+// ─────────────────────────────────────────────────────────────────────────────
+
+$card-hover-bg: #006bff;
 
 .hero {
   padding: $spacing-xl $spacing-margin;
@@ -24,25 +29,33 @@
   &__bento {
     display: grid;
     gap: $spacing-gutter;
-    grid-template-columns: 1fr;
+    // 6 equal columns — row height driven by subgrid/aspect trick below
+    grid-template-columns: repeat(6, 1fr);
+    // Use a named --sq custom property set inline via a trick:
+    // Each 1fr column has width = (container - 5*gap) / 6
+    // We replicate that exactly for rows so tiles are square.
+    // The cleanest pure-CSS way: use grid-template-rows with the same calc.
+    // We cap container at max-width (1200px) but also handle smaller viewports.
+    grid-template-rows:
+      calc((min(100vw, #{$max-width}) - 2 * max(1.5rem, 4vw) - 5 * #{$spacing-gutter}) / 6)
+      calc((min(100vw, #{$max-width}) - 2 * max(1.5rem, 4vw) - 5 * #{$spacing-gutter}) / 6)
+      calc((min(100vw, #{$max-width}) - 2 * max(1.5rem, 4vw) - 5 * #{$spacing-gutter}) / 6);
     grid-template-areas:
-      'main'
-      'project'
-      'job'
-      'resume'
-      'gh'
-      'li'
-      'email'
-      'cal';
+      "main  main  main  main  job    job"
+      "main  main  main  main  resume resume"
+      "proj  proj  cal   email gh     li";
 
-    @include md {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 220px 180px 130px 130px;
+    // Mobile: stack vertically
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: none;
       grid-template-areas:
-        'main    main    project project'
-        'main    main    job     job'
-        'resume  resume  gh      li'
-        'resume  resume  email   cal';
+        "main   main"
+        "job    job"
+        "resume resume"
+        "proj   proj"
+        "cal    email"
+        "gh     li";
     }
   }
 
@@ -53,94 +66,58 @@
     border-radius: $radius-xl;
     position: relative;
     overflow: hidden;
-    transition:
-      border-color 0.25s,
-      transform 0.2s;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
 
-    &:hover {
-      border-color: rgba($primary, 0.2);
-    }
-
-    &[href]:hover,
-    &[href]:focus-visible {
+    // Job + Resume hover → blue
+    &--job:hover,
+    &--resume:hover {
+      background: $card-hover-bg;
+      border-color: transparent;
       transform: translateY(-2px);
-      border-color: rgba($primary, 0.35);
+
+      .hero__card-label,
+      .hero__job-location,
+      .hero__job-role,
+      .hero__job-company,
+      .hero__resume-title {
+        color: rgba(white, 0.92);
+      }
+      .hero__job-logo {
+        outline: 1px solid rgba(white, 0.2);
+      }
+      .hero__resume-icon {
+        color: white;
+      }
+      .hero__resume-btn {
+        color: white;
+        border-color: rgba(white, 0.4);
+        &:hover {
+          background: rgba(white, 0.15);
+        }
+      }
     }
   }
 
-  // ── 1. Main identity card ─────────────────────────────────────────────────
+  // ── 1. Main identity card (4×2) ───────────────────────────────────────────
   &__card--main {
     grid-area: main;
     background: $surface-container-low;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: $spacing-lg;
-    min-height: 300px;
 
-    // Subtle top accent line
     &::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, $primary-container, transparent 70%);
-    }
-
-    // Ambient glow in corner
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -100px;
-      right: -100px;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba($primary, 0.05), transparent 65%);
-      pointer-events: none;
+      background: linear-gradient(90deg, $primary-container 0%, transparent 70%);
     }
   }
 
-  &__main-avatar {
-    width: 72px;
-    height: 72px;
-    border-radius: $radius-xl;
-    overflow: hidden;
-    border: 1px solid rgba($primary, 0.2);
+  &__main-top {
+    padding: $spacing-md $spacing-md $spacing-sm;
     position: relative;
-    margin-bottom: $spacing-sm;
-    flex-shrink: 0;
-    background: rgba($primary, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__main-photo {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
-    display: block;
-    opacity: 0.85;
-  }
-
-  &__main-avatar-fallback {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: $font-display;
-    font-weight: 800;
-    font-size: 1.25rem;
-    color: $primary;
-    background: $surface-container-high;
-  }
-
-  &__main-content {
-    flex: 1;
+    z-index: 1;
   }
 
   &__eyebrow {
@@ -152,238 +129,162 @@
 
   &__headline {
     font-family: $font-display;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.03em;
     color: $text-primary;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 
-    &-accent {
-      color: $primary;
-    }
+    &-accent { color: $primary; }
   }
 
   &__sub {
-    font-size: 0.9rem;
-    line-height: 1.65;
+    font-size: 0.875rem;
     color: $text-secondary;
-    max-width: 440px;
+    margin-bottom: $spacing-sm;
   }
 
   &__main-status {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     @include label-caps;
-    font-size: 0.625rem;
+    font-size: 0.6rem;
     color: #4ade80;
-    margin-top: $spacing-md;
-    position: relative;
-    z-index: 1;
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    border-radius: $radius-full;
+    padding: 5px 10px;
+    width: fit-content;
   }
 
   &__status-dot {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: $radius-full;
     background: #4ade80;
     flex-shrink: 0;
     animation: pulse-dot 2.5s ease-in-out infinite;
   }
 
-  // ── 2. Featured project card ──────────────────────────────────────────────
-  &__card--project {
-    grid-area: project;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
+  // Avatar as absolute background — fills bottom 55% of the main card
+  &__main-illustration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 42%;
+    pointer-events: none;
     overflow: hidden;
-
-    &:hover .hero__project-screenshot {
-      transform: scale(1.03);
-    }
   }
 
-  &__project-img {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    min-height: 160px;
-  }
-
-  &__project-screenshot {
+  &__main-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: contain;
+    object-position: bottom center;
     display: block;
-    transition: transform 0.4s ease;
+    opacity: 0.95;
+    mix-blend-mode: screen;
   }
 
-  &__project-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 40%,
-      rgba($surface-container-lowest, 0.85) 100%
-    );
-    pointer-events: none;
-  }
-
-  &__project-meta {
-    padding: 14px 16px;
-    position: relative;
-    background: $surface-container;
-  }
-
-  &__project-badge {
-    @include label-caps;
-    font-size: 0.6rem;
-    color: $primary;
-    border: 1px solid rgba($primary, 0.25);
-    border-radius: $radius-full;
-    padding: 2px 8px;
-    display: inline-block;
-    margin-bottom: 6px;
-  }
-
-  &__project-name {
-    font-family: $font-display;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: $text-primary;
-    line-height: 1.1;
-  }
-
-  &__project-desc {
-    font-size: 0.75rem;
-    color: $text-secondary;
-    margin-top: 2px;
-    margin-bottom: 8px;
-  }
-
-  &__project-links {
-    display: flex;
-    gap: 10px;
-  }
-
-  &__project-link {
-    @include label-caps;
-    font-size: 0.6rem;
-    color: $primary;
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-
-  // ── 3. Current job card ───────────────────────────────────────────────────
+  // ── 2. Currently At (2×1) ─────────────────────────────────────────────────
   &__card--job {
     grid-area: job;
     padding: $spacing-md;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 8px;
 
     &::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, $primary-container, transparent 60%);
+      background: linear-gradient(90deg, $primary-container 0%, transparent 60%);
     }
   }
 
   &__card-label {
     @include label-caps;
-    font-size: 0.625rem;
+    font-size: 0.6rem;
     color: $primary;
+    transition: color 0.25s;
+    margin-bottom: 2px;
   }
 
   &__job-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
 
   &__job-logo {
-    width: 32px;
-    height: 32px;
-    border-radius: 7px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     object-fit: cover;
     flex-shrink: 0;
     background: $surface-container-high;
+    transition: outline 0.25s;
   }
 
   &__job-role {
     font-family: $font-display;
-    font-size: 0.9375rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: $text-primary;
     line-height: 1.2;
+    transition: color 0.25s;
   }
 
   &__job-company {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: $primary;
     font-weight: 600;
+    transition: color 0.25s;
+    margin-top: 1px;
   }
 
   &__job-location {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: $text-muted;
+    transition: color 0.25s;
   }
 
-  &__job-desc {
-    font-size: 0.78rem;
-    color: $text-secondary;
-    line-height: 1.55;
-  }
-
-  // ── 4. Resume card ────────────────────────────────────────────────────────
+  // ── 3. Resume (2×1) ───────────────────────────────────────────────────────
   &__card--resume {
     grid-area: resume;
     padding: $spacing-md;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
-    overflow: hidden;
+  }
 
-    // Watermark
-    &::after {
-      content: 'CV';
-      position: absolute;
-      bottom: -20px;
-      right: 12px;
-      font-family: $font-display;
-      font-size: 7rem;
-      font-weight: 900;
-      color: rgba($primary, 0.04);
-      pointer-events: none;
-      line-height: 1;
-    }
+  &__resume-icon {
+    color: $primary;
+    flex-shrink: 0;
+    transition: color 0.25s;
   }
 
   &__resume-title {
     font-family: $font-display;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 2.25rem;
+    font-weight: 800;
     color: $text-primary;
-    margin-top: 4px;
-    margin-bottom: 6px;
+    line-height: 1;
+    transition: color 0.25s;
+    flex: 1;
+    display: flex;
+    align-items: center;
   }
 
-  &__resume-sub {
-    font-size: 0.72rem;
-    color: $text-muted;
-    line-height: 1.6;
-    flex: 1;
+  &__resume-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
   }
 
   &__resume-btn {
@@ -391,18 +292,16 @@
     align-items: center;
     gap: 6px;
     @include label-caps;
-    font-size: 0.6875rem;
+    font-size: 0.65rem;
     color: $primary;
-    padding: 8px 14px;
+    padding: 7px 14px;
     border: 1px solid rgba($primary, 0.3);
     border-radius: $radius-md;
-    transition:
-      background 0.2s,
-      border-color 0.2s;
-    align-self: flex-start;
-    position: relative;
-    z-index: 1;
-    margin-top: $spacing-sm;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    cursor: pointer;
+    background: transparent;
+    font-family: $font-body;
+    text-decoration: none;
 
     &:hover {
       background: rgba($primary, 0.08);
@@ -410,42 +309,148 @@
     }
   }
 
-  // ── 5–8. Social mini tiles ────────────────────────────────────────────────
+  &__resume-watermark {
+    position: absolute;
+    bottom: -16px; right: 10px;
+    font-family: $font-display;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba($primary, 0.04);
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+  }
+
+  // ── 4. Featured Project (2×1) ─────────────────────────────────────────────
+  &__card--project {
+    grid-area: proj;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    &:hover .hero__project-screenshot { transform: scale(1.04); }
+    &:hover {
+      border-color: rgba($primary, 0.3);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__project-img {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  &__project-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  &__project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 50%, rgba($surface-container, 0.95) 100%);
+    pointer-events: none;
+  }
+
+  &__project-meta {
+    width: 155px;
+    flex-shrink: 0;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    background: $surface-container;
+  }
+
+  &__project-badge {
+    @include label-caps;
+    font-size: 0.55rem;
+    color: $primary;
+    border: 1px solid rgba($primary, 0.25);
+    border-radius: $radius-full;
+    padding: 2px 8px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  &__project-name {
+    font-family: $font-display;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.2;
+  }
+
+  &__project-desc {
+    font-size: 0.7rem;
+    color: $text-secondary;
+    line-height: 1.45;
+  }
+
+  &__project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 6px;
+  }
+
+  &__project-link {
+    @include label-caps;
+    font-size: 0.6rem;
+    color: $text-muted;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+    width: fit-content;
+
+    &:hover { color: $primary; }
+    &--live { color: $primary; &:hover { opacity: 0.75; } }
+  }
+
+  // ── 5–8. Social tiles (1×1 squares) ──────────────────────────────────────
+  // On desktop, row height = $unit = column width → perfect square
+  // On mobile, we use aspect-ratio as fallback
   &__card--social {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
     padding: 14px 16px;
-    min-height: 110px;
     text-decoration: none;
     cursor: pointer;
 
-    @include md {
-      min-height: auto;
+    @media (max-width: 767px) {
+      aspect-ratio: 1 / 1;
     }
   }
 
   &__social-icon {
-    width: 26px;
-    height: 26px;
+    width: 32px;
+    height: 32px;
     margin-bottom: auto;
     flex-shrink: 0;
     transition: transform 0.2s;
 
-    .hero__card--social:hover & {
-      transform: scale(1.1);
-    }
+    .hero__card--social:hover & { transform: scale(1.1); }
   }
 
   &__social-label {
     @include label-caps;
-    font-size: 0.65rem;
-    margin-top: 8px;
+    font-size: 0.6rem;
+    margin-top: 10px;
+    transition: color 0.25s;
   }
 
   &__social-handle {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
     color: $text-primary;
     margin-top: 2px;
@@ -453,78 +458,117 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    transition: color 0.25s;
   }
 
-  // Tile colours — each tile gets its own accent
-  &__card--github {
-    grid-area: gh;
+  &__card--calendly {
+    grid-area: cal;
     background: $surface-container;
-    .hero__social-icon {
-      color: #e2e8f0;
-    }
-    .hero__social-label {
-      color: rgba(#e2e8f0, 0.5);
-    }
-  }
-
-  &__card--linkedin {
-    grid-area: li;
-    background: #0a66c2;
-    border-color: transparent;
-    .hero__social-icon {
-      color: white;
-    }
-    .hero__social-label {
-      color: rgba(white, 0.7);
-    }
-    .hero__social-handle {
-      color: white;
-    }
+    .hero__social-icon  { color: $primary; }
+    .hero__social-label { color: $text-muted; }
     &:hover {
-      border-color: transparent;
-      background: #0958ad;
+      background: #006bff; border-color: transparent; transform: translateY(-2px);
+      .hero__social-icon  { color: white; }
+      .hero__social-label { color: rgba(white, 0.65); }
+      .hero__social-handle { color: white; }
     }
   }
 
   &__card--email {
     grid-area: email;
     background: $surface-container;
-    .hero__social-icon {
-      color: $primary;
-    }
-    .hero__social-label {
-      color: $text-muted;
+    .hero__social-icon  { color: $primary; }
+    .hero__social-label { color: $text-muted; }
+    &:hover {
+      background: $card-hover-bg; border-color: transparent; transform: translateY(-2px);
+      .hero__social-icon  { color: white; }
+      .hero__social-label { color: rgba(white, 0.65); }
+      .hero__social-handle { color: white; }
     }
   }
 
-  &__card--calendly {
-    grid-area: cal;
-    background: #006bff;
-    border-color: transparent;
-    .hero__social-icon {
-      color: white;
-    }
-    .hero__social-label {
-      color: rgba(white, 0.7);
-    }
-    .hero__social-handle {
-      color: white;
-    }
+  &__card--github {
+    grid-area: gh;
+    background: $surface-container;
+    .hero__social-icon  { color: $text-primary; }
+    .hero__social-label { color: $text-muted; }
     &:hover {
-      border-color: transparent;
-      background: #0055cc;
+      background: $card-hover-bg; border-color: transparent; transform: translateY(-2px);
+      .hero__social-icon  { color: white; }
+      .hero__social-label { color: rgba(white, 0.65); }
+      .hero__social-handle { color: white; }
     }
+  }
+
+  &__card--linkedin {
+    grid-area: li;
+    background: $surface-container;
+    .hero__social-icon  { color: #0a66c2; }
+    .hero__social-label { color: $text-muted; }
+    .hero__social-handle { color: $text-primary; }
+    &:hover {
+      background: #0a66c2; border-color: transparent; transform: translateY(-2px);
+      .hero__social-icon  { color: white; }
+      .hero__social-label { color: rgba(white, 0.65); }
+      .hero__social-handle { color: white; }
+    }
+  }
+
+  // ── PDF Viewer ────────────────────────────────────────────────────────────
+  &__pdf-viewer {
+    margin-top: $spacing-lg;
+    background: $surface-container-low;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    scroll-margin-top: 80px;
+  }
+
+  &__pdf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-md;
+    border-bottom: 1px solid $border-subtle;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &__pdf-title {
+    font-family: $font-display;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $text-primary;
+  }
+
+  &__pdf-pages {
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+
+    .react-pdf__Page {
+      border-radius: $radius-lg;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto !important;
+    }
+  }
+
+  &__pdf-loading {
+    padding: $spacing-lg;
+    color: $text-muted;
+    font-size: 0.875rem;
+    text-align: center;
   }
 }
 
 @keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
-  }
-  50% {
-    opacity: 0.6;
-    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0);
-  }
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
 }
