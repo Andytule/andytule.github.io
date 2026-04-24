@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
     <header className="navbar">
       <div className="navbar__inner">
         <span className="navbar__brand">
-          SAKURA<span>_CORE</span>
+          ANDY<span>_LE</span>
         </span>
 
         <nav className="navbar__nav" aria-label="Primary navigation">
@@ -41,11 +41,11 @@ const Navbar: React.FC = () => {
         <div className="navbar__actions">
           <a
             href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            download="Andy_Le_Resume.pdf"
             className="navbar__resume"
+            aria-label="Download Andy Le's resume as PDF"
           >
-            Resume
+            ↓ Resume
           </a>
         </div>
       </div>

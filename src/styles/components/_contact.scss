@@ -70,6 +70,83 @@
     position: relative;
   }
 
+  &__info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: $spacing-lg;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    position: relative;
+
+    @include md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__info-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: $surface-container;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-xl;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+
+    &:hover {
+      border-color: rgba($primary, 0.3);
+      transform: translateY(-2px);
+    }
+
+    &--calendly {
+      border-color: rgba($primary, 0.2);
+
+      &:hover {
+        @include pink-glow(0.1);
+      }
+    }
+  }
+
+  &__info-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  &__info-label {
+    @include label-caps;
+    font-size: 0.6rem;
+    color: $text-muted;
+    margin-bottom: 3px;
+  }
+
+  &__info-value {
+    font-size: 0.8125rem;
+    color: $text-primary;
+    font-weight: 500;
+  }
+
+  &__calendly {
+    margin: $spacing-lg auto 0;
+    max-width: 900px;
+    width: 100%;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    border: 1px solid $border-subtle;
+    position: relative;
+    background: $surface-container-low;
+  }
+
+  &__calendly-frame {
+    width: 100%;
+    height: 700px;
+    border: none;
+    display: block;
+  }
+
   &__actions {
     display: flex;
     align-items: center;

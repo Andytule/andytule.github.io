@@ -12,7 +12,7 @@
     gap: $spacing-md;
 
     @include md {
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1.6fr 320px;
       gap: $spacing-gutter;
     }
   }
@@ -24,9 +24,9 @@
     justify-content: space-between;
     background: $surface-container-low;
     border: 1px solid $border-subtle;
-    border-radius: $radius-lg;
+    border-radius: $radius-xl;
     padding: $spacing-lg;
-    min-height: 220px;
+    min-height: 260px;
     position: relative;
     overflow: hidden;
 
@@ -38,7 +38,19 @@
       right: 0;
       height: 2px;
       background: linear-gradient(90deg, $primary-container, $secondary-container);
-      opacity: 0.6;
+      opacity: 0.8;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba($primary, 0.06), transparent 70%);
+      pointer-events: none;
     }
   }
 
@@ -50,23 +62,50 @@
 
   &__headline {
     font-family: $font-display;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
+    font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+    font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: $text-primary;
 
     &-accent {
       color: $primary-container;
+      background: linear-gradient(135deg, $primary-container, $secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   }
 
   &__sub {
     margin-top: $spacing-sm;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: rgba($text-secondary, 0.8);
-    max-width: 480px;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgba($text-secondary, 0.85);
+    max-width: 520px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: $spacing-md;
+  }
+
+  &__tag {
+    @include label-caps;
+    font-size: 0.625rem;
+    color: $primary;
+    background: rgba($primary, 0.08);
+    border: 1px solid rgba($primary, 0.2);
+    border-radius: $radius-full;
+    padding: 4px 10px;
+    transition: background 0.2s, border-color 0.2s;
+
+    &:hover {
+      background: rgba($primary, 0.14);
+      border-color: rgba($primary, 0.4);
+    }
   }
 
   // ── Right column ────────────────────────────────────────────
@@ -79,38 +118,88 @@
   &__focus-card {
     background: $surface-container;
     border: 1px solid $border-subtle;
-    border-radius: $radius-lg;
+    border-radius: $radius-xl;
     padding: $spacing-md;
     flex: 1;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, $primary-container, transparent);
+      opacity: 0.7;
+    }
   }
 
   &__focus-label {
     @include label-caps;
     color: $primary;
-    margin-bottom: $spacing-xs;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__focus-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  &__focus-logo {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    overflow: hidden;
+    object-fit: cover;
+    display: block;
+    background: $surface-container-high;
   }
 
   &__focus-role {
     font-family: $font-display;
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
     color: $text-primary;
+    line-height: 1.2;
   }
 
   &__focus-company {
-    font-size: 0.875rem;
-    color: $text-muted;
+    font-size: 0.8125rem;
+    color: $primary;
+    font-weight: 600;
     margin-top: 2px;
   }
 
+  &__focus-location {
+    font-size: 0.75rem;
+    color: $text-muted;
+    margin-bottom: 10px;
+  }
+
   &__focus-quote {
-    margin-top: $spacing-sm;
     font-size: 0.8125rem;
     font-style: italic;
-    color: rgba($text-secondary, 0.7);
-    line-height: 1.5;
+    color: rgba($text-secondary, 0.75);
+    line-height: 1.55;
     border-left: 2px solid $primary-container;
     padding-left: $spacing-sm;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__focus-badge {
+    @include label-caps;
+    font-size: 0.6rem;
+    color: $text-muted;
+    background: rgba($primary, 0.07);
+    border: 1px solid rgba($primary, 0.15);
+    border-radius: $radius-md;
+    padding: 3px 8px;
+    display: inline-block;
   }
 
   // ── Bottom row ──────────────────────────────────────────────
@@ -121,17 +210,23 @@
     margin-top: $spacing-gutter;
 
     @include md {
-      grid-template-columns: 1fr 1fr 1fr;
+      // Bento: wider photo card, narrower cv, medium booking
+      grid-template-columns: 1.4fr 1fr 1fr;
     }
   }
 
   &__photo-card {
     background: $surface-container;
     border: 1px solid $border-subtle;
-    border-radius: $radius-lg;
+    border-radius: $radius-xl;
     overflow: hidden;
-    aspect-ratio: 1 / 1;
     position: relative;
+    transition: border-color 0.25s, transform 0.25s;
+
+    &:hover {
+      border-color: rgba($primary, 0.3);
+      transform: translateY(-3px);
+    }
 
     @include md {
       aspect-ratio: auto;
@@ -140,32 +235,22 @@
     &-inner {
       width: 100%;
       height: 100%;
-      min-height: 240px;
-      background: linear-gradient(
-        145deg,
-        $surface-container-high 0%,
-        $surface-container-highest 100%
-      );
+      min-height: 220px;
+      background:
+        linear-gradient(to bottom, transparent 50%, rgba($surface-container-lowest, 0.9) 100%),
+        url('/chord-shift-preview.png') center top / cover no-repeat;
       display: flex;
       align-items: flex-end;
       padding: $spacing-sm;
       position: relative;
-
-      // Placeholder silhouette
-      &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(ellipse at 50% 30%, rgba($primary, 0.08), transparent 60%);
-      }
     }
 
     &-badge {
       @include label-caps;
       font-size: 0.625rem;
       color: $primary;
-      background: rgba($surface-container-lowest, 0.8);
-      border: 1px solid $border-subtle;
+      background: rgba($surface-container-lowest, 0.85);
+      border: 1px solid rgba($primary, 0.2);
       border-radius: $radius-md;
       padding: 4px 8px;
       position: relative;
@@ -174,10 +259,10 @@
 
     &-name {
       font-family: $font-display;
-      font-size: 1.125rem;
-      font-weight: 600;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: $text-primary;
-      margin-top: 2px;
+      margin-top: 4px;
       position: relative;
       z-index: 1;
     }
@@ -186,12 +271,27 @@
   &__cv-card {
     background: $surface-container;
     border: 1px solid $border-subtle;
-    border-radius: $radius-lg;
+    border-radius: $radius-xl;
     padding: $spacing-md;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: $spacing-sm;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: 'CV';
+      position: absolute;
+      bottom: -10px;
+      right: 10px;
+      font-family: $font-display;
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba($primary, 0.04);
+      pointer-events: none;
+      line-height: 1;
+    }
   }
 
   &__cv-label {
@@ -201,8 +301,8 @@
 
   &__cv-title {
     font-family: $font-display;
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 700;
     color: $text-primary;
   }
 
@@ -212,25 +312,29 @@
     gap: 6px;
     @include label-caps;
     font-size: 0.6875rem;
-    color: $text-muted;
-    padding: 6px 10px;
-    border: 1px solid $border;
+    color: $primary;
+    padding: 7px 12px;
+    border: 1px solid rgba($primary, 0.3);
     border-radius: $radius-md;
     transition:
       border-color 0.2s,
-      color 0.2s;
+      color 0.2s,
+      background 0.2s;
     align-self: flex-end;
+    position: relative;
+    z-index: 1;
 
     &:hover {
       border-color: $primary;
-      color: $primary;
+      background: rgba($primary, 0.08);
+      @include pink-glow(0.1);
     }
   }
 
   &__booking-card {
     background: $surface-container;
     border: 1px solid $border-subtle;
-    border-radius: $radius-lg;
+    border-radius: $radius-xl;
     padding: $spacing-md;
     display: flex;
     flex-direction: column;
@@ -244,15 +348,16 @@
     gap: 6px;
     @include label-caps;
     font-size: 0.6875rem;
-    color: #57f287;
+    color: #4ade80;
   }
 
   &__booking-dot {
     width: 6px;
     height: 6px;
     border-radius: $radius-full;
-    background: #57f287;
+    background: #4ade80;
     animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
   }
 
   &__booking-btn {
@@ -261,8 +366,8 @@
     justify-content: center;
     gap: 6px;
     padding: 10px 16px;
-    background: $primary-container;
-    color: $on-primary-container;
+    background: linear-gradient(135deg, $primary-container, #1565c0);
+    color: white;
     border-radius: $radius-md;
     font-family: $font-body;
     font-size: 0.875rem;
@@ -272,8 +377,8 @@
       box-shadow 0.2s;
 
     &:hover {
-      filter: brightness(1.1);
-      @include pink-glow(0.25);
+      filter: brightness(1.12);
+      @include pink-glow(0.2);
     }
   }
 }
@@ -284,6 +389,6 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.35;
   }
 }

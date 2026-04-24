@@ -1,6 +1,6 @@
 # andytule.github.io — Personal Portfolio
 
-> Software Engineering portfolio for Andy Tu Le, deployed at **[andytule.github.io](https://andytule.github.io)**.
+> Portfolio for **Andy Le**, Software Engineer. Deployed at **[andytule.github.io](https://andytule.github.io)**.
 
 ---
 
@@ -28,15 +28,15 @@ src/
 │   │       └── index.tsx         # Footer with links
 │   ├── sections/
 │   │   ├── Hero/
-│   │   │   └── index.tsx         # Landing hero with focus card, CV download, booking
+│   │   │   └── index.tsx         # Landing hero: intro, Dotmatics job card, CV download, booking
 │   │   ├── Skills/
 │   │   │   └── index.tsx         # Technical skills grid
 │   │   ├── Timeline/
 │   │   │   └── index.tsx         # Work experience timeline
 │   │   ├── Projects/
-│   │   │   └── index.tsx         # Selected projects grid
+│   │   │   └── index.tsx         # Featured (Chord-Shift) + project grid
 │   │   └── Contact/
-│   │       └── index.tsx         # Contact CTA section
+│   │       └── index.tsx         # Contact info cards + Calendly embed + CTA buttons
 │   └── ui/
 │       └── Chip/
 │           └── index.tsx         # Reusable tag/chip component
@@ -48,7 +48,7 @@ src/
 ├── styles/
 │   ├── main.scss                 # Root stylesheet entry
 │   ├── abstracts/
-│   │   ├── _variables.scss       # CSS custom properties / design tokens
+│   │   ├── _variables.scss       # Design tokens — Deep Slate & Electric Blue palette
 │   │   └── _mixins.scss          # Reusable SCSS mixins
 │   ├── base/
 │   │   ├── _reset.scss           # CSS reset
@@ -69,10 +69,17 @@ src/
 └── main.tsx                      # React entry point
 ```
 
+```
+public/
+├── resume.pdf                    # ← Place your resume PDF here (required for download button)
+├── chord-shift-preview.png       # Chord-Shift app screenshot (used in hero bento + projects)
+└── dotmatics-logo.png            # Dotmatics company logo (used in hero job card)
+```
+
 ### Conventions
 
-- **Every component lives in its own folder** (`ComponentName/index.tsx`). This keeps co-located test files, SCSS modules, and sub-components tidy.
-- **All static data lives in `src/data/index.ts`**. To update your job history, skills, or projects, edit only this file — no component changes needed.
+- **Every component lives in its own folder** (`ComponentName/index.tsx`).
+- **All static data lives in `src/data/index.ts`**. To update job history, skills, or projects, edit only this file — no component changes needed.
 - **Path alias `@/`** maps to `src/`. Use it everywhere instead of relative `../..` chains.
 - **BEM naming** throughout SCSS: `.block__element--modifier`.
 
@@ -111,8 +118,6 @@ Deployment is fully automated via **GitHub Actions** (`.github/workflows/deploy.
 2. Set **Source** to **GitHub Actions**.
 3. Push to `main` — the workflow handles everything else.
 
-> The `base: '/'` in `vite.config.ts` is correct for a root-domain Pages site (`andytule.github.io`). If you ever move to a sub-path (e.g. `/my-app/`), update `base` to match.
-
 ---
 
 ## Updating Content
@@ -122,21 +127,31 @@ All portfolio content is managed in a single file: **`src/data/index.ts`**.
 | Export | What it controls |
 |---|---|
 | `NAV_ITEMS` | Navigation links |
-| `CURRENT_FOCUS` | Hero card — current role & company |
 | `SKILLS` | Skills section cards |
 | `TIMELINE` | Work experience entries |
 | `EDUCATION` | Education entries |
-| `PROJECTS` | Project cards (title, description, links, tags) |
+| `PROJECTS` | Project cards — set `featured: true` to pin a project to the top spotlight card |
 | `SOCIAL_LINKS` | GitHub / LinkedIn / Email links |
 
 ---
 
-## Adding a New Section
+## Key Design Decisions
 
-1. Create `src/components/sections/NewSection/index.tsx`.
-2. Add its SCSS partial to `src/styles/components/_new-section.scss` and import it in `main.scss`.
-3. Import and render `<NewSection />` in `src/App.tsx`.
-4. Add any static data to `src/data/index.ts` and types to `src/types/index.ts`.
+### Color System
+Palette is **Deep Slate & Electric Blue** — defined in `src/styles/abstracts/_variables.scss`.
+Primary accent: `#60b4ff` / `#2196f3`. Replace the pink `$primary` vars to retheme.
+
+### Hero Bento Layout
+The hero uses an asymmetric CSS grid (`1.6fr 320px` top row, `1.4fr 1fr 1fr` bottom row) for a dynamic bento feel. Bottom-left card shows the Chord-Shift screenshot as a CSS background image pulled from `public/chord-shift-preview.png`.
+
+### Resume Button
+The navbar Resume button uses `download="Andy_Le_Resume.pdf"` — place your PDF at `public/resume.pdf` before deploying.
+
+### Contact Section
+Includes three info cards (email, phone, Calendly) and a full Calendly inline iframe embed. Update the Calendly URL (`calendly.com/andytule321`) if your username differs.
+
+### Featured Project
+The first project with `featured: true` in `src/data/index.ts` is rendered as the large spotlight card in the Projects section with screenshot display.
 
 ---
 
@@ -148,22 +163,15 @@ npm run lint:fix      # Auto-fix ESLint errors
 npm run format        # Prettier format all src files
 ```
 
-ESLint is configured with:
-- `@typescript-eslint` for type-aware rules
-- `eslint-plugin-import` + `eslint-plugin-simple-import-sort` for clean imports
-- `eslint-plugin-react-hooks` for hooks correctness
-- `eslint-config-prettier` to disable formatting rules (Prettier owns that)
-
 ---
 
 ## AI Context (for future Claude sessions)
-
-If you're picking this up in a new Claude chat, here's a quick orientation:
 
 - **Stack**: React 19, TypeScript, Vite 8, SCSS (no CSS Modules, no Tailwind).
 - **Styling approach**: Global SCSS with BEM. Each component has a corresponding `_component.scss` partial imported via `src/styles/main.scss`.
 - **Data layer**: All content in `src/data/index.ts` — no CMS, no API calls.
 - **Path alias**: `@/` → `src/`. Always use this in imports.
-- **Component convention**: `ComponentName/index.tsx` folders, never flat `.tsx` files at the section or layout level.
-- **Deployment**: GitHub Actions (`deploy.yml`) builds and deploys to GitHub Pages on every push to `main`. No manual deploy commands.
+- **Component convention**: `ComponentName/index.tsx` folders, never flat `.tsx` files.
+- **Deployment**: GitHub Actions (`deploy.yml`) builds and deploys to GitHub Pages on every push to `main`.
 - **No external UI library** — all UI is hand-crafted SCSS.
+- **Color theme**: Electric Blue (`#60b4ff`, `#2196f3`) — replaces original pink accent.

@@ -1,39 +1,39 @@
-// ── Ethereal Bloom — Design Tokens ──────────────────────────────────────────
+// ── Deep Slate & Electric Blue — Design Tokens ──────────────────────────────
 
 // Surface palette
 $surface: #0c1322;
 $surface-dim: #0c1322;
-$surface-bright: #323949;
+$surface-bright: #1e2d45;
 $surface-container-lowest: #070e1d;
-$surface-container-low: #141b2b;
-$surface-container: #191f2f;
-$surface-container-high: #232a3a;
-$surface-container-highest: #2e3545;
+$surface-container-low: #0f1d30;
+$surface-container: #132135;
+$surface-container-high: #1a2c42;
+$surface-container-highest: #223350;
 
 // On-surface
-$on-surface: #dce2f7;
-$on-surface-variant: #dac0c9;
+$on-surface: #dce8f7;
+$on-surface-variant: #a8c0d6;
 
 // Outline
-$outline: #a28a93;
-$outline-variant: #544249;
+$outline: #5a7a96;
+$outline-variant: #1e3550;
 
-// Primary — Soft Pink
-$primary: #ffafd3;
-$on-primary: #620040;
-$primary-container: #f472b6;
-$on-primary-container: #6d0047;
-$inverse-primary: #a43073;
+// Primary — Electric Blue
+$primary: #60b4ff;
+$on-primary: #003c6e;
+$primary-container: #2196f3;
+$on-primary-container: #e3f2fd;
+$inverse-primary: #0069b4;
 
-// Secondary — Muted Lavender
-$secondary: #ccbeff;
-$on-secondary: #332664;
-$secondary-container: #4a3d7c;
-$on-secondary-container: #baabf3;
+// Secondary — Soft Cyan
+$secondary: #80deea;
+$on-secondary: #00363d;
+$secondary-container: #00698a;
+$on-secondary-container: #b2ebf2;
 
 // Tertiary
-$tertiary: #e5bad3;
-$on-tertiary: #44273a;
+$tertiary: #b2c9e8;
+$on-tertiary: #1e3550;
 
 // Error
 $error: #ffb4ab;
@@ -41,14 +41,14 @@ $on-error: #690005;
 
 // Background
 $background: #0c1322;
-$on-background: #dce2f7;
+$on-background: #dce8f7;
 
 // Semantic aliases
 $text-primary: $on-surface;
 $text-secondary: $on-surface-variant;
 $text-muted: $outline;
 $border: $outline-variant;
-$border-subtle: rgba(255, 255, 255, 0.05);
+$border-subtle: rgba(255, 255, 255, 0.06);
 
 // Spacing
 $spacing-xs: 0.5rem;
@@ -63,6 +63,7 @@ $spacing-margin: max(2rem, 5vw);
 $radius-sm: 0.125rem;
 $radius-md: 0.375rem;
 $radius-lg: 0.5rem;
+$radius-xl: 1rem;
 $radius-full: 9999px;
 
 // Typography

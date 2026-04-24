@@ -22,8 +22,8 @@
   &__brand {
     font-family: $font-display;
     font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    font-weight: 800;
+    letter-spacing: 0.06em;
     color: $text-primary;
     cursor: pointer;
     transition: color 0.2s;
@@ -84,7 +84,7 @@
     @include label-caps;
     padding: 6px 16px;
     border-radius: $radius-full;
-    border: 1px solid $primary-container;
+    border: 1px solid rgba($primary, 0.4);
     color: $primary;
     transition:
       background 0.2s,
@@ -93,7 +93,7 @@
 
     &:hover {
       background: $primary-container;
-      color: $on-primary-container;
+      color: white;
       @include pink-glow(0.2);
     }
   }
