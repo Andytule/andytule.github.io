@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.skills {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-gutter;
+
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__card {
+    background: $surface-container;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $spacing-md;
+    transition:
+      border-color 0.25s,
+      box-shadow 0.25s,
+      transform 0.25s;
+
+    &:hover {
+      border-color: rgba($primary, 0.3);
+      @include pink-glow(0.1);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__icon {
+    font-size: 1.25rem;
+    color: $primary;
+    font-family: $font-display;
+    font-weight: 700;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__category {
+    font-family: $font-display;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__items {
+    font-size: 0.875rem;
+    color: $text-muted;
+    line-height: 1.8;
+  }
+}

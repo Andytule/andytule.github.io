@@ -1,0 +1,144 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.contact {
+  &__inner {
+    background: $surface-container-low;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $spacing-xl $spacing-lg;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, $primary-container, $secondary-container, transparent);
+    }
+  }
+
+  &__bloom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba($primary, 0.06), transparent 70%);
+    pointer-events: none;
+  }
+
+  &__label {
+    @include label-caps;
+    color: $primary;
+    margin-bottom: $spacing-sm;
+    position: relative;
+  }
+
+  &__headline {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: $text-primary;
+    position: relative;
+
+    &-accent {
+      color: $primary;
+    }
+  }
+
+  &__sub {
+    margin-top: $spacing-sm;
+    font-size: 1rem;
+    color: rgba($text-secondary, 0.8);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin-top: $spacing-lg;
+    position: relative;
+  }
+
+  &__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: $primary-container;
+    color: $on-primary-container;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: filter 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      filter: brightness(1.1);
+      @include pink-glow(0.25);
+    }
+  }
+
+  &__btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: 1px solid $outline-variant;
+    color: $text-secondary;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: border-color 0.2s, color 0.2s;
+
+    &:hover {
+      border-color: $secondary;
+      color: $secondary;
+    }
+  }
+}
+
+// ── Chip component ────────────────────────────────────────────────────────────
+.chip {
+  display: inline-block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 9999px;
+
+  &--default {
+    background: #232a3a;
+    border: 1px solid #544249;
+    color: #a28a93;
+  }
+
+  &--lavender {
+    background: #4a3d7c;
+    border: 1px solid #4a3d7c;
+    color: #ccbeff;
+  }
+
+  &--pink {
+    background: rgba(#f472b6, 0.15);
+    border: 1px solid rgba(#f472b6, 0.4);
+    color: #ffafd3;
+  }
+}

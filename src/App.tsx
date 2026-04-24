@@ -1,27 +1,29 @@
-import React from "react";
-import "./App.scss";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Projects from "./pages/Projects/Projects";
-import WorkExperiences from "./pages/WorkExperience/WorkExperience";
-import Resume from "./pages/Resume/Resume";
-import Contact from "./pages/Contact/Contact";
-import SideBar from "./components/SideBar/SideBar";
+import React from 'react';
 
-const App: React.FC = () => (
+import Footer from '@/components/layout/Footer';
+import Navbar from '@/components/layout/Navbar';
+import Contact from '@/components/sections/Contact';
+import Hero from '@/components/sections/Hero';
+import Projects from '@/components/sections/Projects';
+import Skills from '@/components/sections/Skills';
+import Timeline from '@/components/sections/Timeline';
+
+const App = (): React.ReactElement => (
   <div className="app">
-    <Router>
-      <SideBar />
-      <div className="routes">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/work-experience" element={<WorkExperiences />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="app__bloom" aria-hidden="true" />
+    <div className="app__bloom app__bloom--secondary" aria-hidden="true" />
+
+    <Navbar />
+
+    <main className="main">
+      <Hero />
+      <Skills />
+      <Timeline />
+      <Projects />
+      <Contact />
+    </main>
+
+    <Footer />
   </div>
 );
 

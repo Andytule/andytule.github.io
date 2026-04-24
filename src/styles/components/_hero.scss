@@ -1,0 +1,280 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hero {
+  padding: $spacing-xl $spacing-margin;
+  max-width: $max-width;
+  margin: 0 auto;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @include md {
+      grid-template-columns: 1fr 320px;
+      gap: $spacing-gutter;
+    }
+  }
+
+  // ── Left column ────────────────────────────────────────────
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $surface-container-low;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $spacing-lg;
+    min-height: 220px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, $primary-container, $secondary-container);
+      opacity: 0.6;
+    }
+  }
+
+  &__eyebrow {
+    @include label-caps;
+    color: $primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__headline {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: $text-primary;
+
+    &-accent {
+      color: $primary-container;
+    }
+  }
+
+  &__sub {
+    margin-top: $spacing-sm;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba($text-secondary, 0.8);
+    max-width: 480px;
+  }
+
+  // ── Right column ────────────────────────────────────────────
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-gutter;
+  }
+
+  &__focus-card {
+    background: $surface-container;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $spacing-md;
+    flex: 1;
+  }
+
+  &__focus-label {
+    @include label-caps;
+    color: $primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__focus-role {
+    font-family: $font-display;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__focus-company {
+    font-size: 0.875rem;
+    color: $text-muted;
+    margin-top: 2px;
+  }
+
+  &__focus-quote {
+    margin-top: $spacing-sm;
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: rgba($text-secondary, 0.7);
+    line-height: 1.5;
+    border-left: 2px solid $primary-container;
+    padding-left: $spacing-sm;
+  }
+
+  // ── Bottom row ──────────────────────────────────────────────
+  &__bottom-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-gutter;
+    margin-top: $spacing-gutter;
+
+    @include md {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &__photo-card {
+    background: $surface-container;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    position: relative;
+
+    @include md {
+      aspect-ratio: auto;
+    }
+
+    &-inner {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      background: linear-gradient(
+        145deg,
+        $surface-container-high 0%,
+        $surface-container-highest 100%
+      );
+      display: flex;
+      align-items: flex-end;
+      padding: $spacing-sm;
+      position: relative;
+
+      // Placeholder silhouette
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 30%, rgba($primary, 0.08), transparent 60%);
+      }
+    }
+
+    &-badge {
+      @include label-caps;
+      font-size: 0.625rem;
+      color: $primary;
+      background: rgba($surface-container-lowest, 0.8);
+      border: 1px solid $border-subtle;
+      border-radius: $radius-md;
+      padding: 4px 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    &-name {
+      font-family: $font-display;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin-top: 2px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__cv-card {
+    background: $surface-container;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $spacing-sm;
+  }
+
+  &__cv-label {
+    @include label-caps;
+    color: $text-muted;
+  }
+
+  &__cv-title {
+    font-family: $font-display;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__cv-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    @include label-caps;
+    font-size: 0.6875rem;
+    color: $text-muted;
+    padding: 6px 10px;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    transition: border-color 0.2s, color 0.2s;
+    align-self: flex-end;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  &__booking-card {
+    background: $surface-container;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $spacing-sm;
+  }
+
+  &__booking-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    @include label-caps;
+    font-size: 0.6875rem;
+    color: #57f287;
+  }
+
+  &__booking-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: $radius-full;
+    background: #57f287;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  &__booking-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: $primary-container;
+    color: $on-primary-container;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: filter 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      filter: brightness(1.1);
+      @include pink-glow(0.25);
+    }
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}

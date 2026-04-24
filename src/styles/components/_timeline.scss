@@ -1,0 +1,89 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.timeline {
+  &__track {
+    position: relative;
+    padding-left: $spacing-lg;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, $primary-container, transparent);
+    }
+  }
+
+  &__entry {
+    position: relative;
+    padding-bottom: $spacing-lg;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-#{$spacing-lg} - 4px);
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: $radius-full;
+      background: $primary-container;
+      border: 2px solid $background;
+    }
+
+    &--current::before {
+      background: $primary;
+      box-shadow: 0 0 0 4px rgba($primary, 0.2);
+    }
+  }
+
+  &__period {
+    @include label-caps;
+    font-size: 0.6875rem;
+    color: $primary;
+    margin-bottom: 4px;
+  }
+
+  &__role {
+    font-family: $font-display;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__company {
+    font-size: 0.875rem;
+    color: $text-muted;
+    margin-top: 2px;
+  }
+
+  &__desc {
+    margin-top: $spacing-xs;
+    font-size: 0.9375rem;
+    color: rgba($text-secondary, 0.8);
+    line-height: 1.6;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: $spacing-sm;
+  }
+
+  &__tag {
+    @include label-caps;
+    font-size: 0.625rem;
+    padding: 3px 10px;
+    border-radius: $radius-full;
+    background: $surface-container-high;
+    border: 1px solid $secondary-container;
+    color: $secondary;
+  }
+}

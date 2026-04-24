@@ -1,0 +1,52 @@
+@use 'variables' as *;
+
+// ── Responsive breakpoints ───────────────────────────────────────────────────
+@mixin md {
+  @media (min-width: 768px) { @content; }
+}
+
+@mixin lg {
+  @media (min-width: 1024px) { @content; }
+}
+
+@mixin xl {
+  @media (min-width: 1280px) { @content; }
+}
+
+// ── Glassmorphism surface ────────────────────────────────────────────────────
+@mixin glass($bg: $surface-container, $blur: 12px) {
+  background: rgba($bg, 0.85);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border-subtle;
+}
+
+// ── Pink glow on hover ───────────────────────────────────────────────────────
+@mixin pink-glow($intensity: 0.15) {
+  box-shadow: 0 0 20px rgba(#f472b6, $intensity);
+}
+
+// ── Label caps — HUD aesthetic ───────────────────────────────────────────────
+@mixin label-caps {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+// ── Truncate text ────────────────────────────────────────────────────────────
+@mixin truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// ── Focus ring ───────────────────────────────────────────────────────────────
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}

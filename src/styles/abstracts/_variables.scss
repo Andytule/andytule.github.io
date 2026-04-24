@@ -1,0 +1,78 @@
+// ── Ethereal Bloom — Design Tokens ──────────────────────────────────────────
+
+// Surface palette
+$surface:                  #0c1322;
+$surface-dim:              #0c1322;
+$surface-bright:           #323949;
+$surface-container-lowest: #070e1d;
+$surface-container-low:    #141b2b;
+$surface-container:        #191f2f;
+$surface-container-high:   #232a3a;
+$surface-container-highest:#2e3545;
+
+// On-surface
+$on-surface:               #dce2f7;
+$on-surface-variant:       #dac0c9;
+
+// Outline
+$outline:                  #a28a93;
+$outline-variant:          #544249;
+
+// Primary — Soft Pink
+$primary:                  #ffafd3;
+$on-primary:               #620040;
+$primary-container:        #f472b6;
+$on-primary-container:     #6d0047;
+$inverse-primary:          #a43073;
+
+// Secondary — Muted Lavender
+$secondary:                #ccbeff;
+$on-secondary:             #332664;
+$secondary-container:      #4a3d7c;
+$on-secondary-container:   #baabf3;
+
+// Tertiary
+$tertiary:                 #e5bad3;
+$on-tertiary:              #44273a;
+
+// Error
+$error:                    #ffb4ab;
+$on-error:                 #690005;
+
+// Background
+$background:               #0c1322;
+$on-background:            #dce2f7;
+
+// Semantic aliases
+$text-primary:             $on-surface;
+$text-secondary:           $on-surface-variant;
+$text-muted:               $outline;
+$border:                   $outline-variant;
+$border-subtle:            rgba(255, 255, 255, 0.05);
+
+// Spacing
+$spacing-xs:  0.5rem;
+$spacing-sm:  1rem;
+$spacing-md:  1.5rem;
+$spacing-lg:  2.5rem;
+$spacing-xl:  4rem;
+$spacing-gutter: 24px;
+$spacing-margin: max(2rem, 5vw);
+
+// Radii
+$radius-sm:   0.125rem;
+$radius-md:   0.375rem;
+$radius-lg:   0.5rem;
+$radius-full: 9999px;
+
+// Typography
+$font-display: 'Manrope', 'Helvetica Neue', sans-serif;
+$font-body:    'Inter', 'Helvetica Neue', sans-serif;
+
+// Max widths
+$max-width:    1200px;
+$max-width-md: 960px;
+
+// Z-index scale
+$z-nav:        100;
+$z-overlay:    200;
