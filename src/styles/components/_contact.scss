@@ -5,7 +5,7 @@
   &__inner {
     background: $surface-container-low;
     border: 1px solid $border-subtle;
-    border-radius: $radius-lg;
+    border-radius: $radius-xl;
     padding: $spacing-xl $spacing-lg;
     text-align: center;
     position: relative;
@@ -17,14 +17,8 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        $primary-container,
-        $secondary-container,
-        transparent
-      );
+      height: 1px;
+      background: linear-gradient(90deg, transparent, $primary-container, transparent);
     }
   }
 
@@ -35,7 +29,7 @@
     transform: translate(-50%, -50%);
     width: 500px;
     height: 300px;
-    background: radial-gradient(ellipse, rgba($primary, 0.06), transparent 70%);
+    background: radial-gradient(ellipse, rgba($primary, 0.05), transparent 70%);
     pointer-events: none;
   }
 
@@ -48,9 +42,9 @@
 
   &__headline {
     font-family: $font-display;
-    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-size: clamp(1.75rem, 4.5vw, 2.5rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     color: $text-primary;
     position: relative;
@@ -62,20 +56,22 @@
 
   &__sub {
     margin-top: $spacing-sm;
-    font-size: 1rem;
-    color: rgba($text-secondary, 0.8);
-    max-width: 480px;
+    font-size: 0.9375rem;
+    color: $text-secondary;
+    max-width: 460px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    line-height: 1.65;
   }
 
-  &__info-grid {
+  // ── 3-card trio ───────────────────────────────────────────────────────────
+  &__trio {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
     margin-top: $spacing-lg;
-    max-width: 560px;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -86,118 +82,80 @@
     }
   }
 
-  &__info-card {
+  &__trio-card {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
+    flex-direction: column;
+    gap: 6px;
+    padding: $spacing-md;
     background: $surface-container;
     border: 1px solid $border-subtle;
     border-radius: $radius-xl;
+    text-decoration: none;
     transition:
       border-color 0.2s,
-      transform 0.2s;
-    text-decoration: none;
+      transform 0.2s,
+      box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
 
     &:hover {
       border-color: rgba($primary, 0.3);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     &--calendly {
-      border-color: rgba($primary, 0.2);
-
-      &:hover {
-        @include pink-glow(0.1);
-      }
+      background: $surface-container-high;
     }
   }
 
-  &__info-icon {
-    font-size: 1.25rem;
-    flex-shrink: 0;
-  }
-
-  &__info-label {
-    @include label-caps;
-    font-size: 0.6rem;
-    color: $text-muted;
-    margin-bottom: 3px;
-  }
-
-  &__info-value {
-    font-size: 0.8125rem;
-    color: $text-primary;
-    font-weight: 500;
-  }
-
-  &__calendly {
-    margin: $spacing-lg auto 0;
-    max-width: 900px;
-    width: 100%;
-    border-radius: $radius-xl;
-    overflow: hidden;
-    border: 1px solid $border-subtle;
-    position: relative;
-    background: $surface-container-low;
-  }
-
-  &__calendly-frame {
-    width: 100%;
-    height: 700px;
-    border: none;
-    display: block;
-  }
-
-  &__actions {
+  &__trio-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: $radius-lg;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: $spacing-sm;
-    margin-top: $spacing-lg;
-    position: relative;
-  }
+    margin-bottom: 4px;
 
-  &__btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    background: $primary-container;
-    color: $on-primary-container;
-    border-radius: $radius-md;
-    font-family: $font-body;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition:
-      filter 0.2s,
-      box-shadow 0.2s;
-
-    &:hover {
-      filter: brightness(1.1);
-      @include pink-glow(0.25);
+    &--email {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+    &--phone {
+      background: rgba(#4ade80, 0.1);
+      color: #4ade80;
+    }
+    &--calendly {
+      background: rgba(#006bff, 0.15);
+      color: #4d9fff;
     }
   }
 
-  &__btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border: 1px solid $outline-variant;
-    color: $text-secondary;
-    border-radius: $radius-md;
-    font-family: $font-body;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition:
-      border-color 0.2s,
-      color 0.2s;
+  &__trio-label {
+    @include label-caps;
+    font-size: 0.625rem;
+    color: $text-muted;
+  }
 
-    &:hover {
-      border-color: $secondary;
-      color: $secondary;
+  &__trio-value {
+    font-family: $font-display;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: $text-primary;
+    line-height: 1.2;
+  }
+
+  &__trio-cta {
+    font-size: 0.75rem;
+    color: $primary;
+    margin-top: auto;
+    padding-top: 8px;
+    font-weight: 500;
+    transition: gap 0.2s;
+
+    .contact__trio-card:hover & {
+      text-decoration: underline;
     }
   }
 }
@@ -214,20 +172,14 @@
   border-radius: 9999px;
 
   &--default {
-    background: #232a3a;
-    border: 1px solid #544249;
-    color: #a28a93;
+    background: $surface-container-high;
+    border: 1px solid $outline-variant;
+    color: $text-muted;
   }
 
-  &--lavender {
-    background: #4a3d7c;
-    border: 1px solid #4a3d7c;
-    color: #ccbeff;
-  }
-
-  &--pink {
-    background: rgba(#f472b6, 0.15);
-    border: 1px solid rgba(#f472b6, 0.4);
-    color: #ffafd3;
+  &--blue {
+    background: rgba($primary, 0.1);
+    border: 1px solid rgba($primary, 0.3);
+    color: $primary;
   }
 }

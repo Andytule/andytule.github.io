@@ -1,130 +1,292 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
+// ── Bento layout ─────────────────────────────────────────────────────────────
+//
+//  Desktop grid (6 cols × auto rows):
+//  [  main (3)  ][  main (3)  ][  project (2)  ][  project (2)  ][ job (2) ]
+//  Rows: main spans 2 rows, project spans 2, job 1, resume 1, socials 2×2
+//
+//  Simplified named areas:
+//
+//  "main    main    project project"
+//  "main    main    job     job    "
+//  "resume  resume  gh      li     "
+//  "resume  resume  email   cal    "
+//
+// ─────────────────────────────────────────────────────────────────────────────
+
 .hero {
   padding: $spacing-xl $spacing-margin;
   max-width: $max-width;
   margin: 0 auto;
 
-  &__grid {
+  &__bento {
     display: grid;
+    gap: $spacing-gutter;
     grid-template-columns: 1fr;
-    gap: $spacing-md;
+    grid-template-areas:
+      'main'
+      'project'
+      'job'
+      'resume'
+      'gh'
+      'li'
+      'email'
+      'cal';
 
     @include md {
-      grid-template-columns: 1.6fr 320px;
-      gap: $spacing-gutter;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 220px 180px 130px 130px;
+      grid-template-areas:
+        'main    main    project project'
+        'main    main    job     job'
+        'resume  resume  gh      li'
+        'resume  resume  email   cal';
     }
   }
 
-  // ── Left column ────────────────────────────────────────────
-  &__main {
+  // ── Base card shell ───────────────────────────────────────────────────────
+  &__card {
+    background: $surface-container;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-xl;
+    position: relative;
+    overflow: hidden;
+    transition:
+      border-color 0.25s,
+      transform 0.2s;
+
+    &:hover {
+      border-color: rgba($primary, 0.2);
+    }
+
+    &[href]:hover,
+    &[href]:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba($primary, 0.35);
+    }
+  }
+
+  // ── 1. Main identity card ─────────────────────────────────────────────────
+  &__card--main {
+    grid-area: main;
+    background: $surface-container-low;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: $surface-container-low;
-    border: 1px solid $border-subtle;
-    border-radius: $radius-xl;
     padding: $spacing-lg;
-    min-height: 260px;
-    position: relative;
-    overflow: hidden;
+    min-height: 300px;
 
+    // Subtle top accent line
     &::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, $primary-container, $secondary-container);
-      opacity: 0.8;
+      height: 1px;
+      background: linear-gradient(90deg, $primary-container, transparent 70%);
     }
 
+    // Ambient glow in corner
     &::after {
       content: '';
       position: absolute;
-      bottom: -80px;
-      right: -80px;
-      width: 260px;
-      height: 260px;
+      bottom: -100px;
+      right: -100px;
+      width: 340px;
+      height: 340px;
       border-radius: 50%;
-      background: radial-gradient(ellipse, rgba($primary, 0.06), transparent 70%);
+      background: radial-gradient(ellipse, rgba($primary, 0.05), transparent 65%);
       pointer-events: none;
     }
+  }
+
+  &__main-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    border: 1px solid rgba($primary, 0.2);
+    position: relative;
+    margin-bottom: $spacing-sm;
+    flex-shrink: 0;
+    background: rgba($primary, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__main-photo {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    display: block;
+    opacity: 0.85;
+  }
+
+  &__main-avatar-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-display;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: $primary;
+    background: $surface-container-high;
+  }
+
+  &__main-content {
+    flex: 1;
   }
 
   &__eyebrow {
     @include label-caps;
     color: $primary;
-    margin-bottom: $spacing-sm;
+    margin-bottom: 8px;
+    font-size: 0.6875rem;
   }
 
   &__headline {
     font-family: $font-display;
-    font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 1;
+    letter-spacing: -0.03em;
     color: $text-primary;
+    margin-bottom: 12px;
 
     &-accent {
-      color: $primary-container;
-      background: linear-gradient(135deg, $primary-container, $secondary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: $primary;
     }
   }
 
   &__sub {
-    margin-top: $spacing-sm;
-    font-size: 0.9375rem;
+    font-size: 0.9rem;
     line-height: 1.65;
-    color: rgba($text-secondary, 0.85);
-    max-width: 520px;
+    color: $text-secondary;
+    max-width: 440px;
   }
 
-  &__tags {
+  &__main-status {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 8px;
-    margin-top: $spacing-md;
-  }
-
-  &__tag {
     @include label-caps;
     font-size: 0.625rem;
-    color: $primary;
-    background: rgba($primary, 0.08);
-    border: 1px solid rgba($primary, 0.2);
-    border-radius: $radius-full;
-    padding: 4px 10px;
-    transition:
-      background 0.2s,
-      border-color 0.2s;
+    color: #4ade80;
+    margin-top: $spacing-md;
+    position: relative;
+    z-index: 1;
+  }
 
-    &:hover {
-      background: rgba($primary, 0.14);
-      border-color: rgba($primary, 0.4);
+  &__status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: $radius-full;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: pulse-dot 2.5s ease-in-out infinite;
+  }
+
+  // ── 2. Featured project card ──────────────────────────────────────────────
+  &__card--project {
+    grid-area: project;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+
+    &:hover .hero__project-screenshot {
+      transform: scale(1.03);
     }
   }
 
-  // ── Right column ────────────────────────────────────────────
-  &__sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-gutter;
-  }
-
-  &__focus-card {
-    background: $surface-container;
-    border: 1px solid $border-subtle;
-    border-radius: $radius-xl;
-    padding: $spacing-md;
+  &__project-img {
     flex: 1;
     position: relative;
     overflow: hidden;
+    min-height: 160px;
+  }
+
+  &__project-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  &__project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba($surface-container-lowest, 0.85) 100%
+    );
+    pointer-events: none;
+  }
+
+  &__project-meta {
+    padding: 14px 16px;
+    position: relative;
+    background: $surface-container;
+  }
+
+  &__project-badge {
+    @include label-caps;
+    font-size: 0.6rem;
+    color: $primary;
+    border: 1px solid rgba($primary, 0.25);
+    border-radius: $radius-full;
+    padding: 2px 8px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  &__project-name {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.1;
+  }
+
+  &__project-desc {
+    font-size: 0.75rem;
+    color: $text-secondary;
+    margin-top: 2px;
+    margin-bottom: 8px;
+  }
+
+  &__project-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__project-link {
+    @include label-caps;
+    font-size: 0.6rem;
+    color: $primary;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  // ── 3. Current job card ───────────────────────────────────────────────────
+  &__card--job {
+    grid-area: job;
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
     &::before {
       content: '';
@@ -132,165 +294,75 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, $primary-container, transparent);
-      opacity: 0.7;
+      height: 1px;
+      background: linear-gradient(90deg, $primary-container, transparent 60%);
     }
   }
 
-  &__focus-label {
+  &__card-label {
     @include label-caps;
+    font-size: 0.625rem;
     color: $primary;
-    margin-bottom: $spacing-sm;
   }
 
-  &__focus-header {
+  &__job-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
+    gap: 10px;
   }
 
-  &__focus-logo {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    overflow: hidden;
+  &__job-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
     object-fit: cover;
-    display: block;
+    flex-shrink: 0;
     background: $surface-container-high;
   }
 
-  &__focus-role {
+  &__job-role {
     font-family: $font-display;
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     color: $text-primary;
     line-height: 1.2;
   }
 
-  &__focus-company {
-    font-size: 0.8125rem;
+  &__job-company {
+    font-size: 0.75rem;
     color: $primary;
     font-weight: 600;
-    margin-top: 2px;
   }
 
-  &__focus-location {
-    font-size: 0.75rem;
+  &__job-location {
+    font-size: 0.7rem;
     color: $text-muted;
-    margin-bottom: 10px;
   }
 
-  &__focus-quote {
-    font-size: 0.8125rem;
-    font-style: italic;
-    color: rgba($text-secondary, 0.75);
+  &__job-desc {
+    font-size: 0.78rem;
+    color: $text-secondary;
     line-height: 1.55;
-    border-left: 2px solid $primary-container;
-    padding-left: $spacing-sm;
-    margin-bottom: $spacing-sm;
   }
 
-  &__focus-badge {
-    @include label-caps;
-    font-size: 0.6rem;
-    color: $text-muted;
-    background: rgba($primary, 0.07);
-    border: 1px solid rgba($primary, 0.15);
-    border-radius: $radius-md;
-    padding: 3px 8px;
-    display: inline-block;
-  }
-
-  // ── Bottom row ──────────────────────────────────────────────
-  &__bottom-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $spacing-gutter;
-    margin-top: $spacing-gutter;
-
-    @include md {
-      // Bento: wider photo card, narrower cv, medium booking
-      grid-template-columns: 1.4fr 1fr 1fr;
-    }
-  }
-
-  &__photo-card {
-    background: $surface-container;
-    border: 1px solid $border-subtle;
-    border-radius: $radius-xl;
-    overflow: hidden;
-    position: relative;
-    transition:
-      border-color 0.25s,
-      transform 0.25s;
-
-    &:hover {
-      border-color: rgba($primary, 0.3);
-      transform: translateY(-3px);
-    }
-
-    @include md {
-      aspect-ratio: auto;
-    }
-
-    &-inner {
-      width: 100%;
-      height: 100%;
-      min-height: 220px;
-      background:
-        linear-gradient(to bottom, transparent 50%, rgba($surface-container-lowest, 0.9) 100%),
-        url('/chord-shift-preview.png') center top / cover no-repeat;
-      display: flex;
-      align-items: flex-end;
-      padding: $spacing-sm;
-      position: relative;
-    }
-
-    &-badge {
-      @include label-caps;
-      font-size: 0.625rem;
-      color: $primary;
-      background: rgba($surface-container-lowest, 0.85);
-      border: 1px solid rgba($primary, 0.2);
-      border-radius: $radius-md;
-      padding: 4px 8px;
-      position: relative;
-      z-index: 1;
-    }
-
-    &-name {
-      font-family: $font-display;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: $text-primary;
-      margin-top: 4px;
-      position: relative;
-      z-index: 1;
-    }
-  }
-
-  &__cv-card {
-    background: $surface-container;
-    border: 1px solid $border-subtle;
-    border-radius: $radius-xl;
+  // ── 4. Resume card ────────────────────────────────────────────────────────
+  &__card--resume {
+    grid-area: resume;
     padding: $spacing-md;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: $spacing-sm;
     position: relative;
     overflow: hidden;
 
+    // Watermark
     &::after {
       content: 'CV';
       position: absolute;
-      bottom: -10px;
-      right: 10px;
+      bottom: -20px;
+      right: 12px;
       font-family: $font-display;
-      font-size: 5rem;
+      font-size: 7rem;
       font-weight: 900;
       color: rgba($primary, 0.04);
       pointer-events: none;
@@ -298,91 +370,149 @@
     }
   }
 
-  &__cv-label {
-    @include label-caps;
-    color: $text-muted;
-  }
-
-  &__cv-title {
+  &__resume-title {
     font-family: $font-display;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: $text-primary;
+    margin-top: 4px;
+    margin-bottom: 6px;
   }
 
-  &__cv-download {
+  &__resume-sub {
+    font-size: 0.72rem;
+    color: $text-muted;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  &__resume-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     @include label-caps;
     font-size: 0.6875rem;
     color: $primary;
-    padding: 7px 12px;
+    padding: 8px 14px;
     border: 1px solid rgba($primary, 0.3);
     border-radius: $radius-md;
     transition:
-      border-color 0.2s,
-      color 0.2s,
-      background 0.2s;
-    align-self: flex-end;
+      background 0.2s,
+      border-color 0.2s;
+    align-self: flex-start;
     position: relative;
     z-index: 1;
+    margin-top: $spacing-sm;
 
     &:hover {
-      border-color: $primary;
       background: rgba($primary, 0.08);
-      @include pink-glow(0.1);
+      border-color: $primary;
     }
   }
 
-  &__booking-card {
-    background: $surface-container;
-    border: 1px solid $border-subtle;
-    border-radius: $radius-xl;
-    padding: $spacing-md;
+  // ── 5–8. Social mini tiles ────────────────────────────────────────────────
+  &__card--social {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: $spacing-sm;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 14px 16px;
+    min-height: 110px;
+    text-decoration: none;
+    cursor: pointer;
+
+    @include md {
+      min-height: auto;
+    }
   }
 
-  &__booking-status {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    @include label-caps;
-    font-size: 0.6875rem;
-    color: #4ade80;
-  }
-
-  &__booking-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: $radius-full;
-    background: #4ade80;
-    animation: pulse-dot 2s ease-in-out infinite;
+  &__social-icon {
+    width: 26px;
+    height: 26px;
+    margin-bottom: auto;
     flex-shrink: 0;
+    transition: transform 0.2s;
+
+    .hero__card--social:hover & {
+      transform: scale(1.1);
+    }
   }
 
-  &__booking-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 10px 16px;
-    background: linear-gradient(135deg, $primary-container, #1565c0);
-    color: white;
-    border-radius: $radius-md;
-    font-family: $font-body;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition:
-      filter 0.2s,
-      box-shadow 0.2s;
+  &__social-label {
+    @include label-caps;
+    font-size: 0.65rem;
+    margin-top: 8px;
+  }
 
+  &__social-handle {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  // Tile colours — each tile gets its own accent
+  &__card--github {
+    grid-area: gh;
+    background: $surface-container;
+    .hero__social-icon {
+      color: #e2e8f0;
+    }
+    .hero__social-label {
+      color: rgba(#e2e8f0, 0.5);
+    }
+  }
+
+  &__card--linkedin {
+    grid-area: li;
+    background: #0a66c2;
+    border-color: transparent;
+    .hero__social-icon {
+      color: white;
+    }
+    .hero__social-label {
+      color: rgba(white, 0.7);
+    }
+    .hero__social-handle {
+      color: white;
+    }
     &:hover {
-      filter: brightness(1.12);
-      @include pink-glow(0.2);
+      border-color: transparent;
+      background: #0958ad;
+    }
+  }
+
+  &__card--email {
+    grid-area: email;
+    background: $surface-container;
+    .hero__social-icon {
+      color: $primary;
+    }
+    .hero__social-label {
+      color: $text-muted;
+    }
+  }
+
+  &__card--calendly {
+    grid-area: cal;
+    background: #006bff;
+    border-color: transparent;
+    .hero__social-icon {
+      color: white;
+    }
+    .hero__social-label {
+      color: rgba(white, 0.7);
+    }
+    .hero__social-handle {
+      color: white;
+    }
+    &:hover {
+      border-color: transparent;
+      background: #0055cc;
     }
   }
 }
@@ -391,8 +521,10 @@
   0%,
   100% {
     opacity: 1;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
   }
   50% {
-    opacity: 0.35;
+    opacity: 0.6;
+    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0);
   }
 }
