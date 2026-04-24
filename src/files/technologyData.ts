@@ -1,0 +1,85 @@
+interface TechnologyData {
+  [key: string]: { originalName: string; link: string };
+}
+
+const technologyData: TechnologyData = {
+  typescript: {
+    originalName: "TypeScript",
+    link: "https://www.typescriptlang.org/",
+  },
+  javascript: {
+    originalName: "JavaScript",
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  python: { originalName: "Python", link: "https://www.python.org/" },
+  csharp: { originalName: "C#", link: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+  java: { originalName: "Java", link: "https://www.java.com/" },
+  scala: { originalName: "Scala", link: "https://www.scala-lang.org/" },
+  sql: {
+    originalName: "SQL",
+    link: "https://developer.mozilla.org/en-US/docs/Glossary/SQL",
+  },
+  html: {
+    originalName: "HTML",
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  },
+  css: {
+    originalName: "CSS",
+    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+  },
+  cpp: { originalName: "C++", link: "http://www.cplusplus.com/" },
+  php: { originalName: "PHP", link: "https://www.php.net/" },
+  kotlin: { originalName: "Kotlin", link: "https://kotlinlang.org/" },
+  swift: { originalName: "Swift", link: "https://www.swift.org/" },
+  react: { originalName: "React", link: "https://reactjs.org/" },
+  nextjs: { originalName: "Next.js", link: "https://nextjs.org/" },
+  angular: { originalName: "Angular", link: "https://angular.io/" },
+  vue: { originalName: "Vue", link: "https://vuejs.org/" },
+  nodejs: { originalName: "Node.js", link: "https://nodejs.org/" },
+  express: { originalName: "Express", link: "https://expressjs.com/" },
+  redux: { originalName: "Redux", link: "https://redux.js.org/" },
+  rxjs: { originalName: "RxJS", link: "https://rxjs.dev/" },
+  jest: { originalName: "Jest", link: "https://jestjs.io/" },
+  tailwind: { originalName: "Tailwind CSS", link: "https://tailwindcss.com/" },
+  dotnet: { originalName: ".NET", link: "https://dotnet.microsoft.com/" },
+  aspnet: { originalName: "ASP.NET", link: "https://dotnet.microsoft.com/en-us/apps/aspnet" },
+  django: { originalName: "Django", link: "https://www.djangoproject.com/" },
+  knex: { originalName: "Knex", link: "http://knexjs.org/" },
+  jquery: { originalName: "jQuery", link: "https://jquery.com/" },
+  postgres: { originalName: "PostgreSQL", link: "https://www.postgresql.org/" },
+  mongodb: { originalName: "MongoDB", link: "https://www.mongodb.com/" },
+  mysql: { originalName: "MySQL", link: "https://www.mysql.com/" },
+  sqlserver: { originalName: "SQL Server", link: "https://www.microsoft.com/en-us/sql-server" },
+  sqlite: { originalName: "SQLite", link: "https://www.sqlite.org/" },
+  oracle: { originalName: "Oracle", link: "https://www.oracle.com/database/" },
+  docker: { originalName: "Docker", link: "https://www.docker.com/" },
+  kubernetes: { originalName: "Kubernetes", link: "https://kubernetes.io/" },
+  kafka: { originalName: "Kafka", link: "https://kafka.apache.org/" },
+  databricks: { originalName: "Databricks", link: "https://www.databricks.com/" },
+  graphql: { originalName: "GraphQL", link: "https://graphql.org/" },
+  aws: { originalName: "AWS", link: "https://aws.amazon.com/" },
+  nginx: { originalName: "Nginx", link: "https://www.nginx.com/" },
+  supabase: { originalName: "Supabase", link: "https://supabase.com/" },
+  materialui: { originalName: "Material-UI", link: "https://material-ui.com/" },
+  semanticui: { originalName: "Semantic UI", link: "https://semantic-ui.com/" },
+  ngxtranslate: {
+    originalName: "NGX-Translate",
+    link: "https://github.com/ngx-translate/core",
+  },
+  dynamics365: {
+    originalName: "Dynamics 365",
+    link: "https://dynamics.microsoft.com/en-us/",
+  },
+  adyen: { originalName: "Adyen", link: "https://www.adyen.com/" },
+  threejs: { originalName: "Three.js", link: "https://threejs.org/" },
+  chartsjs: { originalName: "Charts.js", link: "https://www.chartjs.org/" },
+  lint: { originalName: "ESLint", link: "https://eslint.org/" },
+  unity: { originalName: "Unity", link: "https://unity.com/" },
+  arduino: { originalName: "Arduino", link: "https://www.arduino.cc/" },
+  raspberrypi: {
+    originalName: "Raspberry Pi",
+    link: "https://www.raspberrypi.org/",
+  },
+};
+
+export default technologyData;
