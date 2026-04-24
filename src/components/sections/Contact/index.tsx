@@ -15,8 +15,8 @@ const Contact: React.FC = () => {
           Ready to start a new <span className="contact__headline-accent">Collaboration?</span>
         </h2>
         <p className="contact__sub">
-          Whether it&apos;s a technical challenge or a creative project, my door is always open
-          for innovators and visionaries.
+          Whether it&apos;s a technical challenge or a creative project, my door is always open for
+          innovators and visionaries.
         </p>
 
         <div className="contact__info-grid">

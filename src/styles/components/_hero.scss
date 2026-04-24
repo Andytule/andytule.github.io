@@ -100,7 +100,9 @@
     border: 1px solid rgba($primary, 0.2);
     border-radius: $radius-full;
     padding: 4px 10px;
-    transition: background 0.2s, border-color 0.2s;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
 
     &:hover {
       background: rgba($primary, 0.14);
@@ -221,7 +223,9 @@
     border-radius: $radius-xl;
     overflow: hidden;
     position: relative;
-    transition: border-color 0.25s, transform 0.25s;
+    transition:
+      border-color 0.25s,
+      transform 0.25s;
 
     &:hover {
       border-color: rgba($primary, 0.3);

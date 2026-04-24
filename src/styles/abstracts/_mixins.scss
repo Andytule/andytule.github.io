@@ -29,7 +29,9 @@
 
 // ── Blue glow on hover ───────────────────────────────────────────────────────
 @mixin pink-glow($intensity: 0.15) {
-  box-shadow: 0 0 20px rgba(#2196f3, $intensity * 2), 0 0 40px rgba(#60b4ff, $intensity);
+  box-shadow:
+    0 0 20px rgba(#2196f3, $intensity * 2),
+    0 0 40px rgba(#60b4ff, $intensity);
 }
 
 // ── Label caps — HUD aesthetic ───────────────────────────────────────────────

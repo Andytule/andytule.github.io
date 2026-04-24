@@ -7,8 +7,8 @@ const Hero: React.FC = () => (
         <div>
           <p className="hero__eyebrow">Full-Stack Software Engineer</p>
           <h1 className="hero__headline">
-            Hey, I&apos;m Andy —{' '}
-            <span className="hero__headline-accent">I build things</span> that scale.
+            Hey, I&apos;m Andy — <span className="hero__headline-accent">I build things</span> that
+            scale.
           </h1>
           <p className="hero__sub">
             Software engineer based in Boston, MA with a love for clean architecture and shipping
@@ -43,8 +43,8 @@ const Hero: React.FC = () => (
           </div>
           <p className="hero__focus-location">📍 Boston, MA</p>
           <blockquote className="hero__focus-quote">
-            Building full-stack features for scientific data registration — React, Kafka, Scala &amp;
-            Databricks.
+            Building full-stack features for scientific data registration — React, Kafka, Scala
+            &amp; Databricks.
           </blockquote>
           <span className="hero__focus-badge">Oct 2024 – Present</span>
         </div>

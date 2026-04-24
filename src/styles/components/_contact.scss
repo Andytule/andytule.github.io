@@ -94,7 +94,9 @@
     background: $surface-container;
     border: 1px solid $border-subtle;
     border-radius: $radius-xl;
-    transition: border-color 0.2s, transform 0.2s;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
     text-decoration: none;
 
     &:hover {
