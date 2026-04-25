@@ -206,7 +206,7 @@ const Hero: React.FC = () => {
                 GitHub
               </a>
               <a
-                href="https://chord-shift.vercel.app"
+                href="https://andytule.github.io/chord-shift/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero__project-link hero__project-link--live"
