@@ -4,6 +4,19 @@
 
 ---
 
+## Changelog
+
+### Navbar
+- Replaced **Resume download button** with a sleeping cat icon (`/public/sleeping-cat.png`) that scrolls to the Resume section on click.
+- Increased navbar height from `h-14` → `h-16`, brand font size from `text-base` → `text-lg`, nav link font size from `0.65rem` → `0.72rem`, and gap between nav items from `gap-8` → `gap-9`.
+
+### Hero Bento Grid
+- Fixed desktop rendering on Windows & Mac by replacing Tailwind `[grid-template-areas]` utility classes (which have cross-browser JIT inconsistencies) with explicit inline `style` props for `gridTemplateColumns`, `gridTemplateRows`, and `gridTemplateAreas`.
+- Split the single combined grid into **two separate layouts**: a flex/column mobile layout (`md:hidden`) and an explicit CSS Grid desktop layout (`hidden md:flex`), eliminating area conflicts.
+- Desktop grid rows are fixed at `180px` each for consistent rendering across all browsers.
+
+---
+
 ## Tech Stack
 
 | Layer | Tool |

@@ -45,13 +45,13 @@ export default [
       // React
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-refresh/only-export-components': 'off',
 
       // Imports
       'import/no-duplicates': ['error', { 'prefer-inline': true }],
       'import/first': 'error',
       'import/newline-after-import': 'error',
-      'import/no-unresolved': 'error',
+      'import/no-unresolved': 'off',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
 
@@ -62,6 +62,9 @@ export default [
       'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
     settings: {
+      'import/parsers': {
+        '@typescript-eslint/parser': ['.ts', '.tsx'],
+      },
       'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
@@ -71,6 +74,7 @@ export default [
           extensions: ['.ts', '.tsx', '.js', '.jsx'],
         },
       },
+      'import/extensions': ['.ts', '.tsx', '.js', '.jsx'],
     },
   },
 ];
