@@ -1,5 +1,4 @@
-import './styles/tailwind.css';
-import './styles/main.scss';
+import './index.css';
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';

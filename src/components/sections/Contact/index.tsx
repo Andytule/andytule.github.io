@@ -1,93 +1,90 @@
+import { Calendar, Mail, Phone } from 'lucide-react';
 import React from 'react';
 
+import { Card, CardContent } from '@/components/ui/card';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
+const contactCards = [
+  {
+    icon: <Mail size={22} />,
+    label: 'Email',
+    value: 'Andytule321@gmail.com',
+    cta: 'Send message →',
+    href: 'mailto:Andytule321@gmail.com',
+    iconBg: 'bg-[#60a5fa]/10 text-[#60a5fa]',
+  },
+  {
+    icon: <Phone size={22} />,
+    label: 'Phone',
+    value: '(905) 923–1997',
+    cta: 'Call me →',
+    href: 'tel:+19059231997',
+    iconBg: 'bg-[#4ade80]/10 text-[#4ade80]',
+  },
+  {
+    icon: <Calendar size={22} />,
+    label: 'Schedule',
+    value: '30-min intro call',
+    cta: 'Book on Calendly →',
+    href: 'https://calendly.com/andytule321',
+    iconBg: 'bg-[#006bff]/15 text-[#4d9fff]',
+    external: true,
+  },
+];
+
 const Contact: React.FC = () => {
-  const ref: React.RefObject<HTMLElement | null> = useScrollReveal<HTMLElement>();
+  const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="contact" className="section" ref={ref}>
-      <div className="contact__inner">
-        <div className="contact__bloom" aria-hidden="true" />
+    <section id="contact" className="mx-auto max-w-[1200px] px-6 py-16" ref={ref}>
+      <Card className="relative overflow-hidden border-white/7 bg-[#141416]">
+        {/* Top accent line */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#3b82f6] to-transparent" />
 
-        <p className="contact__label">Get in Touch</p>
-        <h2 className="contact__headline">
-          Let&apos;s build something{' '}
-          <span className="contact__headline-accent">great together.</span>
-        </h2>
-        <p className="contact__sub">
-          Open to new roles, collaborations, and interesting problems. Drop me a message or book
-          time directly.
-        </p>
-
-        <div className="contact__trio">
-          {/* Email */}
-          <a href="mailto:Andytule321@gmail.com" className="contact__trio-card">
-            <div className="contact__trio-icon-wrap contact__trio-icon-wrap--email">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                width="22"
-                height="22"
-              >
-                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <p className="contact__trio-label">Email</p>
-            <p className="contact__trio-value">Andytule321@gmail.com</p>
-            <span className="contact__trio-cta">Send message →</span>
-          </a>
-
-          {/* Phone */}
-          <a href="tel:+19059231997" className="contact__trio-card">
-            <div className="contact__trio-icon-wrap contact__trio-icon-wrap--phone">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                width="22"
-                height="22"
-              >
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-              </svg>
-            </div>
-            <p className="contact__trio-label">Phone</p>
-            <p className="contact__trio-value">(905) 923–1997</p>
-            <span className="contact__trio-cta">Call me →</span>
-          </a>
-
-          {/* Calendly — popup text trigger */}
-          <a
-            href="https://calendly.com/andytule321"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact__trio-card contact__trio-card--calendly"
-          >
-            <div className="contact__trio-icon-wrap contact__trio-icon-wrap--calendly">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                width="22"
-                height="22"
-              >
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-                <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
-              </svg>
-            </div>
-            <p className="contact__trio-label">Schedule</p>
-            <p className="contact__trio-value">30-min intro call</p>
-            <span className="contact__trio-cta">Book on Calendly →</span>
-          </a>
+        {/* Ambient glow */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="h-[300px] w-[500px] rounded-full bg-[#60a5fa]/5 blur-[80px]" />
         </div>
-      </div>
+
+        <CardContent className="relative z-10 px-8 py-14 text-center">
+          <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-widest text-[#60a5fa]">
+            Get in Touch
+          </p>
+          <h2 className="font-display text-[clamp(1.75rem,4.5vw,2.5rem)] font-bold tracking-tight text-[#f0f0f2]">
+            Let&apos;s build something{' '}
+            <span className="text-[#60a5fa]">great together.</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-[460px] text-[0.9375rem] leading-relaxed text-[#9a9aaa]">
+            Open to new roles, collaborations, and interesting problems. Drop me a message or book
+            time directly.
+          </p>
+
+          <div className="mx-auto mt-10 grid max-w-[720px] grid-cols-1 gap-3 text-left md:grid-cols-3">
+            {contactCards.map((card) => (
+              <a
+                key={card.label}
+                href={card.href}
+                target={card.external ? '_blank' : undefined}
+                rel={card.external ? 'noopener noreferrer' : undefined}
+                className="group flex flex-col gap-1.5 rounded-xl border border-white/7 bg-[#1c1c1f] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#60a5fa]/30 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)]"
+              >
+                <div className={`mb-1 flex h-10 w-10 items-center justify-center rounded-xl ${card.iconBg}`}>
+                  {card.icon}
+                </div>
+                <p className="text-[0.6rem] font-semibold uppercase tracking-widest text-[#4a4a55]">
+                  {card.label}
+                </p>
+                <p className="font-display text-[0.9375rem] font-semibold text-[#f0f0f2]">
+                  {card.value}
+                </p>
+                <span className="mt-auto pt-2 text-xs text-[#60a5fa] transition-all group-hover:underline">
+                  {card.cta}
+                </span>
+              </a>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </section>
   );
 };

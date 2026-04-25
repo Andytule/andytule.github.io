@@ -14,7 +14,7 @@ const useScrollReveal = <T extends HTMLElement>(): React.RefObject<T | null> => 
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
 
     el.style.opacity = '0';

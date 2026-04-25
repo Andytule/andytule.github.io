@@ -1,36 +1,50 @@
 import React from 'react';
 
+import { Button } from '@/components/ui/button';
 import { NAV_ITEMS } from '@/data';
 import useActiveSection from '@/hooks/useActiveSection';
+import { cn } from '@/lib/utils';
 
 const Navbar: React.FC = () => {
   const active = useActiveSection();
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const id: string = href.replace('#', '');
-    const el: HTMLElement | null = document.getElementById(id);
-    el?.scrollIntoView({ behavior: 'smooth' });
+    const id = href.replace('#', '');
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <header className="navbar">
-      <div className="navbar__inner">
-        <span className="navbar__brand">
-          ANDY<span>_LE</span>
+    <header
+      className={cn(
+        'sticky top-0 z-50 h-14',
+        'border-b border-white/7',
+        'bg-[#080809]/85 backdrop-blur-xl',
+      )}
+    >
+      <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6">
+        {/* Brand */}
+        <span className="font-display text-base font-extrabold tracking-[0.06em] text-[#f0f0f2]">
+          ANDY<span className="text-[#60a5fa]">_LE</span>
         </span>
 
-        <nav className="navbar__nav" aria-label="Primary navigation">
+        {/* Nav links */}
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
           {NAV_ITEMS.map((item) => {
             const sectionId = item.href.replace('#', '');
-            const isActive =
-              active === sectionId || (active === 'hero' && sectionId === 'portfolio');
+            const isActive = active === sectionId;
             return (
               <a
                 key={item.label}
                 href={item.href}
-                className={`navbar__link${isActive ? ' navbar__link--active' : ''}`}
                 onClick={(e) => handleNavClick(e, item.href)}
+                className={cn(
+                  'relative text-[0.65rem] font-semibold uppercase tracking-widest transition-colors duration-200',
+                  'after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#60a5fa] after:transition-all after:duration-300',
+                  isActive
+                    ? 'text-[#f0f0f2] after:w-full'
+                    : 'text-[#4a4a55] after:w-0 hover:text-[#f0f0f2] hover:after:w-full'
+                )}
               >
                 {item.label}
               </a>
@@ -38,16 +52,12 @@ const Navbar: React.FC = () => {
           })}
         </nav>
 
-        <div className="navbar__actions">
-          <a
-            href="/resume.pdf"
-            download="Andy_Le_Resume.pdf"
-            className="navbar__resume"
-            aria-label="Download Andy Le's resume as PDF"
-          >
+        {/* CTA */}
+        <Button variant="outline" size="sm" asChild>
+          <a href="/andy_le_resume.pdf" download="Andy_Le_Resume.pdf">
             ↓ Resume
           </a>
-        </div>
+        </Button>
       </div>
     </header>
   );

@@ -13,15 +13,9 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.workingDirectories": [
-    { "dir": "frontend", "changeProcessCWD": true },
-    { "dir": "backend", "changeProcessCWD": true }
-  ],
+  "eslint.workingDirectories": [{ "directory": ".", "changeProcessCWD": true }],
   "prettier.configPath": ".prettierrc"
 }

@@ -1,5 +1,3 @@
-// ─── Shared TypeScript interfaces for the portfolio ───────────────────────────
-
 export interface NavItem {
   label: string;
   href: string;

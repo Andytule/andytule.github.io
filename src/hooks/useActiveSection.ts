@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const SECTIONS = ['hero', 'skills', 'timeline', 'portfolio', 'contact'];
+const SECTIONS = ['hero', 'skills', 'timeline', 'portfolio', 'contact', 'resume'];
 
 const useActiveSection = (): string => {
   const [active, setActive] = useState<string>('hero');
@@ -14,20 +14,16 @@ const useActiveSection = (): string => {
 
       const observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            setActive(id);
-          }
+          if (entry.isIntersecting) setActive(id);
         },
-        { threshold: 0.4 }
+        { threshold: 0.35 }
       );
 
       observer.observe(el);
       observers.push(observer);
     });
 
-    return () => {
-      observers.forEach((obs) => obs.disconnect());
-    };
+    return () => observers.forEach((obs) => obs.disconnect());
   }, []);
 
   return active;

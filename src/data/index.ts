@@ -1,27 +1,14 @@
-/**
- * Central data barrel — all static content for the portfolio.
- * Edit these objects to update the site without touching any component.
- */
-
 import type { NavItem, Project, Skill, SocialLink, TimelineEntry } from '@/types';
 
 // ─── Navigation ────────────────────────────────────────────────────────────────
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Skills', href: '#skills' },
+  { label: 'Skills',     href: '#skills' },
   { label: 'Experience', href: '#timeline' },
-  { label: 'Work', href: '#portfolio' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Work',       href: '#portfolio' },
+  { label: 'Contact',    href: '#contact' },
+  { label: 'Resume',     href: '#resume' },
 ];
-
-// ─── Hero / Current Focus ──────────────────────────────────────────────────────
-
-export const CURRENT_FOCUS = {
-  role: 'Software Engineer',
-  company: 'Dotmatics',
-  quote:
-    'Engineering full-stack features for scientific data registration at scale — Kafka, Scala, React.',
-};
 
 // ─── Skills ───────────────────────────────────────────────────────────────────
 
@@ -67,18 +54,7 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Dotmatics · Boston, MA',
     description:
       "Engineered full-stack features for Luma's Registration module, supporting single-compound and batch registration workflows for scientists. Built record submission and tracking systems using React, TypeScript, and Node.js; developed RESTful APIs backed by PostgreSQL achieving a 25% reduction in query times; contributed to event-driven backend services using Kafka, Scala, and Databricks for high-volume scientific data pipelines.",
-    tags: [
-      'React',
-      'TypeScript',
-      'Node.js',
-      'PostgreSQL',
-      'Kafka',
-      'Scala',
-      'Databricks',
-      'Docker',
-      'Kubernetes',
-      'Jest',
-    ],
+    tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Kafka', 'Scala', 'Databricks', 'Docker', 'Kubernetes', 'Jest'],
     isCurrent: true,
   },
   {
@@ -95,23 +71,14 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Tesla · Fremont, CA',
     description:
       'Developed a gamification system for Tesla service centers to automate vehicle repair and maintenance workflows, resulting in a 13% increase in overall productivity. Designed and deployed a full-stack dashboard using React, TypeScript, and Node.js containerized with Docker; streamlined the Service Center Application using Angular and .NET microservices backed by PostgreSQL.',
-    tags: [
-      '.NET',
-      'React',
-      'TypeScript',
-      'Node.js',
-      'Docker',
-      'Angular',
-      'Material-UI',
-      'PostgreSQL',
-    ],
+    tags: ['.NET', 'React', 'TypeScript', 'Node.js', 'Docker', 'Angular', 'Material-UI', 'PostgreSQL'],
   },
   {
     period: 'Sept 2021 – Dec 2021',
     role: 'Full Stack Developer Intern',
     company: 'Caliber Communications · Stoney Creek, ON',
     description:
-      'Optimized workflow efficiency of security application users by 15% through personalized dashboard interfaces with real-time data streams via WebSocket. Engineered backend microservices with Node.js, Express.js, and Knex; implemented automated PostgreSQL scripts to purge 3.5TB of obsolete data; deployed a secure and scalable security reporting system leveraging containerization, traffic routing, and SSL termination.',
+      'Optimized workflow efficiency of security application users by 15% through personalized dashboard interfaces with real-time data streams via WebSocket. Engineered backend microservices with Node.js, Express.js, and Knex; implemented automated PostgreSQL scripts to purge 3.5TB of obsolete data.',
     tags: ['Angular', 'RxJS', 'Express', 'Knex', 'PostgreSQL', 'Docker', 'Nginx'],
   },
   {
@@ -121,29 +88,6 @@ export const TIMELINE: TimelineEntry[] = [
     description:
       "Revamped the e-commerce UI, enhancing accessibility and reducing the frontend codebase by 35% through a reusable web component library. Implemented a secure payment terminal integrating Adyen's payment API to establish a resilient payment pipeline.",
     tags: ['Dynamics 365', 'React', '.NET', 'Adyen'],
-  },
-];
-
-// ─── Education ────────────────────────────────────────────────────────────────
-
-export const EDUCATION = [
-  {
-    school: 'McMaster University',
-    schoolLink: 'https://www.mcmaster.ca/',
-    degree: 'Bachelor of Technology (B.Tech.)',
-    field: 'Software Engineering Technology (Co-op)',
-    location: 'Hamilton, ON',
-    startDate: '2022',
-    endDate: '2024',
-  },
-  {
-    school: 'Mohawk College',
-    schoolLink: 'https://www.mohawkcollege.ca/',
-    degree: 'Ontario College Advanced Diploma',
-    field: 'Computer Systems Technology – Software Development',
-    location: 'Hamilton, ON',
-    startDate: '2019',
-    endDate: '2023',
   },
 ];
 
@@ -218,7 +162,7 @@ export const PROJECTS: Project[] = [
 // ─── Social Links ─────────────────────────────────────────────────────────────
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/Andytule', icon: '⌥' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/andytule', icon: '🔗' },
-  { label: 'Email', href: 'mailto:Andytule321@gmail.com', icon: '✉' },
+  { label: 'GitHub',   href: 'https://github.com/Andytule',          icon: '⌥' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/andy-tu-le',   icon: '🔗' },
+  { label: 'Email',    href: 'mailto:Andytule321@gmail.com',         icon: '✉' },
 ];
