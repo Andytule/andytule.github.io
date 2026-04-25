@@ -17,5 +17,6 @@
     "source.fixAll.eslint": "explicit"
   },
   "eslint.workingDirectories": [{ "directory": ".", "changeProcessCWD": true }],
-  "prettier.configPath": ".prettierrc"
+  "prettier.configPath": ".prettierrc",
+  "css.lint.unknownAtRules": "ignore"
 }
