@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 h-16',
+        'sticky top-0 z-50 h-[52px]',
         'border-b border-white/7',
         'bg-[#080809]/85 backdrop-blur-xl'
       )}
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
           <img
             src="/sleeping-cat.png"
             alt="Resume"
-            className="h-9 w-9 object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-110"
+            className="h-14 w-14 object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-110"
           />
         </button>
       </div>
