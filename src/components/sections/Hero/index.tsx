@@ -27,7 +27,9 @@ const socialTiles = [
     href: 'https://calendly.com/andytule321',
     label: 'Schedule',
     hoverBg: 'hover:bg-[#006bff]',
-    icon: <Calendar size={28} className="text-[#60a5fa] transition-colors group-hover:text-white" />,
+    icon: (
+      <Calendar size={28} className="text-[#60a5fa] transition-colors group-hover:text-white" />
+    ),
   },
   {
     area: 'email',
@@ -73,7 +75,7 @@ const Hero: React.FC = () => (
         'md:[grid-template-rows:repeat(3,calc((min(100vw,1200px)-2*max(1.5rem,4vw)-5*12px)/6))]',
         'md:[grid-template-areas:"main_main_main_main_job_job""main_main_main_main_proj_proj""cal_email_gh_li_gh_li"]',
         // Override row 3 for desktop — 4 equal social tiles
-        'md:[grid-template-areas:"main_main_main_main_job_job""main_main_main_main_proj_proj""cal_email_gh_li_._.""]',
+        'md:[grid-template-areas:"main_main_main_main_job_job""main_main_main_main_proj_proj""cal_email_gh_li_._.""]'
       )}
       style={{
         gridTemplateAreas: undefined, // handled via className
@@ -88,7 +90,9 @@ const Hero: React.FC = () => (
         )}
       >
         <div className="relative z-10 flex flex-col gap-3 p-5 pt-6">
-          <Badge variant="default" className="w-fit">Software Engineer</Badge>
+          <Badge variant="default" className="w-fit">
+            Software Engineer
+          </Badge>
           <h1 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-extrabold leading-none tracking-[-0.03em] text-[#f0f0f2]">
             Andy <span className="text-[#60a5fa]">Le</span>
           </h1>
@@ -152,9 +156,15 @@ const Hero: React.FC = () => (
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#1c1c1f]/95" />
         </div>
         <div className="flex w-[155px] flex-shrink-0 flex-col justify-center gap-1.5 bg-[#1c1c1f] p-4">
-          <Badge variant="default" className="w-fit text-[0.55rem]">Featured</Badge>
-          <p className="font-display text-base font-bold leading-tight text-[#f0f0f2]">Chord-Shift</p>
-          <p className="text-[0.7rem] leading-snug text-[#9a9aaa]">Full-stack chord transposition</p>
+          <Badge variant="default" className="w-fit text-[0.55rem]">
+            Featured
+          </Badge>
+          <p className="font-display text-base font-bold leading-tight text-[#f0f0f2]">
+            Chord-Shift
+          </p>
+          <p className="text-[0.7rem] leading-snug text-[#9a9aaa]">
+            Full-stack chord transposition
+          </p>
           <div className="mt-1.5 flex flex-wrap gap-3">
             <a
               href="https://github.com/Andytule/chord-shift"

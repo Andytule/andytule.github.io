@@ -17,8 +17,7 @@ const Timeline: React.FC = () => {
           Experience
         </p>
         <h2 className="font-display text-[clamp(1.75rem,4vw,2rem)] font-semibold tracking-tight text-[#f0f0f2]">
-          The Professional{' '}
-          <span className="text-[#60a5fa]">Journey.</span>
+          The Professional <span className="text-[#60a5fa]">Journey.</span>
         </h2>
         <div className="mt-2 h-0.5 w-10 rounded-full bg-[#3b82f6]" />
       </div>
@@ -61,9 +60,7 @@ const Timeline: React.FC = () => {
                     )}
                   </div>
 
-                  <p className="mb-4 text-sm leading-relaxed text-[#9a9aaa]">
-                    {entry.description}
-                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-[#9a9aaa]">{entry.description}</p>
 
                   <div className="flex flex-wrap gap-1.5">
                     {entry.tags.map((tag) => (

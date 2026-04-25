@@ -61,9 +61,7 @@ const Resume: React.FC = () => {
             file="/andy_le_resume.pdf"
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
             loading={
-              <div className="py-16 text-center text-sm text-[#4a4a55]">
-                Loading résumé…
-              </div>
+              <div className="py-16 text-center text-sm text-[#4a4a55]">Loading résumé…</div>
             }
             error={
               <div className="py-16 text-center text-sm text-[#4a4a55]">
@@ -81,12 +79,7 @@ const Resume: React.FC = () => {
           >
             {Array.from({ length: numPages }, (_, i) => (
               <React.Fragment key={i + 1}>
-                <Page
-                  pageNumber={i + 1}
-                  width={pageWidth}
-                  renderTextLayer
-                  renderAnnotationLayer
-                />
+                <Page pageNumber={i + 1} width={pageWidth} renderTextLayer renderAnnotationLayer />
                 {i < numPages - 1 && <Separator className="my-2 w-full" />}
               </React.Fragment>
             ))}

@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
       className={cn(
         'sticky top-0 z-50 h-14',
         'border-b border-white/7',
-        'bg-[#080809]/85 backdrop-blur-xl',
+        'bg-[#080809]/85 backdrop-blur-xl'
       )}
     >
       <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6">

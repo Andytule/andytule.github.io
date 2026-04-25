@@ -27,15 +27,15 @@ const Skills: React.FC = () => {
             className="group border-white/7 bg-[#1c1c1f] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#60a5fa]/30 hover:shadow-[0_0_20px_rgba(33,150,243,0.1)]"
           >
             <CardHeader className="pb-2">
-              <div className="mb-1 text-xl" aria-hidden="true">{skill.icon}</div>
+              <div className="mb-1 text-xl" aria-hidden="true">
+                {skill.icon}
+              </div>
               <CardTitle className="font-display text-base font-semibold text-[#f0f0f2]">
                 {skill.category}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm leading-relaxed text-[#4a4a55]">
-                {skill.items.join(', ')}
-              </p>
+              <p className="text-sm leading-relaxed text-[#4a4a55]">{skill.items.join(', ')}</p>
             </CardContent>
           </Card>
         ))}

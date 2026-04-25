@@ -3,10 +3,10 @@ import React from 'react';
 import { Separator } from '@/components/ui/separator';
 
 const FOOTER_LINKS = [
-  { label: 'Source',   href: 'https://github.com/andytule' },
+  { label: 'Source', href: 'https://github.com/andytule' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/andy-tu-le' },
-  { label: 'Journal',  href: '#' },
-  { label: 'Archive',  href: '#' },
+  { label: 'Journal', href: '#' },
+  { label: 'Archive', href: '#' },
 ];
 
 const Footer: React.FC = () => {

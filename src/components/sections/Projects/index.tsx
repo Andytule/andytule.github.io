@@ -65,7 +65,9 @@ const Projects: React.FC = () => {
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {featured.tags.map((t) => (
-                    <Badge key={t} variant="muted" className="text-[0.55rem]">{t}</Badge>
+                    <Badge key={t} variant="muted" className="text-[0.55rem]">
+                      {t}
+                    </Badge>
                   ))}
                 </div>
                 <div className="flex gap-3">
@@ -104,12 +106,12 @@ const Projects: React.FC = () => {
               <h3 className="font-display text-[1.05rem] font-bold tracking-tight text-[#f0f0f2]">
                 {project.title}
               </h3>
-              <p className="flex-1 text-sm leading-relaxed text-[#9a9aaa]">
-                {project.description}
-              </p>
+              <p className="flex-1 text-sm leading-relaxed text-[#9a9aaa]">{project.description}</p>
               <div className="flex flex-wrap gap-1.5">
                 {project.tags.map((t) => (
-                  <Badge key={t} variant="muted" className="text-[0.55rem]">{t}</Badge>
+                  <Badge key={t} variant="muted" className="text-[0.55rem]">
+                    {t}
+                  </Badge>
                 ))}
               </div>
               <div className="flex items-center gap-4 border-t border-white/7 pt-3 mt-auto">

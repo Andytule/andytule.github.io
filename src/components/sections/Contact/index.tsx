@@ -51,8 +51,7 @@ const Contact: React.FC = () => {
             Get in Touch
           </p>
           <h2 className="font-display text-[clamp(1.75rem,4.5vw,2.5rem)] font-bold tracking-tight text-[#f0f0f2]">
-            Let&apos;s build something{' '}
-            <span className="text-[#60a5fa]">great together.</span>
+            Let&apos;s build something <span className="text-[#60a5fa]">great together.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-[460px] text-[0.9375rem] leading-relaxed text-[#9a9aaa]">
             Open to new roles, collaborations, and interesting problems. Drop me a message or book
@@ -68,7 +67,9 @@ const Contact: React.FC = () => {
                 rel={card.external ? 'noopener noreferrer' : undefined}
                 className="group flex flex-col gap-1.5 rounded-xl border border-white/7 bg-[#1c1c1f] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#60a5fa]/30 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)]"
               >
-                <div className={`mb-1 flex h-10 w-10 items-center justify-center rounded-xl ${card.iconBg}`}>
+                <div
+                  className={`mb-1 flex h-10 w-10 items-center justify-center rounded-xl ${card.iconBg}`}
+                >
                   {card.icon}
                 </div>
                 <p className="text-[0.6rem] font-semibold uppercase tracking-widest text-[#4a4a55]">

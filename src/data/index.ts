@@ -3,11 +3,11 @@ import type { NavItem, Project, Skill, SocialLink, TimelineEntry } from '@/types
 // ─── Navigation ────────────────────────────────────────────────────────────────
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Skills',     href: '#skills' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#timeline' },
-  { label: 'Work',       href: '#portfolio' },
-  { label: 'Contact',    href: '#contact' },
-  { label: 'Resume',     href: '#resume' },
+  { label: 'Work', href: '#portfolio' },
+  { label: 'Contact', href: '#contact' },
+  { label: 'Resume', href: '#resume' },
 ];
 
 // ─── Skills ───────────────────────────────────────────────────────────────────
@@ -54,7 +54,18 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Dotmatics · Boston, MA',
     description:
       "Engineered full-stack features for Luma's Registration module, supporting single-compound and batch registration workflows for scientists. Built record submission and tracking systems using React, TypeScript, and Node.js; developed RESTful APIs backed by PostgreSQL achieving a 25% reduction in query times; contributed to event-driven backend services using Kafka, Scala, and Databricks for high-volume scientific data pipelines.",
-    tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Kafka', 'Scala', 'Databricks', 'Docker', 'Kubernetes', 'Jest'],
+    tags: [
+      'React',
+      'TypeScript',
+      'Node.js',
+      'PostgreSQL',
+      'Kafka',
+      'Scala',
+      'Databricks',
+      'Docker',
+      'Kubernetes',
+      'Jest',
+    ],
     isCurrent: true,
   },
   {
@@ -71,7 +82,16 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Tesla · Fremont, CA',
     description:
       'Developed a gamification system for Tesla service centers to automate vehicle repair and maintenance workflows, resulting in a 13% increase in overall productivity. Designed and deployed a full-stack dashboard using React, TypeScript, and Node.js containerized with Docker; streamlined the Service Center Application using Angular and .NET microservices backed by PostgreSQL.',
-    tags: ['.NET', 'React', 'TypeScript', 'Node.js', 'Docker', 'Angular', 'Material-UI', 'PostgreSQL'],
+    tags: [
+      '.NET',
+      'React',
+      'TypeScript',
+      'Node.js',
+      'Docker',
+      'Angular',
+      'Material-UI',
+      'PostgreSQL',
+    ],
   },
   {
     period: 'Sept 2021 – Dec 2021',
@@ -162,7 +182,7 @@ export const PROJECTS: Project[] = [
 // ─── Social Links ─────────────────────────────────────────────────────────────
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: 'GitHub',   href: 'https://github.com/Andytule',          icon: '⌥' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/andy-tu-le',   icon: '🔗' },
-  { label: 'Email',    href: 'mailto:Andytule321@gmail.com',         icon: '✉' },
+  { label: 'GitHub', href: 'https://github.com/Andytule', icon: '⌥' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/andy-tu-le', icon: '🔗' },
+  { label: 'Email', href: 'mailto:Andytule321@gmail.com', icon: '✉' },
 ];
