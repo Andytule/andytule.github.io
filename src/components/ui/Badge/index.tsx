@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-import { badgeVariants } from './badge-variants.ts';
+import { badgeVariants } from './badgeVariants.ts';
 
 export type { BadgeProps };
 export { Badge };
