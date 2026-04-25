@@ -3,7 +3,6 @@ import React from 'react';
 import { PROJECTS } from '@/data';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
-// Chord-Shift screenshot — base64 imported via Vite asset handling
 const CHORD_SHIFT_IMG = '/chord-shift-preview.png';
 
 const Projects: React.FC = () => {
@@ -19,88 +18,85 @@ const Projects: React.FC = () => {
         <div className="divider" />
       </div>
 
-      {/* Featured project — Chord-Shift with large screenshot */}
-      {featured && (
-        <article className="projects__featured">
-          <div className="projects__featured-image">
-            <img
-              src={CHORD_SHIFT_IMG}
-              alt="Chord-Shift app screenshot — chord transposition tool"
-              className="projects__featured-screenshot"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
-            />
-            <div className="projects__featured-overlay" />
-            <span className="projects__featured-badge">Featured Project</span>
-          </div>
-
-          <div className="projects__featured-body">
-            <h3 className="projects__featured-title">{featured.title}</h3>
-            <p className="projects__featured-desc">{featured.description}</p>
-
-            <ul className="projects__tags" aria-label="Technologies">
-              {featured.tags.map((tag) => (
-                <li key={tag} className="projects__tag">
-                  {tag}
-                </li>
-              ))}
-            </ul>
-
-            <div className="projects__links">
-              {featured.demoUrl && (
-                <a
-                  href={featured.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="projects__link projects__link--demo"
-                >
-                  View Live →
-                </a>
-              )}
-              {featured.sourceUrl && (
-                <a
-                  href={featured.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="projects__link"
-                >
-                  Source ↗
-                </a>
-              )}
-            </div>
-          </div>
-        </article>
-      )}
-
-      <div className="projects__grid">
-        {rest.map((project) => (
-          <article key={project.title} className="projects__card">
-            <div className="projects__image">
-              <div className="projects__image-inner" />
+      <div className="bento">
+        {/* ── Featured hero cell ── */}
+        {featured && (
+          <article className="bento__cell bento__cell--hero">
+            <div className="bento__hero-img">
+              <img
+                src={CHORD_SHIFT_IMG}
+                alt="Chord-Shift app screenshot"
+                className="bento__screenshot"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              <div className="bento__hero-gradient" />
+              <span className="bento__badge">Featured</span>
             </div>
 
-            <div className="projects__body">
-              <h3 className="projects__title">{project.title}</h3>
-              <p className="projects__desc">{project.description}</p>
-
-              <ul className="projects__tags" aria-label="Technologies">
-                {project.tags.map((tag) => (
-                  <li key={tag} className="projects__tag">
-                    {tag}
+            <div className="bento__hero-body">
+              <h3 className="bento__hero-title">{featured.title}</h3>
+              <p className="bento__hero-desc">{featured.description}</p>
+              <ul className="bento__tags" aria-label="Technologies">
+                {featured.tags.map((t) => (
+                  <li key={t} className="bento__tag">
+                    {t}
                   </li>
                 ))}
               </ul>
+              <div className="bento__links">
+                {featured.demoUrl && (
+                  <a
+                    href={featured.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bento__link bento__link--primary"
+                  >
+                    View Live →
+                  </a>
+                )}
+                {featured.sourceUrl && (
+                  <a
+                    href={featured.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bento__link"
+                  >
+                    Source ↗
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        )}
 
-              <div className="projects__links">
+        {/* ── Non-featured project cards ── */}
+        {rest.map((project, i) => (
+          <article
+            key={project.title}
+            className={`bento__cell bento__cell--card bento__cell--card-${i}`}
+          >
+            <div className="bento__card-accent" />
+            <div className="bento__card-body">
+              <h3 className="bento__card-title">{project.title}</h3>
+              <p className="bento__card-desc">{project.description}</p>
+              <ul className="bento__tags" aria-label="Technologies">
+                {project.tags.map((t) => (
+                  <li key={t} className="bento__tag">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <div className="bento__links">
                 {project.demoUrl && (
                   <a
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="projects__link projects__link--demo"
+                    className="bento__link bento__link--primary"
                   >
-                    View Demo →
+                    Demo →
                   </a>
                 )}
                 {project.sourceUrl && (
@@ -108,7 +104,7 @@ const Projects: React.FC = () => {
                     href={project.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="projects__link"
+                    className="bento__link"
                   >
                     Source ↗
                   </a>
