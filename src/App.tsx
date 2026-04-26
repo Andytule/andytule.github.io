@@ -10,20 +10,40 @@ import Skills from '@/components/sections/Skills';
 import Timeline from '@/components/sections/Timeline';
 
 const App = (): React.ReactElement => (
-  <div className="relative min-h-screen overflow-x-hidden bg-[#0e0e10]">
-    {/* Ambient background orbs */}
+  <div
+    style={{ position: 'relative', minHeight: '100vh', overflowX: 'hidden', background: '#000' }}
+  >
+    {/* Subtle ambient orbs — very restrained, Apple-like */}
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed right-[-10%] top-[-20%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.04)_0%,transparent_70%)]"
+      style={{
+        position: 'fixed',
+        right: '-5%',
+        top: '-10%',
+        height: '600px',
+        width: '600px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(41,151,255,0.03) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }}
     />
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed left-[-15%] top-[40%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.03)_0%,transparent_70%)]"
+      style={{
+        position: 'fixed',
+        left: '-10%',
+        top: '45%',
+        height: '600px',
+        width: '600px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(41,151,255,0.025) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }}
     />
 
     <Navbar />
 
-    <main className="relative z-10">
+    <main style={{ position: 'relative', zIndex: 10 }}>
       <Hero />
       <Skills />
       <Timeline />

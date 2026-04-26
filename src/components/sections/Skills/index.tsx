@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import SectionHeader from '@/components/shared/SectionHeader';
 import { SKILLS } from '@/data';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
@@ -8,36 +8,64 @@ const Skills: React.FC = () => {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="skills" className="mx-auto max-w-[1200px] px-6 py-16" ref={ref}>
-      {/* Section header */}
-      <div className="mb-10">
-        <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-widest text-[#60a5fa]">
-          Technical Arsenal
-        </p>
-        <h2 className="font-display text-[clamp(1.75rem,4vw,2rem)] font-semibold tracking-tight text-[#f0f0f2]">
-          What I work with
-        </h2>
-        <div className="mt-2 h-0.5 w-10 rounded-full bg-[#3b82f6]" />
-      </div>
+    <section
+      id="skills"
+      ref={ref}
+      style={{ margin: '0 auto', maxWidth: '1100px', padding: '6rem 1.5rem' }}
+    >
+      <SectionHeader eyebrow="Technical Arsenal" title="What I work with" />
 
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
-        {SKILLS.map((skill) => (
-          <Card
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '1px',
+          background: 'rgba(255,255,255,0.06)',
+          borderRadius: '1.5rem',
+          overflow: 'hidden',
+          border: '1px solid rgba(255,255,255,0.06)',
+        }}
+      >
+        {SKILLS.map((skill, i) => (
+          <div
             key={skill.category}
-            className="group border-white/7 bg-[#1c1c1f] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#60a5fa]/30 hover:shadow-[0_0_20px_rgba(33,150,243,0.1)]"
+            style={{
+              background: i % 2 === 0 ? '#16161a' : '#1c1c21',
+              padding: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+              transition: 'background 0.15s ease',
+            }}
+            className="hover:bg-[#161616]"
           >
-            <CardHeader className="pb-2">
-              <div className="mb-1 text-xl" aria-hidden="true">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <span style={{ fontSize: '1.375rem', lineHeight: 1 }} aria-hidden="true">
                 {skill.icon}
-              </div>
-              <CardTitle className="font-display text-base font-semibold text-[#f0f0f2]">
+              </span>
+              <h3
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  color: '#f0f0f5',
+                  letterSpacing: '-0.02em',
+                }}
+              >
                 {skill.category}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm leading-relaxed text-[#4a4a55]">{skill.items.join(', ')}</p>
-            </CardContent>
-          </Card>
+              </h3>
+            </div>
+            <p
+              style={{
+                fontSize: '0.875rem',
+                lineHeight: 1.7,
+                color: '#8a8a96',
+                letterSpacing: '-0.005em',
+              }}
+            >
+              {skill.items.join(' · ')}
+            </p>
+          </div>
         ))}
       </div>
     </section>

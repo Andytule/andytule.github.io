@@ -5,9 +5,7 @@ import { Download, FileText } from 'lucide-react';
 import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
+import SectionHeader from '@/components/shared/SectionHeader';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
@@ -18,57 +16,116 @@ const Resume: React.FC = () => {
   const [pageWidth, setPageWidth] = useState<number>(860);
 
   React.useEffect(() => {
-    const update = () => {
-      setPageWidth(Math.min(860, window.innerWidth - 96));
-    };
+    const update = () => setPageWidth(Math.min(860, window.innerWidth - 96));
     update();
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
   }, []);
 
   return (
-    <section id="resume" className="mx-auto max-w-[1200px] px-6 py-16" ref={ref}>
-      {/* Section header */}
-      <div className="mb-10">
-        <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-widest text-[#60a5fa]">
-          Resume
-        </p>
-        <h2 className="font-display text-[clamp(1.75rem,4vw,2rem)] font-semibold tracking-tight text-[#f0f0f2]">
-          My Résumé
-        </h2>
-        <div className="mt-2 h-0.5 w-10 rounded-full bg-[#3b82f6]" />
-      </div>
+    <section
+      id="resume"
+      ref={ref}
+      style={{ margin: '0 auto', maxWidth: '1100px', padding: '6rem 1.5rem' }}
+    >
+      <SectionHeader eyebrow="Resume" title="My Résumé" />
 
-      <Card className="overflow-hidden border-white/7 bg-[#141416]">
-        {/* Card header bar */}
-        <div className="flex items-center justify-between border-b border-white/7 px-6 py-4">
-          <div className="flex items-center gap-2.5">
-            <FileText size={18} className="text-[#60a5fa]" />
-            <span className="font-display text-base font-bold text-[#f0f0f2]">
+      <div
+        style={{
+          overflow: 'hidden',
+          border: '1px solid rgba(255,255,255,0.1)',
+          borderRadius: '1.5rem',
+          background: '#16161a',
+        }}
+      >
+        {/* Header bar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '1rem 1.5rem',
+            borderBottom: '1px solid rgba(255,255,255,0.07)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
+            <FileText size={16} style={{ color: '#3b9eff' }} />
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.9375rem',
+                fontWeight: 600,
+                color: '#f0f0f5',
+                letterSpacing: '-0.02em',
+              }}
+            >
               Andy Le — Résumé
             </span>
           </div>
-          <Button variant="outline" size="sm" asChild>
-            <a href="/andy_le_resume.pdf" download="Andy_Le_Resume.pdf">
-              <Download size={13} />
-              Download PDF
-            </a>
-          </Button>
+
+          <a
+            href="/andy_le_resume.pdf"
+            download="Andy_Le_Resume.pdf"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.375rem',
+              padding: '0.4375rem 0.875rem',
+              borderRadius: '9999px',
+              border: '1px solid rgba(255,255,255,0.12)',
+              background: 'transparent',
+              color: '#8a8a96',
+              fontSize: '0.8125rem',
+              fontWeight: 500,
+              letterSpacing: '-0.01em',
+              transition: 'color 0.15s ease, border-color 0.15s ease',
+              textDecoration: 'none',
+            }}
+            className="hover:text-[#f0f0f5] hover:border-[rgba(255,255,255,0.25)]"
+          >
+            <Download size={12} />
+            Download PDF
+          </a>
         </div>
 
-        <CardContent className="flex flex-col items-center gap-6 p-6">
+        {/* PDF viewer */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1.5rem',
+            padding: '2rem',
+          }}
+        >
           <Document
             file="/andy_le_resume.pdf"
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
             loading={
-              <div className="py-16 text-center text-sm text-[#4a4a55]">Loading résumé…</div>
+              <div
+                style={{
+                  padding: '5rem 0',
+                  textAlign: 'center',
+                  fontSize: '0.875rem',
+                  color: '#52525e',
+                }}
+              >
+                Loading résumé…
+              </div>
             }
             error={
-              <div className="py-16 text-center text-sm text-[#4a4a55]">
+              <div
+                style={{
+                  padding: '5rem 0',
+                  textAlign: 'center',
+                  fontSize: '0.875rem',
+                  color: '#52525e',
+                }}
+              >
                 Could not load PDF.{' '}
                 <a
                   href="/andy_le_resume.pdf"
-                  className="text-[#60a5fa] underline"
+                  style={{ color: '#3b9eff' }}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -80,12 +137,21 @@ const Resume: React.FC = () => {
             {Array.from({ length: numPages }, (_, i) => (
               <React.Fragment key={i + 1}>
                 <Page pageNumber={i + 1} width={pageWidth} renderTextLayer renderAnnotationLayer />
-                {i < numPages - 1 && <Separator className="my-2 w-full" />}
+                {i < numPages - 1 && (
+                  <div
+                    style={{
+                      width: '100%',
+                      height: '1px',
+                      background: 'rgba(255,255,255,0.06)',
+                      margin: '0.5rem 0',
+                    }}
+                  />
+                )}
               </React.Fragment>
             ))}
           </Document>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </section>
   );
 };

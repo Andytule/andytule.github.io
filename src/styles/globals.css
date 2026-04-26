@@ -1,0 +1,193 @@
+@import 'tailwindcss';
+
+/* ── Design Tokens ────────────────────────────────────────────────────── */
+@theme {
+  /* Surfaces — warm dark greys, lifted from pure black */
+  --color-bg: #0e0e11;
+  --color-surface-lowest: #111114;
+  --color-surface-low: #16161a;
+  --color-surface: #1c1c21;
+  --color-surface-container: #22222a;
+  --color-surface-high: #2a2a34;
+  --color-surface-highest: #32323e;
+
+  /* Brand — richer blue with more pop */
+  --color-accent: #3b9eff;
+  --color-accent-bright: #5eb0ff;
+  --color-accent-dim: rgba(59, 158, 255, 0.15);
+  --color-accent-hover: #1a7fe8;
+  --color-green: #30d158;
+  --color-green-dim: rgba(48, 209, 88, 0.12);
+
+  /* Text */
+  --color-text-primary: #f0f0f5;
+  --color-text-secondary: #8a8a96;
+  --color-text-tertiary: #52525e;
+
+  /* Borders — slightly more visible */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-border-accent: rgba(59, 158, 255, 0.35);
+
+  /* Fonts — SF Pro stack */
+  --font-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-body: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+
+  /* Radius — Apple uses consistent medium radii */
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-full: 9999px;
+
+  /* Easing */
+  --ease-apple: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* ── Square card aspect ratio enforcement ─────────────────────────────── */
+.square-card {
+  aspect-ratio: 1 / 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  padding: 0;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Utility ──────────────────────────────────────────────────────────── */
+
+/* Apple-style glass card */
+.glass-card {
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  transition:
+    border-color 0.2s var(--ease-apple),
+    box-shadow 0.2s var(--ease-apple),
+    transform 0.2s var(--ease-apple);
+}
+.glass-card:hover {
+  border-color: var(--color-border-strong);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* Section label */
+.section-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Scroll reveal */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.55s var(--ease-apple) forwards;
+}
+
+/* ── react-pdf ────────────────────────────────────────────────────────── */
+.react-pdf__Page {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+.react-pdf__Page canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* ── Pill badge ───────────────────────────────────────────────────────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.625rem;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  background: var(--color-surface-high);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+.pill-accent {
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
+  border-color: var(--color-border-accent);
+}
+.pill-green {
+  background: var(--color-green-dim);
+  color: var(--color-green);
+  border-color: rgba(48, 209, 88, 0.25);
+}

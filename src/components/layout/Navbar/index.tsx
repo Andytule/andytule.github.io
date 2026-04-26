@@ -15,20 +15,47 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={cn(
-        'sticky top-0 z-50 h-[52px]',
-        'border-b border-white/7',
-        'bg-[#080809]/85 backdrop-blur-xl'
-      )}
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+        height: '52px',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        background: 'rgba(0,0,0,0.72)',
+        backdropFilter: 'saturate(180%) blur(20px)',
+        WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+      }}
     >
-      <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6">
+      <div
+        style={{
+          margin: '0 auto',
+          maxWidth: '1100px',
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '0 1.5rem',
+        }}
+      >
         {/* Brand */}
-        <span className="font-display text-lg font-extrabold tracking-[0.06em] text-[#f0f0f2]">
-          ANDY<span className="text-[#60a5fa]">_LE</span>
+        <span
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '1.0625rem',
+            fontWeight: 700,
+            letterSpacing: '-0.02em',
+            color: 'var(--color-text-primary)',
+          }}
+        >
+          Andy<span style={{ color: 'var(--color-accent)' }}> Le</span>
         </span>
 
-        {/* Nav links */}
-        <nav className="hidden items-center gap-9 md:flex" aria-label="Primary navigation">
+        {/* Nav links — hidden on mobile */}
+        <nav
+          className="hidden md:flex"
+          style={{ gap: '2rem', alignItems: 'center' }}
+          aria-label="Primary navigation"
+        >
           {NAV_ITEMS.map((item) => {
             const sectionId = item.href.replace('#', '');
             const isActive = active === sectionId;
@@ -37,32 +64,51 @@ const Navbar: React.FC = () => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={cn(
-                  'relative text-[0.72rem] font-semibold uppercase tracking-widest transition-colors duration-200',
-                  'after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#60a5fa] after:transition-all after:duration-300',
-                  isActive
-                    ? 'text-[#f0f0f2] after:w-full'
-                    : 'text-[#4a4a55] after:w-0 hover:text-[#f0f0f2] hover:after:w-full'
-                )}
+                style={{
+                  fontSize: '0.8125rem',
+                  fontWeight: 400,
+                  letterSpacing: '-0.01em',
+                  color: isActive ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
+                  transition: 'color 0.15s ease',
+                  position: 'relative',
+                }}
+                className={cn('transition-colors', !isActive && 'hover:text-[#f0f0f5]')}
               >
                 {item.label}
+                {isActive && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      bottom: '-4px',
+                      left: 0,
+                      right: 0,
+                      height: '1.5px',
+                      background: 'var(--color-accent)',
+                      borderRadius: '999px',
+                    }}
+                  />
+                )}
               </a>
             );
           })}
         </nav>
 
-        {/* Cat icon — scrolls to Resume section, mix-blend-screen to drop the black bg */}
+        {/* Cat icon → Resume */}
         <button
-          onClick={() => {
-            document.getElementById('resume')?.scrollIntoView({ behavior: 'smooth' });
-          }}
+          onClick={() => document.getElementById('resume')?.scrollIntoView({ behavior: 'smooth' })}
           aria-label="View Resume"
-          className="group flex items-center justify-center transition-opacity duration-200 hover:opacity-75"
+          style={{ display: 'flex', alignItems: 'center', opacity: 0.9 }}
+          className="transition-opacity hover:opacity-100"
         >
           <img
             src="/sleeping-cat.png"
             alt="Resume"
-            className="h-14 w-14 object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-110"
+            style={{
+              height: '3rem',
+              width: '3rem',
+              objectFit: 'contain',
+              mixBlendMode: 'screen',
+            }}
           />
         </button>
       </div>
