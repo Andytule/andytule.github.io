@@ -30,7 +30,7 @@
 - **Social tile icons and labels are larger on mobile**: icons scale from 28px → 36px, labels from `0.5625rem` → `0.6875rem`.
 - **GitHub social tile** icon color updated from `text-[#f0f0f2]` (white) to `text-[#3b9eff]` (blue) to match the other social icons.
 - **Dotmatics card** is now a clickable `<a>` tag linking to `https://www.dotmatics.com/` (opens in new tab). Hovers blue.
-- **Chord-Shift card** (Featured Project) now scrolls to the `#portfolio` section on click (entire card body). The GitHub/Live buttons use `e.stopPropagation()` so they still open their respective URLs independently. Card has a blue border glow on hover.
+- **Chord-Shift card** (Featured Project) now scrolls to the `#projects` section on click (entire card body). The GitHub/Live buttons use `e.stopPropagation()` so they still open their respective URLs independently. Card has a blue border glow on hover.
 - **GitHub & Live buttons** on the Chord-Shift card replaced plain text links with pill-style badge buttons: GitHub uses a subtle ghost style; Live uses a blue-tinted style — both include inline Lucide/SVG icons for visual clarity.
 - **Andy Le identity card** background updated to `#1c1c21` to match the refreshed palette.
 - Replaced custom inline `GitHubIcon` and `LinkedInIcon` SVG components with stateful icon components for consistent hover color control.

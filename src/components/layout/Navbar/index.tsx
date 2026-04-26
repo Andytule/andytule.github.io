@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { NAV_ITEMS } from '@/data';
-import useActiveSection from '@/hooks/useActiveSection';
 import { cn } from '@/lib/utils';
 
-const Navbar: React.FC = () => {
-  const active = useActiveSection();
+const NavLink: React.FC<{
+  label: string;
+  href: string;
+  onClick: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
+}> = ({ label, href, onClick }) => {
+  const [hovered, setHovered] = useState(false);
 
+  return (
+    <a
+      href={href}
+      onClick={(e) => onClick(e, href)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        fontSize: '0.8125rem',
+        fontWeight: 400,
+        letterSpacing: '-0.01em',
+        color: hovered ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
+        transition: 'color 0.15s ease, background 0.15s ease',
+        padding: '0.3rem 0.65rem',
+        borderRadius: '999px',
+        background: hovered ? 'rgba(255,255,255,0.07)' : 'transparent',
+        textDecoration: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+      }}
+      className={cn('transition-all')}
+    >
+      {label}
+    </a>
+  );
+};
+
+const Navbar: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const id = href.replace('#', '');
@@ -57,38 +87,13 @@ const Navbar: React.FC = () => {
           aria-label="Primary navigation"
         >
           {NAV_ITEMS.map((item) => {
-            const sectionId = item.href.replace('#', '');
-            const isActive = active === sectionId;
             return (
-              <a
+              <NavLink
                 key={item.label}
+                label={item.label}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                style={{
-                  fontSize: '0.8125rem',
-                  fontWeight: 400,
-                  letterSpacing: '-0.01em',
-                  color: isActive ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
-                  transition: 'color 0.15s ease',
-                  position: 'relative',
-                }}
-                className={cn('transition-colors', !isActive && 'hover:text-[#f0f0f5]')}
-              >
-                {item.label}
-                {isActive && (
-                  <span
-                    style={{
-                      position: 'absolute',
-                      bottom: '-4px',
-                      left: 0,
-                      right: 0,
-                      height: '1.5px',
-                      background: 'var(--color-accent)',
-                      borderRadius: '999px',
-                    }}
-                  />
-                )}
-              </a>
+                onClick={handleNavClick}
+              />
             );
           })}
         </nav>

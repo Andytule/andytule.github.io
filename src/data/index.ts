@@ -5,7 +5,7 @@ import type { NavItem, Project, Skill, SocialLink, TimelineEntry } from '@/types
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#timeline' },
-  { label: 'Work', href: '#portfolio' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
   { label: 'Resume', href: '#resume' },
 ];

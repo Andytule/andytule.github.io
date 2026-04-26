@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
 
   return (
     <section
-      id="portfolio"
+      id="projects"
       ref={ref}
       style={{ margin: '0 auto', maxWidth: '1100px', padding: '6rem 1.5rem' }}
     >
