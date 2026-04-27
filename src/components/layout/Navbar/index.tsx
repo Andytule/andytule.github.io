@@ -16,28 +16,16 @@ const NavLink: React.FC<{
       onClick={(e) => onClick(e, href)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{
-        fontSize: '0.8125rem',
-        fontWeight: 400,
-        letterSpacing: '-0.01em',
-        color: hovered ? '#ffffff' : 'rgba(240,240,245,0.55)',
-        transition: 'color 0.15s ease',
-        padding: '0.3rem 0.5rem',
-        background: 'transparent',
-        textDecoration: 'none',
-        display: 'inline-flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 0,
-      }}
-      className={cn('transition-all')}
+      className={cn(
+        'text-[0.8125rem] font-normal tracking-[-0.01em] transition-colors duration-150',
+        'inline-flex flex-col items-center gap-0 px-2 py-1 bg-transparent no-underline',
+        hovered ? 'text-white' : 'text-[rgba(240,240,245,0.55)]'
+      )}
     >
       <span
+        className="block pb-px transition-colors duration-150"
         style={{
-          display: 'block',
-          paddingBottom: '1px',
           borderBottom: hovered ? '1px solid #3b9eff' : '1px solid transparent',
-          transition: 'border-color 0.15s ease',
         }}
       >
         {label}
@@ -54,45 +42,12 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 50,
-        height: '52px',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
-        background: 'rgba(22,22,27,0.82)',
-        backdropFilter: 'saturate(180%) blur(20px)',
-        WebkitBackdropFilter: 'saturate(180%) blur(20px)',
-      }}
-    >
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: '1100px',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 1.5rem',
-        }}
-      >
-        <span
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '1.0625rem',
-            fontWeight: 700,
-            letterSpacing: '-0.02em',
-            color: 'var(--color-text-primary)',
-          }}
-        >
-          Andy<span style={{ color: 'var(--color-accent)' }}> Le</span>
+    <header className="sticky top-0 z-50 h-[52px] border-b border-white/[0.07] bg-[rgba(22,22,27,0.82)] backdrop-saturate-[180%] backdrop-blur-[20px]">
+      <div className="mx-auto max-w-[1100px] h-full flex items-center justify-between px-6">
+        <span className="font-[var(--font-display)] text-[1.0625rem] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">
+          Andy<span className="text-[var(--color-accent)]"> Le</span>
         </span>
-        <nav
-          className="hidden md:flex"
-          style={{ gap: '0.25rem', alignItems: 'center' }}
-          aria-label="Primary navigation"
-        >
+        <nav className="hidden md:flex gap-1 items-center" aria-label="Primary navigation">
           {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.label}
@@ -106,12 +61,7 @@ const Navbar: React.FC = () => {
           src="/sleeping-cat.png"
           alt=""
           aria-hidden="true"
-          style={{
-            height: '3rem',
-            width: '3rem',
-            objectFit: 'contain',
-            opacity: 0.9,
-          }}
+          className="h-12 w-12 object-contain opacity-90"
         />
       </div>
     </header>

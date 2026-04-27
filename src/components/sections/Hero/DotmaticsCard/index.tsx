@@ -29,59 +29,33 @@ export const DotmaticsCard: React.FC<{
       onMouseLeave={() => setHovered(false)}
     >
       <p
-        style={{
-          fontSize: '0.625rem',
-          fontWeight: 600,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-          color: hovered ? 'rgba(255,255,255,0.6)' : '#3b9eff',
-          transition: 'color 0.2s ease',
-        }}
+        className="text-[0.625rem] font-semibold tracking-[0.12em] uppercase transition-colors duration-200"
+        style={{ color: hovered ? 'rgba(255,255,255,0.6)' : '#3b9eff' }}
       >
         Currently At
       </p>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+      <div className="flex items-center gap-3">
         <img
           src="/dotmatics-logo.png"
           alt="Dotmatics"
-          style={{
-            height: '2.75rem',
-            width: '2.75rem',
-            borderRadius: '0.75rem',
-            objectFit: 'cover',
-            flexShrink: 0,
-          }}
+          className="h-11 w-11 rounded-[0.75rem] object-cover shrink-0"
           onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
         />
         <div>
-          <p
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '1.125rem',
-              fontWeight: 600,
-              lineHeight: 1.2,
-            }}
-          >
+          <p className="font-[var(--font-display)] text-[1.125rem] font-semibold leading-[1.2]">
             Software Engineer
           </p>
           <p
-            style={{
-              fontSize: '0.875rem',
-              marginTop: '0.125rem',
-              color: hovered ? 'rgba(255,255,255,0.7)' : '#3b9eff',
-              transition: 'color 0.2s ease',
-            }}
+            className="text-sm mt-0.5 transition-colors duration-200"
+            style={{ color: hovered ? 'rgba(255,255,255,0.7)' : '#3b9eff' }}
           >
             Dotmatics
           </p>
         </div>
       </div>
       <p
-        style={{
-          fontSize: '0.75rem',
-          color: hovered ? 'rgba(255,255,255,0.5)' : '#52525e',
-          transition: 'color 0.2s ease',
-        }}
+        className="text-xs transition-colors duration-200"
+        style={{ color: hovered ? 'rgba(255,255,255,0.5)' : '#52525e' }}
       >
         Boston, MA · Oct 2024–Present
       </p>

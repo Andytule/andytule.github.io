@@ -85,18 +85,8 @@ export const ChordShiftCard: React.FC<{
 
       {/* Content panel */}
       <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: '44%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          gap: '0.5rem',
-          padding: '1.25rem',
-        }}
+        className="absolute top-0 right-0 bottom-0 flex flex-col justify-center gap-2 p-5"
+        style={{ left: '44%' }}
       >
         {/* "Featured" badge — flips to frosted white on hover */}
         <span
@@ -119,32 +109,21 @@ export const ChordShiftCard: React.FC<{
         </span>
 
         <p
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '1rem',
-            fontWeight: 600,
-            color: hovered ? '#ffffff' : '#f0f0f5',
-            letterSpacing: '-0.02em',
-            lineHeight: 1.2,
-            transition: 'color 0.2s ease',
-          }}
+          className="font-[var(--font-display)] text-base font-semibold leading-[1.2] tracking-[-0.02em] transition-colors duration-200"
+          style={{ color: hovered ? '#ffffff' : '#f0f0f5' }}
         >
           Chord-Shift
         </p>
 
         <p
-          style={{
-            fontSize: '0.6875rem',
-            color: hovered ? 'rgba(255,255,255,0.75)' : '#8a8a96',
-            lineHeight: 1.4,
-            transition: 'color 0.2s ease',
-          }}
+          className="text-[0.6875rem] leading-[1.4] transition-colors duration-200"
+          style={{ color: hovered ? 'rgba(255,255,255,0.75)' : '#8a8a96' }}
         >
           Full-stack chord transposition
         </p>
 
         {/* Action pills */}
-        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem', flexWrap: 'wrap' }}>
+        <div className="flex gap-2 mt-1 flex-wrap">
           <a
             href="https://github.com/Andytule/chord-shift"
             target="_blank"

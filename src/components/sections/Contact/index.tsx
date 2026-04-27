@@ -38,103 +38,40 @@ const Contact: React.FC = () => {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section
-      id="contact"
-      ref={ref}
-      style={{ margin: '0 auto', maxWidth: '1100px', padding: '6rem 1.5rem' }}
-    >
-      <div
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          borderRadius: '2rem',
-          border: '1px solid rgba(255,255,255,0.07)',
-          background: 'var(--color-surface-lowest)',
-        }}
-      >
+    <section id="contact" ref={ref} className="mx-auto max-w-[1100px] px-6 py-24">
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.07] bg-[var(--color-surface-lowest)]">
         {/* Top line */}
-        <div
-          style={{
-            position: 'absolute',
-            insetInline: 0,
-            top: 0,
-            height: '1px',
-            background: 'linear-gradient(to right, transparent, rgba(77,166,255,0.7), transparent)',
-          }}
-        />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(77,166,255,0.7)] to-transparent" />
 
         {/* Ambient glow */}
         <div
           aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-          }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
         >
           <div
+            className="h-80 w-[560px] rounded-full"
             style={{
-              height: '320px',
-              width: '560px',
-              borderRadius: '50%',
               background: 'radial-gradient(circle, rgba(77,166,255,0.07) 0%, transparent 70%)',
               filter: 'blur(40px)',
             }}
           />
         </div>
 
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 1,
-            padding: 'clamp(3rem, 6vw, 5rem) 2rem',
-            textAlign: 'center',
-          }}
-        >
-          <p className="section-eyebrow" style={{ marginBottom: '1rem' }}>
-            Get in Touch
-          </p>
+        <div className="relative z-10 px-8 py-[clamp(3rem,6vw,5rem)] text-center">
+          <p className="section-eyebrow mb-4">Get in Touch</p>
 
-          <h2
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2rem, 4.5vw, 3rem)',
-              fontWeight: 700,
-              color: '#f0f0f5',
-              letterSpacing: '-0.04em',
-              lineHeight: 1.05,
-              marginBottom: '1.25rem',
-            }}
-          >
-            Let's build something <span style={{ color: '#3b9eff' }}>great together.</span>
+          <h2 className="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3rem)] font-bold text-[#f0f0f5] tracking-[-0.04em] leading-[1.05] mb-5">
+            Let's build something <span className="text-[#3b9eff]">great together.</span>
           </h2>
 
-          <p
-            style={{
-              maxWidth: '460px',
-              margin: '0 auto',
-              fontSize: '1.0625rem',
-              lineHeight: 1.6,
-              color: '#8a8a96',
-              letterSpacing: '-0.01em',
-            }}
-          >
+          <p className="max-w-[460px] mx-auto text-[1.0625rem] leading-[1.6] text-[#8a8a96] tracking-[-0.01em]">
             Open to new roles, collaborations, and interesting problems. Drop me a message or book
             time directly.
           </p>
 
           <div
-            style={{
-              maxWidth: '720px',
-              margin: '3rem auto 0',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-              gap: '0.75rem',
-              textAlign: 'left',
-            }}
+            className="max-w-[720px] mx-auto mt-12 grid gap-3 text-left"
+            style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}
           >
             {contactCards.map((card) => (
               <a
@@ -142,66 +79,21 @@ const Contact: React.FC = () => {
                 href={card.href}
                 target={card.external ? '_blank' : undefined}
                 rel={card.external ? 'noopener noreferrer' : undefined}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.5rem',
-                  borderRadius: '1.25rem',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  background: 'var(--color-surface)',
-                  padding: '1.5rem',
-                  textDecoration: 'none',
-                  transition: 'border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease',
-                }}
-                className="group hover:-translate-y-0.5 hover:border-[rgba(41,151,255,0.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)]"
+                className="group flex flex-col gap-2 rounded-[1.25rem] border border-white/[0.07] bg-[var(--color-surface)] p-6 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-[rgba(41,151,255,0.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)]"
               >
                 <div
-                  style={{
-                    width: '2.5rem',
-                    height: '2.5rem',
-                    borderRadius: '0.75rem',
-                    background: card.iconBg,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: card.iconColor,
-                    marginBottom: '0.25rem',
-                  }}
+                  className="flex h-10 w-10 items-center justify-center rounded-[0.75rem] mb-1"
+                  style={{ background: card.iconBg, color: card.iconColor }}
                 >
                   {card.icon}
                 </div>
-                <p
-                  style={{
-                    fontSize: '0.625rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: '#52525e',
-                  }}
-                >
+                <p className="text-[0.625rem] font-semibold tracking-[0.1em] uppercase text-[#52525e]">
                   {card.label}
                 </p>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '0.9375rem',
-                    fontWeight: 600,
-                    color: '#f0f0f5',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
+                <p className="font-[var(--font-display)] text-[0.9375rem] font-semibold text-[#f0f0f5] tracking-[-0.02em]">
                   {card.value}
                 </p>
-                <span
-                  style={{
-                    marginTop: 'auto',
-                    paddingTop: '0.5rem',
-                    fontSize: '0.8125rem',
-                    color: '#3b9eff',
-                    transition: 'opacity 0.15s ease',
-                  }}
-                  className="group-hover:opacity-70"
-                >
+                <span className="mt-auto pt-2 text-[0.8125rem] text-[#3b9eff] transition-opacity duration-150 group-hover:opacity-70">
                   {card.cta}
                 </span>
               </a>

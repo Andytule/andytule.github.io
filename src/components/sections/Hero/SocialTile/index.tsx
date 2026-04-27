@@ -71,22 +71,16 @@ export const SocialTile: React.FC<{
       onMouseLeave={() => setHovered(false)}
     >
       <span
-        style={{
-          display: 'flex',
-          transition: 'transform 0.2s ease',
-          transform: hovered ? 'scale(1.1)' : 'scale(1)',
-        }}
+        className="flex transition-transform duration-200"
+        style={{ transform: hovered ? 'scale(1.1)' : 'scale(1)' }}
       >
         <Icon size={iconSize} color={hovered ? 'white' : '#3b9eff'} />
       </span>
       <span
+        className="font-semibold tracking-[0.1em] uppercase transition-colors duration-200"
         style={{
           fontSize: mobile ? '0.6875rem' : '0.5625rem',
-          fontWeight: 600,
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
           color: hovered ? 'rgba(255,255,255,0.5)' : '#52525e',
-          transition: 'color 0.2s ease',
         }}
       >
         {label}

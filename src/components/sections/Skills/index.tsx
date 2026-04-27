@@ -8,61 +8,29 @@ const Skills: React.FC = () => {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section
-      id="skills"
-      ref={ref}
-      style={{ margin: '0 auto', maxWidth: '1100px', padding: '6rem 1.5rem' }}
-    >
+    <section id="skills" ref={ref} className="mx-auto max-w-[1100px] px-6 py-24">
       <SectionHeader eyebrow="Technical Arsenal" title="What I work with" />
 
       <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '1px',
-          background: 'rgba(255,255,255,0.06)',
-          borderRadius: '1.5rem',
-          overflow: 'hidden',
-          border: '1px solid rgba(255,255,255,0.06)',
-        }}
+        className="grid gap-px bg-white/[0.06] rounded-3xl overflow-hidden border border-white/[0.06]"
+        style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}
       >
         {SKILLS.map((skill, i) => (
           <div
             key={skill.category}
-            style={{
-              background: i % 2 === 0 ? 'var(--color-surface-low)' : 'var(--color-surface)',
-              padding: '2rem',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.75rem',
-              transition: 'background 0.15s ease',
-            }}
-            className=""
+            className={`flex flex-col gap-3 p-8 transition-colors duration-150 ${
+              i % 2 === 0 ? 'bg-[var(--color-surface-low)]' : 'bg-[var(--color-surface)]'
+            }`}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <span style={{ fontSize: '1.375rem', lineHeight: 1 }} aria-hidden="true">
+            <div className="flex items-center gap-3">
+              <span className="text-[1.375rem] leading-none" aria-hidden="true">
                 {skill.icon}
               </span>
-              <h3
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  color: '#f0f0f5',
-                  letterSpacing: '-0.02em',
-                }}
-              >
+              <h3 className="font-[var(--font-display)] text-base font-semibold text-[#f0f0f5] tracking-[-0.02em]">
                 {skill.category}
               </h3>
             </div>
-            <p
-              style={{
-                fontSize: '0.875rem',
-                lineHeight: 1.7,
-                color: '#8a8a96',
-                letterSpacing: '-0.005em',
-              }}
-            >
+            <p className="text-sm leading-[1.7] text-[#8a8a96] tracking-[-0.005em]">
               {skill.items.join(' · ')}
             </p>
           </div>

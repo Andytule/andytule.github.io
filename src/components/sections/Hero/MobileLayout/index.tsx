@@ -17,7 +17,7 @@ export const MobileLayout: React.FC = () => (
     <ResumeCard mobile />
 
     {/* Social tiles — 2×2 grid */}
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+    <div className="grid grid-cols-2 gap-3">
       {socialTiles.map((t) => (
         <SocialTile key={t.area} {...t} mobile aspectRatio />
       ))}

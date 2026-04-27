@@ -35,22 +35,15 @@ export const ResumeCard: React.FC<{
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+      <div className="flex items-center gap-3">
         <FileText
           size={mobile ? 28 : 40}
-          style={{
-            flexShrink: 0,
-            color: hovered ? '#ffffff' : '#3b9eff',
-            transition: 'color 0.2s ease',
-          }}
+          className="shrink-0 transition-colors duration-200"
+          style={{ color: hovered ? '#ffffff' : '#3b9eff' }}
         />
         <p
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: mobile ? '1.125rem' : '1.5rem',
-            fontWeight: 700,
-            letterSpacing: '-0.03em',
-          }}
+          className="font-[var(--font-display)] font-bold tracking-[-0.03em]"
+          style={{ fontSize: mobile ? '1.125rem' : '1.5rem' }}
         >
           Resume
         </p>
