@@ -8,10 +8,12 @@
 
 ### Color Palette
 
-- Lifted all surface colors from near-black to warmer dark greys: background `#0e0e11`, cards `#1c1c21`, lowest surface `#111114`.
-- Blue accent updated from `#2997ff` → `#3b9eff` (brighter, more present throughout the UI).
-- Border opacity increased from `0.08` → `0.10` for better card definition on lighter backgrounds.
-- Text tertiary updated from `#48484a` → `#52525e` for improved legibility.
+- Lifted all surface colors further for a warmer, richer dark grey: background `#1e1e24`, cards `#2c2c36`, lowest surface `#22222a`.
+- Blue accent updated from `#3b9eff` → `#4da6ff` (brighter, higher saturation for more pop throughout the UI).
+- Accent dim increased from `rgba(59,158,255,0.14)` → `rgba(77,166,255,0.18)` for more visible accent surfaces.
+- Border opacity increased from `0.09` → `0.11` (resting) and `0.16` → `0.20` (strong) for sharper card definition.
+- Text secondary updated from `#8e8e9a` → `#9898a8` and tertiary from `#52525e` → `#606070` for improved legibility.
+- Glass-card hover now includes a subtle blue ambient glow (`rgba(77,166,255,0.06)`) in addition to the shadow lift.
 
 ### Navbar
 

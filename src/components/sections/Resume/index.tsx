@@ -35,7 +35,7 @@ const Resume: React.FC = () => {
           overflow: 'hidden',
           border: '1px solid rgba(255,255,255,0.1)',
           borderRadius: '1.5rem',
-          background: '#16161a',
+          background: 'var(--color-surface-low)',
         }}
       >
         {/* Header bar */}

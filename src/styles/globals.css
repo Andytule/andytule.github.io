@@ -3,35 +3,34 @@
 /* ── Design Tokens ────────────────────────────────────────────────────── */
 @theme {
   /*
-   * Surfaces — Apple's UIColor.systemBackground in dark mode is #1C1C1E.
-   * We use that as our card surface and set the page bg one step below it,
-   * giving a clearly visible lift between bg and cards without going too light.
+   * Surfaces — middle ground between the original near-black and the previous
+   * over-brightened pass. Page bg at #19191e, cards at #252530.
    */
-  --color-bg: #18181c;
-  --color-surface-lowest: #1a1a1e;
-  --color-surface-low: #1e1e23;
-  --color-surface: #222228; /* card resting state */
-  --color-surface-container: #28282f;
-  --color-surface-high: #303039;
-  --color-surface-highest: #38383f;
+  --color-bg: #16161b;
+  --color-surface-lowest: #1a1a20;
+  --color-surface-low: #1e1e25;
+  --color-surface: #23232c; /* card resting state */
+  --color-surface-container: #2a2a34;
+  --color-surface-high: #323240;
+  --color-surface-highest: #3d3d4c;
 
-  /* Brand — same vivid blue, slightly richer */
-  --color-accent: #3b9eff;
-  --color-accent-bright: #62b8ff;
-  --color-accent-dim: rgba(59, 158, 255, 0.14);
-  --color-accent-hover: #1a7fe8;
+  /* Brand — punchier blue + richer glow for accent surfaces */
+  --color-accent: #4da6ff;
+  --color-accent-bright: #76c0ff;
+  --color-accent-dim: rgba(77, 166, 255, 0.18);
+  --color-accent-hover: #2389f0;
   --color-green: #30d158;
-  --color-green-dim: rgba(48, 209, 88, 0.12);
+  --color-green-dim: rgba(48, 209, 88, 0.14);
 
   /* Text — Apple uses #EBEBF5 (not pure white) for primary on dark bg */
   --color-text-primary: #ebebf5;
-  --color-text-secondary: #8e8e9a;
-  --color-text-tertiary: #56565f;
+  --color-text-secondary: #9898a8;
+  --color-text-tertiary: #606070;
 
-  /* Borders — slightly warmer tint */
-  --color-border: rgba(255, 255, 255, 0.09);
-  --color-border-strong: rgba(255, 255, 255, 0.16);
-  --color-border-accent: rgba(59, 158, 255, 0.3);
+  /* Borders — slightly more visible for better card definition */
+  --color-border: rgba(255, 255, 255, 0.11);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
+  --color-border-accent: rgba(77, 166, 255, 0.38);
 
   /* Fonts — SF Pro stack */
   --font-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
@@ -132,8 +131,9 @@ svg {
 .glass-card:hover {
   border-color: var(--color-border-strong);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.04);
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 40px rgba(77, 166, 255, 0.06);
 }
 
 /* Section label */

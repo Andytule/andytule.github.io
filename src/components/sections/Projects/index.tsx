@@ -16,7 +16,7 @@ const spanClasses: Record<number, string> = {
 };
 
 const cardStyle: React.CSSProperties = {
-  background: '#1c1c21',
+  background: 'var(--color-surface)',
   border: '1px solid rgba(255,255,255,0.1)',
   borderRadius: '1.25rem',
   overflow: 'hidden',
@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
                   position: 'relative',
                   minHeight: '200px',
                   overflow: 'hidden',
-                  background: '#1a1a1a',
+                  background: 'var(--color-surface-low)',
                 }}
               >
                 <img
@@ -77,7 +77,7 @@ const Projects: React.FC = () => {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to right, transparent 60%, #1c1c21)',
+                    background: 'linear-gradient(to right, transparent 60%, var(--color-surface))',
                   }}
                   className="hidden md:block"
                 />
@@ -85,7 +85,7 @@ const Projects: React.FC = () => {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to bottom, transparent 60%, #1c1c21)',
+                    background: 'linear-gradient(to bottom, transparent 60%, var(--color-surface))',
                   }}
                   className="md:hidden"
                 />

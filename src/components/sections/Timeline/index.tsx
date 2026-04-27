@@ -57,7 +57,7 @@ const Timeline: React.FC = () => {
 
               <div
                 style={{
-                  background: '#16161a',
+                  background: 'var(--color-surface-low)',
                   border: '1px solid rgba(255,255,255,0.07)',
                   borderRadius: '1.25rem',
                   padding: '1.75rem',

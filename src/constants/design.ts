@@ -7,7 +7,7 @@ export const COLORS = {
   textSecondary: '#86868b',
   textTertiary: '#48484a',
   surface: '#141414',
-  surfaceContainer: '#1a1a1a',
+  surfaceContainer: 'var(--color-surface-low)',
   border: 'rgba(255,255,255,0.08)',
 } as const;
 

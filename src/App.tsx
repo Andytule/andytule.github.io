@@ -11,7 +11,12 @@ import Timeline from '@/components/sections/Timeline';
 
 const App = (): React.ReactElement => (
   <div
-    style={{ position: 'relative', minHeight: '100vh', overflowX: 'hidden', background: '#000' }}
+    style={{
+      position: 'relative',
+      minHeight: '100vh',
+      overflowX: 'hidden',
+      background: 'var(--color-bg)',
+    }}
   >
     {/* Subtle ambient orbs — very restrained, Apple-like */}
     <div
@@ -20,10 +25,10 @@ const App = (): React.ReactElement => (
         position: 'fixed',
         right: '-5%',
         top: '-10%',
-        height: '600px',
-        width: '600px',
+        height: '700px',
+        width: '700px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(41,151,255,0.03) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(77,166,255,0.06) 0%, transparent 70%)',
         pointerEvents: 'none',
       }}
     />
@@ -33,10 +38,10 @@ const App = (): React.ReactElement => (
         position: 'fixed',
         left: '-10%',
         top: '45%',
-        height: '600px',
-        width: '600px',
+        height: '700px',
+        width: '700px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(41,151,255,0.025) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(77,166,255,0.04) 0%, transparent 70%)',
         pointerEvents: 'none',
       }}
     />

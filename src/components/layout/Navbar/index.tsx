@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
         height: '52px',
         // Slightly more visible separator — Apple uses a hairline on dark bg
         borderBottom: '1px solid rgba(255,255,255,0.07)',
-        background: 'rgba(24,24,28,0.82)', // matches new --color-bg
+        background: 'rgba(22,22,27,0.82)', // matches --color-bg
         backdropFilter: 'saturate(180%) blur(20px)',
         WebkitBackdropFilter: 'saturate(180%) blur(20px)',
       }}
@@ -120,7 +120,6 @@ const Navbar: React.FC = () => {
             height: '3rem',
             width: '3rem',
             objectFit: 'contain',
-            mixBlendMode: 'screen',
             opacity: 0.9,
           }}
         />

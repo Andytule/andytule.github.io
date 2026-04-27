@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
           overflow: 'hidden',
           borderRadius: '2rem',
           border: '1px solid rgba(255,255,255,0.07)',
-          background: '#111114',
+          background: 'var(--color-surface-lowest)',
         }}
       >
         {/* Top line */}
@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
             insetInline: 0,
             top: 0,
             height: '1px',
-            background: 'linear-gradient(to right, transparent, rgba(41,151,255,0.6), transparent)',
+            background: 'linear-gradient(to right, transparent, rgba(77,166,255,0.7), transparent)',
           }}
         />
 
@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
               height: '320px',
               width: '560px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(41,151,255,0.05) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(77,166,255,0.07) 0%, transparent 70%)',
               filter: 'blur(40px)',
             }}
           />
@@ -148,7 +148,7 @@ const Contact: React.FC = () => {
                   gap: '0.5rem',
                   borderRadius: '1.25rem',
                   border: '1px solid rgba(255,255,255,0.07)',
-                  background: '#1c1c21',
+                  background: 'var(--color-surface)',
                   padding: '1.5rem',
                   textDecoration: 'none',
                   transition: 'border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease',

@@ -30,14 +30,14 @@ const Skills: React.FC = () => {
           <div
             key={skill.category}
             style={{
-              background: i % 2 === 0 ? '#16161a' : '#1c1c21',
+              background: i % 2 === 0 ? 'var(--color-surface-low)' : 'var(--color-surface)',
               padding: '2rem',
               display: 'flex',
               flexDirection: 'column',
               gap: '0.75rem',
               transition: 'background 0.15s ease',
             }}
-            className="hover:bg-[#161616]"
+            className=""
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <span style={{ fontSize: '1.375rem', lineHeight: 1 }} aria-hidden="true">
