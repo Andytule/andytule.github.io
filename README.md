@@ -64,28 +64,46 @@ src/
 ├── components/
 │   ├── layout/
 │   │   ├── Navbar/index.tsx        # Sticky nav with active-section tracking
-│   │   └── Footer/index.tsx        # Footer with links
+│   │   ├── Footer/index.tsx        # Footer with links
+│   │   └── index.ts                # Barrel exports
 │   ├── sections/
-│   │   ├── Hero/index.tsx          # Bento grid hero
+│   │   ├── Hero/
+│   │   │   ├── ChordShiftCard/index.tsx   # Featured project bento card
+│   │   │   ├── DotmaticsCard/index.tsx    # Dotmatics employer card
+│   │   │   ├── HeroGrid/index.tsx         # Desktop CSS grid layout
+│   │   │   ├── HoverCard/index.tsx        # Generic hoverable card wrapper
+│   │   │   ├── IdentityCard/index.tsx     # Andy Le name/title card
+│   │   │   ├── MobileLayout/index.tsx     # Mobile flex layout
+│   │   │   ├── ResumeCard/index.tsx       # Resume icon card
+│   │   │   ├── SocialTile/index.tsx       # Square social link tiles (stateful hover)
+│   │   │   └── index.tsx                  # Hero section entry point
 │   │   ├── Skills/index.tsx        # Technical skills card grid
 │   │   ├── Timeline/index.tsx      # Work experience timeline
 │   │   ├── Projects/index.tsx      # Featured + project bento grid
 │   │   ├── Contact/index.tsx       # Contact cards (email, phone, Calendly)
-│   │   └── Resume/index.tsx        # Standalone PDF viewer section
+│   │   ├── Resume/index.tsx        # Standalone PDF viewer section
+│   │   └── index.ts                # Barrel exports
+│   ├── shared/
+│   │   ├── SectionHeader.tsx       # Reusable section eyebrow + heading
+│   │   └── index.ts                # Barrel exports
 │   └── ui/
 │       ├── badge.tsx               # shadcn/ui Badge
 │       ├── button.tsx              # shadcn/ui Button
 │       ├── card.tsx                # shadcn/ui Card
 │       ├── separator.tsx           # shadcn/ui Separator
 │       └── tooltip.tsx             # shadcn/ui Tooltip
+├── constants/
+│   └── design.ts                   # Shared design tokens / constants
 ├── data/index.ts                   # ALL static content
 ├── hooks/
 │   ├── useScrollReveal.ts
-│   └── useActiveSection.ts
+│   ├── useActiveSection.ts
+│   └── index.ts                    # Barrel exports
 ├── lib/utils.ts                    # cn() helper
 ├── types/index.ts
 ├── App.tsx
 ├── main.tsx
+├── vite-env.d.ts
 └── styles/globals.css              # Tailwind v4 + @theme tokens
 ```
 
