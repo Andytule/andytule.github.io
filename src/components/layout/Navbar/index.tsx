@@ -20,8 +20,6 @@ const NavLink: React.FC<{
         fontSize: '0.8125rem',
         fontWeight: 400,
         letterSpacing: '-0.01em',
-        // Apple.com nav: no background shape on hover — just the text brightens
-        // to full white and a crisp 1px blue underline slides in beneath it.
         color: hovered ? '#ffffff' : 'rgba(240,240,245,0.55)',
         transition: 'color 0.15s ease',
         padding: '0.3rem 0.5rem',
@@ -31,11 +29,9 @@ const NavLink: React.FC<{
         flexDirection: 'column',
         alignItems: 'center',
         gap: 0,
-        // Underline implemented as a bottom border on the inner text span
       }}
       className={cn('transition-all')}
     >
-      {/* Text with animated blue underline — Apple.com nav behaviour */}
       <span
         style={{
           display: 'block',
@@ -64,9 +60,8 @@ const Navbar: React.FC = () => {
         top: 0,
         zIndex: 50,
         height: '52px',
-        // Slightly more visible separator — Apple uses a hairline on dark bg
         borderBottom: '1px solid rgba(255,255,255,0.07)',
-        background: 'rgba(22,22,27,0.82)', // matches --color-bg
+        background: 'rgba(22,22,27,0.82)',
         backdropFilter: 'saturate(180%) blur(20px)',
         WebkitBackdropFilter: 'saturate(180%) blur(20px)',
       }}
@@ -82,7 +77,6 @@ const Navbar: React.FC = () => {
           padding: '0 1.5rem',
         }}
       >
-        {/* Brand */}
         <span
           style={{
             fontFamily: 'var(--font-display)',
@@ -94,8 +88,6 @@ const Navbar: React.FC = () => {
         >
           Andy<span style={{ color: 'var(--color-accent)' }}> Le</span>
         </span>
-
-        {/* Nav links — hidden on mobile */}
         <nav
           className="hidden md:flex"
           style={{ gap: '0.25rem', alignItems: 'center' }}
@@ -110,8 +102,6 @@ const Navbar: React.FC = () => {
             />
           ))}
         </nav>
-
-        {/* Cat icon — decorative only */}
         <img
           src="/sleeping-cat.png"
           alt=""

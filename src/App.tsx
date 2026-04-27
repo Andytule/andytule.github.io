@@ -18,33 +18,49 @@ const App = (): React.ReactElement => (
       background: 'var(--color-bg)',
     }}
   >
-    {/* Subtle ambient orbs — very restrained, Apple-like */}
+    {/* Apple-style layered ambient light system */}
     <div
       aria-hidden="true"
-      style={{
-        position: 'fixed',
-        right: '-5%',
-        top: '-10%',
-        height: '700px',
-        width: '700px',
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(77,166,255,0.06) 0%, transparent 70%)',
-        pointerEvents: 'none',
-      }}
-    />
-    <div
-      aria-hidden="true"
-      style={{
-        position: 'fixed',
-        left: '-10%',
-        top: '45%',
-        height: '700px',
-        width: '700px',
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(77,166,255,0.04) 0%, transparent 70%)',
-        pointerEvents: 'none',
-      }}
-    />
+      style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}
+    >
+      {/* Base sweep — barely-there blue-to-purple */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'linear-gradient(135deg, rgba(40,90,200,0.05) 0%, transparent 55%, rgba(90,30,180,0.04) 100%)',
+        }}
+      />
+      {/* Top-left blue */}
+      <div
+        style={{
+          position: 'absolute',
+          left: '-20%',
+          top: '-15%',
+          height: '900px',
+          width: '900px',
+          borderRadius: '50%',
+          background:
+            'radial-gradient(circle at center, rgba(60,130,255,0.05) 0%, transparent 65%)',
+          filter: 'blur(80px)',
+        }}
+      />
+      {/* Bottom-right purple */}
+      <div
+        style={{
+          position: 'absolute',
+          right: '-15%',
+          bottom: '-10%',
+          height: '900px',
+          width: '900px',
+          borderRadius: '50%',
+          background:
+            'radial-gradient(circle at center, rgba(120,50,240,0.05) 0%, transparent 65%)',
+          filter: 'blur(80px)',
+        }}
+      />
+    </div>
 
     <Navbar />
 
