@@ -168,7 +168,7 @@ export const ChordShiftCard: React.FC<{
             GitHub
           </a>
           <a
-            href="https://chord-shift.vercel.app"
+            href="https://andytule.github.io/chord-shift/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}

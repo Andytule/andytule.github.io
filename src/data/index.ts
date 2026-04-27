@@ -120,7 +120,7 @@ export const PROJECTS: Project[] = [
       'A full-stack chord transposition tool built with a modular transformation engine using Strategy, Factory, and Composite design patterns. Supports cloud storage via Supabase and integrates with the Google Docs API.',
     tags: ['TypeScript', 'React', 'Node.js', 'Supabase'],
     sourceUrl: 'https://github.com/Andytule/chord-shift',
-    demoUrl: 'https://chord-shift.vercel.app',
+    demoUrl: 'https://andytule.github.io/chord-shift/',
     featured: true,
   },
   {
