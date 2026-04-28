@@ -153,7 +153,7 @@ export const PROJECTS: Project[] = [
     tags: ['TypeScript', 'React', 'Node.js', 'Supabase'],
     sourceUrl: 'https://github.com/Andytule/chord-shift',
     demoUrl: 'https://andytule.github.io/chord-shift/',
-    image: '/chord-shift-preview.png',
+    image: '/chord-shift.png',
     featured: true,
   },
   {
