@@ -22,7 +22,7 @@
   - Font is 0.6875rem / weight 500 / letter-spacing 0.01em — legible but unobtrusive.
 - `pulse` prop adds an animated dot for live/active status (used on "Open to opportunities" and "Currently At").
 - `hoverClassName` prop allows card-level `group-hover:` overrides without forking the component.
-- Replaces all raw `.pill` / `.pill-green` / `.pill-accent` CSS class strings across: `IdentityCard`, `JobCard`, `ChordShiftCard`, `Timeline`, `Projects`.
+- Replaces all raw `.pill` / `.pill-green` / `.pill-accent` CSS class strings across: `IdentityCard`, `JobCard`, `FeaturedCard`, `Timeline`, `Projects`.
 
 ### JobCard
 
@@ -93,8 +93,8 @@ src/
 │   │   └── Footer/index.tsx
 │   ├── sections/
 │   │   ├── Hero/
-│   │   │   ├── ChordShiftCard/     # "Featured Project" — full Tailwind group hover
-│   │   │   ├── DotmaticsCard/      # "Currently At" — green pill bottom stamp
+│   │   │   ├── FeaturedCard/       # "Featured Project" — full Tailwind group hover
+│   │   │   ├── JobCard/            # "Currently At" — green pill bottom stamp
 │   │   │   ├── IdentityCard/       # Name card — clamp() avatar sizing
 │   │   │   ├── HeroGrid/           # Desktop CSS grid
 │   │   │   ├── MobileLayout/       # Mobile flex layout

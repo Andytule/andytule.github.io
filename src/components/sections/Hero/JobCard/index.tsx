@@ -35,7 +35,7 @@ export const JobCard: React.FC<{
       Boston, MA · Oct 2024–Present
     </p>
 
-    {/* Status pill — same hover behaviour as Live pill in ChordShiftCard */}
+    {/* Status pill — same hover behaviour as Live pill in FeaturedCard */}
     <div className="mt-4">
       <Pill
         variant="green"

@@ -3,12 +3,12 @@ import React from 'react';
 import { Pill } from '@/components/shared';
 
 /**
- * ChordShiftCard — "Featured Project" bento card.
+ * FeaturedCard — "Featured Project" bento card.
  *
  * All hover states via CSS `group` — zero useState.
  * Pill variants: accent (Featured Project), purple (GitHub), green (Live).
  */
-export const ChordShiftCard: React.FC<{
+export const FeaturedCard: React.FC<{
   style?: React.CSSProperties;
 }> = ({ style }) => (
   <div

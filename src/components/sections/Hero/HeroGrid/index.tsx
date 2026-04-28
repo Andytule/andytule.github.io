@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ChordShiftCard } from '../ChordShiftCard';
+import { FeaturedCard } from '../FeaturedCard';
 import { IdentityCard } from '../IdentityCard';
 import { JobCard } from '../JobCard';
 import { ResumeCard } from '../ResumeCard';
@@ -24,13 +24,9 @@ export const HeroGrid: React.FC<{
     }}
   >
     <IdentityCard style={{ gridArea: 'main' }} />
-
     <JobCard style={{ gridArea: 'job' }} />
-
     <ResumeCard style={{ gridArea: 'resume' }} />
-
-    <ChordShiftCard style={{ gridArea: 'proj' }} />
-
+    <FeaturedCard style={{ gridArea: 'proj' }} />
     {socialTiles.map((t) => (
       <SocialTile key={t.area} {...t} gridArea={t.area} />
     ))}
