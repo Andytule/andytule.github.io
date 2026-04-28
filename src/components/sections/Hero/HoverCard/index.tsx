@@ -3,13 +3,19 @@ import React from 'react';
 import useHover from '@/hooks/useHover';
 
 /**
- * Shared Tailwind class string for every bento card surface.
- * Replaces the old `cardBase` CSSProperties object — all values are
- * identical but expressed as Tailwind utility classes so hover overrides
- * in child components compose correctly.
+ * Structural Tailwind classes shared by every bento card.
+ * Background and border are intentionally excluded — components that
+ * need hover-driven bg/border changes apply those via inline `style`
+ * (or CSS `group-hover:`) so there is no Tailwind specificity conflict.
  */
 export const cardBaseClass =
-  'relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#222228] transition-all duration-200';
+  'relative overflow-hidden rounded-[1.5rem] transition-all duration-200';
+
+/** Default resting surface styles — applied as inline style so JS hover can override them cleanly. */
+export const cardSurfaceStyle: React.CSSProperties = {
+  background: '#222228',
+  border: '1px solid rgba(255,255,255,0.1)',
+};
 
 export const HoverCard: React.FC<{
   as?: 'div' | 'a';
@@ -27,6 +33,11 @@ export const HoverCard: React.FC<{
     .filter(Boolean)
     .join(' ');
 
+  const surfaceStyle: React.CSSProperties = {
+    background: '#222228',
+    border: '1px solid rgba(255,255,255,0.1)',
+  };
+
   if (as === 'a') {
     return (
       <a
@@ -35,6 +46,7 @@ export const HoverCard: React.FC<{
         rel={rel}
         onClick={onClick}
         className={`flex no-underline ${classes}`}
+        style={surfaceStyle}
         {...handlers}
       >
         {children}
@@ -43,7 +55,12 @@ export const HoverCard: React.FC<{
   }
 
   return (
-    <div className={`cursor-pointer ${classes}`} onClick={onClick} {...handlers}>
+    <div
+      className={`cursor-pointer ${classes}`}
+      style={surfaceStyle}
+      onClick={onClick}
+      {...handlers}
+    >
       {children}
     </div>
   );
@@ -64,25 +81,38 @@ export const StatefulBlueCard: React.FC<{
 }> = ({ as = 'a', href, target, rel, onClick, className, children }) => {
   const [hovered, handlers] = useHover();
 
-  const base = [
+  const classes = [
     cardBaseClass,
     'flex no-underline',
-    hovered ? 'bg-[#1a7fe8] border-transparent text-white' : 'text-[#f0f0f5]',
+    hovered ? 'text-white' : 'text-[#f0f0f5]',
     className,
   ]
     .filter(Boolean)
     .join(' ');
 
+  const hoverStyle: React.CSSProperties = {
+    background: hovered ? '#1a7fe8' : '#222228',
+    border: hovered ? '1px solid transparent' : '1px solid rgba(255,255,255,0.1)',
+  };
+
   if (as === 'a') {
     return (
-      <a href={href} target={target} rel={rel} onClick={onClick} className={base} {...handlers}>
+      <a
+        href={href}
+        target={target}
+        rel={rel}
+        onClick={onClick}
+        className={classes}
+        style={hoverStyle}
+        {...handlers}
+      >
         {children}
       </a>
     );
   }
 
   return (
-    <div className={`cursor-pointer ${base}`} onClick={onClick} {...handlers}>
+    <div className={`cursor-pointer ${classes}`} style={hoverStyle} onClick={onClick} {...handlers}>
       {children}
     </div>
   );

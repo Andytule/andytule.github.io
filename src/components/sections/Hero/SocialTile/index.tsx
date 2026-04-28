@@ -16,9 +16,8 @@ export const socialTiles = [
 ] as const;
 
 /**
- * SocialTile — uses useHover because icon `color` must be a JS prop
- * (Lucide/SVG components don't respond to CSS `currentColor` through
- * Tailwind `group-hover:` alone when color is passed as a prop).
+ * SocialTile — uses useHover because icon `color` must be a JS prop.
+ * bg/border applied via inline style so the JS hover value always wins.
  */
 export const SocialTile: React.FC<{
   href: string;
@@ -41,11 +40,14 @@ export const SocialTile: React.FC<{
         'flex flex-col items-center justify-center no-underline w-full',
         mobile ? 'gap-[0.875rem]' : 'gap-[0.625rem]',
         aspectRatio ? 'aspect-square' : '',
-        hovered ? 'bg-[#1a7fe8] border-transparent' : '',
       ]
         .filter(Boolean)
         .join(' ')}
-      style={{ gridArea: gridArea ?? undefined }}
+      style={{
+        gridArea: gridArea ?? undefined,
+        background: hovered ? '#1a7fe8' : '#222228',
+        border: hovered ? '1px solid transparent' : '1px solid rgba(255,255,255,0.1)',
+      }}
       {...handlers}
     >
       <span

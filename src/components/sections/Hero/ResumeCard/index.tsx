@@ -25,11 +25,15 @@ export const ResumeCard: React.FC<{
         mobile ? 'flex-row items-center' : 'flex-col items-start',
         'flex justify-center no-underline',
         mobile ? 'gap-[0.875rem] p-5' : 'gap-[0.625rem] p-6',
-        hovered ? 'bg-[#1a7fe8] border-transparent text-white' : 'text-[#f0f0f5]',
+        hovered ? 'text-white' : 'text-[#f0f0f5]',
       ]
         .filter(Boolean)
         .join(' ')}
-      style={style}
+      style={{
+        background: hovered ? '#1a7fe8' : '#222228',
+        border: hovered ? '1px solid transparent' : '1px solid rgba(255,255,255,0.1)',
+        ...style,
+      }}
       {...handlers}
     >
       <div className="flex items-center gap-3">

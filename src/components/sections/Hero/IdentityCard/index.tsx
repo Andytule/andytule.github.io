@@ -18,7 +18,10 @@ export const IdentityCard: React.FC<{
   style?: React.CSSProperties;
   mobile?: boolean;
 }> = ({ style, mobile }) => (
-  <div className={`${cardBaseClass} flex flex-col ${mobile ? 'min-h-[300px]' : ''}`} style={style}>
+  <div
+    className={`${cardBaseClass} flex flex-col ${mobile ? 'min-h-[300px]' : ''}`}
+    style={{ background: '#222228', border: '1px solid rgba(255,255,255,0.1)', ...style }}
+  >
     <div className={`relative z-10 flex flex-col ${mobile ? 'p-7 gap-3.5' : 'p-8 gap-4'}`}>
       <Pill variant="accent">Software Engineer</Pill>
 
