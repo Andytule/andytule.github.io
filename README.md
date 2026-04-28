@@ -6,41 +6,67 @@
 
 ## Changelog
 
-### Color Palette
-
-- Lifted all surface colors further for a warmer, richer dark grey: background `#1e1e24`, cards `#2c2c36`, lowest surface `#22222a`.
-- Blue accent updated from `#3b9eff` → `#4da6ff` (brighter, higher saturation for more pop throughout the UI).
-- Accent dim increased from `rgba(59,158,255,0.14)` → `rgba(77,166,255,0.18)` for more visible accent surfaces.
-- Border opacity increased from `0.09` → `0.11` (resting) and `0.16` → `0.20` (strong) for sharper card definition.
-- Text secondary updated from `#8e8e9a` → `#9898a8` and tertiary from `#52525e` → `#606070` for improved legibility.
-- Glass-card hover now includes a subtle blue ambient glow (`rgba(77,166,255,0.06)`) in addition to the shadow lift.
-
 ### Navbar
 
-- Replaced **Resume download button** with a sleeping cat icon (`/public/sleeping-cat.png`) that scrolls to the Resume section on click.
-- Increased navbar height from `h-14` → `h-16`, brand font size from `text-base` → `text-lg`, nav link font size from `0.65rem` → `0.72rem`, and gap between nav items from `gap-8` → `gap-9`.
-- Increased sleeping cat icon size from `h-9 w-9` → `h-14 w-14` for better visibility.
+- Nav link text is now **`rgba(235,235,245,0.28)` at rest** and brightens to `rgba(235,235,245,0.92)` on hover — matches Apple's restrained typographic hierarchy on dark surfaces (explicit `rgba` used instead of Tailwind opacity modifiers to guarantee Tailwind v4 JIT compatibility).
+- Hover state uses inline `onMouseEnter/Leave` for colour only; underline animation remains a pure CSS `group-hover:scale-x-100` transform.
+- Dropped `useState` from `NavLink`.
 
-### Hero Bento Grid
+### Shared `Pill` Component (`components/shared/Pill.tsx`)
 
-- Fixed desktop rendering on Windows & Mac by replacing Tailwind `[grid-template-areas]` utility classes (which have cross-browser JIT inconsistencies) with explicit inline `style` props for `gridTemplateColumns`, `gridTemplateRows`, and `gridTemplateAreas`.
-- Split the single combined grid into **two separate layouts**: a flex/column mobile layout (`md:hidden`) and an explicit CSS Grid desktop layout (`hidden md:flex`), eliminating area conflicts.
-- Desktop grid rows are fixed at `190px` each for consistent rendering across all browsers.
-- **Resume card** redesigned: now shows a large `FileText` icon (40px) above bold "Resume" text, centered in the card, replacing the previous label+subtitle layout. Card hovers blue (`#1a7fe8`).
-- **Resume card is now visible on mobile** — a dedicated Resume row was added to the mobile layout (previously only existed in the desktop grid).
-- **Social tiles (Schedule, Email, GitHub, LinkedIn)** are always a perfect square (`aspectRatio: 1/1`) on both mobile and desktop. On hover: icon turns white, label text darkens. Implemented via a stateful `SocialTile` component using `useState` for reliable color transitions.
-- **Social tile icons and labels are larger on mobile**: icons scale from 28px → 36px, labels from `0.5625rem` → `0.6875rem`.
-- **GitHub social tile** icon color updated from `text-[#f0f0f2]` (white) to `text-[#3b9eff]` (blue) to match the other social icons.
-- **Dotmatics card** is now a clickable `<a>` tag linking to `https://www.dotmatics.com/` (opens in new tab). Hovers blue.
-- **Chord-Shift card** (Featured Project) now scrolls to the `#projects` section on click (entire card body). The GitHub/Live buttons use `e.stopPropagation()` so they still open their respective URLs independently. Card has a blue border glow on hover.
-- **GitHub & Live buttons** on the Chord-Shift card replaced plain text links with pill-style badge buttons: GitHub uses a subtle ghost style; Live uses a blue-tinted style — both include inline Lucide/SVG icons for visual clarity.
-- **Andy Le identity card** background updated to `#1c1c21` to match the refreshed palette.
-- Replaced custom inline `GitHubIcon` and `LinkedInIcon` SVG components with stateful icon components for consistent hover color control.
+- **Single source of truth for all badge/label pills** across the entire app.
+- Variants: `default` · `accent` (blue) · `green` · `purple` — each maps to Apple-calibrated token values.
+- Apple pill design rationale:
+  - Backgrounds are **very low opacity (10%)** — the pill reads as a _tinted label_, not a filled chip.
+  - Borders sit at ~22% opacity — slightly more visible than the fill for edge definition.
+  - Font is 0.6875rem / weight 500 / letter-spacing 0.01em — legible but unobtrusive.
+- `pulse` prop adds an animated dot for live/active status (used on "Open to opportunities" and "Currently At").
+- `hoverClassName` prop allows card-level `group-hover:` overrides without forking the component.
+- Replaces all raw `.pill` / `.pill-green` / `.pill-accent` CSS class strings across: `IdentityCard`, `JobCard`, `ChordShiftCard`, `Timeline`, `Projects`.
 
-### Projects Section
+### JobCard
 
-- **Section eyebrow label** renamed from `"Work"` → `"Projects"` to accurately reflect the content.
-- **Featured project card** now hovers with a blue border glow (`rgba(59,158,255,0.4)`) and the entire card is clickable (opens the demo URL in a new tab). Action buttons (`View Live`, `Source`) use `e.stopPropagation()` to remain independently clickable.
+- Uses `<Pill variant="green" pulse>` — identical token to IdentityCard's "Open to opportunities" pill, perfectly matching visuals.
+- Layout unchanged: logo → role → tenure → "Currently At" pill at bottom.
+
+### Featured Project
+
+- "Featured Project" badge → `<Pill variant="accent">`.
+- GitHub action → `<Pill variant="purple">`.
+- Live action → `<Pill variant="green">` — now visually consistent with all other green pills site-wide.
+- All `group-hover:` colour overrides passed via `hoverClassName` prop.
+
+### IdentityCard — Avatar sizing (Apple-style)
+
+- Avatar container `left` offset now uses `clamp()` so the figure **gracefully retreats** as the card narrows, instead of clipping text or jumping at a breakpoint.
+- Desktop: `clamp(42%, 28%, 52%)` · Mobile: `clamp(48%, 30%, 55%)`.
+- This mirrors how Apple handles layered hero imagery in their product pages — the decorative element scales proportionally within its container rather than snapping.
+
+### Timeline & Projects
+
+- All `.pill` / `.pill-green` / `.pill-accent` raw class strings replaced with `<Pill>` component calls.
+
+---
+
+## Shared Components
+
+| Component       | Location                   | Purpose                                                |
+| --------------- | -------------------------- | ------------------------------------------------------ |
+| `SectionHeader` | `shared/SectionHeader.tsx` | Eyebrow + heading                                      |
+| `Pill`          | `shared/Pill.tsx`          | All badge/label pills (accent, green, purple, default) |
+
+---
+
+## Color Palette (Apple-calibrated)
+
+| Token               | Value     | Usage                        |
+| ------------------- | --------- | ---------------------------- |
+| `--color-bg`        | `#16161b` | Page background              |
+| `--color-surface`   | `#23232c` | Card resting state           |
+| `--color-accent`    | `#4da6ff` | Blue accent                  |
+| `--color-green`     | `#30d158` | Green status                 |
+| Pill fill opacity   | **10%**   | Apple-standard tint strength |
+| Pill border opacity | **22%**   | Slightly stronger than fill  |
 
 ---
 
@@ -63,58 +89,36 @@
 src/
 ├── components/
 │   ├── layout/
-│   │   ├── Navbar/index.tsx        # Sticky nav with active-section tracking
-│   │   ├── Footer/index.tsx        # Footer with links
-│   │   └── index.ts                # Barrel exports
+│   │   ├── Navbar/index.tsx        # Sticky nav — dim at rest, bright on hover
+│   │   └── Footer/index.tsx
 │   ├── sections/
 │   │   ├── Hero/
-│   │   │   ├── ChordShiftCard/index.tsx   # Featured project bento card
-│   │   │   ├── DotmaticsCard/index.tsx    # Dotmatics employer card
-│   │   │   ├── HeroGrid/index.tsx         # Desktop CSS grid layout
-│   │   │   ├── HoverCard/index.tsx        # Generic hoverable card wrapper
-│   │   │   ├── IdentityCard/index.tsx     # Andy Le name/title card
-│   │   │   ├── MobileLayout/index.tsx     # Mobile flex layout
-│   │   │   ├── ResumeCard/index.tsx       # Resume icon card
-│   │   │   ├── SocialTile/index.tsx       # Square social link tiles (stateful hover)
-│   │   │   └── index.tsx                  # Hero section entry point
-│   │   ├── Skills/index.tsx        # Technical skills card grid
-│   │   ├── Timeline/index.tsx      # Work experience timeline
-│   │   ├── Projects/index.tsx      # Featured + project bento grid
-│   │   ├── Contact/index.tsx       # Contact cards (email, phone, Calendly)
-│   │   ├── Resume/index.tsx        # Standalone PDF viewer section
-│   │   └── index.ts                # Barrel exports
+│   │   │   ├── ChordShiftCard/     # "Featured Project" — full Tailwind group hover
+│   │   │   ├── DotmaticsCard/      # "Currently At" — green pill bottom stamp
+│   │   │   ├── IdentityCard/       # Name card — clamp() avatar sizing
+│   │   │   ├── HeroGrid/           # Desktop CSS grid
+│   │   │   ├── MobileLayout/       # Mobile flex layout
+│   │   │   ├── ResumeCard/
+│   │   │   ├── SocialTile/
+│   │   │   └── HoverCard/
+│   │   ├── Skills/
+│   │   ├── Timeline/               # Uses shared Pill
+│   │   ├── Projects/               # Uses shared Pill
+│   │   ├── Contact/
+│   │   └── Resume/
 │   ├── shared/
-│   │   ├── SectionHeader.tsx       # Reusable section eyebrow + heading
-│   │   └── index.ts                # Barrel exports
-│   └── ui/
-│       ├── badge.tsx               # shadcn/ui Badge
-│       ├── button.tsx              # shadcn/ui Button
-│       ├── card.tsx                # shadcn/ui Card
-│       ├── separator.tsx           # shadcn/ui Separator
-│       └── tooltip.tsx             # shadcn/ui Tooltip
-├── constants/
-│   └── design.ts                   # Shared design tokens / constants
-├── data/index.ts                   # ALL static content
+│   │   ├── Pill.tsx                # ← Single pill source of truth
+│   │   ├── SectionHeader.tsx
+│   │   └── index.ts
+│   └── ui/                         # shadcn/ui primitives
+├── data/index.ts                   # All static content
 ├── hooks/
-│   ├── useScrollReveal.ts
-│   ├── useActiveSection.ts
-│   └── index.ts                    # Barrel exports
-├── lib/utils.ts                    # cn() helper
+├── lib/utils.ts
 ├── types/index.ts
+├── styles/globals.css              # Tailwind v4 + @theme tokens
 ├── App.tsx
-├── main.tsx
-├── vite-env.d.ts
-└── styles/globals.css              # Tailwind v4 + @theme tokens
+└── main.tsx
 ```
-
-## Section Order
-
-1. Hero (bento grid)
-2. Skills
-3. Experience (Timeline)
-4. Projects
-5. Contact
-6. **Resume** ← standalone PDF viewer at the bottom
 
 ## Getting Started
 
@@ -127,4 +131,4 @@ npm run preview
 
 ## Updating Content
 
-All content lives in `src/data/index.ts` — edit skills, timeline, projects, and links there without touching any component.
+All content lives in `src/data/index.ts`.

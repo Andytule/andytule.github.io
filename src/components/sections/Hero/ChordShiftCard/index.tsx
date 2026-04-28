@@ -1,175 +1,87 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { cardBase } from '../HoverCard';
+import { Pill } from '@/components/shared';
 
-const getPillStyle = (
-  hovered: boolean,
-  variant: 'featured' | 'github' | 'live'
-): React.CSSProperties => {
-  if (variant === 'featured') {
-    return hovered
-      ? {
-          background: 'rgba(255,255,255,0.18)',
-          color: '#ffffff',
-          borderColor: 'rgba(255,255,255,0.55)',
-        }
-      : {
-          background: 'rgba(59,158,255,0.14)',
-          color: '#3b9eff',
-          borderColor: 'rgba(59,158,255,0.3)',
-        };
-  }
-  if (variant === 'github') {
-    return hovered
-      ? {
-          background: 'rgba(109,40,217,0.6)',
-          color: '#ede9fe',
-          borderColor: 'rgba(196,181,253,0.9)',
-        }
-      : {
-          background: 'rgba(139,92,246,0.14)',
-          color: '#a78bfa',
-          borderColor: 'rgba(139,92,246,0.3)',
-        };
-  }
-  return hovered
-    ? { background: 'rgba(22,163,74,0.55)', color: '#dcfce7', borderColor: 'rgba(74,222,128,0.9)' }
-    : { background: 'rgba(48,209,88,0.12)', color: '#30d158', borderColor: 'rgba(48,209,88,0.25)' };
-};
-
+/**
+ * ChordShiftCard — "Featured Project" bento card.
+ *
+ * All hover states via CSS `group` — zero useState.
+ * Pill variants: accent (Featured Project), purple (GitHub), green (Live).
+ */
 export const ChordShiftCard: React.FC<{
   style?: React.CSSProperties;
-}> = ({ style }) => {
-  const [hovered, setHovered] = useState(false);
+}> = ({ style }) => (
+  <div
+    style={style}
+    className="group relative cursor-pointer overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#222228] transition-all duration-200 hover:border-transparent hover:bg-[#1a7fe8] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
+    onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+  >
+    {/* Screenshot panel */}
+    <div className="absolute bottom-4 left-4 top-4 w-[42%] overflow-hidden rounded-[0.75rem] shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.2)]">
+      <img
+        src="/chord-shift-preview.png"
+        alt="Chord-Shift preview"
+        className="h-full w-full object-cover object-top"
+      />
+    </div>
 
-  return (
+    {/* Content panel */}
     <div
-      style={{
-        ...cardBase,
-        background: hovered ? '#1a7fe8' : '#222228',
-        borderColor: hovered ? 'transparent' : 'rgba(255,255,255,0.1)',
-        boxShadow: hovered
-          ? '0 0 0 1px rgba(59,158,255,0.15), 0 20px 60px rgba(0,0,0,0.5)'
-          : 'none',
-        cursor: 'pointer',
-        transition: 'background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease',
-        ...style,
-      }}
-      onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="absolute bottom-0 right-0 top-0 flex flex-col justify-center gap-2 p-5"
+      style={{ left: '44%' }}
     >
-      {/* App preview thumbnail */}
-      <div
-        style={{
-          position: 'absolute',
-          left: '1rem',
-          top: '1rem',
-          bottom: '1rem',
-          width: '42%',
-          overflow: 'hidden',
-          borderRadius: '0.75rem',
-          boxShadow: hovered
-            ? '0 0 0 1px rgba(255,255,255,0.2)'
-            : '0 0 0 1px rgba(255,255,255,0.06)',
-          transition: 'transform 0.3s ease, box-shadow 0.2s ease',
-          transform: hovered ? 'scale(1.03)' : 'scale(1)',
-        }}
+      {/* Featured badge */}
+      <Pill
+        variant="accent"
+        className="uppercase tracking-[0.06em] text-[0.5625rem]"
+        hoverClassName="group-hover:bg-white/[0.18] group-hover:border-white/55 group-hover:text-white"
       >
-        <img
-          src="/chord-shift-preview.png"
-          alt="Chord-Shift"
-          style={{ height: '100%', width: '100%', objectFit: 'cover', objectPosition: 'top' }}
-        />
-      </div>
+        Featured Project
+      </Pill>
 
-      {/* Content panel */}
-      <div
-        className="absolute top-0 right-0 bottom-0 flex flex-col justify-center gap-2 p-5"
-        style={{ left: '44%' }}
-      >
-        {/* "Featured" badge — flips to frosted white on hover */}
-        <span
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            width: 'fit-content',
-            padding: '0.2rem 0.625rem',
-            borderRadius: '9999px',
-            fontSize: '0.5625rem',
-            fontWeight: 600,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            border: '1px solid',
-            transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease',
-            ...getPillStyle(hovered, 'featured'),
-          }}
+      {/* Title */}
+      <p className="font-[var(--font-display)] text-base font-semibold leading-[1.2] tracking-[-0.02em] text-[#f0f0f5] transition-colors duration-200 group-hover:text-white">
+        Chord-Shift
+      </p>
+
+      {/* Subtitle */}
+      <p className="text-[0.6875rem] leading-[1.4] text-[#8a8a96] transition-colors duration-200 group-hover:text-white/75">
+        Full-stack chord transposition
+      </p>
+
+      {/* Action pills */}
+      <div className="mt-1 flex flex-wrap gap-2">
+        <a
+          href="https://github.com/Andytule/chord-shift"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="no-underline"
         >
-          Featured
-        </span>
-
-        <p
-          className="font-[var(--font-display)] text-base font-semibold leading-[1.2] tracking-[-0.02em] transition-colors duration-200"
-          style={{ color: hovered ? '#ffffff' : '#f0f0f5' }}
-        >
-          Chord-Shift
-        </p>
-
-        <p
-          className="text-[0.6875rem] leading-[1.4] transition-colors duration-200"
-          style={{ color: hovered ? 'rgba(255,255,255,0.75)' : '#8a8a96' }}
-        >
-          Full-stack chord transposition
-        </p>
-
-        {/* Action pills */}
-        <div className="flex gap-2 mt-1 flex-wrap">
-          <a
-            href="https://github.com/Andytule/chord-shift"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              padding: '0.2rem 0.625rem',
-              borderRadius: '9999px',
-              fontSize: '0.5625rem',
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              border: '1px solid',
-              transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease',
-              ...getPillStyle(hovered, 'github'),
-            }}
+          <Pill
+            variant="purple"
+            className="uppercase tracking-[0.06em] text-[0.5625rem] cursor-pointer"
+            hoverClassName="group-hover:bg-[rgba(109,40,217,0.6)] group-hover:border-[rgba(196,181,253,0.9)] group-hover:text-[#ede9fe]"
           >
             GitHub
-          </a>
-          <a
-            href="https://andytule.github.io/chord-shift/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              padding: '0.2rem 0.625rem',
-              borderRadius: '9999px',
-              fontSize: '0.5625rem',
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              border: '1px solid',
-              transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease',
-              ...getPillStyle(hovered, 'live'),
-            }}
+          </Pill>
+        </a>
+        <a
+          href="https://andytule.github.io/chord-shift/"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="no-underline"
+        >
+          <Pill
+            variant="green"
+            className="uppercase tracking-[0.06em] text-[0.5625rem] cursor-pointer"
+            hoverClassName="group-hover:bg-[rgba(22,163,74,0.55)] group-hover:border-[rgba(74,222,128,0.9)] group-hover:text-[#dcfce7]"
           >
             Live ↗
-          </a>
-        </div>
+          </Pill>
+        </a>
       </div>
     </div>
-  );
-};
+  </div>
+);

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { ChordShiftCard } from '../ChordShiftCard';
-import { DotmaticsCard } from '../DotmaticsCard';
 import { IdentityCard } from '../IdentityCard';
+import { JobCard } from '../JobCard';
 import { ResumeCard } from '../ResumeCard';
 import { SocialTile, socialTiles } from '../SocialTile';
 
@@ -10,7 +10,7 @@ export const MobileLayout: React.FC = () => (
   <div className="flex flex-col gap-3 md:hidden">
     <IdentityCard mobile />
 
-    <DotmaticsCard />
+    <JobCard />
 
     <ChordShiftCard style={{ minHeight: '140px' }} />
 

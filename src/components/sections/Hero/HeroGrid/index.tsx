@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { ChordShiftCard } from '../ChordShiftCard';
-import { DotmaticsCard } from '../DotmaticsCard';
 import { IdentityCard } from '../IdentityCard';
+import { JobCard } from '../JobCard';
 import { ResumeCard } from '../ResumeCard';
 import { SocialTile, socialTiles } from '../SocialTile';
 
@@ -25,7 +25,7 @@ export const HeroGrid: React.FC<{
   >
     <IdentityCard style={{ gridArea: 'main' }} />
 
-    <DotmaticsCard style={{ gridArea: 'job' }} />
+    <JobCard style={{ gridArea: 'job' }} />
 
     <ResumeCard style={{ gridArea: 'resume' }} />
 

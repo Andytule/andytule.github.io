@@ -1,38 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { NAV_ITEMS } from '@/data';
-import { cn } from '@/lib/utils';
 
 const NavLink: React.FC<{
   label: string;
   href: string;
   onClick: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
-}> = ({ label, href, onClick }) => {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <a
-      href={href}
-      onClick={(e) => onClick(e, href)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={cn(
-        'text-[0.8125rem] font-normal tracking-[-0.01em] transition-colors duration-150',
-        'inline-flex flex-col items-center gap-0 px-2 py-1 bg-transparent no-underline',
-        hovered ? 'text-white' : 'text-[rgba(240,240,245,0.55)]'
-      )}
-    >
-      <span
-        className="block pb-px transition-colors duration-150"
-        style={{
-          borderBottom: hovered ? '1px solid #3b9eff' : '1px solid transparent',
-        }}
-      >
-        {label}
-      </span>
-    </a>
-  );
-};
+}> = ({ label, href, onClick }) => (
+  <a
+    href={href}
+    onClick={(e) => onClick(e, href)}
+    className="group relative inline-flex flex-col items-center px-2 py-1 no-underline transition-colors duration-200"
+    style={{ color: 'rgba(235,235,245,0.28)' }}
+    onMouseEnter={(e) => (e.currentTarget.style.color = 'rgba(235,235,245,0.92)')}
+    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(235,235,245,0.28)')}
+  >
+    <span className="relative block pb-px text-[0.8125rem] font-normal tracking-[-0.01em]">
+      {label}
+      <span className="absolute bottom-0 left-0 right-0 h-px origin-center scale-x-0 rounded-full bg-[var(--color-accent)] transition-transform duration-200 group-hover:scale-x-100" />
+    </span>
+  </a>
+);
 
 const Navbar: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -42,12 +30,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 h-[52px] border-b border-white/[0.07] bg-[rgba(22,22,27,0.82)] backdrop-saturate-[180%] backdrop-blur-[20px]">
-      <div className="mx-auto max-w-[1100px] h-full flex items-center justify-between px-6">
+    <header className="sticky top-0 z-50 h-[52px] border-b border-white/[0.07] bg-[rgba(22,22,27,0.85)] backdrop-blur-xl backdrop-saturate-[180%]">
+      <div className="mx-auto flex h-full max-w-[1100px] items-center justify-between px-6">
         <span className="font-[var(--font-display)] text-[1.0625rem] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">
           Andy<span className="text-[var(--color-accent)]"> Le</span>
         </span>
-        <nav className="hidden md:flex gap-1 items-center" aria-label="Primary navigation">
+
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
           {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.label}
@@ -57,6 +46,7 @@ const Navbar: React.FC = () => {
             />
           ))}
         </nav>
+
         <img
           src="/sleeping-cat.png"
           alt=""

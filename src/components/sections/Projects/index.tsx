@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SectionHeader from '@/components/shared/SectionHeader';
+import { Pill, SectionHeader } from '@/components/shared';
 import { PROJECTS } from '@/data';
 import useScrollReveal from '@/hooks/useScrollReveal';
 import { cn } from '@/lib/utils';
@@ -25,7 +25,7 @@ const Projects: React.FC = () => {
       <SectionHeader eyebrow="Projects" title="Selected Works" />
 
       <div className="flex flex-col gap-3">
-        {/* Featured hero */}
+        {/* Featured hero card */}
         {featured && (
           <div
             className="group bg-[var(--color-surface)] border border-white/10 rounded-[1.25rem] overflow-hidden cursor-pointer transition-all duration-200 hover:border-[rgba(59,158,255,0.4)] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
@@ -41,12 +41,14 @@ const Projects: React.FC = () => {
                   alt="Chord-Shift screenshot"
                   className="h-full w-full object-cover object-top opacity-90 transition-all duration-[400ms] group-hover:scale-[1.02] group-hover:opacity-100"
                 />
-                {/* fade overlay */}
                 <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent from-[60%] to-[var(--color-surface)]" />
                 <div className="absolute inset-0 md:hidden bg-gradient-to-b from-transparent from-[60%] to-[var(--color-surface)]" />
-                <span className="pill pill-accent absolute top-4 left-4 text-[0.625rem] tracking-[0.08em] uppercase font-semibold">
+                <Pill
+                  variant="accent"
+                  className="absolute top-4 left-4 uppercase tracking-[0.08em] text-[0.625rem] font-semibold"
+                >
                   Featured
-                </span>
+                </Pill>
               </div>
 
               {/* Body */}
@@ -59,9 +61,9 @@ const Projects: React.FC = () => {
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {featured.tags.map((t) => (
-                    <span key={t} className="pill text-[0.6875rem]">
+                    <Pill key={t} variant="default" className="text-[0.6875rem]">
                       {t}
-                    </span>
+                    </Pill>
                   ))}
                 </div>
                 <div className="flex gap-3">
@@ -104,7 +106,6 @@ const Projects: React.FC = () => {
                 spanClasses[i] ?? 'md:col-span-3'
               )}
             >
-              {/* Top accent */}
               <div className="h-0.5 bg-gradient-to-r from-[rgba(41,151,255,0.5)] to-[rgba(129,140,248,0.2)]" />
 
               <div className="flex flex-col flex-1 gap-3 p-6">
@@ -116,9 +117,9 @@ const Projects: React.FC = () => {
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((t) => (
-                    <span key={t} className="pill text-[0.6875rem]">
+                    <Pill key={t} variant="default" className="text-[0.6875rem]">
                       {t}
-                    </span>
+                    </Pill>
                   ))}
                 </div>
                 <div className="flex gap-4 pt-3.5 border-t border-white/[0.06] mt-auto">
