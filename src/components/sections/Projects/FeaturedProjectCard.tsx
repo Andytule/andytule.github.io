@@ -16,11 +16,15 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
     <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] min-h-[320px]">
       {/* Screenshot */}
       <div className="relative min-h-[200px] overflow-hidden bg-[var(--color-surface-low)]">
-        <img
-          src="/chord-shift-preview.png"
-          alt="Chord-Shift screenshot"
-          className="h-full w-full object-cover object-top opacity-90 transition-all duration-[400ms] group-hover:scale-[1.02] group-hover:opacity-100"
-        />
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            className="h-full w-full object-cover object-top opacity-90 transition-all duration-[400ms] group-hover:scale-[1.02] group-hover:opacity-100"
+          />
+        ) : (
+          <div className="h-full w-full bg-[var(--color-surface-low)]" />
+        )}
         <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent from-[60%] to-[var(--color-surface)]" />
         <div className="absolute inset-0 md:hidden bg-gradient-to-b from-transparent from-[60%] to-[var(--color-surface)]" />
         <Pill

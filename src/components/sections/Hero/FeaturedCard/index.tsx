@@ -17,8 +17,8 @@ export const FeaturedCard: React.FC<{
     {/* Screenshot panel */}
     <div className="absolute bottom-4 left-4 top-4 w-[42%] overflow-hidden rounded-[0.75rem] shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.2)]">
       <img
-        src="/chord-shift-preview.png"
-        alt="Chord-Shift preview"
+        src="/chord-shift.png"
+        alt="Chord-Shift"
         className="h-full w-full object-cover object-top"
       />
     </div>

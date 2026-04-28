@@ -13,6 +13,7 @@ export interface TimelineEntry {
   period: string;
   role: string;
   company: string;
+  logo?: string;
   description: string;
   tags: string[];
   isCurrent?: boolean;
@@ -25,6 +26,7 @@ export interface Project {
   demoUrl?: string;
   sourceUrl?: string;
   image?: string;
+  logo?: string;
   featured?: boolean;
 }
 

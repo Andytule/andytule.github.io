@@ -11,6 +11,7 @@ interface ProjectCardProps {
 
 /**
  * ProjectCard — grid card for non-featured projects.
+ * Shows a screenshot strip at the top when project.image is present.
  */
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, colSpanClass }) => (
   <div
@@ -20,7 +21,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, colSpanClass }) => (
       colSpanClass
     )}
   >
-    <div className="h-0.5 bg-gradient-to-r from-[rgba(41,151,255,0.5)] to-[rgba(129,140,248,0.2)]" />
+    {/* Image strip — shown when screenshot is available */}
+    {project.image ? (
+      <div className="relative h-36 overflow-hidden bg-[var(--color-surface-low)] shrink-0">
+        <img
+          src={project.image}
+          alt={`${project.title} preview`}
+          className="h-full w-full object-cover object-top opacity-80 transition-all duration-300 group-hover:scale-[1.03] group-hover:opacity-100"
+        />
+        {/* Fade into card body */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[50%] to-[var(--color-surface)]" />
+      </div>
+    ) : (
+      <div className="h-0.5 bg-gradient-to-r from-[rgba(41,151,255,0.5)] to-[rgba(129,140,248,0.2)]" />
+    )}
 
     <div className="flex flex-col flex-1 gap-3 p-6">
       <h3 className="font-[var(--font-display)] text-[1.0625rem] font-semibold text-[#f0f0f5] tracking-[-0.025em]">

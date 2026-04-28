@@ -23,14 +23,25 @@ const TimelineEntry: React.FC<{ entry: TimelineEntryType }> = ({ entry }) => (
 
     <div className="bg-[var(--color-surface-low)] border border-white/[0.07] rounded-[1.25rem] p-7 transition-colors duration-200 hover:border-[rgba(41,151,255,0.2)]">
       <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-        <div>
-          <p className="text-[0.6875rem] font-semibold tracking-[0.08em] uppercase text-[#3b9eff] mb-1">
-            {entry.period}
-          </p>
-          <h3 className="font-[var(--font-display)] text-[1.125rem] font-semibold text-[#f0f0f5] tracking-[-0.025em] mb-0.5">
-            {entry.role}
-          </h3>
-          <p className="text-sm text-[#8a8a96]">{entry.company}</p>
+        {/* Logo + role/company */}
+        <div className="flex items-center gap-3.5">
+          {entry.logo && (
+            <img
+              src={entry.logo}
+              alt={entry.company.split(' · ')[0]}
+              className="h-11 w-11 shrink-0 rounded-[0.75rem] object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+              onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
+            />
+          )}
+          <div>
+            <p className="text-[0.6875rem] font-semibold tracking-[0.08em] uppercase text-[#3b9eff] mb-1">
+              {entry.period}
+            </p>
+            <h3 className="font-[var(--font-display)] text-[1.125rem] font-semibold text-[#f0f0f5] tracking-[-0.025em] mb-0.5">
+              {entry.role}
+            </h3>
+            <p className="text-sm text-[#8a8a96]">{entry.company}</p>
+          </div>
         </div>
 
         {entry.isCurrent && (

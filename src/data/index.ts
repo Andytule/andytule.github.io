@@ -52,6 +52,7 @@ export const TIMELINE: TimelineEntry[] = [
     period: 'Oct 2024 – Present',
     role: 'Software Engineer',
     company: 'Dotmatics · Boston, MA',
+    logo: '/dotmatics-logo.png',
     description:
       "Engineered full-stack features for Luma's Registration module, supporting single-compound and batch registration workflows for scientists. Built record submission and tracking systems using React, TypeScript, and Node.js; developed RESTful APIs backed by PostgreSQL achieving a 25% reduction in query times; contributed to event-driven backend services using Kafka, Scala, and Databricks for high-volume scientific data pipelines.",
     tags: [
@@ -72,6 +73,7 @@ export const TIMELINE: TimelineEntry[] = [
     period: 'Sept 2023 – Apr 2024',
     role: 'Software Engineer Intern',
     company: 'Dayforce · Toronto, ON',
+    logo: '/dayforce-logo.png',
     description:
       'Developed Benefits services features enabling employees to manage their benefits, generating $1M in revenue. Refactored React frontend using TypeScript and Redux for the Benefits Enrollment MFE with Jest integration testing; revamped backend microservices using C# and .NET for efficient SQL querying, achieving a 10% increase in microservice throughput.',
     tags: ['React', 'TypeScript', 'Redux', 'Jest', 'ESLint', '.NET', 'C#', 'MySQL'],
@@ -80,6 +82,7 @@ export const TIMELINE: TimelineEntry[] = [
     period: 'Jan 2022 – Dec 2022',
     role: 'Software Engineer Intern',
     company: 'Tesla · Fremont, CA',
+    logo: '/tesla-logo.png',
     description:
       'Developed a gamification system for Tesla service centers to automate vehicle repair and maintenance workflows, resulting in a 13% increase in overall productivity. Designed and deployed a full-stack dashboard using React, TypeScript, and Node.js containerized with Docker; streamlined the Service Center Application using Angular and .NET microservices backed by PostgreSQL.',
     tags: [
@@ -97,6 +100,7 @@ export const TIMELINE: TimelineEntry[] = [
     period: 'Sept 2021 – Dec 2021',
     role: 'Full Stack Developer Intern',
     company: 'Caliber Communications · Stoney Creek, ON',
+    logo: '/ecam-logo.png',
     description:
       'Optimized workflow efficiency of security application users by 15% through personalized dashboard interfaces with real-time data streams via WebSocket. Engineered backend microservices with Node.js, Express.js, and Knex; implemented automated PostgreSQL scripts to purge 3.5TB of obsolete data.',
     tags: ['Angular', 'RxJS', 'Express', 'Knex', 'PostgreSQL', 'Docker', 'Nginx'],
@@ -105,6 +109,7 @@ export const TIMELINE: TimelineEntry[] = [
     period: 'May 2021 – Aug 2021',
     role: 'Web Developer Intern',
     company: 'Evenica · Burlington, ON',
+    logo: '/evenica-logo.png',
     description:
       "Revamped the e-commerce UI, enhancing accessibility and reducing the frontend codebase by 35% through a reusable web component library. Implemented a secure payment terminal integrating Adyen's payment API to establish a resilient payment pipeline.",
     tags: ['Dynamics 365', 'React', '.NET', 'Adyen'],
@@ -121,6 +126,7 @@ export const PROJECTS: Project[] = [
     tags: ['TypeScript', 'React', 'Node.js', 'Supabase'],
     sourceUrl: 'https://github.com/Andytule/chord-shift',
     demoUrl: 'https://andytule.github.io/chord-shift/',
+    image: '/chord-shift-preview.png',
     featured: true,
   },
   {
@@ -130,6 +136,7 @@ export const PROJECTS: Project[] = [
     tags: ['TypeScript', 'React', 'Material-UI', 'Node.js', 'MySQL', 'PHP'],
     demoUrl: 'https://andytule.github.io/rate-my-course/',
     sourceUrl: 'https://github.com/Andytule/rate-my-course',
+    image: '/rate-my-course.png',
   },
   {
     title: 'Truck Load Visualizer',
@@ -137,6 +144,7 @@ export const PROJECTS: Project[] = [
       'A 3D visualization tool for optimally configuring and loading cargo onto truck beds, helping technicians plan loads that are faster, safer, and more space-efficient.',
     tags: ['C++', 'JavaScript', 'Unity'],
     sourceUrl: 'https://github.com/Andytule/truck-load-visualizer',
+    image: '/truck-load-visualizer.png',
   },
   {
     title: 'Chess',
@@ -145,6 +153,7 @@ export const PROJECTS: Project[] = [
     tags: ['JavaScript', 'React', 'RxJS', 'Node.js'],
     demoUrl: 'https://andytule.github.io/chess/',
     sourceUrl: 'https://github.com/Andytule/chess',
+    image: '/chess.png',
   },
   {
     title: 'Covid Tracker',
@@ -153,6 +162,7 @@ export const PROJECTS: Project[] = [
     tags: ['JavaScript', 'React', 'Material-UI', 'Chart.js', 'Node.js'],
     demoUrl: 'https://andytule.github.io/covid-app/',
     sourceUrl: 'https://github.com/Andytule/covid-app',
+    image: '/covid-app.png',
   },
   {
     title: 'Blokus',
@@ -161,6 +171,7 @@ export const PROJECTS: Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'jQuery'],
     demoUrl: 'https://andytule.github.io/blokkus/',
     sourceUrl: 'https://github.com/Andytule/blokkus',
+    image: '/blokkus.png',
   },
   {
     title: 'A* Pathfinder',
@@ -169,6 +180,7 @@ export const PROJECTS: Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript'],
     demoUrl: 'https://andytule.github.io/a-star-pathfinder/',
     sourceUrl: 'https://github.com/Andytule/a-star-pathfinder',
+    image: '/a-star-pathfinder.png',
   },
   {
     title: 'Electromagnetic Roomba',
@@ -176,6 +188,7 @@ export const PROJECTS: Project[] = [
       'An autonomous metal-collecting robot built on a Raspberry Pi and Arduino. Uses electromagnets to detect and pick up metal objects, with motion and logic controlled through Python and C++.',
     tags: ['Python', 'C++', 'Arduino', 'Raspberry Pi'],
     sourceUrl: 'https://github.com/Andytule/electromagnetic-robot',
+    image: '/electro-magnetic-roomba.png',
   },
 ];
 
