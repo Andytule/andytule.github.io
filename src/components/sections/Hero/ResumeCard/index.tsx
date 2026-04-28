@@ -1,13 +1,15 @@
 import { FileText } from 'lucide-react';
-import React, { useState } from 'react';
+import React from 'react';
 
-import { cardBase } from '../HoverCard';
+import useHover from '@/hooks/useHover';
+
+import { cardBaseClass } from '../HoverCard';
 
 export const ResumeCard: React.FC<{
   style?: React.CSSProperties;
   mobile?: boolean;
 }> = ({ style, mobile }) => {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, handlers] = useHover();
 
   const scrollToResume = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -18,22 +20,17 @@ export const ResumeCard: React.FC<{
     <a
       href="#resume"
       onClick={scrollToResume}
-      style={{
-        ...cardBase,
-        display: 'flex',
-        flexDirection: mobile ? 'row' : 'column',
-        alignItems: mobile ? 'center' : 'flex-start',
-        justifyContent: 'center',
-        gap: mobile ? '0.875rem' : '0.625rem',
-        padding: mobile ? '1.25rem 1.5rem' : '1.5rem',
-        textDecoration: 'none',
-        color: hovered ? '#ffffff' : '#f0f0f5',
-        background: hovered ? '#1a7fe8' : '#222228',
-        borderColor: hovered ? 'transparent' : 'rgba(255,255,255,0.1)',
-        ...style,
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className={[
+        cardBaseClass,
+        mobile ? 'flex-row items-center' : 'flex-col items-start',
+        'flex justify-center no-underline',
+        mobile ? 'gap-[0.875rem] p-5' : 'gap-[0.625rem] p-6',
+        hovered ? 'bg-[#1a7fe8] border-transparent text-white' : 'text-[#f0f0f5]',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      style={style}
+      {...handlers}
     >
       <div className="flex items-center gap-3">
         <FileText

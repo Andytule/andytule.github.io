@@ -2,31 +2,23 @@ import React from 'react';
 
 import { Pill } from '@/components/shared';
 
-import { cardBase } from '../HoverCard';
+import { cardBaseClass } from '../HoverCard';
 
 /**
  * IdentityCard — hero name + status card.
  *
  * Avatar sizing (Apple approach):
- * - The avatar is absolutely positioned and fills the right portion of the card.
+ * - Absolutely positioned, fills the right portion of the card.
  * - `object-contain object-bottom` keeps the full figure visible at all sizes.
- * - Left offset uses a CSS clamp so the figure gracefully retreats as the card
- *   narrows, never clipping the text content on the left.
+ * - Left offset uses CSS clamp so the figure gracefully retreats as the card
+ *   narrows, never clipping text on the left.
  * - `pointer-events-none` and `aria-hidden` keep it purely decorative.
  */
 export const IdentityCard: React.FC<{
   style?: React.CSSProperties;
   mobile?: boolean;
 }> = ({ style, mobile }) => (
-  <div
-    style={{
-      ...cardBase,
-      display: 'flex',
-      flexDirection: 'column',
-      ...(mobile ? { minHeight: '300px' } : {}),
-      ...style,
-    }}
-  >
+  <div className={`${cardBaseClass} flex flex-col ${mobile ? 'min-h-[300px]' : ''}`} style={style}>
     <div className={`relative z-10 flex flex-col ${mobile ? 'p-7 gap-3.5' : 'p-8 gap-4'}`}>
       <Pill variant="accent">Software Engineer</Pill>
 
@@ -48,10 +40,7 @@ export const IdentityCard: React.FC<{
     <div
       aria-hidden="true"
       className="pointer-events-none absolute bottom-0 right-0 top-0"
-      style={{
-        // clamp retreats the left edge as card shrinks, protecting text
-        left: mobile ? 'clamp(48%, 30%, 55%)' : 'clamp(42%, 28%, 52%)',
-      }}
+      style={{ left: mobile ? 'clamp(48%, 30%, 55%)' : 'clamp(42%, 28%, 52%)' }}
     >
       <img
         src="/andy-avatar.png"

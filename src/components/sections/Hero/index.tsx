@@ -22,10 +22,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section
-      id="hero"
-      style={{ margin: '0 auto', maxWidth: '1100px', padding: '4rem 1.5rem 2rem' }}
-    >
+    <section id="hero" className="mx-auto max-w-[1100px] px-6 pt-16 pb-8">
       <MobileLayout />
       <HeroGrid gridRef={gridRef} rowHeight={rowHeight} />
     </section>

@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export const cardBase: React.CSSProperties = {
-  position: 'relative',
-  overflow: 'hidden',
-  borderRadius: '1.5rem',
-  border: '1px solid rgba(255,255,255,0.1)',
-  background: '#222228',
-  transition: 'border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease',
-};
+import useHover from '@/hooks/useHover';
 
-export const blueHoverStyle: React.CSSProperties = {
-  background: '#1a7fe8',
-  borderColor: 'transparent',
-};
+/**
+ * Shared Tailwind class string for every bento card surface.
+ * Replaces the old `cardBase` CSSProperties object — all values are
+ * identical but expressed as Tailwind utility classes so hover overrides
+ * in child components compose correctly.
+ */
+export const cardBaseClass =
+  'relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#222228] transition-all duration-200';
 
 export const HoverCard: React.FC<{
   as?: 'div' | 'a';
@@ -20,16 +17,16 @@ export const HoverCard: React.FC<{
   target?: string;
   rel?: string;
   onClick?: (e: React.MouseEvent) => void;
-  style?: React.CSSProperties;
-  hoverStyle?: React.CSSProperties;
+  className?: string;
+  hoverClassName?: string;
   children: React.ReactNode;
-}> = ({ as = 'div', href, target, rel, onClick, style, hoverStyle, children }) => {
-  const [hovered, setHovered] = useState(false);
-  const combined: React.CSSProperties = {
-    ...cardBase,
-    ...style,
-    ...(hovered ? hoverStyle : {}),
-  };
+}> = ({ as = 'div', href, target, rel, onClick, className, hoverClassName, children }) => {
+  const [hovered, handlers] = useHover();
+
+  const classes = [cardBaseClass, className, hovered ? hoverClassName : '']
+    .filter(Boolean)
+    .join(' ');
+
   if (as === 'a') {
     return (
       <a
@@ -37,62 +34,55 @@ export const HoverCard: React.FC<{
         target={target}
         rel={rel}
         onClick={onClick}
-        style={{ ...combined, textDecoration: 'none', display: 'flex' }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        className={`flex no-underline ${classes}`}
+        {...handlers}
       >
         {children}
       </a>
     );
   }
+
   return (
-    <div
-      style={{ ...combined, cursor: 'pointer' }}
-      onClick={onClick}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div className={`cursor-pointer ${classes}`} onClick={onClick} {...handlers}>
       {children}
     </div>
   );
 };
 
-/** Blue-on-hover card that flips text color to white when hovered */
+/**
+ * Blue-on-hover card — flips background to #1a7fe8 and text to white.
+ * Uses useHover so the icon color prop can be driven by JS state.
+ */
 export const StatefulBlueCard: React.FC<{
   as?: 'a' | 'div';
   href?: string;
   target?: string;
   rel?: string;
   onClick?: (e: React.MouseEvent) => void;
-  style?: React.CSSProperties;
+  className?: string;
   children: React.ReactNode;
-}> = ({ as = 'a', href, target, rel, onClick, style, children }) => {
-  const [hovered, setHovered] = useState(false);
+}> = ({ as = 'a', href, target, rel, onClick, className, children }) => {
+  const [hovered, handlers] = useHover();
 
-  const base: React.CSSProperties = {
-    ...cardBase,
-    display: 'flex',
-    textDecoration: 'none',
-    color: hovered ? '#ffffff' : '#f0f0f5',
-    background: hovered ? '#1a7fe8' : '#222228',
-    borderColor: hovered ? 'transparent' : 'rgba(255,255,255,0.1)',
-    ...style,
-  };
-
-  const events = {
-    onMouseEnter: () => setHovered(true),
-    onMouseLeave: () => setHovered(false),
-  };
+  const base = [
+    cardBaseClass,
+    'flex no-underline',
+    hovered ? 'bg-[#1a7fe8] border-transparent text-white' : 'text-[#f0f0f5]',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   if (as === 'a') {
     return (
-      <a href={href} target={target} rel={rel} onClick={onClick} style={base} {...events}>
+      <a href={href} target={target} rel={rel} onClick={onClick} className={base} {...handlers}>
         {children}
       </a>
     );
   }
+
   return (
-    <div style={{ ...base, cursor: 'pointer' }} onClick={onClick} {...events}>
+    <div className={`cursor-pointer ${base}`} onClick={onClick} {...handlers}>
       {children}
     </div>
   );

@@ -6,43 +6,60 @@
 
 ## Changelog
 
-### Navbar
+### Navbar (`layout/Navbar/index.tsx`)
 
-- Nav link text is now **`rgba(235,235,245,0.28)` at rest** and brightens to `rgba(235,235,245,0.92)` on hover — matches Apple's restrained typographic hierarchy on dark surfaces (explicit `rgba` used instead of Tailwind opacity modifiers to guarantee Tailwind v4 JIT compatibility).
-- Hover state uses inline `onMouseEnter/Leave` for colour only; underline animation remains a pure CSS `group-hover:scale-x-100` transform.
-- Dropped `useState` from `NavLink`.
+- Nav link text is **`rgba(235,235,245,0.28)` at rest**, brightening to `rgba(235,235,245,0.92)` on hover — Apple's restrained dark-surface typographic hierarchy.
+- Explicit `rgba` values used (not Tailwind opacity modifiers) to guarantee Tailwind v4 JIT compatibility.
+- Accent-blue underline animates in via `scale-x-0 → scale-x-100` on hover using pure CSS `group-hover:`.
+- `useState` removed from `NavLink` — colour transitions handled by inline `onMouseEnter/Leave`.
 
-### Shared `Pill` Component (`components/shared/Pill.tsx`)
+### Shared `Pill` Component (`shared/Pill.tsx`)
 
-- **Single source of truth for all badge/label pills** across the entire app.
-- Variants: `default` · `accent` (blue) · `green` · `purple` — each maps to Apple-calibrated token values.
-- Apple pill design rationale:
-  - Backgrounds are **very low opacity (10%)** — the pill reads as a _tinted label_, not a filled chip.
-  - Borders sit at ~22% opacity — slightly more visible than the fill for edge definition.
-  - Font is 0.6875rem / weight 500 / letter-spacing 0.01em — legible but unobtrusive.
-- `pulse` prop adds an animated dot for live/active status (used on "Open to opportunities" and "Currently At").
-- `hoverClassName` prop allows card-level `group-hover:` overrides without forking the component.
-- Replaces all raw `.pill` / `.pill-green` / `.pill-accent` CSS class strings across: `IdentityCard`, `JobCard`, `FeaturedCard`, `Timeline`, `Projects`.
+Single source of truth for every badge and label across the app. Replaces all raw `.pill` / `.pill-green` / `.pill-accent` CSS class strings.
 
-### JobCard
+**Variants:** `default` · `accent` (blue) · `green` · `purple`
 
-- Uses `<Pill variant="green" pulse>` — identical token to IdentityCard's "Open to opportunities" pill, perfectly matching visuals.
-- Layout unchanged: logo → role → tenure → "Currently At" pill at bottom.
+**Apple design rationale:**
 
-### Featured Project
+- Fill opacity **10%** — reads as a tinted label, not a filled chip.
+- Border opacity **~22%** — slightly more visible than the fill for edge definition.
+- `w-fit` on the base element prevents pills from stretching inside flex columns.
+- `pulse` prop renders an animated dot for live/active status indicators.
+- `hoverClassName` prop accepts `group-hover:` overrides for cards that flip colour on hover — explicit `rgba()` values used (not shorthand opacity modifiers) for reliable Tailwind v4 JIT generation.
 
-- "Featured Project" badge → `<Pill variant="accent">`.
-- GitHub action → `<Pill variant="purple">`.
-- Live action → `<Pill variant="green">` — now visually consistent with all other green pills site-wide.
-- All `group-hover:` colour overrides passed via `hoverClassName` prop.
+**Used in:** `IdentityCard`, `JobCard`, `FeaturedCard`, `Timeline`, `Projects`.
 
-### IdentityCard — Avatar sizing (Apple-style)
+### `JobCard` (`Hero/JobCard/index.tsx`)
 
-- Avatar container `left` offset now uses `clamp()` so the figure **gracefully retreats** as the card narrows, instead of clipping text or jumping at a breakpoint.
-- Desktop: `clamp(42%, 28%, 52%)` · Mobile: `clamp(48%, 30%, 55%)`.
-- This mirrors how Apple handles layered hero imagery in their product pages — the decorative element scales proportionally within its container rather than snapping.
+"Currently At" employer card (previously `DotmaticsCard`).
 
-### Timeline & Projects
+- `cardBase` inline styles removed — all card styles are now Tailwind classes, allowing `hover:bg-[#1a7fe8]` and `hover:border-transparent` to override correctly.
+- "Currently At" status uses `<Pill variant="green" pulse>` with explicit `rgba()` hover overrides matching the Live pill in `FeaturedCard`.
+- Layout: logo + role → tenure → "Currently At" pill anchored at the bottom.
+
+### `FeaturedCard` (`Hero/FeaturedCard/index.tsx`)
+
+Featured project bento card (previously `ChordShiftCard`).
+
+- All hover states via CSS `group` — zero `useState`.
+- **"Featured Project"** badge → `<Pill variant="accent">`.
+- **GitHub** action → `<Pill variant="purple">`.
+- **Live ↗** action → `<Pill variant="green">` — consistent with all green pills site-wide.
+- Screenshot panel scales `1.03×` on hover via `group-hover:scale-[1.03]`.
+- `onClick` scrolls to `#projects`.
+
+### `IdentityCard` (`Hero/IdentityCard/index.tsx`)
+
+- **"Software Engineer"** label → `<Pill variant="accent">`.
+- **"Open to opportunities"** label → `<Pill variant="green" pulse>`.
+- Avatar container `left` offset uses `clamp()` so the figure retreats proportionally as the card narrows — never clips text, never snaps at a breakpoint.
+  - Desktop: `clamp(42%, 28%, 52%)` · Mobile: `clamp(48%, 30%, 55%)`
+
+### `SocialTile` (`Hero/SocialTile/index.tsx`)
+
+- Still uses `useState` for hover — required because icon `color` is passed as a prop to the SVG/Lucide component and cannot be driven by CSS `currentColor` through `group-hover:` alone.
+
+### `Timeline` & `Projects`
 
 - All `.pill` / `.pill-green` / `.pill-accent` raw class strings replaced with `<Pill>` component calls.
 
@@ -66,7 +83,7 @@
 | `--color-accent`    | `#4da6ff` | Blue accent                  |
 | `--color-green`     | `#30d158` | Green status                 |
 | Pill fill opacity   | **10%**   | Apple-standard tint strength |
-| Pill border opacity | **22%**   | Slightly stronger than fill  |
+| Pill border opacity | **~22%**  | Slightly stronger than fill  |
 
 ---
 
@@ -93,14 +110,15 @@ src/
 │   │   └── Footer/index.tsx
 │   ├── sections/
 │   │   ├── Hero/
-│   │   │   ├── FeaturedCard/       # "Featured Project" — full Tailwind group hover
-│   │   │   ├── JobCard/            # "Currently At" — green pill bottom stamp
-│   │   │   ├── IdentityCard/       # Name card — clamp() avatar sizing
-│   │   │   ├── HeroGrid/           # Desktop CSS grid
+│   │   │   ├── FeaturedCard/       # "Featured Project" bento card
+│   │   │   ├── JobCard/            # "Currently At" employer card
+│   │   │   ├── IdentityCard/       # Name/status card — clamp() avatar sizing
+│   │   │   ├── HeroGrid/           # Desktop CSS grid layout
 │   │   │   ├── MobileLayout/       # Mobile flex layout
-│   │   │   ├── ResumeCard/
-│   │   │   ├── SocialTile/
-│   │   │   └── HoverCard/
+│   │   │   ├── ResumeCard/         # Resume icon card
+│   │   │   ├── SocialTile/         # Square social link tiles
+│   │   │   ├── HoverCard/          # Generic card wrapper + cardBase token
+│   │   │   └── index.tsx
 │   │   ├── Skills/
 │   │   ├── Timeline/               # Uses shared Pill
 │   │   ├── Projects/               # Uses shared Pill
@@ -120,6 +138,15 @@ src/
 └── main.tsx
 ```
 
+## Section Order
+
+1. Hero (bento grid)
+2. Skills
+3. Experience (Timeline)
+4. Projects
+5. Contact
+6. **Resume** ← standalone PDF viewer at the bottom
+
 ## Getting Started
 
 ```bash
@@ -131,4 +158,4 @@ npm run preview
 
 ## Updating Content
 
-All content lives in `src/data/index.ts`.
+All content lives in `src/data/index.ts` — edit skills, timeline, projects, and links there without touching any component.

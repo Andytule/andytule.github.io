@@ -4,9 +4,7 @@ import { Pill } from '@/components/shared';
 
 /**
  * FeaturedCard — "Featured Project" bento card.
- *
  * All hover states via CSS `group` — zero useState.
- * Pill variants: accent (Featured Project), purple (GitHub), green (Live).
  */
 export const FeaturedCard: React.FC<{
   style?: React.CSSProperties;
@@ -25,12 +23,11 @@ export const FeaturedCard: React.FC<{
       />
     </div>
 
-    {/* Content panel */}
+    {/* Content panel — left edge anchored 44% from left to clear screenshot */}
     <div
       className="absolute bottom-0 right-0 top-0 flex flex-col justify-center gap-2 p-5"
       style={{ left: '44%' }}
     >
-      {/* Featured badge */}
       <Pill
         variant="accent"
         className="uppercase tracking-[0.06em] text-[0.5625rem]"
@@ -39,17 +36,14 @@ export const FeaturedCard: React.FC<{
         Featured Project
       </Pill>
 
-      {/* Title */}
       <p className="font-[var(--font-display)] text-base font-semibold leading-[1.2] tracking-[-0.02em] text-[#f0f0f5] transition-colors duration-200 group-hover:text-white">
         Chord-Shift
       </p>
 
-      {/* Subtitle */}
       <p className="text-[0.6875rem] leading-[1.4] text-[#8a8a96] transition-colors duration-200 group-hover:text-white/75">
         Full-stack chord transposition
       </p>
 
-      {/* Action pills */}
       <div className="mt-1 flex flex-wrap gap-2">
         <a
           href="https://github.com/Andytule/chord-shift"
