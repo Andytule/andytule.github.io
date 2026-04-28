@@ -1,17 +1,17 @@
 import { FileText } from 'lucide-react';
-import React from 'react';
+import React, { CSSProperties, MouseEvent } from 'react';
 
 import useHover from '@/hooks/useHover';
 
 import { cardBaseClass } from '../HoverCard';
 
 export const ResumeCard: React.FC<{
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   mobile?: boolean;
 }> = ({ style, mobile }) => {
   const [hovered, handlers] = useHover();
 
-  const scrollToResume = (e: React.MouseEvent) => {
+  const scrollToResume = (e: MouseEvent) => {
     e.preventDefault();
     document.getElementById('resume')?.scrollIntoView({ behavior: 'smooth' });
   };

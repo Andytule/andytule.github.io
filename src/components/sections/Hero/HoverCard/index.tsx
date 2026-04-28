@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties, MouseEvent, ReactNode } from 'react';
 
 import useHover from '@/hooks/useHover';
 
@@ -8,11 +8,11 @@ import useHover from '@/hooks/useHover';
  * need hover-driven bg/border changes apply those via inline `style`
  * (or CSS `group-hover:`) so there is no Tailwind specificity conflict.
  */
-export const cardBaseClass =
+export const cardBaseClass: string =
   'relative overflow-hidden rounded-[1.5rem] transition-all duration-200';
 
 /** Default resting surface styles — applied as inline style so JS hover can override them cleanly. */
-export const cardSurfaceStyle: React.CSSProperties = {
+export const cardSurfaceStyle: CSSProperties = {
   background: '#222228',
   border: '1px solid rgba(255,255,255,0.1)',
 };
@@ -22,18 +22,18 @@ export const HoverCard: React.FC<{
   href?: string;
   target?: string;
   rel?: string;
-  onClick?: (e: React.MouseEvent) => void;
+  onClick?: (e: MouseEvent) => void;
   className?: string;
   hoverClassName?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }> = ({ as = 'div', href, target, rel, onClick, className, hoverClassName, children }) => {
   const [hovered, handlers] = useHover();
 
-  const classes = [cardBaseClass, className, hovered ? hoverClassName : '']
+  const classes: string = [cardBaseClass, className, hovered ? hoverClassName : '']
     .filter(Boolean)
     .join(' ');
 
-  const surfaceStyle: React.CSSProperties = {
+  const surfaceStyle: CSSProperties = {
     background: '#222228',
     border: '1px solid rgba(255,255,255,0.1)',
   };
@@ -75,13 +75,13 @@ export const StatefulBlueCard: React.FC<{
   href?: string;
   target?: string;
   rel?: string;
-  onClick?: (e: React.MouseEvent) => void;
+  onClick?: (e: MouseEvent) => void;
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }> = ({ as = 'a', href, target, rel, onClick, className, children }) => {
   const [hovered, handlers] = useHover();
 
-  const classes = [
+  const classes: string = [
     cardBaseClass,
     'flex no-underline',
     hovered ? 'text-white' : 'text-[#f0f0f5]',
@@ -90,7 +90,7 @@ export const StatefulBlueCard: React.FC<{
     .filter(Boolean)
     .join(' ');
 
-  const hoverStyle: React.CSSProperties = {
+  const hoverStyle: CSSProperties = {
     background: hovered ? '#1a7fe8' : '#222228',
     border: hovered ? '1px solid transparent' : '1px solid rgba(255,255,255,0.1)',
   };

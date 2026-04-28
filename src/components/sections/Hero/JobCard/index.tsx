@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import { Pill } from '@/components/shared';
 
 export const JobCard: React.FC<{
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }> = ({ style }) => (
   <a
     href="https://www.dotmatics.com/"

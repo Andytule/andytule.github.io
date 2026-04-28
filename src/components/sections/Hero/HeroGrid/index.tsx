@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 
 import { FeaturedCard } from '../FeaturedCard';
 import { IdentityCard } from '../IdentityCard';
@@ -7,7 +7,7 @@ import { ResumeCard } from '../ResumeCard';
 import { SocialTile, socialTiles } from '../SocialTile';
 
 export const HeroGrid: React.FC<{
-  gridRef: React.RefObject<HTMLDivElement>;
+  gridRef: RefObject<HTMLDivElement | null>;
   rowHeight: number | null;
 }> = ({ gridRef, rowHeight }) => (
   <div

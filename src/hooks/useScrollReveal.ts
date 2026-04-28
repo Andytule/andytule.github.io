@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 
-const useScrollReveal = <T extends HTMLElement>(): React.RefObject<T | null> => {
+const useScrollReveal = <T extends HTMLElement>(): RefObject<T | null> => {
   const ref = useRef<T | null>(null);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -23,7 +23,7 @@ interface PillProps {
   pulse?: boolean; // show animated dot (green variant only)
   dot?: boolean; // show static dot
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
   /** Pass group-hover overrides when pill lives inside a hoverable card */
   hoverClassName?: string;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { AmbientBackground, Footer, Navbar } from '@/components/layout';
 import Contact from '@/components/sections/Contact';
@@ -8,7 +8,7 @@ import Resume from '@/components/sections/Resume';
 import Skills from '@/components/sections/Skills';
 import Timeline from '@/components/sections/Timeline';
 
-const App = (): React.ReactElement => (
+const App = (): ReactElement => (
   <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-bg)]">
     <AmbientBackground />
     <Navbar />

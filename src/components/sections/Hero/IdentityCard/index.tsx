@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import { Pill } from '@/components/shared';
 
@@ -15,7 +15,7 @@ import { cardBaseClass } from '../HoverCard';
  * - `pointer-events-none` and `aria-hidden` keep it purely decorative.
  */
 export const IdentityCard: React.FC<{
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   mobile?: boolean;
 }> = ({ style, mobile }) => (
   <div

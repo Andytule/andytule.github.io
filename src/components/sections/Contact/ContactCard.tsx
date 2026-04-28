@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 interface ContactCardProps {
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   value: string;
   cta: string;

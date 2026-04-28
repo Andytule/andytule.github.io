@@ -8,6 +8,9 @@ import { CalIcon, GHIcon, IconFC, LIIcon, MailIcon } from './icons';
 export { CalIcon, GHIcon, LIIcon, MailIcon };
 export type { IconFC };
 
+const ICON_SIZE_DESKTOP: number = 28;
+const ICON_SIZE_MOBILE: number = 36;
+
 export const socialTiles = [
   { area: 'cal', href: 'https://calendly.com/andytule321', label: 'Schedule', Icon: CalIcon },
   { area: 'email', href: 'mailto:Andytule321@gmail.com', label: 'Email', Icon: MailIcon },
@@ -28,7 +31,7 @@ export const SocialTile: React.FC<{
   aspectRatio?: boolean;
 }> = ({ href, label, Icon, gridArea, mobile, aspectRatio }) => {
   const [hovered, handlers] = useHover();
-  const iconSize = mobile ? 36 : 28;
+  const iconSize: number = mobile ? ICON_SIZE_MOBILE : ICON_SIZE_DESKTOP;
 
   return (
     <a

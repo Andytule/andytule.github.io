@@ -16,22 +16,33 @@ export const SKILLS: Skill[] = [
   {
     category: 'Languages',
     icon: '⌨',
-    items: ['TypeScript', 'JavaScript', 'Python', 'C#', 'Scala', 'Java', 'SQL', 'C++'],
+    items: [
+      'TypeScript',
+      'JavaScript',
+      'Python',
+      'C#',
+      'Java',
+      'SQL',
+      'Swift',
+      'Kotlin',
+      'PHP',
+      'C++',
+    ],
   },
   {
     category: 'Frontend',
     icon: '🎨',
-    items: ['React', 'Next.js', 'Angular', 'Redux', 'RxJS', 'Tailwind CSS', 'SCSS'],
+    items: ['React', 'Next.js', 'Angular', 'Vue', 'Redux', 'RxJS', 'Tailwind CSS', 'jQuery'],
   },
   {
     category: 'Backend',
     icon: '⚙',
-    items: ['Node.js', 'Express', '.NET / ASP.NET', 'Django', 'GraphQL', 'REST'],
+    items: ['Node.js', 'Express', '.NET / ASP.NET', 'Django', 'GraphQL', 'REST', 'Knex'],
   },
   {
-    category: 'Data & Messaging',
+    category: 'Databases',
     icon: '🗄',
-    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Kafka', 'Databricks', 'Supabase'],
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQL Server', 'Kafka', 'Databricks', 'Supabase'],
   },
   {
     category: 'DevOps & Cloud',
@@ -39,9 +50,23 @@ export const SKILLS: Skill[] = [
     items: ['Docker', 'Kubernetes', 'AWS', 'Nginx', 'GitHub Actions'],
   },
   {
-    category: 'Testing & Tooling',
+    category: 'Testing',
     icon: '🧪',
-    items: ['Jest', 'ESLint', 'Prettier', 'Vite', 'Webpack'],
+    items: ['Jest', 'xUnit', 'Postman', 'ESLint'],
+  },
+  {
+    category: 'Tools',
+    icon: '🛠',
+    items: [
+      'Git',
+      'Unity',
+      'Dynamics 365',
+      'Webpack',
+      'Vite',
+      'Android Studio',
+      'Xcode',
+      'Visual Studio',
+    ],
   },
 ];
 
@@ -59,6 +84,8 @@ export const TIMELINE: TimelineEntry[] = [
       'React',
       'TypeScript',
       'Node.js',
+      'Express',
+      'GraphQL',
       'PostgreSQL',
       'Kafka',
       'Scala',
@@ -76,7 +103,7 @@ export const TIMELINE: TimelineEntry[] = [
     logo: '/dayforce-logo.png',
     description:
       'Developed Benefits services features enabling employees to manage their benefits, generating $1M in revenue. Refactored React frontend using TypeScript and Redux for the Benefits Enrollment MFE with Jest integration testing; revamped backend microservices using C# and .NET for efficient SQL querying, achieving a 10% increase in microservice throughput.',
-    tags: ['React', 'TypeScript', 'Redux', 'Jest', 'ESLint', '.NET', 'C#', 'MySQL'],
+    tags: ['React', 'TypeScript', 'Redux', 'C#', '.NET', 'MySQL', 'Jest', 'xUnit', 'ESLint'],
   },
   {
     period: 'Jan 2022 – Dec 2022',
@@ -86,14 +113,15 @@ export const TIMELINE: TimelineEntry[] = [
     description:
       'Developed a gamification system for Tesla service centers to automate vehicle repair and maintenance workflows, resulting in a 13% increase in overall productivity. Designed and deployed a full-stack dashboard using React, TypeScript, and Node.js containerized with Docker; streamlined the Service Center Application using Angular and .NET microservices backed by PostgreSQL.',
     tags: [
-      '.NET',
       'React',
       'TypeScript',
-      'Node.js',
-      'Docker',
       'Angular',
-      'Material-UI',
+      'Node.js',
+      'Express',
+      '.NET',
       'PostgreSQL',
+      'Docker',
+      'Material-UI',
     ],
   },
   {
@@ -103,7 +131,7 @@ export const TIMELINE: TimelineEntry[] = [
     logo: '/ecam-logo.png',
     description:
       'Optimized workflow efficiency of security application users by 15% through personalized dashboard interfaces with real-time data streams via WebSocket. Engineered backend microservices with Node.js, Express.js, and Knex; implemented automated PostgreSQL scripts to purge 3.5TB of obsolete data.',
-    tags: ['Angular', 'RxJS', 'Express', 'Knex', 'PostgreSQL', 'Docker', 'Nginx'],
+    tags: ['Angular', 'RxJS', 'Node.js', 'Express', 'Knex', 'PostgreSQL', 'Docker', 'Nginx'],
   },
   {
     period: 'May 2021 – Aug 2021',
@@ -112,7 +140,7 @@ export const TIMELINE: TimelineEntry[] = [
     logo: '/evenica-logo.png',
     description:
       "Revamped the e-commerce UI, enhancing accessibility and reducing the frontend codebase by 35% through a reusable web component library. Implemented a secure payment terminal integrating Adyen's payment API to establish a resilient payment pipeline.",
-    tags: ['Dynamics 365', 'React', '.NET', 'Adyen'],
+    tags: ['JavaScript', 'React', '.NET', 'Dynamics 365', 'Adyen'],
   },
 ];
 
@@ -121,8 +149,7 @@ export const TIMELINE: TimelineEntry[] = [
 export const PROJECTS: Project[] = [
   {
     title: 'Chord-Shift',
-    description:
-      'A full-stack chord transposition tool built with a modular transformation engine using Strategy, Factory, and Composite design patterns. Supports cloud storage via Supabase and integrates with the Google Docs API.',
+    description: 'Full-stack chord transposition tool',
     tags: ['TypeScript', 'React', 'Node.js', 'Supabase'],
     sourceUrl: 'https://github.com/Andytule/chord-shift',
     demoUrl: 'https://andytule.github.io/chord-shift/',
@@ -131,8 +158,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Rate My Course',
-    description:
-      'A collaborative platform for students to share feedback and insights on courses. Users can engage in discussions, discover tips, and make more informed decisions about their academic experience.',
+    description: 'Collaborative course review platform',
     tags: ['TypeScript', 'React', 'Material-UI', 'Node.js', 'MySQL', 'PHP'],
     demoUrl: 'https://andytule.github.io/rate-my-course/',
     sourceUrl: 'https://github.com/Andytule/rate-my-course',
@@ -140,16 +166,14 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Truck Load Visualizer',
-    description:
-      'A 3D visualization tool for optimally configuring and loading cargo onto truck beds, helping technicians plan loads that are faster, safer, and more space-efficient.',
+    description: '3D cargo load planning tool',
     tags: ['C++', 'JavaScript', 'Unity'],
     sourceUrl: 'https://github.com/Andytule/truck-load-visualizer',
     image: '/truck-load-visualizer.png',
   },
   {
     title: 'Chess',
-    description:
-      'An online multiplayer chess app where you can play with friends in real-time. Features a clean interface with reactive state management for a smooth, lag-free experience.',
+    description: 'Real-time multiplayer chess app',
     tags: ['JavaScript', 'React', 'RxJS', 'Node.js'],
     demoUrl: 'https://andytule.github.io/chess/',
     sourceUrl: 'https://github.com/Andytule/chess',
@@ -157,8 +181,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Covid Tracker',
-    description:
-      "A real-time Covid-19 dashboard displaying live case data through interactive charts and visualizations, giving users a clear and up-to-date view of the pandemic's global impact.",
+    description: 'Live Covid-19 stats dashboard',
     tags: ['JavaScript', 'React', 'Material-UI', 'Chart.js', 'Node.js'],
     demoUrl: 'https://andytule.github.io/covid-app/',
     sourceUrl: 'https://github.com/Andytule/covid-app',
@@ -166,8 +189,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Blokus',
-    description:
-      'A 3D online adaptation of the classic Blokus board game. Play with friends, plan your moves, and compete for board territory in a fully interactive browser environment.',
+    description: '3D multiplayer board game in the browser',
     tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'jQuery'],
     demoUrl: 'https://andytule.github.io/blokkus/',
     sourceUrl: 'https://github.com/Andytule/blokkus',
@@ -175,8 +197,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'A* Pathfinder',
-    description:
-      'An interactive visualizer for the A* pathfinding algorithm. Draw walls, set start and end points, and watch the algorithm navigate mazes in real time.',
+    description: 'Interactive A* algorithm visualizer',
     tags: ['HTML', 'CSS', 'JavaScript'],
     demoUrl: 'https://andytule.github.io/a-star-pathfinder/',
     sourceUrl: 'https://github.com/Andytule/a-star-pathfinder',
@@ -184,8 +205,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Electromagnetic Roomba',
-    description:
-      'An autonomous metal-collecting robot built on a Raspberry Pi and Arduino. Uses electromagnets to detect and pick up metal objects, with motion and logic controlled through Python and C++.',
+    description: 'Autonomous metal-collecting robot',
     tags: ['Python', 'C++', 'Arduino', 'Raspberry Pi'],
     sourceUrl: 'https://github.com/Andytule/electromagnetic-robot',
     image: '/electro-magnetic-roomba.png',

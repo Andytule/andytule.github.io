@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 import { NAV_ITEMS } from '@/data';
 
 const NavLink: React.FC<{
   label: string;
   href: string;
-  onClick: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
+  onClick: (e: MouseEvent<HTMLAnchorElement>, href: string) => void;
 }> = ({ label, href, onClick }) => (
   <a
     href={href}
@@ -23,7 +23,7 @@ const NavLink: React.FC<{
 );
 
 const Navbar: React.FC = () => {
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const id = href.replace('#', '');
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });

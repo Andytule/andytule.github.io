@@ -2,7 +2,7 @@ import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
 import { Download, FileText } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
 import SectionHeader from '@/components/shared/SectionHeader';
@@ -15,7 +15,7 @@ const Resume: React.FC = () => {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageWidth, setPageWidth] = useState<number>(860);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const update = () => setPageWidth(Math.min(860, window.innerWidth - 96));
     update();
     window.addEventListener('resize', update);
@@ -69,10 +69,10 @@ const Resume: React.FC = () => {
             }
           >
             {Array.from({ length: numPages }, (_, i) => (
-              <React.Fragment key={i + 1}>
+              <Fragment key={i + 1}>
                 <Page pageNumber={i + 1} width={pageWidth} renderTextLayer renderAnnotationLayer />
                 {i < numPages - 1 && <div className="w-full h-px bg-white/[0.06] my-2" />}
-              </React.Fragment>
+              </Fragment>
             ))}
           </Document>
         </div>

@@ -1,6 +1,9 @@
 import React from 'react';
 
-const FOOTER_LINKS = [
+const FOOTER_LINKS: {
+  label: string;
+  href: string;
+}[] = [
   { label: 'GitHub', href: 'https://github.com/andytule' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/andy-tu-le' },
   { label: 'Journal', href: '#' },
@@ -8,7 +11,7 @@ const FOOTER_LINKS = [
 ];
 
 const Footer: React.FC = () => {
-  const year = new Date().getFullYear();
+  const year: number = new Date().getFullYear();
 
   return (
     <footer className="border-t border-white/[0.06] bg-[var(--color-surface-lowest)]">
