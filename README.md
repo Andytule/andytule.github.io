@@ -48,6 +48,32 @@ Every section that rendered its repeating unit inline now delegates to a dedicat
 
 ---
 
+### Skills Section (`sections/Skills/`)
+
+Replaced text-pill skill badges with interactive technology icons.
+
+#### New files
+
+| File                               | Purpose                                                                                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sections/Skills/skillIconMeta.ts` | Data-only lookup table: maps every skill name to its Simple Icons CDN slug and official website URL. Add new technologies here without touching any component.                                |
+| `sections/Skills/SkillIcon.tsx`    | Single icon tile — CSS `group`-hover tooltip (zero JS state), accessible `<a>` wrapper that opens the official site in a new tab, graceful `<img>` error fallback to two-letter abbreviation. |
+
+#### `Skills/index.tsx`
+
+- Skill badges (text `<span>`) replaced with `<SkillIcon>` tiles.
+- Repeating card markup extracted into a named `SkillCategoryCard` component (satisfies `react/display-name`; allows React's reconciler to diff correctly).
+- Card hover uses CSS `group` + design tokens (`--color-border-strong`, `--ease-apple`, `--radius-2xl`) — zero inline style overrides.
+
+#### Icon rendering
+
+- Source: `cdn.simpleicons.org/<slug>` — no npm dependency, no build-time import.
+- All icons rendered white via `filter: brightness(0) invert(1)` — consistent dark-surface treatment regardless of each icon's original brand colour.
+- Opacity `50% → 90%` on hover via CSS transition; tile lifts `0.5px` with a shadow for tactile depth.
+- Tooltip: pure CSS (`opacity-0 + translate-y-1` → `opacity-100 + translate-y-0` on `group-hover`), `pointer-events-none`, arrow notch via border trick.
+
+---
+
 ### Navbar (`layout/Navbar/index.tsx`)
 
 - Nav link text is **`rgba(235,235,245,0.28)` at rest**, brightening to `rgba(235,235,245,0.92)` on hover — Apple's restrained dark-surface typographic hierarchy.
@@ -163,6 +189,9 @@ src/
 │   │   │   ├── TimelineEntry.tsx        # Single experience entry + dot indicator
 │   │   │   └── index.tsx
 │   │   ├── Skills/
+│   │   │   ├── skillIconMeta.ts     # Slug + URL lookup for every skill (data only)
+│   │   │   ├── SkillIcon.tsx        # Icon tile: CSS tooltip, link, img fallback
+│   │   │   └── index.tsx            # Section + SkillCategoryCard
 │   │   ├── Resume/
 │   │   └── index.ts
 │   ├── shared/

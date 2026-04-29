@@ -37,22 +37,32 @@ export const SKILLS: Skill[] = [
   {
     category: 'Backend',
     icon: '⚙',
-    items: ['Node.js', 'Express', '.NET / ASP.NET', 'Django', 'GraphQL', 'REST', 'Knex'],
+    items: [
+      'Node.js',
+      'Express',
+      '.NET / ASP.NET',
+      'Django',
+      'Flask',
+      'GraphQL',
+      'FastAPI',
+      'Kafka',
+      'Knex',
+    ],
   },
   {
     category: 'Databases',
     icon: '🗄',
-    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQL Server', 'Kafka', 'Databricks', 'Supabase'],
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQL Server', 'Databricks', 'Supabase'],
   },
   {
     category: 'DevOps & Cloud',
     icon: '☁',
-    items: ['Docker', 'Kubernetes', 'AWS', 'Nginx', 'GitHub Actions'],
+    items: ['Docker', 'Kubernetes', 'AWS', 'Google Cloud', 'Render', 'Nginx', 'GitHub Actions'],
   },
   {
     category: 'Testing',
     icon: '🧪',
-    items: ['Jest', 'xUnit', 'Postman', 'ESLint'],
+    items: ['Jest', 'xUnit', 'Pytest', 'React Testing Library', 'Postman', 'ESLint'],
   },
   {
     category: 'Tools',
@@ -66,6 +76,7 @@ export const SKILLS: Skill[] = [
       'Android Studio',
       'Xcode',
       'Visual Studio',
+      'Arduino',
     ],
   },
 ];
