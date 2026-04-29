@@ -3,7 +3,6 @@ import type { Skill } from '@/types';
 export const SKILLS: Skill[] = [
   {
     category: 'Languages',
-    icon: '⌨',
     items: [
       'TypeScript',
       'JavaScript',
@@ -21,12 +20,10 @@ export const SKILLS: Skill[] = [
   },
   {
     category: 'Frontend',
-    icon: '🎨',
     items: ['React', 'NextJS', 'Angular', 'Vue', 'Redux', 'RxJS', 'TailwindCSS', 'jQuery'],
   },
   {
     category: 'Backend',
-    icon: '⚙',
     items: [
       'NodeJS',
       'Express',
@@ -41,22 +38,18 @@ export const SKILLS: Skill[] = [
   },
   {
     category: 'Databases',
-    icon: '🗄',
     items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLServer', 'Databricks', 'Supabase'],
   },
   {
     category: 'DevOps & Cloud',
-    icon: '☁',
     items: ['Docker', 'Kubernetes', 'AWS', 'GoogleCloud', 'Render', 'Nginx', 'GitHubActions'],
   },
   {
     category: 'Testing',
-    icon: '🧪',
     items: ['Jest', 'xUnit', 'Pytest', 'ReactTestingLibrary', 'Postman', 'ESLint'],
   },
   {
     category: 'Tools',
-    icon: '🛠',
     items: [
       'Git',
       'Unity',

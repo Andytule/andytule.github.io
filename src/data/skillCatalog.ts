@@ -334,19 +334,10 @@ export const SKILL_CATALOG = {
     url: 'https://unity.com/',
     icon: { cdn: 'devicon', slug: 'unity', variant: 'original' },
   },
-  // Dynamics 365 is absent from both Devicon and Simple Icons — Microsoft Windows logo as brand proxy
   Dynamics365: {
     name: 'Dynamics 365',
     url: 'https://www.microsoft.com/en-us/dynamics-365',
-    icon: {
-      cdn: 'inline',
-      svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <path d="M2 4.8L13.5 3.2V14.5H2z" fill="#F25022"/>
-  <path d="M14.5 3L30 0.8V14.5H14.5z" fill="#7FBA00"/>
-  <path d="M2 15.5H13.5V26.8L2 25.2z" fill="#00A4EF"/>
-  <path d="M14.5 15.5H30V29.2L14.5 27z" fill="#FFB900"/>
-</svg>`,
-    },
+    icon: { cdn: 'devicon', slug: 'windows8', variant: 'original' },
   },
   Webpack: {
     name: 'Webpack',

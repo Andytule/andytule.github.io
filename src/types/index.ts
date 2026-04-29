@@ -7,8 +7,6 @@ export interface NavItem {
 
 export interface Skill {
   category: string;
-  /** Emoji used in the category header chip */
-  icon: string;
   /** Ordered list of SkillKey references into SKILL_CATALOG */
   items: SkillKey[];
 }

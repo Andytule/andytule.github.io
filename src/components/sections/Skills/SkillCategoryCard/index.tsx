@@ -16,12 +16,11 @@ import { type SkillKey } from '@/data/skillCatalog';
 import SkillIcon from '../SkillIcon';
 
 export interface SkillCategoryCardProps {
-  icon: string;
   category: string;
   items: SkillKey[];
 }
 
-const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ icon, category, items }) => (
+const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, items }) => (
   <div
     className={[
       'group relative flex flex-col gap-5',
@@ -33,40 +32,14 @@ const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ icon, category, i
       'hover:shadow-[0_12px_40px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)]',
     ].join(' ')}
   >
-    {/* ── Category header ───────────────────────────────────────────── */}
-    <div className="flex items-center gap-2.5">
-      <span
-        aria-hidden="true"
-        className={[
-          'flex h-8 w-8 shrink-0 items-center justify-center',
-          'rounded-[0.5rem] bg-white/[0.06] text-[1rem] leading-none',
-          'transition-colors duration-200 group-hover:bg-white/[0.10]',
-        ].join(' ')}
-      >
-        {icon}
-      </span>
+    <h3 className="text-center text-[0.6875rem] font-semibold tracking-[0.12em] uppercase text-[var(--color-text-secondary)]">
+      {category}
+    </h3>
 
-      <h3 className="font-[var(--font-display)] text-[0.9375rem] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">
-        {category}
-      </h3>
-    </div>
-
-    {/* ── Divider ───────────────────────────────────────────────────── */}
-    <div className="h-px bg-white/[0.06]" />
-
-    {/* ── Icon grid ─────────────────────────────────────────────────── */}
-    {/*
-     * Fixed max-width (6 icons × 32px + 5 gaps × 12px = 252px) centers
-     * the icon block consistently in every card regardless of row count.
-     * flex-wrap + justify-start means all rows — including the last orphan
-     * row — align left within that fixed block.
-     */}
-    <div className="mx-auto" style={{ maxWidth: '252px' }}>
-      <div className="flex flex-wrap justify-start gap-3">
-        {items.map((item) => (
-          <SkillIcon key={item} skillKey={item} />
-        ))}
-      </div>
+    <div className="mx-auto flex flex-wrap justify-start gap-3" style={{ maxWidth: '252px' }}>
+      {items.map((item) => (
+        <SkillIcon key={item} skillKey={item} />
+      ))}
     </div>
   </div>
 );
