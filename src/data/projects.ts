@@ -1,0 +1,67 @@
+import type { Project } from '@/types';
+
+export const PROJECTS: Project[] = [
+  {
+    title: 'Chord-Shift',
+    description: 'Full-stack chord transposition tool',
+    tags: ['TypeScript', 'React', 'NodeJS', 'Supabase'],
+    sourceUrl: 'https://github.com/Andytule/chord-shift',
+    demoUrl: 'https://andytule.github.io/chord-shift/',
+    image: '/chord-shift.png',
+    featured: true,
+  },
+  {
+    title: 'Rate My Course',
+    description: 'Collaborative course review platform',
+    tags: ['TypeScript', 'React', 'MaterialUI', 'NodeJS', 'MySQL', 'PHP'],
+    demoUrl: 'https://andytule.github.io/rate-my-course/',
+    sourceUrl: 'https://github.com/Andytule/rate-my-course',
+    image: '/rate-my-course.png',
+  },
+  {
+    title: 'Truck Load Visualizer',
+    description: '3D cargo load planning tool',
+    tags: ['CPlusPlus', 'JavaScript', 'Unity'],
+    sourceUrl: 'https://github.com/Andytule/truck-load-visualizer',
+    image: '/truck-load-visualizer.png',
+  },
+  {
+    title: 'Chess',
+    description: 'Real-time multiplayer chess app',
+    tags: ['JavaScript', 'React', 'RxJS', 'NodeJS'],
+    demoUrl: 'https://andytule.github.io/chess/',
+    sourceUrl: 'https://github.com/Andytule/chess',
+    image: '/chess.png',
+  },
+  {
+    title: 'Covid Tracker',
+    description: 'Live Covid-19 stats dashboard',
+    tags: ['JavaScript', 'React', 'MaterialUI', 'NodeJS'],
+    demoUrl: 'https://andytule.github.io/covid-app/',
+    sourceUrl: 'https://github.com/Andytule/covid-app',
+    image: '/covid-app.png',
+  },
+  {
+    title: 'Blokus',
+    description: '3D multiplayer board game in the browser',
+    tags: ['HTML', 'CSS', 'JavaScript', 'ThreeJS', 'jQuery'],
+    demoUrl: 'https://andytule.github.io/blokkus/',
+    sourceUrl: 'https://github.com/Andytule/blokkus',
+    image: '/blokkus.png',
+  },
+  {
+    title: 'A* Pathfinder',
+    description: 'Interactive A* algorithm visualizer',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    demoUrl: 'https://andytule.github.io/a-star-pathfinder/',
+    sourceUrl: 'https://github.com/Andytule/a-star-pathfinder',
+    image: '/a-star-pathfinder.png',
+  },
+  {
+    title: 'Electromagnetic Roomba',
+    description: 'Autonomous metal-collecting robot',
+    tags: ['Python', 'CPlusPlus', 'Arduino', 'RaspberryPi'],
+    sourceUrl: 'https://github.com/Andytule/electromagnetic-robot',
+    image: '/electro-magnetic-roomba.png',
+  },
+];

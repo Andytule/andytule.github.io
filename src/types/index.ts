@@ -1,3 +1,5 @@
+import type { SkillKey } from '@/data/skillCatalog';
+
 export interface NavItem {
   label: string;
   href: string;
@@ -5,8 +7,10 @@ export interface NavItem {
 
 export interface Skill {
   category: string;
-  items: string[];
+  /** Emoji used in the category header chip */
   icon: string;
+  /** Ordered list of SkillKey references into SKILL_CATALOG */
+  items: SkillKey[];
 }
 
 export interface TimelineEntry {
@@ -15,14 +19,16 @@ export interface TimelineEntry {
   company: string;
   logo?: string;
   description: string;
-  tags: string[];
+  /** SkillKey references — resolved to SkillDef at render time */
+  tags: SkillKey[];
   isCurrent?: boolean;
 }
 
 export interface Project {
   title: string;
   description: string;
-  tags: string[];
+  /** SkillKey references — resolved to SkillDef at render time */
+  tags: SkillKey[];
   demoUrl?: string;
   sourceUrl?: string;
   image?: string;

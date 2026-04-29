@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Pill } from '@/components/shared';
+import { SKILL_CATALOG } from '@/data/skillCatalog';
 import type { TimelineEntry as TimelineEntryType } from '@/types';
 
 /**
@@ -58,7 +59,7 @@ const TimelineEntry: React.FC<{ entry: TimelineEntryType }> = ({ entry }) => (
       <div className="flex flex-wrap gap-1.5">
         {entry.tags.map((tag) => (
           <Pill key={tag} variant="default" className="text-[0.6875rem]">
-            {tag}
+            {SKILL_CATALOG[tag].name}
           </Pill>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Pill } from '@/components/shared';
+import { SKILL_CATALOG } from '@/data/skillCatalog';
 import type { Project } from '@/types';
 
 /**
@@ -46,7 +47,7 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
         <div className="flex flex-wrap gap-1.5">
           {project.tags.map((t) => (
             <Pill key={t} variant="default" className="text-[0.6875rem]">
-              {t}
+              {SKILL_CATALOG[t].name}
             </Pill>
           ))}
         </div>

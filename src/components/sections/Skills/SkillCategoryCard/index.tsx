@@ -11,12 +11,14 @@
  */
 import React from 'react';
 
+import { type SkillKey } from '@/data/skillCatalog';
+
 import SkillIcon from '../SkillIcon';
 
 export interface SkillCategoryCardProps {
   icon: string;
   category: string;
-  items: string[];
+  items: SkillKey[];
 }
 
 const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ icon, category, items }) => (
@@ -62,7 +64,7 @@ const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ icon, category, i
     <div className="mx-auto" style={{ maxWidth: '252px' }}>
       <div className="flex flex-wrap justify-start gap-3">
         {items.map((item) => (
-          <SkillIcon key={item} name={item} />
+          <SkillIcon key={item} skillKey={item} />
         ))}
       </div>
     </div>

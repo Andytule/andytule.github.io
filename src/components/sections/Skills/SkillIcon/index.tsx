@@ -1,65 +1,48 @@
 /**
  * Skills/SkillIcon/index.tsx
  *
- * Renders a single technology as a bare icon that:
- *   - Shows the icon at full opacity by default
- *   - Glows + lifts slightly on hover
- *   - Displays the skill name in a tooltip above on hover
- *   - Opens the technology's official website on click (new tab)
+ * Renders a single skill as a clickable icon tile. Resolves the SkillKey
+ * into its full SkillDef from SKILL_CATALOG — no props other than the key.
  *
- * Design notes:
- *   - No background box — icon floats freely, creating a lighter feel.
- *   - Uses `group/icon` (named Tailwind group) scoped to the <a> tag so
- *     only the hovered icon shows its tooltip, not the whole card.
- *   - Falls back to a two-letter abbreviation if the CDN icon fails.
+ *   - Full opacity at rest; glows + lifts on hover
+ *   - Pure-CSS tooltip (zero JS state) above the icon on hover
+ *   - Opens the skill's official website in a new tab on click
+ *   - Falls back to a two-letter abbreviation if the CDN image fails
  */
 import React, { useCallback, useState } from 'react';
 
-import { SKILL_ICON_META } from '@/data/skillIconMeta';
+import { SKILL_CATALOG, type SkillKey } from '@/data/skillCatalog';
 import { cn } from '@/lib/utils';
 
 interface SkillIconProps {
-  name: string;
+  skillKey: SkillKey;
   className?: string;
 }
 
-function getIconSrc(meta: NonNullable<(typeof SKILL_ICON_META)[string]>): string | null {
-  if (meta.cdn === 'inline') return null;
-  if (meta.cdn === 'devicon') {
-    return `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${meta.slug}/${meta.slug}-${meta.variant}.svg`;
+function resolveIconSrc(skillKey: SkillKey): string | null {
+  const { icon } = SKILL_CATALOG[skillKey];
+  if (icon.cdn === 'inline') return null;
+  if (icon.cdn === 'devicon') {
+    return `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.slug}/${icon.slug}-${icon.variant}.svg`;
   }
-  return `https://cdn.simpleicons.org/${meta.slug}/${meta.color}`;
+  // simpleicons
+  return `https://cdn.simpleicons.org/${icon.slug}/${icon.color}`;
 }
 
-const SkillIcon: React.FC<SkillIconProps> = ({ name, className }) => {
+const SkillIcon: React.FC<SkillIconProps> = ({ skillKey, className }) => {
   const [imgFailed, setImgFailed] = useState(false);
   const handleError = useCallback(() => setImgFailed(true), []);
-  const meta = SKILL_ICON_META[name];
 
-  if (!meta) {
-    return (
-      <span
-        title={name}
-        className={cn(
-          'rounded-full border border-white/[0.08] bg-white/[0.04]',
-          'px-2.5 py-1 text-[0.75rem] font-medium tracking-[-0.01em] text-[var(--color-text-secondary)]',
-          className
-        )}
-      >
-        {name}
-      </span>
-    );
-  }
-
-  const iconSrc = meta.cdn !== 'inline' ? getIconSrc(meta) : null;
-  const inlineSvg = meta.cdn === 'inline' ? meta.svg : null;
+  const skill = SKILL_CATALOG[skillKey];
+  const iconSrc = resolveIconSrc(skillKey);
+  const inlineSvg = skill.icon.cdn === 'inline' ? skill.icon.svg : null;
 
   return (
     <a
-      href={meta.url}
+      href={skill.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${name} — opens official website`}
+      aria-label={`${skill.name} — opens official website`}
       className={cn('group/icon relative flex flex-col items-center', className)}
     >
       {/* ── Tooltip ──────────────────────────────────────────────────── */}
@@ -76,7 +59,7 @@ const SkillIcon: React.FC<SkillIconProps> = ({ name, className }) => {
           'group-hover/icon:opacity-100 group-hover/icon:translate-y-0'
         )}
       >
-        {name}
+        {skill.name}
         <span
           aria-hidden="true"
           className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-[var(--color-surface-container)]"
@@ -95,7 +78,7 @@ const SkillIcon: React.FC<SkillIconProps> = ({ name, className }) => {
         />
       ) : imgFailed ? (
         <span className="text-[0.625rem] font-bold text-white/70 tracking-tight select-none w-8 text-center">
-          {name.slice(0, 2).toUpperCase()}
+          {skill.name.slice(0, 2).toUpperCase()}
         </span>
       ) : (
         <img

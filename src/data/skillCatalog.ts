@@ -1,0 +1,402 @@
+/**
+ * skills.ts — Single source of truth for every technology in the portfolio.
+ *
+ * Each SkillDef carries:
+ *   - name:    Human-readable display name (used in UI, tags, tooltips)
+ *   - url:     Official website opened on icon click
+ *   - icon:    One of three rendering strategies:
+ *                { cdn: 'devicon', slug, variant }
+ *                { cdn: 'simpleicons', slug, color }   ← hex without #
+ *                { cdn: 'inline', svg }                ← last resort, no CDN entry
+ *
+ * To add a skill: append to SKILL_CATALOG and use its key anywhere in index.ts.
+ * Browse icons: https://devicon.dev  |  https://simpleicons.org
+ */
+
+// ─── Icon metadata types ───────────────────────────────────────────────────────
+
+export type SkillIcon =
+  | { cdn: 'devicon'; slug: string; variant: string }
+  | { cdn: 'simpleicons'; slug: string; color: string }
+  | { cdn: 'inline'; svg: string };
+
+// ─── Skill definition ─────────────────────────────────────────────────────────
+
+export interface SkillDef {
+  /** Human-readable display name shown in tooltips and tag pills */
+  name: string;
+  /** Official website opened when the icon / tag is clicked */
+  url: string;
+  /** Icon rendering metadata */
+  icon: SkillIcon;
+}
+
+// ─── Catalog ──────────────────────────────────────────────────────────────────
+
+export const SKILL_CATALOG = {
+  // ── Languages ───────────────────────────────────────────────────────────────
+  TypeScript: {
+    name: 'TypeScript',
+    url: 'https://www.typescriptlang.org/',
+    icon: { cdn: 'devicon', slug: 'typescript', variant: 'original' },
+  },
+  JavaScript: {
+    name: 'JavaScript',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    icon: { cdn: 'devicon', slug: 'javascript', variant: 'original' },
+  },
+  Python: {
+    name: 'Python',
+    url: 'https://www.python.org/',
+    icon: { cdn: 'devicon', slug: 'python', variant: 'original' },
+  },
+  CSharp: {
+    name: 'C#',
+    url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
+    icon: { cdn: 'devicon', slug: 'csharp', variant: 'original' },
+  },
+  Java: {
+    name: 'Java',
+    url: 'https://www.java.com/',
+    icon: { cdn: 'devicon', slug: 'java', variant: 'original' },
+  },
+  SQL: {
+    name: 'SQL',
+    url: 'https://en.wikipedia.org/wiki/SQL',
+    icon: {
+      cdn: 'inline',
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="sqlg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60A0F0"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect x="5" y="11" width="22" height="14" fill="url(#sqlg)"/>
+  <ellipse cx="16" cy="25" rx="11" ry="4" fill="#1D4ED8"/>
+  <ellipse cx="16" cy="11" rx="11" ry="4" fill="#93C5FD"/>
+  <ellipse cx="16" cy="18" rx="11" ry="4" fill="none" stroke="#93C5FD" stroke-width="0.8" opacity="0.6"/>
+</svg>`,
+    },
+  },
+  HTML: {
+    name: 'HTML',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+    icon: { cdn: 'devicon', slug: 'html5', variant: 'original' },
+  },
+  CSS: {
+    name: 'CSS',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+    icon: { cdn: 'devicon', slug: 'css3', variant: 'original' },
+  },
+  Swift: {
+    name: 'Swift',
+    url: 'https://www.swift.org/',
+    icon: { cdn: 'devicon', slug: 'swift', variant: 'original' },
+  },
+  Kotlin: {
+    name: 'Kotlin',
+    url: 'https://kotlinlang.org/',
+    icon: { cdn: 'devicon', slug: 'kotlin', variant: 'original' },
+  },
+  PHP: {
+    name: 'PHP',
+    url: 'https://www.php.net/',
+    icon: { cdn: 'devicon', slug: 'php', variant: 'original' },
+  },
+  CPlusPlus: {
+    name: 'C++',
+    url: 'https://isocpp.org/',
+    icon: { cdn: 'devicon', slug: 'cplusplus', variant: 'original' },
+  },
+
+  // ── Frontend ────────────────────────────────────────────────────────────────
+  React: {
+    name: 'React',
+    url: 'https://react.dev/',
+    icon: { cdn: 'devicon', slug: 'react', variant: 'original' },
+  },
+  NextJS: {
+    name: 'Next.js',
+    url: 'https://nextjs.org/',
+    icon: { cdn: 'devicon', slug: 'nextjs', variant: 'original' },
+  },
+  Angular: {
+    name: 'Angular',
+    url: 'https://angular.dev/',
+    icon: { cdn: 'devicon', slug: 'angular', variant: 'original' },
+  },
+  Vue: {
+    name: 'Vue',
+    url: 'https://vuejs.org/',
+    icon: { cdn: 'devicon', slug: 'vuejs', variant: 'original' },
+  },
+  Redux: {
+    name: 'Redux',
+    url: 'https://redux.js.org/',
+    icon: { cdn: 'devicon', slug: 'redux', variant: 'original' },
+  },
+  RxJS: {
+    name: 'RxJS',
+    url: 'https://rxjs.dev/',
+    icon: { cdn: 'devicon', slug: 'rxjs', variant: 'original' },
+  },
+  TailwindCSS: {
+    name: 'Tailwind CSS',
+    url: 'https://tailwindcss.com/',
+    icon: { cdn: 'devicon', slug: 'tailwindcss', variant: 'original' },
+  },
+  jQuery: {
+    name: 'jQuery',
+    url: 'https://jquery.com/',
+    icon: { cdn: 'devicon', slug: 'jquery', variant: 'original' },
+  },
+  ThreeJS: {
+    name: 'Three.js',
+    url: 'https://threejs.org/',
+    icon: { cdn: 'devicon', slug: 'threejs', variant: 'original' },
+  },
+  MaterialUI: {
+    name: 'Material-UI',
+    url: 'https://mui.com/',
+    icon: { cdn: 'devicon', slug: 'materialui', variant: 'original' },
+  },
+
+  // ── Backend ─────────────────────────────────────────────────────────────────
+  NodeJS: {
+    name: 'Node.js',
+    url: 'https://nodejs.org/',
+    icon: { cdn: 'devicon', slug: 'nodejs', variant: 'original' },
+  },
+  // Express has no colored Devicon variant — simpleicons with light grey
+  Express: {
+    name: 'Express',
+    url: 'https://expressjs.com/',
+    icon: { cdn: 'simpleicons', slug: 'express', color: 'CCCCCC' },
+  },
+  DotNet: {
+    name: '.NET / ASP.NET',
+    url: 'https://dotnet.microsoft.com/',
+    icon: { cdn: 'devicon', slug: 'dotnetcore', variant: 'original' },
+  },
+  // Django devicon plain is near-invisible dark green — simpleicons with vivid brand green
+  Django: {
+    name: 'Django',
+    url: 'https://www.djangoproject.com/',
+    icon: { cdn: 'simpleicons', slug: 'django', color: '44B78B' },
+  },
+  // Flask devicon is monochrome — simpleicons white reads cleanly on dark
+  Flask: {
+    name: 'Flask',
+    url: 'https://flask.palletsprojects.com/',
+    icon: { cdn: 'simpleicons', slug: 'flask', color: 'FFFFFF' },
+  },
+  GraphQL: {
+    name: 'GraphQL',
+    url: 'https://graphql.org/',
+    icon: { cdn: 'devicon', slug: 'graphql', variant: 'plain' },
+  },
+  FastAPI: {
+    name: 'FastAPI',
+    url: 'https://fastapi.tiangolo.com/',
+    icon: { cdn: 'devicon', slug: 'fastapi', variant: 'original' },
+  },
+  // Kafka devicon is monochrome black — simpleicons white
+  Kafka: {
+    name: 'Kafka',
+    url: 'https://kafka.apache.org/',
+    icon: { cdn: 'simpleicons', slug: 'apachekafka', color: 'FFFFFF' },
+  },
+  Knex: {
+    name: 'Knex',
+    url: 'https://knexjs.org/',
+    icon: { cdn: 'devicon', slug: 'knexjs', variant: 'original' },
+  },
+  Scala: {
+    name: 'Scala',
+    url: 'https://www.scala-lang.org/',
+    icon: { cdn: 'devicon', slug: 'scala', variant: 'original' },
+  },
+
+  // ── Databases ───────────────────────────────────────────────────────────────
+  PostgreSQL: {
+    name: 'PostgreSQL',
+    url: 'https://www.postgresql.org/',
+    icon: { cdn: 'devicon', slug: 'postgresql', variant: 'original' },
+  },
+  MySQL: {
+    name: 'MySQL',
+    url: 'https://www.mysql.com/',
+    icon: { cdn: 'devicon', slug: 'mysql', variant: 'original' },
+  },
+  MongoDB: {
+    name: 'MongoDB',
+    url: 'https://www.mongodb.com/',
+    icon: { cdn: 'devicon', slug: 'mongodb', variant: 'original' },
+  },
+  SQLServer: {
+    name: 'SQL Server',
+    url: 'https://www.microsoft.com/en-us/sql-server',
+    icon: { cdn: 'devicon', slug: 'microsoftsqlserver', variant: 'plain' },
+  },
+  // Databricks has no Devicon entry — simpleicons with official red
+  Databricks: {
+    name: 'Databricks',
+    url: 'https://www.databricks.com/',
+    icon: { cdn: 'simpleicons', slug: 'databricks', color: 'FF3621' },
+  },
+  Supabase: {
+    name: 'Supabase',
+    url: 'https://supabase.com/',
+    icon: { cdn: 'devicon', slug: 'supabase', variant: 'original' },
+  },
+
+  // ── DevOps & Cloud ──────────────────────────────────────────────────────────
+  Docker: {
+    name: 'Docker',
+    url: 'https://www.docker.com/',
+    icon: { cdn: 'devicon', slug: 'docker', variant: 'original' },
+  },
+  Kubernetes: {
+    name: 'Kubernetes',
+    url: 'https://kubernetes.io/',
+    icon: { cdn: 'devicon', slug: 'kubernetes', variant: 'plain' },
+  },
+  AWS: {
+    name: 'AWS',
+    url: 'https://aws.amazon.com/',
+    icon: { cdn: 'devicon', slug: 'amazonwebservices', variant: 'plain-wordmark' },
+  },
+  GoogleCloud: {
+    name: 'Google Cloud',
+    url: 'https://cloud.google.com/',
+    icon: { cdn: 'devicon', slug: 'googlecloud', variant: 'original' },
+  },
+  // Render has no Devicon entry — simpleicons with official teal
+  Render: {
+    name: 'Render',
+    url: 'https://render.com/',
+    icon: { cdn: 'simpleicons', slug: 'render', color: '46E3B7' },
+  },
+  Nginx: {
+    name: 'Nginx',
+    url: 'https://nginx.org/',
+    icon: { cdn: 'devicon', slug: 'nginx', variant: 'original' },
+  },
+  GitHubActions: {
+    name: 'GitHub Actions',
+    url: 'https://github.com/features/actions',
+    icon: { cdn: 'devicon', slug: 'githubactions', variant: 'original' },
+  },
+
+  // ── Testing ─────────────────────────────────────────────────────────────────
+  Jest: {
+    name: 'Jest',
+    url: 'https://jestjs.io/',
+    icon: { cdn: 'devicon', slug: 'jest', variant: 'plain' },
+  },
+  // xUnit has no Devicon entry — vitest icon as closest testing-framework proxy
+  xUnit: {
+    name: 'xUnit',
+    url: 'https://xunit.net/',
+    icon: { cdn: 'devicon', slug: 'vitest', variant: 'original' },
+  },
+  Pytest: {
+    name: 'Pytest',
+    url: 'https://pytest.org/',
+    icon: { cdn: 'devicon', slug: 'pytest', variant: 'original' },
+  },
+  // React Testing Library has no Devicon entry — simpleicons
+  ReactTestingLibrary: {
+    name: 'React Testing Library',
+    url: 'https://testing-library.com/',
+    icon: { cdn: 'simpleicons', slug: 'testinglibrary', color: 'E33332' },
+  },
+  Postman: {
+    name: 'Postman',
+    url: 'https://www.postman.com/',
+    icon: { cdn: 'devicon', slug: 'postman', variant: 'original' },
+  },
+  ESLint: {
+    name: 'ESLint',
+    url: 'https://eslint.org/',
+    icon: { cdn: 'devicon', slug: 'eslint', variant: 'original' },
+  },
+
+  // ── Tools ───────────────────────────────────────────────────────────────────
+  Git: {
+    name: 'Git',
+    url: 'https://git-scm.com/',
+    icon: { cdn: 'devicon', slug: 'git', variant: 'original' },
+  },
+  Unity: {
+    name: 'Unity',
+    url: 'https://unity.com/',
+    icon: { cdn: 'devicon', slug: 'unity', variant: 'original' },
+  },
+  // Dynamics 365 is absent from both Devicon and Simple Icons — Microsoft Windows logo as brand proxy
+  Dynamics365: {
+    name: 'Dynamics 365',
+    url: 'https://www.microsoft.com/en-us/dynamics-365',
+    icon: {
+      cdn: 'inline',
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <path d="M2 4.8L13.5 3.2V14.5H2z" fill="#F25022"/>
+  <path d="M14.5 3L30 0.8V14.5H14.5z" fill="#7FBA00"/>
+  <path d="M2 15.5H13.5V26.8L2 25.2z" fill="#00A4EF"/>
+  <path d="M14.5 15.5H30V29.2L14.5 27z" fill="#FFB900"/>
+</svg>`,
+    },
+  },
+  Webpack: {
+    name: 'Webpack',
+    url: 'https://webpack.js.org/',
+    icon: { cdn: 'devicon', slug: 'webpack', variant: 'original' },
+  },
+  Vite: {
+    name: 'Vite',
+    url: 'https://vitejs.dev/',
+    icon: { cdn: 'devicon', slug: 'vitejs', variant: 'original' },
+  },
+  AndroidStudio: {
+    name: 'Android Studio',
+    url: 'https://developer.android.com/studio',
+    icon: { cdn: 'devicon', slug: 'androidstudio', variant: 'original' },
+  },
+  Xcode: {
+    name: 'Xcode',
+    url: 'https://developer.apple.com/xcode/',
+    icon: { cdn: 'devicon', slug: 'xcode', variant: 'original' },
+  },
+  VisualStudio: {
+    name: 'Visual Studio',
+    url: 'https://visualstudio.microsoft.com/',
+    icon: { cdn: 'devicon', slug: 'visualstudio', variant: 'plain' },
+  },
+  Arduino: {
+    name: 'Arduino',
+    url: 'https://www.arduino.cc/',
+    icon: { cdn: 'devicon', slug: 'arduino', variant: 'original' },
+  },
+  RaspberryPi: {
+    name: 'Raspberry Pi',
+    url: 'https://www.raspberrypi.org/',
+    icon: { cdn: 'devicon', slug: 'raspberrypi', variant: 'original' },
+  },
+  Adyen: {
+    name: 'Adyen',
+    url: 'https://www.adyen.com/',
+    icon: { cdn: 'simpleicons', slug: 'adyen', color: '0ABF53' },
+  },
+} as const satisfies Record<string, SkillDef>;
+
+/** Union of all valid skill keys — use this type for tags and items arrays */
+export type SkillKey = keyof typeof SKILL_CATALOG;
+
+/**
+ * Convenience helper — resolves a SkillKey to its full SkillDef.
+ * Returns undefined (and logs a warning) if the key is missing from the catalog.
+ */
+export function getSkill(key: SkillKey): SkillDef {
+  return SKILL_CATALOG[key];
+}
