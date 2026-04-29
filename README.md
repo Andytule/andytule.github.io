@@ -54,27 +54,37 @@ Replaced text-pill skill badges with interactive technology icons.
 
 #### New files
 
-| File                               | Purpose                                                                                                                                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sections/Skills/skillIconMeta.ts` | Data-only lookup table: maps every skill name to its Simple Icons CDN slug and official website URL. Add new technologies here without touching any component.                                |
-| `sections/Skills/SkillIcon.tsx`    | Single icon tile — CSS `group`-hover tooltip (zero JS state), accessible `<a>` wrapper that opens the official site in a new tab, graceful `<img>` error fallback to two-letter abbreviation. |
+| File                                          | Purpose                                                                                                                                                                                                         |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data/skillCatalog.ts`                        | Single source of truth for every technology: maps each `SkillKey` to a full `SkillDef` (name, URL, icon metadata). Supports three icon strategies (see below). Add new skills here without touching components. |
+| `sections/Skills/SkillIcon/index.tsx`         | Single icon tile — CSS `group`-hover tooltip (zero JS state), accessible `<a>` wrapper that opens the official site in a new tab, graceful `<img>` error fallback to two-letter abbreviation.                   |
+| `sections/Skills/SkillCategoryCard/index.tsx` | Extracted named component for a category card; satisfies `react/display-name` and allows React's reconciler to diff correctly.                                                                                  |
 
 #### `Skills/index.tsx`
 
 - Skill badges (text `<span>`) replaced with `<SkillIcon>` tiles.
-- Repeating card markup extracted into a named `SkillCategoryCard` component (satisfies `react/display-name`; allows React's reconciler to diff correctly).
+- `SkillCategoryCard` extracted into its own subdirectory rather than defined inline.
 - Card hover uses CSS `group` + design tokens (`--color-border-strong`, `--ease-apple`, `--radius-2xl`) — zero inline style overrides.
 
 #### Icon rendering
 
-- Source: `cdn.simpleicons.org/<slug>` — no npm dependency, no build-time import.
-- All icons rendered white via `filter: brightness(0) invert(1)` — consistent dark-surface treatment regardless of each icon's original brand colour.
+Three CDN strategies are supported, configured per-skill in `data/skillCatalog.ts`:
+
+| Strategy      | Source                                                | Notes                                      |
+| ------------- | ----------------------------------------------------- | ------------------------------------------ |
+| `devicon`     | `cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/…` | Requires `slug` + `variant` (e.g. `plain`) |
+| `simpleicons` | `cdn.simpleicons.org/<slug>/<hex>`                    | Hex color passed directly — no `#` prefix  |
+| `inline`      | Raw SVG string in `skillCatalog.ts`                   | Last resort when no CDN entry exists       |
+
+- No npm dependency, no build-time import for any strategy.
 - Opacity `50% → 90%` on hover via CSS transition; tile lifts `0.5px` with a shadow for tactile depth.
 - Tooltip: pure CSS (`opacity-0 + translate-y-1` → `opacity-100 + translate-y-0` on `group-hover`), `pointer-events-none`, arrow notch via border trick.
 
 ---
 
-### Navbar (`layout/Navbar/index.tsx`)
+### Navbar (`layout/Navbar/`)
+
+`NavLink` has been extracted into its own subdirectory at `layout/Navbar/NavLink/index.tsx`.
 
 - Nav link text is **`rgba(235,235,245,0.28)` at rest**, brightening to `rgba(235,235,245,0.92)` on hover — Apple's restrained dark-surface typographic hierarchy.
 - Explicit `rgba` values used (not Tailwind opacity modifiers) to guarantee Tailwind v4 JIT compatibility.
@@ -163,7 +173,9 @@ src/
 ├── components/
 │   ├── layout/
 │   │   ├── AmbientBackground/index.tsx  # Fixed layered ambient light orbs
-│   │   ├── Navbar/index.tsx             # Sticky nav — dim at rest, bright on hover
+│   │   ├── Navbar/
+│   │   │   ├── NavLink/index.tsx        # Extracted nav link (hover via inline handlers)
+│   │   │   └── index.tsx               # Sticky nav — dim at rest, bright on hover
 │   │   └── Footer/index.tsx
 │   ├── sections/
 │   │   ├── Hero/
@@ -189,9 +201,9 @@ src/
 │   │   │   ├── TimelineEntry.tsx        # Single experience entry + dot indicator
 │   │   │   └── index.tsx
 │   │   ├── Skills/
-│   │   │   ├── skillIconMeta.ts     # Slug + URL lookup for every skill (data only)
-│   │   │   ├── SkillIcon.tsx        # Icon tile: CSS tooltip, link, img fallback
-│   │   │   └── index.tsx            # Section + SkillCategoryCard
+│   │   │   ├── SkillCategoryCard/index.tsx  # Extracted category card component
+│   │   │   ├── SkillIcon/index.tsx          # Icon tile: CSS tooltip, link, img fallback, 3-strategy CDN
+│   │   │   └── index.tsx                    # Section layout
 │   │   ├── Resume/
 │   │   └── index.ts
 │   ├── shared/
@@ -199,7 +211,15 @@ src/
 │   │   ├── SectionHeader.tsx            # Eyebrow + heading (Tailwind-only)
 │   │   └── index.ts
 │   └── ui/                              # shadcn/ui primitives
-├── data/index.ts                        # All static content
+├── constants/
+│   └── design.ts                        # JS mirrors of CSS tokens (COLORS, MAX_WIDTH, SECTION_PADDING)
+├── data/
+│   ├── index.ts                         # Re-exports from all data files below
+│   ├── projects.ts                      # PROJECTS array
+│   ├── skillCatalog.ts                  # SKILL_CATALOG: SkillKey → SkillDef (name, url, icon strategy)
+│   ├── skills.ts                        # SKILLS: category → SkillKey[] groupings
+│   ├── social.ts                        # SOCIAL_LINKS array
+│   └── timeline.ts                      # TIMELINE array
 ├── hooks/
 │   ├── useHover.ts                      # ← Shared JS hover state
 │   ├── useScrollReveal.ts
@@ -232,4 +252,14 @@ npm run preview
 
 ## Updating Content
 
-All content lives in `src/data/index.ts` — edit skills, timeline, projects, and links there without touching any component.
+Static content is split across files in `src/data/`:
+
+| File              | What to edit                                       |
+| ----------------- | -------------------------------------------------- |
+| `skillCatalog.ts` | Add/edit skills — name, URL, and icon strategy     |
+| `skills.ts`       | Change which skills appear and how they're grouped |
+| `projects.ts`     | Add/edit portfolio projects                        |
+| `timeline.ts`     | Add/edit experience entries                        |
+| `social.ts`       | Update contact/social links                        |
+
+No component files need to be touched for content changes.
