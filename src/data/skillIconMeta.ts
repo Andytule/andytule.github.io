@@ -35,11 +35,31 @@ interface SimpleIconMeta {
   url: string;
 }
 
-export type SkillIconMeta = DevIconMeta | SimpleIconMeta;
+interface InlineSvgMeta {
+  cdn: 'inline';
+  /** Raw SVG string rendered directly. Use only when absent from both Devicon + Simple Icons. */
+  svg: string;
+  /** Official website URL opened when the icon is clicked */
+  url: string;
+}
+
+export type SkillIconMeta = DevIconMeta | SimpleIconMeta | InlineSvgMeta;
 
 /** Lookup keyed by the exact skill name used in `src/data/index.ts` */
 export const SKILL_ICON_META: Readonly<Record<string, SkillIconMeta>> = {
   // ── Languages ────────────────────────────────────────────────────────
+  HTML: {
+    cdn: 'devicon',
+    slug: 'html5',
+    variant: 'original',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+  },
+  CSS: {
+    cdn: 'devicon',
+    slug: 'css3',
+    variant: 'original',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+  },
   TypeScript: {
     cdn: 'devicon',
     slug: 'typescript',
@@ -60,11 +80,26 @@ export const SKILL_ICON_META: Readonly<Record<string, SkillIconMeta>> = {
     url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
   },
   Java: { cdn: 'devicon', slug: 'java', variant: 'original', url: 'https://www.java.com/' },
+  // SQL — no single correct logo; use a clean inline database cylinder SVG
   SQL: {
-    cdn: 'devicon',
-    slug: 'postgresql',
-    variant: 'original',
-    url: 'https://www.postgresql.org/',
+    cdn: 'inline',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="sqlg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60A0F0"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <!-- cylinder body -->
+  <rect x="5" y="11" width="22" height="14" fill="url(#sqlg)"/>
+  <!-- bottom ellipse -->
+  <ellipse cx="16" cy="25" rx="11" ry="4" fill="#1D4ED8"/>
+  <!-- top ellipse (lighter) -->
+  <ellipse cx="16" cy="11" rx="11" ry="4" fill="#93C5FD"/>
+  <!-- middle ellipse line -->
+  <ellipse cx="16" cy="18" rx="11" ry="4" fill="none" stroke="#93C5FD" stroke-width="0.8" opacity="0.6"/>
+</svg>`,
+    url: 'https://en.wikipedia.org/wiki/SQL',
   },
   Swift: { cdn: 'devicon', slug: 'swift', variant: 'original', url: 'https://www.swift.org/' },
   Kotlin: { cdn: 'devicon', slug: 'kotlin', variant: 'original', url: 'https://kotlinlang.org/' },
@@ -88,7 +123,8 @@ export const SKILL_ICON_META: Readonly<Record<string, SkillIconMeta>> = {
 
   // ── Backend ───────────────────────────────────────────────────────────
   'Node.js': { cdn: 'devicon', slug: 'nodejs', variant: 'original', url: 'https://nodejs.org/' },
-  Express: { cdn: 'devicon', slug: 'express', variant: 'original', url: 'https://expressjs.com/' },
+  // Express has no colored Devicon variant — use Simple Icons with a light grey so it reads on dark surfaces
+  Express: { cdn: 'simpleicons', slug: 'express', color: 'CCCCCC', url: 'https://expressjs.com/' },
   // dotnetcore = correct purple .NET Core logo
   '.NET / ASP.NET': {
     cdn: 'devicon',
@@ -96,16 +132,19 @@ export const SKILL_ICON_META: Readonly<Record<string, SkillIconMeta>> = {
     variant: 'original',
     url: 'https://dotnet.microsoft.com/',
   },
+  // Django's devicon plain variant is near-invisible dark green on dark surfaces
+  // — use Simple Icons with Django's vivid brand green instead
   Django: {
-    cdn: 'devicon',
+    cdn: 'simpleicons',
     slug: 'django',
-    variant: 'plain',
+    color: '44B78B',
     url: 'https://www.djangoproject.com/',
   },
+  // Flask has no colored Devicon variant — use Simple Icons with white so the minimal logo reads clearly
   Flask: {
-    cdn: 'devicon',
+    cdn: 'simpleicons',
     slug: 'flask',
-    variant: 'original',
+    color: 'FFFFFF',
     url: 'https://flask.palletsprojects.com/',
   },
   GraphQL: { cdn: 'devicon', slug: 'graphql', variant: 'plain', url: 'https://graphql.org/' },
@@ -115,10 +154,11 @@ export const SKILL_ICON_META: Readonly<Record<string, SkillIconMeta>> = {
     variant: 'original',
     url: 'https://fastapi.tiangolo.com/',
   },
+  // Kafka's Devicon variant is monochrome black — use Simple Icons with the official white brand color
   Kafka: {
-    cdn: 'devicon',
+    cdn: 'simpleicons',
     slug: 'apachekafka',
-    variant: 'original',
+    color: 'FFFFFF',
     url: 'https://kafka.apache.org/',
   },
   Knex: { cdn: 'devicon', slug: 'knexjs', variant: 'original', url: 'https://knexjs.org/' },
@@ -205,11 +245,16 @@ export const SKILL_ICON_META: Readonly<Record<string, SkillIconMeta>> = {
   // ── Tools ─────────────────────────────────────────────────────────────
   Git: { cdn: 'devicon', slug: 'git', variant: 'original', url: 'https://git-scm.com/' },
   Unity: { cdn: 'devicon', slug: 'unity', variant: 'original', url: 'https://unity.com/' },
-  // Dynamics 365 has no Devicon — use Simple Icons with official deep-blue brand color
+  // Dynamics 365 — no entry in Devicon or Simple Icons.
+  // Use the Microsoft Windows logo (4-color flag) as the brand proxy.
   'Dynamics 365': {
-    cdn: 'simpleicons',
-    slug: 'microsoftdynamics365',
-    color: '002050',
+    cdn: 'inline',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <path d="M2 4.8L13.5 3.2V14.5H2z" fill="#F25022"/>
+  <path d="M14.5 3L30 0.8V14.5H14.5z" fill="#7FBA00"/>
+  <path d="M2 15.5H13.5V26.8L2 25.2z" fill="#00A4EF"/>
+  <path d="M14.5 15.5H30V29.2L14.5 27z" fill="#FFB900"/>
+</svg>`,
     url: 'https://www.microsoft.com/en-us/dynamics-365',
   },
   Webpack: { cdn: 'devicon', slug: 'webpack', variant: 'original', url: 'https://webpack.js.org/' },

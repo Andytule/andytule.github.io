@@ -1,9 +1,9 @@
 /**
- * SkillIcon.tsx
+ * Skills/SkillIcon/index.tsx
  *
- * Renders a single technology as a bare icon (no tile box) that:
- *   - Shows the icon in its natural brand color at rest (~60% opacity)
- *   - Brightens + lifts slightly on hover
+ * Renders a single technology as a bare icon that:
+ *   - Shows the icon at full opacity by default
+ *   - Glows + lifts slightly on hover
  *   - Displays the skill name in a tooltip above on hover
  *   - Opens the technology's official website on click (new tab)
  *
@@ -15,16 +15,16 @@
  */
 import React, { useCallback, useState } from 'react';
 
+import { SKILL_ICON_META } from '@/data/skillIconMeta';
 import { cn } from '@/lib/utils';
-
-import { SKILL_ICON_META } from './skillIconMeta';
 
 interface SkillIconProps {
   name: string;
   className?: string;
 }
 
-function getIconSrc(meta: NonNullable<(typeof SKILL_ICON_META)[string]>): string {
+function getIconSrc(meta: NonNullable<(typeof SKILL_ICON_META)[string]>): string | null {
+  if (meta.cdn === 'inline') return null;
   if (meta.cdn === 'devicon') {
     return `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${meta.slug}/${meta.slug}-${meta.variant}.svg`;
   }
@@ -51,7 +51,8 @@ const SkillIcon: React.FC<SkillIconProps> = ({ name, className }) => {
     );
   }
 
-  const iconSrc = getIconSrc(meta);
+  const iconSrc = meta.cdn !== 'inline' ? getIconSrc(meta) : null;
+  const inlineSvg = meta.cdn === 'inline' ? meta.svg : null;
 
   return (
     <a
@@ -82,14 +83,23 @@ const SkillIcon: React.FC<SkillIconProps> = ({ name, className }) => {
         />
       </span>
 
-      {/* ── Icon — no box, just the image ────────────────────────────── */}
-      {imgFailed ? (
-        <span className="text-[0.625rem] font-bold text-white/40 tracking-tight select-none w-8 text-center">
+      {/* ── Icon ─────────────────────────────────────────────────────── */}
+      {inlineSvg ? (
+        <span
+          className={cn(
+            'block w-8 h-8 transition-all duration-200 ease-[var(--ease-apple)]',
+            'group-hover/icon:-translate-y-0.5',
+            'group-hover/icon:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]'
+          )}
+          dangerouslySetInnerHTML={{ __html: inlineSvg }}
+        />
+      ) : imgFailed ? (
+        <span className="text-[0.625rem] font-bold text-white/70 tracking-tight select-none w-8 text-center">
           {name.slice(0, 2).toUpperCase()}
         </span>
       ) : (
         <img
-          src={iconSrc}
+          src={iconSrc!}
           alt=""
           width={32}
           height={32}
@@ -97,9 +107,10 @@ const SkillIcon: React.FC<SkillIconProps> = ({ name, className }) => {
           decoding="async"
           onError={handleError}
           className={cn(
-            'opacity-60 transition-all duration-200 ease-[var(--ease-apple)]',
-            'group-hover/icon:opacity-100 group-hover/icon:-translate-y-0.5',
-            'group-hover/icon:drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]'
+            'opacity-100 transition-all duration-200 ease-[var(--ease-apple)]',
+            'group-hover/icon:-translate-y-0.5',
+            'group-hover/icon:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]',
+            'group-hover/icon:brightness-110'
           )}
         />
       )}

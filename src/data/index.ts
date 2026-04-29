@@ -23,6 +23,8 @@ export const SKILLS: Skill[] = [
       'C#',
       'Java',
       'SQL',
+      'HTML',
+      'CSS',
       'Swift',
       'Kotlin',
       'PHP',
