@@ -8,7 +8,7 @@ import { CalIcon, GHIcon, IconFC, LIIcon, MailIcon } from './icons';
 export { CalIcon, GHIcon, LIIcon, MailIcon };
 export type { IconFC };
 
-const ICON_SIZE_DESKTOP: number = 28;
+const ICON_SIZE_DESKTOP: number = 34;
 const ICON_SIZE_MOBILE: number = 36;
 
 export const socialTiles = [
@@ -42,7 +42,7 @@ export const SocialTile: React.FC<{
         cardBaseClass,
         'flex flex-col items-center justify-center no-underline w-full',
         mobile ? 'gap-[0.875rem]' : 'gap-[0.625rem]',
-        aspectRatio ? 'aspect-square' : '',
+        !mobile ? 'aspect-square' : aspectRatio ? 'aspect-square' : '',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -62,7 +62,7 @@ export const SocialTile: React.FC<{
       <span
         className="font-semibold tracking-[0.1em] uppercase transition-colors duration-200"
         style={{
-          fontSize: mobile ? '0.6875rem' : '0.5625rem',
+          fontSize: mobile ? '0.6875rem' : '0.625rem',
           color: hovered ? 'rgba(255,255,255,0.5)' : '#52525e',
         }}
       >

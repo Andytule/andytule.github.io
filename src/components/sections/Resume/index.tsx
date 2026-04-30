@@ -23,12 +23,12 @@ const Resume: React.FC = () => {
   }, []);
 
   return (
-    <section id="resume" ref={ref} className="mx-auto max-w-[1100px] px-6 py-24">
+    <section id="resume" ref={ref} className="mx-auto max-w-[1200px] px-8 py-24">
       <SectionHeader eyebrow="Resume" title="My Résumé" />
 
       <div className="overflow-hidden border border-white/10 rounded-3xl bg-[var(--color-surface-low)]">
         {/* Header bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.07]">
+        <div className="flex items-center justify-between px-8 py-4 border-b border-white/[0.07]">
           <div className="flex items-center gap-2.5">
             <FileText size={16} className="text-[#3b9eff]" />
             <span className="font-[var(--font-display)] text-[0.9375rem] font-semibold text-[#f0f0f5] tracking-[-0.02em]">

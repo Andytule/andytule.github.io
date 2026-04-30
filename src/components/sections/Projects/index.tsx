@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
   const rest = PROJECTS.filter((p) => !p.featured);
 
   return (
-    <section id="projects" ref={ref} className="mx-auto max-w-[1100px] px-6 py-24">
+    <section id="projects" ref={ref} className="mx-auto max-w-[1200px] px-8 py-24">
       <SectionHeader eyebrow="Projects" title="Selected Works" />
 
       <div className="flex flex-col gap-3">

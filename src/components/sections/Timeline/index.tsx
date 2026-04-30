@@ -10,7 +10,7 @@ const Timeline: React.FC = () => {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="timeline" ref={ref} className="mx-auto max-w-[1100px] px-6 py-24">
+    <section id="timeline" ref={ref} className="mx-auto max-w-[1200px] px-8 py-24">
       <SectionHeader
         eyebrow="Experience"
         title={

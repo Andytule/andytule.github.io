@@ -18,7 +18,7 @@ const Skills: React.FC = () => {
   const ref: RefObject<HTMLElement | null> = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="skills" ref={ref} className="mx-auto max-w-[1100px] px-6 py-24">
+    <section id="skills" ref={ref} className="mx-auto max-w-[1200px] px-8 py-20">
       <SectionHeader eyebrow="Technical Skills" title="What I work with" />
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">

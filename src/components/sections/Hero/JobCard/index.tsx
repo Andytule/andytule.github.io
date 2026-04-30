@@ -10,18 +10,18 @@ export const JobCard: React.FC<{
     target="_blank"
     rel="noopener noreferrer"
     style={style}
-    className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#222228] p-6 no-underline transition-all duration-200 hover:border-transparent hover:bg-[#1a7fe8]"
+    className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#222228] p-7 no-underline transition-all duration-200 hover:border-transparent hover:bg-[#1a7fe8]"
   >
     {/* Employer identity */}
     <div className="flex items-center gap-3">
       <img
         src="/dotmatics-logo.png"
         alt="Dotmatics"
-        className="h-11 w-11 shrink-0 rounded-[0.75rem] object-cover"
+        className="h-13 w-13 shrink-0 rounded-[0.75rem] object-cover"
         onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
       />
       <div className="flex flex-col gap-0.5">
-        <p className="font-[var(--font-display)] text-[1.125rem] font-semibold leading-[1.2] text-[#f0f0f5] transition-colors duration-200 group-hover:text-white">
+        <p className="font-[var(--font-display)] text-[1.25rem] font-semibold leading-[1.2] text-[#f0f0f5] transition-colors duration-200 group-hover:text-white">
           Software Engineer
         </p>
         <p className="text-sm text-[var(--color-accent)] transition-colors duration-200 group-hover:text-white/70">

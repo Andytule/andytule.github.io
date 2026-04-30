@@ -56,7 +56,7 @@ export const Pill: React.FC<PillProps> = ({
       // base structure — w-fit ensures pill never stretches to fill its container
       'inline-flex w-fit items-center gap-1.5 rounded-full border px-2.5 py-[0.2rem]',
       // typography — Apple uses restrained small-caps style
-      'text-[0.6875rem] font-medium tracking-[0.01em]',
+      'text-[0.75rem] font-medium tracking-[0.01em]',
       // transition for cards that flip colour on hover
       'transition-all duration-200',
       variantClasses[variant],

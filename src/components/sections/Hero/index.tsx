@@ -4,8 +4,7 @@ import { HeroGrid } from './HeroGrid';
 import { MobileLayout } from './MobileLayout';
 
 const GRID_COLUMNS: number = 6;
-const GRID_GAP_PX: number = 12;
-const GRID_GAPS_COUNT: number = GRID_COLUMNS - 1;
+const GRID_GAP_PX: number = 14; // gap-3.5 = 14px
 
 const Hero: React.FC = () => {
   const gridRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
@@ -15,17 +14,25 @@ const Hero: React.FC = () => {
     const el: HTMLDivElement | null = gridRef.current;
     if (!el) return;
     const measure = () => {
-      const colWidth = (el.offsetWidth - GRID_GAP_PX * GRID_GAPS_COUNT) / GRID_COLUMNS;
-      setRowHeight(Math.round(colWidth));
+      const colWidth = (el.offsetWidth - GRID_GAP_PX * (GRID_COLUMNS - 1)) / GRID_COLUMNS;
+      const squareTileSize = Math.round(colWidth);
+      setRowHeight(squareTileSize);
     };
     measure();
     const ro: ResizeObserver = new ResizeObserver(measure);
     ro.observe(el);
-    return () => ro.disconnect();
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
   }, []);
 
   return (
-    <section id="hero" className="mx-auto max-w-[1100px] px-6 pt-16 pb-8">
+    <section
+      id="hero"
+      className="mx-auto max-w-[1200px] px-8 pt-10 pb-10 min-h-[calc(100vh-60px)] flex flex-col justify-center"
+    >
       <MobileLayout />
       <HeroGrid gridRef={gridRef} rowHeight={rowHeight} />
     </section>

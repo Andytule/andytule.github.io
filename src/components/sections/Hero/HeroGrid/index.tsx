@@ -12,7 +12,7 @@ export const HeroGrid: React.FC<{
 }> = ({ gridRef, rowHeight }) => (
   <div
     ref={gridRef}
-    className="hidden md:grid gap-3"
+    className="hidden md:grid gap-3.5"
     style={{
       gridTemplateColumns: 'repeat(6, 1fr)',
       gridTemplateRows: rowHeight ? `repeat(3, ${rowHeight}px)` : undefined,

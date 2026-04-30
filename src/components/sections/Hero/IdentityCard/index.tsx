@@ -22,17 +22,17 @@ export const IdentityCard: React.FC<{
     className={`${cardBaseClass} flex flex-col ${mobile ? 'min-h-[300px]' : ''}`}
     style={{ background: '#222228', border: '1px solid rgba(255,255,255,0.1)', ...style }}
   >
-    <div className={`relative z-10 flex flex-col ${mobile ? 'p-7 gap-3.5' : 'p-8 gap-4'}`}>
+    <div className={`relative z-10 flex flex-col ${mobile ? 'p-8 gap-4' : 'p-10 gap-5'}`}>
       <Pill variant="accent">Software Engineer</Pill>
 
       <h1
         className="font-bold text-[#f0f0f5] tracking-[-0.04em] leading-none"
-        style={{ fontSize: mobile ? 'clamp(3rem, 8vw, 4.5rem)' : 'clamp(3rem, 4.5vw, 4.5rem)' }}
+        style={{ fontSize: mobile ? 'clamp(3rem, 8vw, 4.5rem)' : 'clamp(3.5rem, 5vw, 5.5rem)' }}
       >
         Andy <span className="text-[#3b9eff]">Le</span>
       </h1>
 
-      <p className="text-[0.9375rem] text-[#8a8a96]">Hamilton, ON</p>
+      <p className="text-[1.0625rem] text-[#8a8a96]">Hamilton, ON</p>
 
       <Pill variant="green" pulse>
         Open to opportunities

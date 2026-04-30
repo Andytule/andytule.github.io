@@ -38,13 +38,13 @@ export const ResumeCard: React.FC<{
     >
       <div className="flex items-center gap-3">
         <FileText
-          size={mobile ? 28 : 40}
+          size={mobile ? 28 : 48}
           className="shrink-0 transition-colors duration-200"
           style={{ color: hovered ? '#ffffff' : '#3b9eff' }}
         />
         <p
           className="font-[var(--font-display)] font-bold tracking-[-0.03em]"
-          style={{ fontSize: mobile ? '1.125rem' : '1.5rem' }}
+          style={{ fontSize: mobile ? '1.125rem' : '1.75rem' }}
         >
           Resume
         </p>
