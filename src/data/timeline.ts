@@ -7,7 +7,7 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Dotmatics · Boston, MA',
     logo: '/dotmatics-logo.png',
     description:
-      "Engineered full-stack features for Luma's Registration module, supporting single-compound and batch registration workflows for scientists. Built record submission and tracking systems using React, TypeScript, and Node.js; developed RESTful APIs backed by PostgreSQL achieving a 25% reduction in query times; contributed to event-driven backend services using Kafka, Scala, and Databricks for high-volume scientific data pipelines.",
+      'Engineering full-stack features on Dotmatics Luma — an AI-native R&D platform trusted by 2M+ scientists — spanning compound registration workflows, GraphQL APIs, and event-driven data pipelines on Kafka, Scala, and Databricks.',
     tags: [
       'React',
       'TypeScript',
@@ -30,7 +30,7 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Dayforce · Toronto, ON',
     logo: '/dayforce-logo.png',
     description:
-      'Developed Benefits services features enabling employees to manage their benefits, generating $1M in revenue. Refactored React frontend using TypeScript and Redux for the Benefits Enrollment MFE with Jest integration testing; revamped backend microservices using C# and .NET for efficient SQL querying, achieving a 10% increase in microservice throughput.',
+      'Delivered Benefits Enrollment features on Dayforce — a Gartner-ranked global HCM platform — generating $1M in revenue; built a TypeScript/Redux micro-frontend and C#/.NET microservices with a 10% throughput gain.',
     tags: ['React', 'TypeScript', 'Redux', 'CSharp', 'DotNet', 'MySQL', 'Jest', 'xUnit', 'ESLint'],
   },
   {
@@ -39,7 +39,7 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Tesla · Fremont, CA',
     logo: '/tesla-logo.png',
     description:
-      'Developed a gamification system for Tesla service centers to automate vehicle repair and maintenance workflows, resulting in a 13% increase in overall productivity. Designed and deployed a full-stack dashboard using React, TypeScript, and Node.js containerized with Docker; streamlined the Service Center Application using Angular and .NET microservices backed by PostgreSQL.',
+      "Built a gamification dashboard for Tesla's Fremont service centers that automated repair workflows and drove a 13% productivity lift — React/Node.js frontend, Angular/.NET microservices, shipped in Docker.",
     tags: [
       'React',
       'TypeScript',
@@ -58,7 +58,7 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Caliber Communications · Stoney Creek, ON',
     logo: '/ecam-logo.png',
     description:
-      'Optimized workflow efficiency of security application users by 15% through personalized dashboard interfaces with real-time data streams via WebSocket. Engineered backend microservices with Node.js, Express.js, and Knex; implemented automated PostgreSQL scripts to purge 3.5TB of obsolete data.',
+      'Boosted security application efficiency by 15% with real-time WebSocket dashboards; engineered Node.js/Knex microservices and automated PostgreSQL scripts that purged 3.5 TB of obsolete data.',
     tags: ['Angular', 'RxJS', 'NodeJS', 'Express', 'Knex', 'PostgreSQL', 'Docker', 'Nginx'],
   },
   {
@@ -67,7 +67,7 @@ export const TIMELINE: TimelineEntry[] = [
     company: 'Evenica · Burlington, ON',
     logo: '/evenica-logo.png',
     description:
-      "Revamped the e-commerce UI, enhancing accessibility and reducing the frontend codebase by 35% through a reusable web component library. Implemented a secure payment terminal integrating Adyen's payment API to establish a resilient payment pipeline.",
+      'Rebuilt the e-commerce UI for a 2022 Microsoft Partner of the Year finalist — Dynamics 365 Commerce specialist — cutting the frontend codebase by 35% with a reusable component library and integrating Adyen payments.',
     tags: ['JavaScript', 'React', 'DotNet', 'Dynamics365', 'Adyen'],
   },
 ];

@@ -38,7 +38,7 @@ export const SKILLS: Skill[] = [
   },
   {
     category: 'Databases',
-    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLServer', 'Databricks', 'Supabase'],
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLServer', 'OracleSQL', 'Databricks', 'Supabase'],
   },
   {
     category: 'DevOps & Cloud',
@@ -46,11 +46,21 @@ export const SKILLS: Skill[] = [
   },
   {
     category: 'Testing',
-    items: ['Jest', 'xUnit', 'Pytest', 'ReactTestingLibrary', 'Postman', 'ESLint'],
+    items: [
+      'Jest',
+      'xUnit',
+      'Pytest',
+      'ReactTestingLibrary',
+      'Selenium',
+      'Katalon',
+      'Postman',
+      'ESLint',
+    ],
   },
   {
     category: 'Tools',
     items: [
+      'Figma',
       'Git',
       'Unity',
       'Dynamics365',

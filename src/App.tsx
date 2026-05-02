@@ -6,7 +6,7 @@ import Hero from '@/components/sections/Hero';
 import Projects from '@/components/sections/Projects';
 import Resume from '@/components/sections/Resume';
 import Skills from '@/components/sections/Skills';
-import Timeline from '@/components/sections/Timeline';
+import WorkExperience from '@/components/sections/WorkExperience';
 
 const App = (): ReactElement => (
   <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-bg)]">
@@ -15,7 +15,7 @@ const App = (): ReactElement => (
     <main className="relative z-10">
       <Hero />
       <Skills />
-      <Timeline />
+      <WorkExperience />
       <Projects />
       <Contact />
       <Resume />
