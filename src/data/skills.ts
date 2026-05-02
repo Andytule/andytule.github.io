@@ -46,16 +46,7 @@ export const SKILLS: Skill[] = [
   },
   {
     category: 'Testing',
-    items: [
-      'Jest',
-      'xUnit',
-      'Pytest',
-      'ReactTestingLibrary',
-      'Selenium',
-      'Katalon',
-      'Postman',
-      'ESLint',
-    ],
+    items: ['Jest', 'xUnit', 'Pytest', 'ReactTestingLibrary', 'Selenium', 'Postman', 'ESLint'],
   },
   {
     category: 'Tools',

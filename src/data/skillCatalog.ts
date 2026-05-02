@@ -332,20 +332,6 @@ export const SKILL_CATALOG = {
     url: 'https://www.selenium.dev/',
     icon: { cdn: 'devicon', slug: 'selenium', variant: 'original' },
   },
-  // Katalon has no Devicon or SimpleIcons entry — inline SVG with brand green
-  Katalon: {
-    name: 'Katalon',
-    url: 'https://katalon.com/',
-    icon: {
-      cdn: 'inline',
-      svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <circle cx="16" cy="16" r="14" fill="#1DCE8B" opacity="0.15"/>
-  <path d="M9 9 L16 16 L9 23" stroke="#1DCE8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M17 9 L24 16 L17 23" stroke="#1DCE8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-</svg>`,
-    },
-  },
-
   // ── Tools ───────────────────────────────────────────────────────────────────
   Figma: {
     name: 'Figma',
