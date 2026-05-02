@@ -6,8 +6,9 @@ export const TIMELINE: TimelineEntry[] = [
     role: 'Software Engineer',
     company: 'Dotmatics · Boston, MA',
     logo: '/dotmatics-logo.png',
+    url: 'https://www.dotmatics.com',
     description:
-      'Engineering full-stack features on Dotmatics Luma — an AI-native R&D platform trusted by 2M+ scientists — spanning compound registration workflows, GraphQL APIs, and event-driven data pipelines on Kafka, Scala, and Databricks.',
+      "Engineered full-stack features for Luma's compound registration module — an AI-native R&D platform used by 2M+ scientists — spanning React/Node.js frontends, GraphQL APIs, and event-driven Kafka pipelines, achieving a 25% reduction in query times.",
     tags: [
       'React',
       'TypeScript',
@@ -29,8 +30,9 @@ export const TIMELINE: TimelineEntry[] = [
     role: 'Software Engineer Intern',
     company: 'Dayforce · Toronto, ON',
     logo: '/dayforce-logo.png',
+    url: 'https://www.dayforce.com',
     description:
-      'Delivered Benefits Enrollment features on Dayforce — a Gartner-ranked global HCM platform — generating $1M in revenue; built a TypeScript/Redux micro-frontend and C#/.NET microservices with a 10% throughput gain.',
+      'Developed and refactored Benefits Enrollment features for a Gartner-ranked global HCM platform, rebuilding the TypeScript/Redux micro-frontend and revamping C#/.NET microservices. The work generated $1M in revenue and achieved a 10% increase in microservice throughput.',
     tags: ['React', 'TypeScript', 'Redux', 'CSharp', 'DotNet', 'MySQL', 'Jest', 'xUnit', 'ESLint'],
   },
   {
@@ -38,8 +40,9 @@ export const TIMELINE: TimelineEntry[] = [
     role: 'Software Engineer Intern',
     company: 'Tesla · Fremont, CA',
     logo: '/tesla-logo.png',
+    url: 'https://www.tesla.com',
     description:
-      "Built a gamification dashboard for Tesla's Fremont service centers that automated repair workflows and drove a 13% productivity lift — React/Node.js frontend, Angular/.NET microservices, shipped in Docker.",
+      "Designed and built a full-stack gamification dashboard for Tesla's Fremont service centers, tracking technician performance and automating vehicle repair workflows in Docker. The system drove a 13% increase in overall service center productivity.",
     tags: [
       'React',
       'TypeScript',
@@ -55,10 +58,11 @@ export const TIMELINE: TimelineEntry[] = [
   {
     period: 'Sept 2021 – Dec 2021',
     role: 'Full Stack Developer Intern',
-    company: 'Caliber Communications · Stoney Creek, ON',
+    company: 'Caliber Communications (ECAM) · Stoney Creek, ON',
     logo: '/ecam-logo.png',
+    url: 'https://ecam.com/en-ca',
     description:
-      'Boosted security application efficiency by 15% with real-time WebSocket dashboards; engineered Node.js/Knex microservices and automated PostgreSQL scripts that purged 3.5 TB of obsolete data.',
+      'Built real-time WebSocket dashboards and Angular/RxJS interfaces for a Canadian AI-powered video surveillance platform, improving security monitoring efficiency by 15%. Also engineered Node.js/Express microservices and automated PostgreSQL scripts that purged 3.5 TB of obsolete data.',
     tags: ['Angular', 'RxJS', 'NodeJS', 'Express', 'Knex', 'PostgreSQL', 'Docker', 'Nginx'],
   },
   {
@@ -66,8 +70,9 @@ export const TIMELINE: TimelineEntry[] = [
     role: 'Web Developer Intern',
     company: 'Evenica · Burlington, ON',
     logo: '/evenica-logo.png',
+    url: 'https://www.evenica.com',
     description:
-      'Rebuilt the e-commerce UI for a 2022 Microsoft Partner of the Year finalist — Dynamics 365 Commerce specialist — cutting the frontend codebase by 35% with a reusable component library and integrating Adyen payments.',
+      'Revamped the e-commerce frontend for a Microsoft Dynamics 365 Commerce specialist, building a reusable React component library that reduced the codebase by 35%. Also delivered a secure Adyen payment pipeline integrated with a dedicated .NET payment microservice.',
     tags: ['JavaScript', 'React', 'DotNet', 'Dynamics365', 'Adyen'],
   },
 ];

@@ -16,6 +16,7 @@ export interface TimelineEntry {
   role: string;
   company: string;
   logo?: string;
+  url?: string;
   description: string;
   /** SkillKey references — resolved to SkillDef at render time */
   tags: SkillKey[];
