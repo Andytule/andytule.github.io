@@ -1,6 +1,6 @@
 import type { TimelineEntry } from '@/types';
 
-export const TIMELINE: TimelineEntry[] = [
+export const EXPERIENCE: TimelineEntry[] = [
   {
     period: 'Oct 2024 – Present',
     role: 'Software Engineer',

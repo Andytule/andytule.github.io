@@ -1,4 +1,4 @@
+export { EXPERIENCE } from './experience';
 export { PROJECTS } from './projects';
-export { SKILLS } from './skills';
+export { SKILL_GROUPS } from './skillGroups';
 export { SOCIAL_LINKS } from './social';
-export { TIMELINE } from './timeline';

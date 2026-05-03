@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SectionHeader } from '@/components/shared';
-import { TIMELINE } from '@/data';
+import { EXPERIENCE } from '@/data';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
 import WorkExperienceEntry from './WorkExperienceEntry';
@@ -21,7 +21,7 @@ const WorkExperience: React.FC = () => {
       />
 
       <div className="flex flex-col gap-4">
-        {TIMELINE.map((entry) => (
+        {EXPERIENCE.map((entry) => (
           <WorkExperienceEntry key={entry.role + entry.company} entry={entry} />
         ))}
       </div>
