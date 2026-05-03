@@ -12,7 +12,6 @@ export const MobileLayout: React.FC = () => (
     <JobCard style={{ minHeight: '160px' }} />
     <FeaturedCard style={{ minHeight: '280px' }} />
     <ResumeCard mobile style={{ minHeight: '100px' }} />
-    {/* Social tiles — 2×2 grid */}
     <div className="grid grid-cols-2 gap-3">
       {socialTiles.map((t) => (
         <SocialTile key={t.area} {...t} mobile aspectRatio />

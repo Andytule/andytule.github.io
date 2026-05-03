@@ -10,10 +10,6 @@ interface ProjectCardProps {
   colSpanClass: string;
 }
 
-/**
- * ProjectCard — grid card for non-featured projects.
- * Shows a screenshot strip at the top when project.image is present.
- */
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, colSpanClass }) => (
   <div
     className={cn(
@@ -22,7 +18,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, colSpanClass }) => (
       colSpanClass
     )}
   >
-    {/* Image strip — shown when screenshot is available */}
     {project.image ? (
       <div className="relative h-36 overflow-hidden bg-[var(--color-surface-low)] shrink-0">
         <img
@@ -30,7 +25,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, colSpanClass }) => (
           alt={`${project.title} preview`}
           className="h-full w-full object-cover object-top opacity-80 transition-all duration-300 group-hover:scale-[1.03] group-hover:opacity-100"
         />
-        {/* Fade into card body */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[50%] to-[var(--color-surface)]" />
       </div>
     ) : (

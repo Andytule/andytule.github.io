@@ -48,7 +48,6 @@ const AppLoader: React.FC<AppLoaderProps> = ({ onComplete }) => {
         pointerEvents: hiding ? 'none' : 'all',
       }}
     >
-      {/* Spinner — sits above the cats */}
       <div
         style={{
           marginBottom: '28px',
@@ -67,7 +66,6 @@ const AppLoader: React.FC<AppLoaderProps> = ({ onComplete }) => {
         />
       </div>
 
-      {/* Cats */}
       <img
         src="/loading-cats.png"
         alt="Loading"

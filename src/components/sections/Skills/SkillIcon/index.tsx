@@ -1,14 +1,3 @@
-/**
- * Skills/SkillIcon/index.tsx
- *
- * Renders a single skill as a clickable icon tile. Resolves the SkillKey
- * into its full SkillDef from SKILL_CATALOG — no props other than the key.
- *
- *   - Full opacity at rest; glows + lifts on hover
- *   - Pure-CSS tooltip (zero JS state) above the icon on hover
- *   - Opens the skill's official website in a new tab on click
- *   - Falls back to a two-letter abbreviation if the CDN image fails
- */
 import React, { useCallback, useState } from 'react';
 
 import { SKILL_CATALOG, type SkillKey } from '@/data/skillCatalog';
@@ -17,6 +6,7 @@ import { cn } from '@/lib/utils';
 interface SkillIconProps {
   skillKey: SkillKey;
   className?: string;
+  size?: 'sm' | 'md';
 }
 
 function resolveIconSrc(skillKey: SkillKey): string | null {
@@ -25,17 +15,18 @@ function resolveIconSrc(skillKey: SkillKey): string | null {
   if (icon.cdn === 'devicon') {
     return `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.slug}/${icon.slug}-${icon.variant}.svg`;
   }
-  // simpleicons
   return `https://cdn.simpleicons.org/${icon.slug}/${icon.color}`;
 }
 
-const SkillIcon: React.FC<SkillIconProps> = ({ skillKey, className }) => {
+const SkillIcon: React.FC<SkillIconProps> = ({ skillKey, className, size = 'md' }) => {
   const [imgFailed, setImgFailed] = useState(false);
   const handleError = useCallback(() => setImgFailed(true), []);
 
   const skill = SKILL_CATALOG[skillKey];
   const iconSrc = resolveIconSrc(skillKey);
   const inlineSvg = skill.icon.cdn === 'inline' ? skill.icon.svg : null;
+  const dim = size === 'sm' ? 26 : 32;
+  const dimClass = size === 'sm' ? 'w-[26px] h-[26px]' : 'w-8 h-8';
 
   return (
     <a
@@ -45,7 +36,6 @@ const SkillIcon: React.FC<SkillIconProps> = ({ skillKey, className }) => {
       aria-label={`${skill.name} — opens official website`}
       className={cn('group/icon relative flex flex-col items-center', className)}
     >
-      {/* ── Tooltip ──────────────────────────────────────────────────── */}
       <span
         aria-hidden="true"
         className={cn(
@@ -66,26 +56,30 @@ const SkillIcon: React.FC<SkillIconProps> = ({ skillKey, className }) => {
         />
       </span>
 
-      {/* ── Icon ─────────────────────────────────────────────────────── */}
       {inlineSvg ? (
         <span
           className={cn(
-            'block w-8 h-8 transition-all duration-200 ease-[var(--ease-apple)]',
+            `block ${dimClass} transition-all duration-200 ease-[var(--ease-apple)]`,
             'group-hover/icon:-translate-y-0.5',
             'group-hover/icon:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]'
           )}
           dangerouslySetInnerHTML={{ __html: inlineSvg }}
         />
       ) : imgFailed ? (
-        <span className="text-[0.625rem] font-bold text-white/70 tracking-tight select-none w-8 text-center">
+        <span
+          className={cn(
+            'text-[0.625rem] font-bold text-white/70 tracking-tight select-none text-center',
+            dimClass
+          )}
+        >
           {skill.name.slice(0, 2).toUpperCase()}
         </span>
       ) : (
         <img
           src={iconSrc!}
           alt=""
-          width={32}
-          height={32}
+          width={dim}
+          height={dim}
           loading="lazy"
           decoding="async"
           onError={handleError}

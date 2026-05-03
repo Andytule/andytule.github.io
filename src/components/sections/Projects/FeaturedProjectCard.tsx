@@ -4,9 +4,6 @@ import { Pill } from '@/components/shared';
 import { SKILL_CATALOG } from '@/data/skillCatalog';
 import type { Project } from '@/types';
 
-/**
- * FeaturedProjectCard — full-width hero card for the featured project.
- */
 const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   <div
     className="group bg-[var(--color-surface)] border border-white/10 rounded-[1.25rem] overflow-hidden cursor-pointer transition-all duration-200 hover:border-[rgba(59,158,255,0.4)] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
@@ -15,7 +12,6 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
     }}
   >
     <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] min-h-[320px]">
-      {/* Screenshot */}
       <div className="relative min-h-[200px] overflow-hidden bg-[var(--color-surface-low)]">
         {project.image ? (
           <img
@@ -36,7 +32,6 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
         </Pill>
       </div>
 
-      {/* Body */}
       <div className="flex flex-col justify-center gap-4 p-8">
         <h3 className="font-[var(--font-display)] text-[1.75rem] font-bold text-[#f0f0f5] tracking-[-0.03em]">
           {project.title}

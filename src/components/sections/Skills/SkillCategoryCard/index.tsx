@@ -1,14 +1,3 @@
-/**
- * Skills/SkillCategoryCard/index.tsx
- *
- * One category card containing a header chip, divider, and icon grid.
- *
- * Icon grid layout:
- *   - `justify-start` so all rows — including the last wrapping row —
- *     are left-aligned within the card.
- *   - The card itself is `items-center` via the section grid, so the
- *     full block remains visually centered in its column.
- */
 import React from 'react';
 
 import { type SkillKey } from '@/data/skillCatalog';

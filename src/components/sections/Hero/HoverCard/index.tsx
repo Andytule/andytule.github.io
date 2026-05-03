@@ -2,16 +2,9 @@ import React, { CSSProperties, MouseEvent, ReactNode } from 'react';
 
 import useHover from '@/hooks/useHover';
 
-/**
- * Structural Tailwind classes shared by every bento card.
- * Background and border are intentionally excluded — components that
- * need hover-driven bg/border changes apply those via inline `style`
- * (or CSS `group-hover:`) so there is no Tailwind specificity conflict.
- */
 export const cardBaseClass: string =
   'relative overflow-hidden rounded-[1.5rem] transition-all duration-200';
 
-/** Default resting surface styles — applied as inline style so JS hover can override them cleanly. */
 export const cardSurfaceStyle: CSSProperties = {
   background: '#222228',
   border: '1px solid rgba(255,255,255,0.1)',
@@ -66,10 +59,6 @@ export const HoverCard: React.FC<{
   );
 };
 
-/**
- * Blue-on-hover card — flips background to #1a7fe8 and text to white.
- * Uses useHover so the icon color prop can be driven by JS state.
- */
 export const StatefulBlueCard: React.FC<{
   as?: 'a' | 'div';
   href?: string;

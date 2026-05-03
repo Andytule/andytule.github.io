@@ -1,10 +1,3 @@
-/**
- * Skills/index.tsx
- *
- * Displays technical skills grouped by category.
- * Delegates card rendering to SkillCategoryCard and icon rendering
- * to SkillIcon — this file is intentionally thin (layout + data only).
- */
 import React, { RefObject } from 'react';
 
 import SectionHeader from '@/components/shared/SectionHeader';

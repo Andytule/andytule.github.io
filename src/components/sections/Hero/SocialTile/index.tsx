@@ -18,10 +18,6 @@ export const socialTiles = [
   { area: 'li', href: 'https://linkedin.com/in/andy-tu-le', label: 'LinkedIn', Icon: LIIcon },
 ] as const;
 
-/**
- * SocialTile — uses useHover because icon `color` must be a JS prop.
- * bg/border applied via inline style so the JS hover value always wins.
- */
 export const SocialTile: React.FC<{
   href: string;
   label: string;

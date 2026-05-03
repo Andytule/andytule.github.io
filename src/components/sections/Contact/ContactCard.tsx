@@ -11,9 +11,6 @@ interface ContactCardProps {
   external?: boolean;
 }
 
-/**
- * ContactCard — individual contact method card (Email / Phone / Schedule).
- */
 const ContactCard: React.FC<ContactCardProps> = ({
   icon,
   label,

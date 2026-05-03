@@ -8,20 +8,6 @@ interface WorkExperienceEntryProps {
   entry: TimelineEntry;
 }
 
-/**
- * WorkExperienceEntry
- *
- * Apple design language:
- * - Clean two-column layout: logo tile | content
- * - Logo in a rounded square — clickable link to company website
- * - Role as the typographic anchor at the top — display weight, tight tracking
- * - Company in accent blue, location as a tertiary label
- * - Two-sentence description — what the company does + what you built
- * - Tech stack: raw SkillIcon row — icons at rest dim, brighten on hover
- * - "Current" green pill with pulse dot (preserved)
- * - Period moved to bottom-right of card for cleaner hierarchy
- * - Hover: 1px blue border bloom + layered depth shadow
- */
 const WorkExperienceEntry: React.FC<WorkExperienceEntryProps> = ({ entry }) => {
   const [logoFailed, setLogoFailed] = useState(false);
   const [companyName, location] = entry.company.split(' · ');
@@ -65,7 +51,6 @@ const WorkExperienceEntry: React.FC<WorkExperienceEntryProps> = ({ entry }) => {
           'hover:-translate-y-[1px]',
         ].join(' ')}
       >
-        {/* ── Logo tile ───────────────────────────────────────────────── */}
         <div className="shrink-0 mt-[2px]">
           {entry.url ? (
             <a
@@ -81,9 +66,7 @@ const WorkExperienceEntry: React.FC<WorkExperienceEntryProps> = ({ entry }) => {
           )}
         </div>
 
-        {/* ── Content ─────────────────────────────────────────────────── */}
         <div className="min-w-0 flex-1 space-y-3">
-          {/* Row 1: role + current pill */}
           <div className="flex items-start justify-between gap-3">
             <h3 className="text-[1rem] md:text-[1.0625rem] font-semibold text-[var(--color-text-primary)] tracking-[-0.03em] leading-tight">
               {entry.role}
@@ -95,7 +78,6 @@ const WorkExperienceEntry: React.FC<WorkExperienceEntryProps> = ({ entry }) => {
             )}
           </div>
 
-          {/* Row 2: Company · Location */}
           <div className="flex flex-wrap items-center gap-x-1.5 -mt-1">
             <span className="text-[0.8125rem] font-medium text-[var(--color-accent)]">
               {companyName}
@@ -108,24 +90,34 @@ const WorkExperienceEntry: React.FC<WorkExperienceEntryProps> = ({ entry }) => {
             )}
           </div>
 
-          {/* Row 3: description */}
           <p className="text-[0.8125rem] md:text-[0.875rem] leading-[1.6] text-[var(--color-text-secondary)] tracking-[-0.005em]">
             {entry.description}
           </p>
 
-          {/* Row 4: tech icon strip + period on the same line */}
           {entry.tags.length > 0 && (
-            <div className="flex items-center justify-between gap-3 pt-3">
-              <div className="flex flex-wrap items-center gap-3">
+            <div className="pt-3">
+              <div className="hidden md:flex items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center gap-3">
+                  {entry.tags.map((tag) => (
+                    <SkillIcon key={tag} skillKey={tag} />
+                  ))}
+                </div>
+                <p className="font-mono text-[0.625rem] tracking-[0.08em] uppercase text-[var(--color-text-tertiary)] shrink-0">
+                  {entry.period}
+                </p>
+              </div>
+
+              <div className="flex md:hidden flex-wrap items-center gap-2.5">
                 {entry.tags.map((tag) => (
-                  <SkillIcon key={tag} skillKey={tag} />
+                  <SkillIcon key={tag} skillKey={tag} size="sm" />
                 ))}
               </div>
-              <p className="font-mono text-[0.625rem] tracking-[0.08em] uppercase text-[var(--color-text-tertiary)] shrink-0">
-                {entry.period}
-              </p>
             </div>
           )}
+
+          <p className="md:hidden font-mono text-[0.625rem] tracking-[0.08em] uppercase text-[var(--color-text-tertiary)] pt-1">
+            {entry.period}
+          </p>
         </div>
       </div>
     </article>

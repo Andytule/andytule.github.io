@@ -7,7 +7,6 @@ export interface NavItem {
 
 export interface Skill {
   category: string;
-  /** Ordered list of SkillKey references into SKILL_CATALOG */
   items: SkillKey[];
 }
 
@@ -18,7 +17,6 @@ export interface TimelineEntry {
   logo?: string;
   url?: string;
   description: string;
-  /** SkillKey references — resolved to SkillDef at render time */
   tags: SkillKey[];
   isCurrent?: boolean;
 }
@@ -26,7 +24,6 @@ export interface TimelineEntry {
 export interface Project {
   title: string;
   description: string;
-  /** SkillKey references — resolved to SkillDef at render time */
   tags: SkillKey[];
   demoUrl?: string;
   sourceUrl?: string;

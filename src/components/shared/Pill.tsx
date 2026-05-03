@@ -2,29 +2,14 @@ import React, { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
-/**
- * Pill — shared badge/label component.
- *
- * Variants mirror the CSS classes in globals.css but are expressed as
- * a typed prop so every callsite is consistent and refactorable.
- *
- * Apple design notes:
- * - Backgrounds are very low opacity (8–16%) so the pill reads as a
- *   tinted label, not a filled button — restraint is the default state.
- * - Borders are slightly more visible than the background tint.
- * - Font is small-caps weight 500, letter-spaced for legibility.
- * - `pulse` dot is opt-in for "live/active" status indicators.
- */
-
 export type PillVariant = 'default' | 'accent' | 'green' | 'purple';
 
 interface PillProps {
   variant?: PillVariant;
-  pulse?: boolean; // show animated dot (green variant only)
-  dot?: boolean; // show static dot
+  pulse?: boolean;
+  dot?: boolean;
   className?: string;
   children: ReactNode;
-  /** Pass group-hover overrides when pill lives inside a hoverable card */
   hoverClassName?: string;
 }
 
@@ -53,11 +38,8 @@ export const Pill: React.FC<PillProps> = ({
 }) => (
   <span
     className={cn(
-      // base structure — w-fit ensures pill never stretches to fill its container
       'inline-flex w-fit items-center gap-1.5 rounded-full border px-2.5 py-[0.2rem]',
-      // typography — Apple uses restrained small-caps style
       'text-[0.75rem] font-medium tracking-[0.01em]',
-      // transition for cards that flip colour on hover
       'transition-all duration-200',
       variantClasses[variant],
       hoverClassName,

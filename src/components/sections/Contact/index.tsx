@@ -42,10 +42,8 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" ref={ref} className="mx-auto max-w-[1200px] px-8 py-24">
       <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.07] bg-[var(--color-surface-lowest)]">
-        {/* Top accent line */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(77,166,255,0.7)] to-transparent" />
 
-        {/* Ambient glow */}
         <div
           aria-hidden="true"
           className="absolute inset-0 flex items-center justify-center pointer-events-none"

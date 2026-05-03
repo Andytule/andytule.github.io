@@ -1,40 +1,16 @@
-/**
- * skills.ts — Single source of truth for every technology in the portfolio.
- *
- * Each SkillDef carries:
- *   - name:    Human-readable display name (used in UI, tags, tooltips)
- *   - url:     Official website opened on icon click
- *   - icon:    One of three rendering strategies:
- *                { cdn: 'devicon', slug, variant }
- *                { cdn: 'simpleicons', slug, color }   ← hex without #
- *                { cdn: 'inline', svg }                ← last resort, no CDN entry
- *
- * To add a skill: append to SKILL_CATALOG and use its key anywhere in index.ts.
- * Browse icons: https://devicon.dev  |  https://simpleicons.org
- */
-
-// ─── Icon metadata types ───────────────────────────────────────────────────────
-
 export type SkillIcon =
   | { cdn: 'devicon'; slug: string; variant: string }
   | { cdn: 'simpleicons'; slug: string; color: string }
   | { cdn: 'inline'; svg: string };
 
-// ─── Skill definition ─────────────────────────────────────────────────────────
-
 export interface SkillDef {
-  /** Human-readable display name shown in tooltips and tag pills */
   name: string;
-  /** Official website opened when the icon / tag is clicked */
   url: string;
-  /** Icon rendering metadata */
   icon: SkillIcon;
 }
 
-// ─── Catalog ──────────────────────────────────────────────────────────────────
-
 export const SKILL_CATALOG = {
-  // ── Languages ───────────────────────────────────────────────────────────────
+  // Languages
   TypeScript: {
     name: 'TypeScript',
     url: 'https://www.typescriptlang.org/',
@@ -110,7 +86,7 @@ export const SKILL_CATALOG = {
     icon: { cdn: 'devicon', slug: 'cplusplus', variant: 'original' },
   },
 
-  // ── Frontend ────────────────────────────────────────────────────────────────
+  // Frontend
   React: {
     name: 'React',
     url: 'https://react.dev/',
@@ -162,13 +138,12 @@ export const SKILL_CATALOG = {
     icon: { cdn: 'devicon', slug: 'materialui', variant: 'original' },
   },
 
-  // ── Backend ─────────────────────────────────────────────────────────────────
+  // Backend
   NodeJS: {
     name: 'Node.js',
     url: 'https://nodejs.org/',
     icon: { cdn: 'devicon', slug: 'nodejs', variant: 'original' },
   },
-  // Express has no colored Devicon variant — simpleicons with light grey
   Express: {
     name: 'Express',
     url: 'https://expressjs.com/',
@@ -179,13 +154,11 @@ export const SKILL_CATALOG = {
     url: 'https://dotnet.microsoft.com/',
     icon: { cdn: 'devicon', slug: 'dotnetcore', variant: 'original' },
   },
-  // Django devicon plain is near-invisible dark green — simpleicons with vivid brand green
   Django: {
     name: 'Django',
     url: 'https://www.djangoproject.com/',
     icon: { cdn: 'simpleicons', slug: 'django', color: '44B78B' },
   },
-  // Flask devicon is monochrome — simpleicons white reads cleanly on dark
   Flask: {
     name: 'Flask',
     url: 'https://flask.palletsprojects.com/',
@@ -201,7 +174,6 @@ export const SKILL_CATALOG = {
     url: 'https://fastapi.tiangolo.com/',
     icon: { cdn: 'devicon', slug: 'fastapi', variant: 'original' },
   },
-  // Kafka devicon is monochrome black — simpleicons white
   Kafka: {
     name: 'Kafka',
     url: 'https://kafka.apache.org/',
@@ -218,7 +190,7 @@ export const SKILL_CATALOG = {
     icon: { cdn: 'devicon', slug: 'scala', variant: 'original' },
   },
 
-  // ── Databases ───────────────────────────────────────────────────────────────
+  // Databases
   OracleSQL: {
     name: 'Oracle SQL',
     url: 'https://www.oracle.com/database/',
@@ -244,7 +216,6 @@ export const SKILL_CATALOG = {
     url: 'https://www.microsoft.com/en-us/sql-server',
     icon: { cdn: 'devicon', slug: 'microsoftsqlserver', variant: 'plain' },
   },
-  // Databricks has no Devicon entry — simpleicons with official red
   Databricks: {
     name: 'Databricks',
     url: 'https://www.databricks.com/',
@@ -256,7 +227,7 @@ export const SKILL_CATALOG = {
     icon: { cdn: 'devicon', slug: 'supabase', variant: 'original' },
   },
 
-  // ── DevOps & Cloud ──────────────────────────────────────────────────────────
+  // DevOps & Cloud
   Docker: {
     name: 'Docker',
     url: 'https://www.docker.com/',
@@ -277,7 +248,6 @@ export const SKILL_CATALOG = {
     url: 'https://cloud.google.com/',
     icon: { cdn: 'devicon', slug: 'googlecloud', variant: 'original' },
   },
-  // Render has no Devicon entry — simpleicons with official teal
   Render: {
     name: 'Render',
     url: 'https://render.com/',
@@ -294,13 +264,12 @@ export const SKILL_CATALOG = {
     icon: { cdn: 'devicon', slug: 'githubactions', variant: 'original' },
   },
 
-  // ── Testing ─────────────────────────────────────────────────────────────────
+  // Testing
   Jest: {
     name: 'Jest',
     url: 'https://jestjs.io/',
     icon: { cdn: 'devicon', slug: 'jest', variant: 'plain' },
   },
-  // xUnit has no Devicon entry — vitest icon as closest testing-framework proxy
   xUnit: {
     name: 'xUnit',
     url: 'https://xunit.net/',
@@ -311,7 +280,6 @@ export const SKILL_CATALOG = {
     url: 'https://pytest.org/',
     icon: { cdn: 'devicon', slug: 'pytest', variant: 'original' },
   },
-  // React Testing Library has no Devicon entry — simpleicons
   ReactTestingLibrary: {
     name: 'React Testing Library',
     url: 'https://testing-library.com/',
@@ -332,7 +300,8 @@ export const SKILL_CATALOG = {
     url: 'https://www.selenium.dev/',
     icon: { cdn: 'devicon', slug: 'selenium', variant: 'original' },
   },
-  // ── Tools ───────────────────────────────────────────────────────────────────
+
+  // Tools
   Figma: {
     name: 'Figma',
     url: 'https://www.figma.com/',
@@ -395,13 +364,8 @@ export const SKILL_CATALOG = {
   },
 } as const satisfies Record<string, SkillDef>;
 
-/** Union of all valid skill keys — use this type for tags and items arrays */
 export type SkillKey = keyof typeof SKILL_CATALOG;
 
-/**
- * Convenience helper — resolves a SkillKey to its full SkillDef.
- * Returns undefined (and logs a warning) if the key is missing from the catalog.
- */
 export function getSkill(key: SkillKey): SkillDef {
   return SKILL_CATALOG[key];
 }

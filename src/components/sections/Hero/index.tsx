@@ -4,7 +4,7 @@ import { HeroGrid } from './HeroGrid';
 import { MobileLayout } from './MobileLayout';
 
 const GRID_COLUMNS: number = 6;
-const GRID_GAP_PX: number = 14; // gap-3.5 = 14px
+const GRID_GAP_PX: number = 14;
 
 const Hero: React.FC = () => {
   const gridRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
@@ -15,8 +15,7 @@ const Hero: React.FC = () => {
     if (!el) return;
     const measure = () => {
       const colWidth = (el.offsetWidth - GRID_GAP_PX * (GRID_COLUMNS - 1)) / GRID_COLUMNS;
-      const squareTileSize = Math.round(colWidth);
-      setRowHeight(squareTileSize);
+      setRowHeight(Math.round(colWidth));
     };
     measure();
     const ro: ResizeObserver = new ResizeObserver(measure);

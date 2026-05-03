@@ -6,13 +6,6 @@ import useScrollReveal from '@/hooks/useScrollReveal';
 
 import WorkExperienceEntry from './WorkExperienceEntry';
 
-/**
- * WorkExperience — Apple-inspired professional timeline section.
- *
- * Replaces the old `Timeline` section. Keeps the same data source
- * (TIMELINE from @/data) and the same section anchor (`id="timeline"`)
- * so nav links don't break.
- */
 const WorkExperience: React.FC = () => {
   const ref = useScrollReveal<HTMLElement>();
 
@@ -27,8 +20,6 @@ const WorkExperience: React.FC = () => {
         }
       />
 
-      {/* Card stack — no vertical connector line at the section level,
-          each entry draws its own internal connector segment */}
       <div className="flex flex-col gap-4">
         {TIMELINE.map((entry) => (
           <WorkExperienceEntry key={entry.role + entry.company} entry={entry} />

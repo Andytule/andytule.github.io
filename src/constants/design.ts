@@ -1,4 +1,3 @@
-// Shared design constants (mirrors CSS tokens for use in JS)
 export const COLORS = {
   accent: '#2997ff',
   accentHover: '#0077ed',

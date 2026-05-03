@@ -4,16 +4,6 @@ import { Pill } from '@/components/shared';
 
 import { cardBaseClass } from '../HoverCard';
 
-/**
- * IdentityCard — hero name + status card.
- *
- * Avatar sizing (Apple approach):
- * - Absolutely positioned, fills the right portion of the card.
- * - `object-contain object-bottom` keeps the full figure visible at all sizes.
- * - Left offset uses CSS clamp so the figure gracefully retreats as the card
- *   narrows, never clipping text on the left.
- * - `pointer-events-none` and `aria-hidden` keep it purely decorative.
- */
 export const IdentityCard: React.FC<{
   style?: CSSProperties;
   mobile?: boolean;
@@ -39,7 +29,6 @@ export const IdentityCard: React.FC<{
       </Pill>
     </div>
 
-    {/* Avatar — Apple-style: fills card right half, contained, never crops */}
     <div
       aria-hidden="true"
       className="pointer-events-none absolute bottom-0 right-0 top-0"

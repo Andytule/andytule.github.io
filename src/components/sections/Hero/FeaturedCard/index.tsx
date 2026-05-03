@@ -4,11 +4,6 @@ import { Pill } from '@/components/shared';
 import { PROJECTS } from '@/data';
 import { Project } from '@/types';
 
-/**
- * FeaturedCard — "Featured Project" bento card.
- * All hover states via CSS `group` — zero useState.
- * Data pulled from the first featured project in PROJECTS.
- */
 export const FeaturedCard: React.FC<{
   style?: CSSProperties;
 }> = ({ style }) => {
@@ -20,7 +15,7 @@ export const FeaturedCard: React.FC<{
       className="group relative cursor-pointer overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#222228] transition-all duration-200 hover:border-transparent hover:bg-[#1a7fe8] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
       onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
     >
-      {/* ── Desktop layout: screenshot left, content right (absolute) ── */}
+      {/* Desktop layout */}
       {project.image && (
         <div className="hidden md:block absolute bottom-4 left-4 top-4 w-[42%] overflow-hidden rounded-[0.75rem] shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.2)]">
           <img
@@ -31,7 +26,6 @@ export const FeaturedCard: React.FC<{
         </div>
       )}
 
-      {/* Desktop content panel */}
       <div
         className="hidden md:flex absolute bottom-0 right-0 top-0 flex-col justify-center gap-2.5 p-6"
         style={{ left: project.image ? '44%' : '0' }}
@@ -87,7 +81,7 @@ export const FeaturedCard: React.FC<{
         </div>
       </div>
 
-      {/* ── Mobile layout: screenshot top, content below, full width ── */}
+      {/* Mobile layout */}
       <div className="flex md:hidden flex-col h-full">
         {project.image && (
           <div className="w-full overflow-hidden rounded-t-[1.5rem] h-[48%] shrink-0 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
