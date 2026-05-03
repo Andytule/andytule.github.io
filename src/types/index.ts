@@ -23,6 +23,7 @@ export interface TimelineEntry {
 
 export interface Project {
   title: string;
+  shortDescription?: string;
   description: string;
   tags: SkillKey[];
   demoUrl?: string;

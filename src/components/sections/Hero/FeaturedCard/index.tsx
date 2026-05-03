@@ -41,7 +41,7 @@ export const FeaturedCard: React.FC<{
           {project.title}
         </p>
         <p className="text-[0.8125rem] leading-[1.4] text-[#8a8a96] transition-colors duration-200 group-hover:text-white/75">
-          {project.description.split('.')[0]}
+          {project.shortDescription ?? project.description.split('.')[0]}
         </p>
         <div className="mt-1.5 flex flex-wrap gap-2">
           {project.sourceUrl && (
@@ -104,7 +104,7 @@ export const FeaturedCard: React.FC<{
             {project.title}
           </p>
           <p className="text-[0.8125rem] leading-[1.4] text-[#8a8a96] transition-colors duration-200 group-hover:text-white/75">
-            {project.description.split('.')[0]}
+            {project.shortDescription ?? project.description.split('.')[0]}
           </p>
           <div className="flex flex-wrap gap-2">
             {project.sourceUrl && (

@@ -137,6 +137,16 @@ export const SKILL_CATALOG = {
     url: 'https://mui.com/',
     icon: { cdn: 'devicon', slug: 'materialui', variant: 'original' },
   },
+  ChartJS: {
+    name: 'Chart.js',
+    url: 'https://www.chartjs.org/',
+    icon: { cdn: 'simpleicons', slug: 'chartdotjs', color: 'FF6384' },
+  },
+  SCSS: {
+    name: 'SCSS',
+    url: 'https://sass-lang.com/',
+    icon: { cdn: 'devicon', slug: 'sass', variant: 'original' },
+  },
 
   // Backend
   NodeJS: {

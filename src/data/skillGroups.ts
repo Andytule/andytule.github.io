@@ -20,7 +20,17 @@ export const SKILL_GROUPS: Skill[] = [
   },
   {
     category: 'Frontend',
-    items: ['React', 'NextJS', 'Angular', 'Vue', 'Redux', 'RxJS', 'TailwindCSS', 'jQuery'],
+    items: [
+      'React',
+      'NextJS',
+      'Angular',
+      'Vue',
+      'Redux',
+      'RxJS',
+      'TailwindCSS',
+      'jQuery',
+      'ChartJS',
+    ],
   },
   {
     category: 'Backend',
