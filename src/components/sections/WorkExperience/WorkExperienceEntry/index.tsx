@@ -45,10 +45,10 @@ const WorkExperienceEntry: React.FC<WorkExperienceEntryProps> = ({ entry }) => {
         className={[
           'flex gap-4 md:gap-6 rounded-[1.375rem] border p-5 md:p-6',
           'bg-[var(--color-surface-low)] border-white/[0.06]',
-          'transition-all duration-300 ease-[var(--ease-apple)]',
-          'hover:border-[rgba(77,166,255,0.20)]',
-          'hover:shadow-[0_2px_24px_rgba(0,0,0,0.32),0_0_0_1px_rgba(77,166,255,0.07)]',
-          'hover:-translate-y-[1px]',
+          'transition-all duration-200 ease-[var(--ease-apple)]',
+          'hover:-translate-y-0.5',
+          'hover:border-[rgba(77,166,255,0.35)]',
+          'hover:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(77,166,255,0.12)]',
         ].join(' ')}
       >
         <div className="shrink-0 mt-[2px]">

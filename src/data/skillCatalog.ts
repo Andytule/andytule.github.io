@@ -130,7 +130,7 @@ export const SKILL_CATALOG = {
   ThreeJS: {
     name: 'Three.js',
     url: 'https://threejs.org/',
-    icon: { cdn: 'devicon', slug: 'threejs', variant: 'original' },
+    icon: { cdn: 'simpleicons', slug: 'threedotjs', color: 'ffffff' },
   },
   MaterialUI: {
     name: 'Material-UI',

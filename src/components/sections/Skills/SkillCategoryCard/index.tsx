@@ -17,8 +17,8 @@ const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, items }
       'bg-[var(--color-surface)] p-6',
       'transition-all duration-200 ease-[var(--ease-apple)]',
       'hover:-translate-y-0.5',
-      'hover:border-[var(--color-border-strong)]',
-      'hover:shadow-[0_12px_40px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)]',
+      'hover:border-[rgba(77,166,255,0.35)]',
+      'hover:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(77,166,255,0.12)]',
     ].join(' ')}
   >
     <h3 className="text-center text-[0.6875rem] font-semibold tracking-[0.12em] uppercase text-[var(--color-text-secondary)]">

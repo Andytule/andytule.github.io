@@ -30,6 +30,7 @@ export const SKILL_GROUPS: Skill[] = [
       'TailwindCSS',
       'jQuery',
       'ChartJS',
+      'ThreeJS',
     ],
   },
   {
