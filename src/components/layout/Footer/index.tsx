@@ -6,8 +6,6 @@ const FOOTER_LINKS: {
 }[] = [
   { label: 'GitHub', href: 'https://github.com/andytule' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/andy-tu-le' },
-  { label: 'Journal', href: '#' },
-  { label: 'Archive', href: '#' },
 ];
 
 const Footer: React.FC = () => {

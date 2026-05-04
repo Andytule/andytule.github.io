@@ -72,6 +72,7 @@ export const SKILL_GROUPS: Skill[] = [
       'Xcode',
       'VisualStudio',
       'Arduino',
+      'RaspberryPi',
     ],
   },
 ];

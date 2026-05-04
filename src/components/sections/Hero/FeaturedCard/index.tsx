@@ -22,6 +22,8 @@ export const FeaturedCard: React.FC<{
             src={project.image}
             alt={`${project.title} preview`}
             className="h-full w-full object-cover object-top"
+            loading="eager"
+            decoding="async"
           />
         </div>
       )}
@@ -89,6 +91,8 @@ export const FeaturedCard: React.FC<{
               src={project.image}
               alt={`${project.title} preview`}
               className="h-full w-full object-cover object-top"
+              loading="eager"
+              decoding="async"
             />
           </div>
         )}

@@ -18,6 +18,10 @@ export const JobCard: React.FC<{
         src="/dotmatics-logo.png"
         alt="Dotmatics"
         className="h-13 w-13 shrink-0 rounded-[0.75rem] object-cover"
+        loading="lazy"
+        decoding="async"
+        width={52}
+        height={52}
         onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
       />
       <div className="flex flex-col gap-0.5">

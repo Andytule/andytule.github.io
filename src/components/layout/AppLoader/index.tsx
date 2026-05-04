@@ -69,6 +69,9 @@ const AppLoader: React.FC<AppLoaderProps> = ({ onComplete }) => {
       <img
         src="/loading-cats.png"
         alt="Loading"
+        loading="eager"
+        fetchPriority="high"
+        decoding="sync"
         style={{
           width: 'min(460px, 86vw)',
           opacity: 0,

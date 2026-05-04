@@ -23,6 +23,8 @@ const Contact: React.FC = () => {
           alt="Coffee chat illustration"
           className="select-none pointer-events-none w-full max-w-[400px]"
           style={{ objectFit: 'contain' }}
+          loading="lazy"
+          decoding="async"
           draggable={false}
         />
 

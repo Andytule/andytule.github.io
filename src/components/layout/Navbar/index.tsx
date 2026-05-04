@@ -43,6 +43,10 @@ const Navbar: React.FC = () => {
           alt=""
           aria-hidden="true"
           className="h-12 w-12 object-contain opacity-90"
+          loading="eager"
+          fetchPriority="high"
+          width={48}
+          height={48}
         />
       </div>
     </header>

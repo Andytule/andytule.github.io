@@ -18,6 +18,8 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
             src={project.image}
             alt={`${project.title} screenshot`}
             className="h-full w-full object-cover object-top opacity-85 transition-opacity duration-300 group-hover:opacity-100"
+            loading="lazy"
+            decoding="async"
           />
         )}
         <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent from-[60%] to-[#222228]" />

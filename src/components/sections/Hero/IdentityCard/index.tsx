@@ -39,6 +39,9 @@ export const IdentityCard: React.FC<{
         alt=""
         className="h-full w-full object-contain object-bottom opacity-[0.95]"
         style={{ mixBlendMode: 'screen' }}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
       />
     </div>
   </div>

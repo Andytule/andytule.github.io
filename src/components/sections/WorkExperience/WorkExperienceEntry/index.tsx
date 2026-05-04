@@ -29,6 +29,8 @@ const WorkExperienceEntry: React.FC<WorkExperienceEntryProps> = ({ entry }) => {
           src={entry.logo}
           alt={companyName}
           className="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
           onError={() => setLogoFailed(true)}
         />
       ) : (

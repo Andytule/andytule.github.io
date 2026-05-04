@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import { Pill } from '@/components/shared';
 import { cn } from '@/lib/utils';
 import type { EducationEntry } from '@/types';
 
@@ -77,7 +76,6 @@ const EducationEntryCard: React.FC<EducationEntryProps> = ({ entry, isLast }) =>
               <h3 className="text-[1rem] md:text-[1.0625rem] font-semibold text-[var(--color-text-primary)] tracking-[-0.03em] leading-tight">
                 {entry.field}
               </h3>
-              {entry.honourRoll && <Pill variant="accent">Honours</Pill>}
             </div>
             <p className="font-mono text-[0.625rem] tracking-[0.08em] uppercase text-[var(--color-text-tertiary)] shrink-0 mt-[3px]">
               {entry.period}
@@ -85,14 +83,9 @@ const EducationEntryCard: React.FC<EducationEntryProps> = ({ entry, isLast }) =>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-1.5">
-            <a
-              href={entry.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[0.8125rem] font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-bright)] transition-colors duration-150 no-underline"
-            >
+            <span className="text-[0.8125rem] font-medium text-[#4da6ff] transition-colors duration-150">
               {entry.school}
-            </a>
+            </span>
             <span className="text-white/20 text-[0.625rem] leading-none">·</span>
             <span className="text-[0.75rem] text-[var(--color-text-tertiary)]">{entry.degree}</span>
           </div>

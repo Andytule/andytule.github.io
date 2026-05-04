@@ -25,6 +25,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
           src={project.image}
           alt={`${project.title} preview`}
           className="h-full w-full object-cover object-top opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+          loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[45%] to-[#222228]" />
       </div>
