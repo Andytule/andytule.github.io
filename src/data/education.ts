@@ -5,6 +5,7 @@ export interface EducationEntry {
   school: string;
   logo: string;
   url: string;
+  honourRoll?: boolean;
 }
 
 export const EDUCATION: EducationEntry[] = [
@@ -15,6 +16,7 @@ export const EDUCATION: EducationEntry[] = [
     school: 'McMaster University',
     logo: '/mcmaster-university-logo.png',
     url: 'https://www.eng.mcmaster.ca/sept/degree-options/software-engineering-technology/',
+    honourRoll: true,
   },
   {
     period: '2019 – 2023',
@@ -23,5 +25,6 @@ export const EDUCATION: EducationEntry[] = [
     school: 'Mohawk College',
     logo: '/mohawk-college-logo.png',
     url: 'https://www.mohawkcollege.ca/programs/technology/computer-systems-technology-software-development-559',
+    honourRoll: true,
   },
 ];

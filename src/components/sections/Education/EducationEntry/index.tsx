@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { Pill } from '@/components/shared';
 import type { EducationEntry } from '@/data/education';
 import { cn } from '@/lib/utils';
 
@@ -48,7 +49,7 @@ const EducationEntryCard: React.FC<EducationEntryProps> = ({ entry, isLast }) =>
   );
 
   return (
-    <article>
+    <article className={cn(!isLast && 'mb-3')}>
       <div
         className={cn(
           'flex gap-4 md:gap-6 rounded-[1.375rem] border p-5 md:p-6',
@@ -72,9 +73,12 @@ const EducationEntryCard: React.FC<EducationEntryProps> = ({ entry, isLast }) =>
 
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-3 mb-1">
-            <h3 className="text-[1rem] md:text-[1.0625rem] font-semibold text-[var(--color-text-primary)] tracking-[-0.03em] leading-tight">
-              {entry.field}
-            </h3>
+            <div className="flex flex-wrap items-center gap-2 min-w-0">
+              <h3 className="text-[1rem] md:text-[1.0625rem] font-semibold text-[var(--color-text-primary)] tracking-[-0.03em] leading-tight">
+                {entry.field}
+              </h3>
+              {entry.honourRoll && <Pill variant="accent">Honours</Pill>}
+            </div>
             <p className="font-mono text-[0.625rem] tracking-[0.08em] uppercase text-[var(--color-text-tertiary)] shrink-0 mt-[3px]">
               {entry.period}
             </p>
@@ -94,12 +98,6 @@ const EducationEntryCard: React.FC<EducationEntryProps> = ({ entry, isLast }) =>
           </div>
         </div>
       </div>
-
-      {!isLast && (
-        <div className="flex justify-start pl-[1.375rem] py-[0.125rem]">
-          <div className="w-px h-3 bg-white/[0.08]" />
-        </div>
-      )}
     </article>
   );
 };

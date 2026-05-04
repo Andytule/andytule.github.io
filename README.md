@@ -60,10 +60,12 @@ All content lives in `src/data/` — no component files need to be touched.
 | File              | What to edit                                       |
 | ----------------- | -------------------------------------------------- |
 | `skillCatalog.ts` | Add/edit skills — name, URL, and icon strategy     |
-| `skills.ts`       | Change which skills appear and how they're grouped |
+| `skillGroups.ts`  | Change which skills appear and how they're grouped |
 | `projects.ts`     | Add/edit portfolio projects                        |
-| `timeline.ts`     | Add/edit experience entries                        |
-| `social.ts`       | Update contact/social links                        |
+| `experience.ts`   | Add/edit work experience entries                   |
+| `education.ts`    | Add/edit education entries and honour roll status  |
+| `contact.ts`      | Update contact links (email, LinkedIn, phone, etc) |
+| `social.ts`       | Update social links shown in the hero              |
 
 ## Project Structure
 
@@ -71,10 +73,10 @@ All content lives in `src/data/` — no component files need to be touched.
 src/
 ├── components/
 │   ├── layout/          # Navbar, Footer, AmbientBackground
-│   ├── sections/        # Hero, Skills, WorkExperience, Projects, Contact, Resume
+│   ├── sections/        # Hero, Skills, WorkExperience, Projects, Education, Contact, Resume
 │   ├── shared/          # Pill, SectionHeader
 │   └── ui/              # shadcn/ui primitives
-├── data/                # All static content (skills, projects, timeline, social)
+├── data/                # All static content (skills, projects, experience, education, contact, social)
 ├── hooks/               # useHover, useScrollReveal, useActiveSection
 ├── styles/globals.css   # Tailwind v4 + design tokens
 └── types/index.ts

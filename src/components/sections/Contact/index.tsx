@@ -1,84 +1,86 @@
-import { Calendar, Mail, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import React from 'react';
 
+import { CalIcon, LIIcon, MailIcon } from '@/components/sections/Hero/SocialTile/icons';
+import { CONTACT_ITEMS, type ContactItem } from '@/data/contact';
+import useHover from '@/hooks/useHover';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
-import ContactCard from './ContactCard';
+type IconName = ContactItem['iconName'];
 
-const contactCards = [
-  {
-    icon: <Mail size={20} />,
-    label: 'Email',
-    value: 'Andytule321@gmail.com',
-    cta: 'Send message →',
-    href: 'mailto:Andytule321@gmail.com',
-    iconColor: '#3b9eff',
-    iconBg: 'rgba(41,151,255,0.1)',
-  },
-  {
-    icon: <Phone size={20} />,
-    label: 'Phone',
-    value: '(905) 923–1997',
-    cta: 'Call me →',
-    href: 'tel:+19059231997',
-    iconColor: '#30d158',
-    iconBg: 'rgba(48,209,88,0.1)',
-  },
-  {
-    icon: <Calendar size={20} />,
-    label: 'Schedule',
-    value: '30-min intro call',
-    cta: 'Book on Calendly →',
-    href: 'https://calendly.com/andytule321',
-    iconColor: '#3b9eff',
-    iconBg: 'rgba(41,151,255,0.1)',
-    external: true,
-  },
-];
+const ICONS: Record<IconName, React.FC<{ size?: number; color?: string }>> = {
+  mail: MailIcon,
+  linkedin: LIIcon,
+  phone: ({ size = 18, color }) => <Phone size={size} color={color} />,
+  calendar: CalIcon,
+};
+
+const ContactTile: React.FC<ContactItem> = ({ iconName, value, cta, href, external }) => {
+  const [hovered, handlers] = useHover();
+  const Icon = ICONS[iconName];
+
+  return (
+    <a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className="flex flex-col items-center justify-center text-center gap-2.5 no-underline rounded-[1.25rem] py-6 px-4 transition-all duration-200"
+      style={{
+        background: hovered ? '#1a7fe8' : '#222228',
+        border: `1px solid ${hovered ? 'transparent' : 'rgba(255,255,255,0.1)'}`,
+      }}
+      {...handlers}
+    >
+      <span
+        className="transition-transform duration-200"
+        style={{ transform: hovered ? 'scale(1.1)' : 'scale(1)', display: 'block' }}
+      >
+        <Icon size={22} color={hovered ? '#fff' : '#3b9eff'} />
+      </span>
+
+      <p
+        className="text-[0.8125rem] font-semibold tracking-[-0.02em] leading-snug transition-colors duration-200"
+        style={{ color: hovered ? '#fff' : '#ebebf5' }}
+      >
+        {value}
+      </p>
+
+      <span
+        className="text-[0.6875rem] font-medium tracking-[-0.01em] transition-colors duration-200"
+        style={{ color: hovered ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)' }}
+      >
+        {cta} →
+      </span>
+    </a>
+  );
+};
 
 const Contact: React.FC = () => {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="contact" ref={ref} className="mx-auto max-w-[1200px] px-8 py-24">
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.07] bg-[var(--color-surface-lowest)]">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(77,166,255,0.7)] to-transparent" />
+    <section id="contact" ref={ref} className="mx-auto max-w-[1200px] px-6 md:px-8 py-24">
+      <div className="mb-14">
+        <h2 className="text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-[var(--color-text-primary)] tracking-[-0.03em] leading-[1.1]">
+          Let's build something <span className="text-[#3b9eff]">great together.</span>
+        </h2>
+      </div>
 
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-        >
-          <div
-            className="h-80 w-[560px] rounded-full"
-            style={{
-              background: 'radial-gradient(circle, rgba(77,166,255,0.07) 0%, transparent 70%)',
-              filter: 'blur(40px)',
-            }}
-          />
-        </div>
+      <div className="grid md:grid-cols-2 gap-8 items-center">
+        {/* Left — illustration */}
+        <img
+          src="/coffee-chat-cat.png"
+          alt="Coffee chat illustration"
+          className="select-none pointer-events-none w-full max-w-[400px]"
+          style={{ objectFit: 'contain' }}
+          draggable={false}
+        />
 
-        <div className="relative z-10 px-8 py-[clamp(3rem,6vw,5rem)] text-center">
-          <p className="mb-4 text-[0.6875rem] font-semibold tracking-[0.12em] uppercase text-[var(--color-accent)]">
-            Get in Touch
-          </p>
-
-          <h2 className="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3rem)] font-bold text-[#f0f0f5] tracking-[-0.04em] leading-[1.05] mb-5">
-            Let's build something <span className="text-[#3b9eff]">great together.</span>
-          </h2>
-
-          <p className="max-w-[460px] mx-auto text-[1.0625rem] leading-[1.6] text-[#8a8a96] tracking-[-0.01em]">
-            Open to new roles, collaborations, and interesting problems. Drop me a message or book
-            time directly.
-          </p>
-
-          <div
-            className="max-w-[720px] mx-auto mt-12 grid gap-3 text-left"
-            style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}
-          >
-            {contactCards.map((card) => (
-              <ContactCard key={card.label} {...card} />
-            ))}
-          </div>
+        {/* Right — 2×2 compact tiles */}
+        <div className="grid grid-cols-2 gap-3">
+          {CONTACT_ITEMS.map((item) => (
+            <ContactTile key={item.value} {...item} />
+          ))}
         </div>
       </div>
     </section>
