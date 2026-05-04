@@ -1,10 +1,4 @@
-export interface ContactItem {
-  iconName: 'mail' | 'linkedin' | 'phone' | 'calendar';
-  value: string;
-  cta: string;
-  href: string;
-  external?: boolean;
-}
+import type { ContactItem } from '@/types';
 
 export const CONTACT_ITEMS: ContactItem[] = [
   {

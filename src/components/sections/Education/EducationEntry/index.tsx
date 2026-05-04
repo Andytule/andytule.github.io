@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { Pill } from '@/components/shared';
-import type { EducationEntry } from '@/data/education';
 import { cn } from '@/lib/utils';
+import type { EducationEntry } from '@/types';
 
 interface EducationEntryProps {
   entry: EducationEntry;

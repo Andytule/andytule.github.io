@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SectionHeader } from '@/components/shared';
-import { PROJECTS } from '@/data';
+import { PROJECTS } from '@/data/projects';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
 import FeaturedProjectCard from './FeaturedProjectCard';

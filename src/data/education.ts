@@ -1,12 +1,4 @@
-export interface EducationEntry {
-  period: string;
-  degree: string;
-  field: string;
-  school: string;
-  logo: string;
-  url: string;
-  honourRoll?: boolean;
-}
+import type { EducationEntry } from '@/types';
 
 export const EDUCATION: EducationEntry[] = [
   {

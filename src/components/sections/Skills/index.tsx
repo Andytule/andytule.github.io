@@ -1,7 +1,7 @@
 import React, { RefObject } from 'react';
 
 import SectionHeader from '@/components/shared/SectionHeader';
-import { SKILL_GROUPS } from '@/data';
+import { SKILL_GROUPS } from '@/data/skillGroups';
 import useScrollReveal from '@/hooks/useScrollReveal';
 import type { Skill } from '@/types';
 

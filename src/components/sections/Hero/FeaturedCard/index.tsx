@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 
 import { Pill } from '@/components/shared';
-import { PROJECTS } from '@/data';
+import { PROJECTS } from '@/data/projects';
 import { Project } from '@/types';
 
 export const FeaturedCard: React.FC<{

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SectionHeader } from '@/components/shared';
-import { EXPERIENCE } from '@/data';
+import { EXPERIENCE } from '@/data/experience';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
 import WorkExperienceEntry from './WorkExperienceEntry';

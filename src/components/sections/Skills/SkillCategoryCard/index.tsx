@@ -4,7 +4,7 @@ import { type SkillKey } from '@/data/skillCatalog';
 
 import SkillIcon from '../SkillIcon';
 
-export interface SkillCategoryCardProps {
+interface SkillCategoryCardProps {
   category: string;
   items: SkillKey[];
 }

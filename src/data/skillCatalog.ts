@@ -1,13 +1,4 @@
-export type SkillIcon =
-  | { cdn: 'devicon'; slug: string; variant: string }
-  | { cdn: 'simpleicons'; slug: string; color: string }
-  | { cdn: 'inline'; svg: string };
-
-export interface SkillDef {
-  name: string;
-  url: string;
-  icon: SkillIcon;
-}
+import type { SkillDef } from '@/types';
 
 export const SKILL_CATALOG = {
   // Languages

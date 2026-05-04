@@ -33,18 +33,37 @@ export interface Project {
   featured?: boolean;
 }
 
-export interface Education {
-  school: string;
-  schoolLink: string;
+export interface EducationEntry {
+  period: string;
   degree: string;
   field: string;
-  location: string;
-  startDate: string;
-  endDate: string;
+  school: string;
+  logo: string;
+  url: string;
+  honourRoll?: boolean;
 }
 
 export interface SocialLink {
   label: string;
   href: string;
   icon: string;
+}
+
+export interface ContactItem {
+  iconName: 'mail' | 'linkedin' | 'phone' | 'calendar';
+  value: string;
+  cta: string;
+  href: string;
+  external?: boolean;
+}
+
+export type SkillIconSource =
+  | { cdn: 'devicon'; slug: string; variant: string }
+  | { cdn: 'simpleicons'; slug: string; color: string }
+  | { cdn: 'inline'; svg: string };
+
+export interface SkillDef {
+  name: string;
+  url: string;
+  icon: SkillIconSource;
 }
