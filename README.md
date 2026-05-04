@@ -22,6 +22,37 @@ npm run build
 npm run preview
 ```
 
+## Docker
+
+Build and run the production image locally:
+
+```bash
+make docker-up    # builds image + starts container → http://localhost:8080
+make docker-down  # stop the container
+make docker-logs  # tail container logs
+```
+
+Or using plain Docker:
+
+```bash
+docker build -t andytule-github-io .
+docker run -d --name andytule-github-io -p 8080:80 --rm andytule-github-io
+```
+
+## Makefile Commands
+
+| Command            | Description                             |
+| ------------------ | --------------------------------------- |
+| `make dev`         | Start Vite dev server (localhost:5173)  |
+| `make build`       | Type-check + production build → `dist/` |
+| `make preview`     | Preview the production build locally    |
+| `make lint`        | Run ESLint                              |
+| `make format-code` | Prettier + ESLint auto-fix              |
+| `make docker-up`   | Build + run container (localhost:8080)  |
+| `make docker-down` | Stop the running container              |
+| `make docker-logs` | Tail container logs                     |
+| `make deploy`      | Manual deploy to GitHub Pages           |
+
 ## Updating Content
 
 All content lives in `src/data/` — no component files need to be touched.
