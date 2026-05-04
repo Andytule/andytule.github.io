@@ -3,6 +3,7 @@ import React, { ReactElement, useState } from 'react';
 import { AmbientBackground, Footer, Navbar } from '@/components/layout';
 import AppLoader from '@/components/layout/AppLoader';
 import Contact from '@/components/sections/Contact';
+import Education from '@/components/sections/Education';
 import Hero from '@/components/sections/Hero';
 import Projects from '@/components/sections/Projects';
 import Resume from '@/components/sections/Resume';
@@ -29,6 +30,7 @@ const App = (): ReactElement => {
           <Skills />
           <WorkExperience />
           <Projects />
+          <Education />
           <Contact />
           <Resume />
         </main>

@@ -12,7 +12,13 @@ const Skills: React.FC = () => {
 
   return (
     <section id="skills" ref={ref} className="mx-auto max-w-[1200px] px-8 py-20">
-      <SectionHeader eyebrow="Technical Skills" title="What I work with" />
+      <SectionHeader
+        title={
+          <>
+            My <span className="text-[#3b9eff]">Skills.</span>
+          </>
+        }
+      />
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {SKILL_GROUPS.map((skillGroup: Skill) => (

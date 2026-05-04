@@ -15,10 +15,9 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" ref={ref} className="mx-auto max-w-[1200px] px-6 md:px-8 py-24">
       <SectionHeader
-        eyebrow="Projects"
         title={
           <>
-            Personal <span className="text-[#3b9eff]">Builds.</span>
+            My <span className="text-[#3b9eff]">Projects.</span>
           </>
         }
       />

@@ -12,10 +12,9 @@ const WorkExperience: React.FC = () => {
   return (
     <section id="timeline" ref={ref} className="mx-auto max-w-[1200px] px-6 md:px-8 py-24">
       <SectionHeader
-        eyebrow="Experience"
         title={
           <>
-            The Professional <span className="text-[#3b9eff]">Journey.</span>
+            Work <span className="text-[#3b9eff]">Experience.</span>
           </>
         }
       />

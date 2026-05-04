@@ -8,6 +8,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#timeline' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
   { label: 'Resume', href: '#resume' },
 ];
