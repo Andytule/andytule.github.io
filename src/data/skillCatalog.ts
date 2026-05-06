@@ -363,6 +363,44 @@ export const SKILL_CATALOG = {
     url: 'https://www.adyen.com/',
     icon: { cdn: 'simpleicons', slug: 'adyen', color: '0ABF53' },
   },
+
+  // ML / AI
+  PyTorch: {
+    name: 'PyTorch',
+    url: 'https://pytorch.org/',
+    icon: { cdn: 'devicon', slug: 'pytorch', variant: 'original' },
+  },
+  NumPy: {
+    name: 'NumPy',
+    url: 'https://numpy.org/',
+    icon: { cdn: 'devicon', slug: 'numpy', variant: 'original' },
+  },
+  Pandas: {
+    name: 'Pandas',
+    url: 'https://pandas.pydata.org/',
+    icon: { cdn: 'devicon', slug: 'pandas', variant: 'original' },
+  },
+  Matplotlib: {
+    name: 'Matplotlib',
+    url: 'https://matplotlib.org/',
+    icon: { cdn: 'devicon', slug: 'matplotlib', variant: 'original' },
+  },
+  ScikitLearn: {
+    name: 'Scikit-learn',
+    url: 'https://scikit-learn.org/',
+    icon: { cdn: 'devicon', slug: 'scikitlearn', variant: 'original' },
+  },
+  Keras: {
+    name: 'Keras',
+    url: 'https://keras.io/',
+    icon: { cdn: 'devicon', slug: 'keras', variant: 'original' },
+  },
+  TensorFlow: {
+    name: 'TensorFlow',
+    url: 'https://www.tensorflow.org/',
+    icon: { cdn: 'devicon', slug: 'tensorflow', variant: 'original' },
+  },
+
 } as const satisfies Record<string, SkillDef>;
 
 export type SkillKey = keyof typeof SKILL_CATALOG;

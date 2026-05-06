@@ -75,4 +75,16 @@ export const SKILL_GROUPS: Skill[] = [
       'RaspberryPi',
     ],
   },
+  {
+    category: 'ML / AI',
+    items: [
+      'PyTorch',
+      'NumPy',
+      'Pandas',
+      'Matplotlib',
+      'ScikitLearn',
+      'Keras',
+      'TensorFlow',
+    ],
+  },
 ];
