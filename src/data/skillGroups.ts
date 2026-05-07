@@ -77,14 +77,6 @@ export const SKILL_GROUPS: Skill[] = [
   },
   {
     category: 'ML / AI',
-    items: [
-      'PyTorch',
-      'NumPy',
-      'Pandas',
-      'Matplotlib',
-      'ScikitLearn',
-      'Keras',
-      'TensorFlow',
-    ],
+    items: ['PyTorch', 'NumPy', 'Pandas', 'Matplotlib', 'ScikitLearn', 'Keras', 'TensorFlow'],
   },
 ];

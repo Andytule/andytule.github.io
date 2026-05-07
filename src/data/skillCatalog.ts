@@ -400,7 +400,6 @@ export const SKILL_CATALOG = {
     url: 'https://www.tensorflow.org/',
     icon: { cdn: 'devicon', slug: 'tensorflow', variant: 'original' },
   },
-
 } as const satisfies Record<string, SkillDef>;
 
 export type SkillKey = keyof typeof SKILL_CATALOG;
