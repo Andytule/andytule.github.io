@@ -9,8 +9,13 @@ export const JobCard: React.FC<{
     href="https://www.dotmatics.com/"
     target="_blank"
     rel="noopener noreferrer"
-    style={style}
-    className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#222228] p-7 no-underline transition-all duration-200 hover:border-transparent hover:bg-[#1a7fe8]"
+    className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-white/[0.12] p-7 no-underline transition-all duration-200 hover:border-transparent hover:bg-[#1a7fe8]"
+    style={{
+      background: 'rgba(255,255,255,0.06)',
+      backdropFilter: 'blur(20px) saturate(180%)',
+      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+      ...style,
+    }}
   >
     {/* Employer identity */}
     <div className="flex items-center gap-3">

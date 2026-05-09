@@ -12,7 +12,10 @@ const Footer: React.FC = () => {
   const year: number = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.06] bg-[var(--color-surface-lowest)]">
+    <footer
+      className="border-t border-white/[0.10] backdrop-blur-md backdrop-saturate-[180%] backdrop-brightness-[0.85]"
+      style={{ background: 'rgba(255, 255, 255, 0.05)' }}
+    >
       <div className="mx-auto max-w-[1100px] px-6 py-10 flex flex-col gap-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <span className="font-[var(--font-display)] text-[0.9375rem] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">

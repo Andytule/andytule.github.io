@@ -6,8 +6,10 @@ export const cardBaseClass: string =
   'relative overflow-hidden rounded-[1.5rem] transition-all duration-200';
 
 export const cardSurfaceStyle: CSSProperties = {
-  background: '#222228',
-  border: '1px solid rgba(255,255,255,0.1)',
+  background: 'rgba(255, 255, 255, 0.06)',
+  backdropFilter: 'blur(20px) saturate(180%)',
+  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+  border: '1px solid rgba(255, 255, 255, 0.12)',
 };
 
 export const HoverCard: React.FC<{
@@ -27,8 +29,10 @@ export const HoverCard: React.FC<{
     .join(' ');
 
   const surfaceStyle: CSSProperties = {
-    background: '#222228',
-    border: '1px solid rgba(255,255,255,0.1)',
+    background: 'rgba(255, 255, 255, 0.06)',
+    backdropFilter: 'blur(20px) saturate(180%)',
+    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
   };
 
   if (as === 'a') {
@@ -80,8 +84,10 @@ export const StatefulBlueCard: React.FC<{
     .join(' ');
 
   const hoverStyle: CSSProperties = {
-    background: hovered ? '#1a7fe8' : '#222228',
-    border: hovered ? '1px solid transparent' : '1px solid rgba(255,255,255,0.1)',
+    background: hovered ? '#1a7fe8' : 'rgba(255, 255, 255, 0.06)',
+    backdropFilter: hovered ? 'none' : 'blur(20px) saturate(180%)',
+    WebkitBackdropFilter: hovered ? 'none' : 'blur(20px) saturate(180%)',
+    border: hovered ? '1px solid transparent' : '1px solid rgba(255, 255, 255, 0.12)',
   };
 
   if (as === 'a') {

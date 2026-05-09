@@ -17,7 +17,7 @@ const App = (): ReactElement => {
     <>
       {!loaded && <AppLoader onComplete={() => setLoaded(true)} />}
       <div
-        className="relative min-h-screen overflow-x-hidden bg-[var(--color-bg)]"
+        className="relative min-h-screen overflow-x-hidden"
         style={{
           opacity: loaded ? 1 : 0,
           transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
