@@ -11,13 +11,13 @@ export const FeaturedCard: React.FC<{
 
   return (
     <div
-      className="glass-card group relative cursor-pointer overflow-hidden rounded-[1.5rem] hover:border-transparent hover:bg-[#1a7fe8] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
+      className="glass-card group relative cursor-pointer overflow-hidden rounded-[1.5rem] hover:-translate-y-0.5 hover:border-transparent hover:bg-[#1a7fe8] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
       style={style}
       onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
     >
       {/* Desktop layout */}
       {project.image && (
-        <div className="hidden md:block absolute bottom-4 left-4 top-4 w-[42%] overflow-hidden rounded-[0.75rem] shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.2)]">
+        <div className="hidden md:block absolute bottom-4 left-4 top-4 w-[42%] overflow-hidden rounded-[0.75rem] shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-all duration-300 group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.2)]">
           <img
             src={project.image}
             alt={`${project.title} preview`}
@@ -32,11 +32,7 @@ export const FeaturedCard: React.FC<{
         className="hidden md:flex absolute bottom-0 right-0 top-0 flex-col justify-center gap-2.5 p-6"
         style={{ left: project.image ? '44%' : '0' }}
       >
-        <Pill
-          variant="accent"
-          className="uppercase tracking-[0.06em] text-[0.625rem]"
-          hoverClassName="group-hover:bg-white/[0.18] group-hover:border-white/55 group-hover:text-white"
-        >
+        <Pill variant="accent" className="uppercase tracking-[0.06em] text-[0.625rem]">
           Featured Project
         </Pill>
         <p className="font-[var(--font-display)] text-[1.0625rem] font-semibold leading-[1.2] tracking-[-0.02em] text-[#f0f0f5] transition-colors duration-200 group-hover:text-white">
@@ -57,7 +53,7 @@ export const FeaturedCard: React.FC<{
               <Pill
                 variant="purple"
                 className="uppercase tracking-[0.06em] text-[0.625rem] cursor-pointer"
-                hoverClassName="group-hover:bg-[rgba(109,40,217,0.6)] group-hover:border-[rgba(196,181,253,0.9)] group-hover:text-[#ede9fe]"
+                hoverClassName="hover:bg-[rgba(109,40,217,0.6)] hover:border-[rgba(196,181,253,0.9)] hover:text-[#ede9fe]"
               >
                 GitHub
               </Pill>
@@ -74,7 +70,7 @@ export const FeaturedCard: React.FC<{
               <Pill
                 variant="green"
                 className="uppercase tracking-[0.06em] text-[0.625rem] cursor-pointer"
-                hoverClassName="group-hover:bg-[rgba(22,163,74,0.55)] group-hover:border-[rgba(74,222,128,0.9)] group-hover:text-[#dcfce7]"
+                hoverClassName="hover:bg-[rgba(22,163,74,0.55)] hover:border-[rgba(74,222,128,0.9)] hover:text-[#dcfce7]"
               >
                 Live ↗
               </Pill>
@@ -97,11 +93,7 @@ export const FeaturedCard: React.FC<{
           </div>
         )}
         <div className="flex flex-col justify-center gap-3 px-6 py-5 flex-1">
-          <Pill
-            variant="accent"
-            className="uppercase tracking-[0.06em] text-[0.625rem]"
-            hoverClassName="group-hover:bg-white/[0.18] group-hover:border-white/55 group-hover:text-white"
-          >
+          <Pill variant="accent" className="uppercase tracking-[0.06em] text-[0.625rem]">
             Featured Project
           </Pill>
           <p className="font-[var(--font-display)] text-[1.0625rem] font-semibold leading-[1.2] tracking-[-0.02em] text-[#f0f0f5] transition-colors duration-200 group-hover:text-white">
@@ -122,7 +114,7 @@ export const FeaturedCard: React.FC<{
                 <Pill
                   variant="purple"
                   className="uppercase tracking-[0.06em] text-[0.625rem] cursor-pointer"
-                  hoverClassName="group-hover:bg-[rgba(109,40,217,0.6)] group-hover:border-[rgba(196,181,253,0.9)] group-hover:text-[#ede9fe]"
+                  hoverClassName="hover:bg-[rgba(109,40,217,0.6)] hover:border-[rgba(196,181,253,0.9)] hover:text-[#ede9fe]"
                 >
                   GitHub
                 </Pill>
@@ -139,7 +131,7 @@ export const FeaturedCard: React.FC<{
                 <Pill
                   variant="green"
                   className="uppercase tracking-[0.06em] text-[0.625rem] cursor-pointer"
-                  hoverClassName="group-hover:bg-[rgba(22,163,74,0.55)] group-hover:border-[rgba(74,222,128,0.9)] group-hover:text-[#dcfce7]"
+                  hoverClassName="hover:bg-[rgba(22,163,74,0.55)] hover:border-[rgba(74,222,128,0.9)] hover:text-[#dcfce7]"
                 >
                   Live ↗
                 </Pill>

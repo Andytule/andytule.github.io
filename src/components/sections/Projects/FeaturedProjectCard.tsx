@@ -23,8 +23,6 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
             className="h-full w-full object-cover object-top opacity-85 transition-opacity duration-300 group-hover:opacity-100"
           />
         )}
-        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent from-[60%] to-[rgba(15,15,20,0.85)]" />
-        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-transparent from-[60%] to-[rgba(15,15,20,0.85)]" />
       </div>
 
       <div className="flex flex-col justify-center gap-4 p-8">

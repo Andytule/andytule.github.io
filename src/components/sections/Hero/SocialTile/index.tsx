@@ -36,33 +36,20 @@ export const SocialTile: React.FC<{
       rel="noopener noreferrer"
       className={[
         cardBaseClass,
-        'flex flex-col items-center justify-center no-underline w-full',
+        'flex flex-col items-center justify-center no-underline w-full hover:-translate-y-0.5',
         mobile ? 'gap-[0.875rem]' : 'gap-[0.625rem]',
         !mobile ? 'aspect-square' : aspectRatio ? 'aspect-square' : '',
       ]
         .filter(Boolean)
         .join(' ')}
-      style={{
-        gridArea: gridArea ?? undefined,
-        ...(hovered
-          ? {
-              background: '#1a7fe8',
-              backdropFilter: 'none',
-              WebkitBackdropFilter: 'none',
-              border: '1px solid transparent',
-            }
-          : {}),
-      }}
+      style={{ gridArea: gridArea ?? undefined }}
       {...handlers}
     >
-      <span
-        className="flex transition-transform duration-200"
-        style={{ transform: hovered ? 'scale(1.1)' : 'scale(1)' }}
-      >
+      <span className="flex transition-colors duration-200">
         <Icon size={iconSize} color={hovered ? 'white' : '#3b9eff'} />
       </span>
       <span
-        className="font-semibold tracking-[0.1em] uppercase transition-colors duration-200"
+        className="font-semibold tracking-[0.1em] uppercase"
         style={{
           fontSize: mobile ? '0.6875rem' : '0.625rem',
           color: hovered ? 'rgba(255,255,255,0.5)' : '#52525e',

@@ -23,7 +23,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
           alt={`${project.title} preview`}
           className="h-full w-full object-cover object-top opacity-80 transition-opacity duration-300 group-hover:opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[45%] to-[rgba(15,15,20,0.85)]" />
       </div>
     )}
 

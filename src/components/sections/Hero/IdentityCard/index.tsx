@@ -8,7 +8,10 @@ export const IdentityCard: React.FC<{
   style?: CSSProperties;
   mobile?: boolean;
 }> = ({ style, mobile }) => (
-  <div className={`${cardBaseClass} flex flex-col ${mobile ? 'min-h-[300px]' : ''}`} style={style}>
+  <div
+    className={`${cardBaseClass} flex flex-col hover:-translate-y-0.5 ${mobile ? 'min-h-[300px]' : ''}`}
+    style={style}
+  >
     <div className={`relative z-10 flex flex-col ${mobile ? 'p-8 gap-4' : 'p-10 gap-5'}`}>
       <Pill variant="accent">Software Engineer</Pill>
 

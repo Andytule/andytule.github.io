@@ -7,6 +7,12 @@ import type { Project } from '@/types';
 const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   <div
     className="glass-card group overflow-hidden cursor-pointer hover:-translate-y-0.5"
+    style={{
+      borderRadius: '1.5rem',
+      background: 'rgba(255, 255, 255, 0.06)',
+      backdropFilter: 'blur(20px) saturate(180%)',
+      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+    }}
     onClick={() => {
       if (project.demoUrl) window.open(project.demoUrl, '_blank');
     }}
@@ -22,8 +28,6 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
             decoding="async"
           />
         )}
-        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent from-[60%] to-[rgba(15,15,20,0.85)]" />
-        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-transparent from-[60%] to-[rgba(15,15,20,0.85)]" />
       </div>
 
       <div className="flex flex-col justify-center gap-4 p-8">
