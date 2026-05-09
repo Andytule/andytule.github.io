@@ -11,12 +11,13 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
   <div
-    className={cn('glass-card group flex flex-col overflow-hidden', 'hover:-translate-y-0.5')}
+    className={cn(
+      'glass-card group flex flex-col overflow-hidden',
+      'hover:-translate-y-0.5 backdrop-blur-xl'
+    )}
     style={{
       borderRadius: '1.5rem',
       background: 'rgba(255, 255, 255, 0.06)',
-      backdropFilter: 'blur(20px) saturate(180%)',
-      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
     }}
   >
     {project.image && (
