@@ -2,15 +2,10 @@ import React, { CSSProperties, MouseEvent, ReactNode } from 'react';
 
 import useHover from '@/hooks/useHover';
 
-export const cardBaseClass: string =
-  'relative overflow-hidden rounded-[1.5rem] transition-all duration-200';
+export const cardBaseClass: string = 'glass-card relative overflow-hidden rounded-[1.5rem]';
 
-export const cardSurfaceStyle: CSSProperties = {
-  background: 'rgba(255, 255, 255, 0.06)',
-  backdropFilter: 'blur(20px) saturate(180%)',
-  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-  border: '1px solid rgba(255, 255, 255, 0.12)',
-};
+/** @deprecated Use the `glass-card` CSS class directly instead */
+export const cardSurfaceStyle: CSSProperties = {};
 
 export const HoverCard: React.FC<{
   as?: 'div' | 'a';
@@ -28,13 +23,6 @@ export const HoverCard: React.FC<{
     .filter(Boolean)
     .join(' ');
 
-  const surfaceStyle: CSSProperties = {
-    background: 'rgba(255, 255, 255, 0.06)',
-    backdropFilter: 'blur(20px) saturate(180%)',
-    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
-  };
-
   if (as === 'a') {
     return (
       <a
@@ -43,7 +31,6 @@ export const HoverCard: React.FC<{
         rel={rel}
         onClick={onClick}
         className={`flex no-underline ${classes}`}
-        style={surfaceStyle}
         {...handlers}
       >
         {children}
@@ -52,12 +39,7 @@ export const HoverCard: React.FC<{
   }
 
   return (
-    <div
-      className={`cursor-pointer ${classes}`}
-      style={surfaceStyle}
-      onClick={onClick}
-      {...handlers}
-    >
+    <div className={`cursor-pointer ${classes}`} onClick={onClick} {...handlers}>
       {children}
     </div>
   );
@@ -75,7 +57,7 @@ export const StatefulBlueCard: React.FC<{
   const [hovered, handlers] = useHover();
 
   const classes: string = [
-    cardBaseClass,
+    'glass-card relative overflow-hidden rounded-[1.5rem]',
     'flex no-underline',
     hovered ? 'text-white' : 'text-[#f0f0f5]',
     className,
@@ -83,12 +65,14 @@ export const StatefulBlueCard: React.FC<{
     .filter(Boolean)
     .join(' ');
 
-  const hoverStyle: CSSProperties = {
-    background: hovered ? '#1a7fe8' : 'rgba(255, 255, 255, 0.06)',
-    backdropFilter: hovered ? 'none' : 'blur(20px) saturate(180%)',
-    WebkitBackdropFilter: hovered ? 'none' : 'blur(20px) saturate(180%)',
-    border: hovered ? '1px solid transparent' : '1px solid rgba(255, 255, 255, 0.12)',
-  };
+  const hoverStyle: CSSProperties = hovered
+    ? {
+        background: '#1a7fe8',
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+        border: '1px solid transparent',
+      }
+    : {};
 
   if (as === 'a') {
     return (

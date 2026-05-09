@@ -11,14 +11,8 @@ export const FeaturedCard: React.FC<{
 
   return (
     <div
-      style={{
-        background: 'rgba(255,255,255,0.06)',
-        backdropFilter: 'blur(20px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-        border: '1px solid rgba(255,255,255,0.12)',
-        ...style,
-      }}
-      className="group relative cursor-pointer overflow-hidden rounded-[1.5rem] transition-all duration-200 hover:border-transparent hover:bg-[#1a7fe8] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
+      className="glass-card group relative cursor-pointer overflow-hidden rounded-[1.5rem] hover:border-transparent hover:bg-[#1a7fe8] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
+      style={style}
       onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
     >
       {/* Desktop layout */}

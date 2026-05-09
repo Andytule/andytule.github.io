@@ -23,11 +23,8 @@ const ContactTile: React.FC<ContactItem> = ({ iconName, value, cta, href, extern
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      className="flex flex-col items-center justify-center text-center gap-2.5 no-underline rounded-[1.25rem] py-6 px-4 transition-all duration-200"
-      style={{
-        background: hovered ? '#1a7fe8' : '#222228',
-        border: `1px solid ${hovered ? 'transparent' : 'rgba(255,255,255,0.1)'}`,
-      }}
+      className="glass-card flex flex-col items-center justify-center text-center gap-2.5 no-underline rounded-[1.25rem] py-6 px-4 transition-all duration-200"
+      style={hovered ? { background: '#1a7fe8', border: '1px solid transparent' } : undefined}
       {...handlers}
     >
       <span

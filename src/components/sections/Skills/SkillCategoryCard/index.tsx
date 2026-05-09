@@ -12,13 +12,10 @@ interface SkillCategoryCardProps {
 const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, items }) => (
   <div
     className={[
+      'glass-card',
       'group relative flex flex-col gap-5',
-      'rounded-[var(--radius-2xl)] border border-[var(--color-border)]',
-      'bg-[var(--color-surface)] p-6',
-      'transition-all duration-200 ease-[var(--ease-apple)]',
+      'p-6',
       'hover:-translate-y-0.5',
-      'hover:border-[rgba(77,166,255,0.35)]',
-      'hover:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(77,166,255,0.12)]',
     ].join(' ')}
   >
     <h3 className="text-center text-[0.6875rem] font-semibold tracking-[0.12em] uppercase text-[var(--color-text-secondary)]">

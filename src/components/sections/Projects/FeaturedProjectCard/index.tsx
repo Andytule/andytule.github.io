@@ -6,13 +6,13 @@ import type { Project } from '@/types';
 
 const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   <div
-    className="group bg-[#222228] border border-white/10 rounded-[1.5rem] overflow-hidden cursor-pointer transition-all duration-200 ease-[var(--ease-apple)] hover:-translate-y-0.5 hover:border-[rgba(77,166,255,0.35)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(77,166,255,0.12)]"
+    className="glass-card group overflow-hidden cursor-pointer hover:-translate-y-0.5"
     onClick={() => {
       if (project.demoUrl) window.open(project.demoUrl, '_blank');
     }}
   >
     <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] min-h-[300px]">
-      <div className="relative min-h-[200px] overflow-hidden bg-[#1a1a20]">
+      <div className="relative min-h-[200px] overflow-hidden bg-black/20">
         {project.image && (
           <img
             src={project.image}
@@ -22,8 +22,8 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
             decoding="async"
           />
         )}
-        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent from-[60%] to-[#222228]" />
-        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-transparent from-[60%] to-[#222228]" />
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent from-[60%] to-[rgba(15,15,20,0.85)]" />
+        <div className="absolute inset-0 md:hidden bg-gradient-to-b from-transparent from-[60%] to-[rgba(15,15,20,0.85)]" />
       </div>
 
       <div className="flex flex-col justify-center gap-4 p-8">

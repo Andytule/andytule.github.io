@@ -44,10 +44,14 @@ export const SocialTile: React.FC<{
         .join(' ')}
       style={{
         gridArea: gridArea ?? undefined,
-        background: hovered ? '#1a7fe8' : 'rgba(255,255,255,0.06)',
-        backdropFilter: hovered ? 'none' : 'blur(20px) saturate(180%)',
-        WebkitBackdropFilter: hovered ? 'none' : 'blur(20px) saturate(180%)',
-        border: hovered ? '1px solid transparent' : '1px solid rgba(255,255,255,0.12)',
+        ...(hovered
+          ? {
+              background: '#1a7fe8',
+              backdropFilter: 'none',
+              WebkitBackdropFilter: 'none',
+              border: '1px solid transparent',
+            }
+          : {}),
       }}
       {...handlers}
     >

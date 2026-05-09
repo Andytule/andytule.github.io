@@ -51,12 +51,9 @@ const EducationEntryCard: React.FC<EducationEntryProps> = ({ entry, isLast }) =>
     <article className={cn(!isLast && 'mb-3')}>
       <div
         className={cn(
-          'flex gap-4 md:gap-6 rounded-[1.375rem] border p-5 md:p-6',
-          'bg-[var(--color-surface-low)] border-white/[0.06]',
-          'transition-all duration-200 ease-[var(--ease-apple)]',
-          'hover:-translate-y-0.5',
-          'hover:border-[rgba(77,166,255,0.35)]',
-          'hover:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(77,166,255,0.12)]'
+          'glass-card',
+          'flex gap-4 md:gap-6 rounded-[1.375rem] p-5 md:p-6',
+          'hover:-translate-y-0.5'
         )}
       >
         <div className="shrink-0 mt-[2px]">
