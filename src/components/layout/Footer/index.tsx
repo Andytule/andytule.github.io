@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           </span>
 
           <p className="text-xs text-[var(--color-text-tertiary)] tracking-[0.01em]">
-            © {year} · Built with care.
+            © {year} · James 4:10.
           </p>
 
           <nav className="flex gap-6" aria-label="Footer navigation">
