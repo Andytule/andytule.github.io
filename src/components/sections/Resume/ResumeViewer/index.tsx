@@ -23,7 +23,7 @@ const LoadingState: React.FC = () => (
 
 const ErrorState: React.FC<{ file: string }> = ({ file }) => (
   <div className="flex flex-col items-center justify-center py-24 gap-3 text-center px-6">
-    <div className="w-10 h-10 rounded-xl bg-white/[0.05] flex items-center justify-center mb-1">
+    <div className="w-10 h-10 rounded-lg bg-white/[0.05] flex items-center justify-center mb-1">
       <span className="text-xl">📄</span>
     </div>
     <p className="text-[0.875rem] text-[var(--color-text-secondary)]">Could not load the PDF.</p>
@@ -73,7 +73,7 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({
         loading={<LoadingState />}
         error={<ErrorState file={file} />}
       >
-        <div className="overflow-hidden rounded-xl shadow-[0_8px_40px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.06)]">
+        <div className="overflow-hidden rounded-lg shadow-[0_8px_40px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.06)]">
           <Page pageNumber={currentPage} width={pageWidth} renderTextLayer renderAnnotationLayer />
         </div>
       </Document>

@@ -6,11 +6,8 @@ import type { Project } from '@/types';
 
 const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   <div
-    className="glass-card group overflow-hidden cursor-pointer hover:-translate-y-0.5 backdrop-blur-xl"
-    style={{
-      borderRadius: '1.5rem',
-      background: 'rgba(255, 255, 255, 0.06)',
-    }}
+    className="glass-card group overflow-hidden cursor-pointer hover:-translate-y-0.5"
+    style={{}}
     onClick={() => {
       if (project.demoUrl) window.open(project.demoUrl, '_blank');
     }}
@@ -22,8 +19,6 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
             src={project.image}
             alt={`${project.title} screenshot`}
             className="h-full w-full object-cover object-top opacity-85 transition-opacity duration-300 group-hover:opacity-100"
-            loading="lazy"
-            decoding="async"
           />
         )}
       </div>

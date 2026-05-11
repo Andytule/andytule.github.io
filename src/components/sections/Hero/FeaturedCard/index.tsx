@@ -11,7 +11,7 @@ export const FeaturedCard: React.FC<{
 
   return (
     <div
-      className="glass-card group relative cursor-pointer overflow-hidden rounded-[1.5rem] hover:-translate-y-0.5 hover:border-transparent hover:bg-[#1a7fe8] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
+      className="glass-card group relative cursor-pointer overflow-hidden rounded-lg hover:-translate-y-0.5 hover:border-transparent hover:bg-[#1a7fe8] hover:shadow-[0_0_0_1px_rgba(59,158,255,0.15),0_20px_60px_rgba(0,0,0,0.5)]"
       style={style}
       onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
     >
@@ -82,7 +82,7 @@ export const FeaturedCard: React.FC<{
       {/* Mobile layout */}
       <div className="flex md:hidden flex-col h-full">
         {project.image && (
-          <div className="w-full overflow-hidden rounded-t-[1.5rem] h-[48%] shrink-0 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
+          <div className="w-full overflow-hidden rounded-t-lg h-[48%] shrink-0 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
             <img
               src={project.image}
               alt={`${project.title} preview`}

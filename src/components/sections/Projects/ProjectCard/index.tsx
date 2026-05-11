@@ -11,14 +11,8 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
   <div
-    className={cn(
-      'glass-card group flex flex-col overflow-hidden',
-      'hover:-translate-y-0.5 backdrop-blur-xl'
-    )}
-    style={{
-      borderRadius: '1.5rem',
-      background: 'rgba(255, 255, 255, 0.06)',
-    }}
+    className={cn('glass-card group flex flex-col overflow-hidden', 'hover:-translate-y-0.5')}
+    style={{}}
   >
     {project.image && (
       <div className="relative h-44 overflow-hidden shrink-0">
@@ -26,8 +20,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
           src={project.image}
           alt={`${project.title} preview`}
           className="h-full w-full object-cover object-top opacity-80 transition-opacity duration-300 group-hover:opacity-100"
-          loading="lazy"
-          decoding="async"
         />
       </div>
     )}
