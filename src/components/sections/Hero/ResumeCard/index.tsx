@@ -5,17 +5,15 @@ import useHover from '@/hooks/useHover';
 
 import { cardBaseClass } from '../HoverCard';
 
-export const ResumeCard: React.FC<{
-  style?: CSSProperties;
-  mobile?: boolean;
-}> = ({ style, mobile }) => {
+export const ResumeCard: React.FC<{ style?: CSSProperties; mobile?: boolean }> = ({
+  style,
+  mobile,
+}) => {
   const [hovered, handlers] = useHover();
-
   const scrollToResume = (e: MouseEvent) => {
     e.preventDefault();
     document.getElementById('resume')?.scrollIntoView({ behavior: 'smooth' });
   };
-
   return (
     <a
       href="#resume"
@@ -35,13 +33,13 @@ export const ResumeCard: React.FC<{
         <FileText
           size={mobile ? 28 : 48}
           className="shrink-0 transition-colors duration-200"
-          style={{ color: hovered ? 'white' : '#3b9eff' }}
+          style={{ color: hovered ? '#fffff1' : '#6f89fc' }}
         />
         <p
           className="font-[var(--font-display)] font-bold tracking-[-0.03em] transition-colors duration-200"
           style={{
             fontSize: mobile ? '1.125rem' : '1.75rem',
-            color: hovered ? 'white' : '#f0f0f5',
+            color: hovered ? '#fffff1' : 'var(--color-cream)',
           }}
         >
           Resume

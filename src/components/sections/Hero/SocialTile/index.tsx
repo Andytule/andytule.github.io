@@ -8,8 +8,8 @@ import { CalIcon, GHIcon, IconFC, LIIcon, MailIcon } from './icons';
 export { CalIcon, GHIcon, LIIcon, MailIcon };
 export type { IconFC };
 
-const ICON_SIZE_DESKTOP: number = 34;
-const ICON_SIZE_MOBILE: number = 36;
+const ICON_SIZE_DESKTOP = 34;
+const ICON_SIZE_MOBILE = 36;
 
 export const socialTiles = [
   { area: 'cal', href: 'https://calendly.com/andytule321', label: 'Schedule', Icon: CalIcon },
@@ -27,7 +27,7 @@ export const SocialTile: React.FC<{
   aspectRatio?: boolean;
 }> = ({ href, label, Icon, gridArea, mobile, aspectRatio }) => {
   const [hovered, handlers] = useHover();
-  const iconSize: number = mobile ? ICON_SIZE_MOBILE : ICON_SIZE_DESKTOP;
+  const iconSize = mobile ? ICON_SIZE_MOBILE : ICON_SIZE_DESKTOP;
 
   return (
     <a
@@ -46,13 +46,13 @@ export const SocialTile: React.FC<{
       {...handlers}
     >
       <span className="flex transition-colors duration-200">
-        <Icon size={iconSize} color={hovered ? 'white' : '#3b9eff'} />
+        <Icon size={iconSize} color={hovered ? '#fffff1' : '#6f89fc'} />
       </span>
       <span
-        className="font-semibold tracking-[0.1em] uppercase"
+        className="font-semibold tracking-[0.1em] uppercase transition-colors duration-200"
         style={{
           fontSize: mobile ? '0.6875rem' : '0.625rem',
-          color: hovered ? 'rgba(255,255,255,0.5)' : '#52525e',
+          color: hovered ? 'rgba(255,255,241,0.55)' : 'var(--color-text-tertiary)',
         }}
       >
         {label}

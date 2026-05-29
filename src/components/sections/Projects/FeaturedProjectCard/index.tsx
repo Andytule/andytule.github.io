@@ -28,12 +28,12 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
           <Pill variant="accent" className="w-fit uppercase tracking-[0.06em] text-[0.625rem]">
             Featured Project
           </Pill>
-          <h3 className="font-[var(--font-display)] text-[1.75rem] font-bold text-[#f0f0f5] tracking-[-0.03em] leading-tight">
+          <h3 className="font-[var(--font-display)] text-[1.75rem] font-bold text-[var(--color-cream)] tracking-[-0.03em] leading-tight">
             {project.title}
           </h3>
         </div>
 
-        <p className="text-[0.875rem] leading-[1.7] text-[#8a8a96] tracking-[-0.005em]">
+        <p className="text-[0.875rem] leading-[1.7] text-[var(--color-text-secondary)] tracking-[-0.005em]">
           {project.description}
         </p>
 
@@ -55,7 +55,7 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
               <Pill
                 variant="purple"
                 className="uppercase tracking-[0.06em] text-[0.625rem] cursor-pointer"
-                hoverClassName="hover:bg-[rgba(109,40,217,0.6)] hover:border-[rgba(196,181,253,0.9)] hover:text-[#ede9fe]"
+                hoverClassName="hover:bg-[rgba(161,99,247,0.4)] hover:border-[rgba(161,99,247,0.9)] hover:text-white"
               >
                 GitHub
               </Pill>
@@ -72,7 +72,7 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => (
               <Pill
                 variant="green"
                 className="uppercase tracking-[0.06em] text-[0.625rem] cursor-pointer"
-                hoverClassName="hover:bg-[rgba(22,163,74,0.55)] hover:border-[rgba(74,222,128,0.9)] hover:text-[#dcfce7]"
+                hoverClassName="hover:bg-[rgba(71,227,255,0.2)] hover:border-[rgba(71,227,255,0.9)] hover:text-white"
               >
                 Live ↗
               </Pill>

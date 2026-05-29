@@ -23,27 +23,27 @@ const ContactTile: React.FC<ContactItem> = ({ iconName, value, cta, href, extern
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      className="glass-card flex flex-col items-center justify-center text-center gap-2.5 no-underline rounded-[1.25rem] py-6 px-4 transition-all duration-200"
-      style={hovered ? { background: '#1a7fe8', border: '1px solid transparent' } : undefined}
+      className="glass-card flex flex-col items-center justify-center text-center gap-2.5 no-underline rounded-[1rem] py-6 px-4 transition-all duration-200"
+      style={
+        hovered ? { background: '#1e2440', border: '1px solid rgba(111,137,252,0.45)' } : undefined
+      }
       {...handlers}
     >
       <span
-        className="transition-transform duration-200"
-        style={{ transform: hovered ? 'scale(1.1)' : 'scale(1)', display: 'block' }}
+        className="flex transition-transform duration-200"
+        style={{ transform: hovered ? 'scale(1.1)' : 'scale(1)' }}
       >
-        <Icon size={22} color={hovered ? '#fff' : '#3b9eff'} />
+        <Icon size={22} color={hovered ? '#fffff1' : '#6f89fc'} />
       </span>
-
       <p
         className="text-[0.8125rem] font-semibold tracking-[-0.02em] leading-snug transition-colors duration-200"
-        style={{ color: hovered ? '#fff' : '#ebebf5' }}
+        style={{ color: hovered ? '#fffff1' : 'var(--color-cream)' }}
       >
         {value}
       </p>
-
       <span
         className="text-[0.6875rem] font-medium tracking-[-0.01em] transition-colors duration-200"
-        style={{ color: hovered ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)' }}
+        style={{ color: hovered ? 'rgba(255,255,241,0.55)' : 'var(--color-text-tertiary)' }}
       >
         {cta} →
       </span>

@@ -2,28 +2,31 @@
 
 /* ── Design Tokens ────────────────────────────────────────────────────── */
 @theme {
-  --color-bg: #16161b;
-  --color-surface-lowest: #1a1a20;
-  --color-surface-low: #1e1e25;
-  --color-surface: #23232c;
-  --color-surface-container: #2a2a34;
-  --color-surface-high: #323240;
-  --color-surface-highest: #3d3d4c;
+  /* Background: near-black with a subtle blue tint, like the bento reference */
+  --color-bg: #12151e;
+  --color-surface-lowest: #161920;
+  --color-surface-low: #191c26;
+  --color-surface: #1d2130;
+  --color-surface-container: #212538;
+  --color-surface-high: #272c40;
+  --color-surface-highest: #2d3348;
 
-  --color-accent: #4da6ff;
-  --color-accent-bright: #76c0ff;
-  --color-accent-dim: rgba(77, 166, 255, 0.18);
-  --color-accent-hover: #2389f0;
-  --color-green: #30d158;
-  --color-green-dim: rgba(48, 209, 88, 0.14);
+  /* Fairy palette accents */
+  --color-accent: #6f89fc; /* primary blue-violet */
+  --color-accent-bright: #a163f7; /* purple */
+  --color-accent-dim: rgba(111, 137, 252, 0.15);
+  --color-accent-hover: #5570e8;
+  --color-green: #47e3ff; /* cyan */
+  --color-green-dim: rgba(71, 227, 255, 0.12);
+  --color-cream: #fffff1; /* cream/off-white */
 
-  --color-text-primary: #ebebf5;
-  --color-text-secondary: #9898a8;
-  --color-text-tertiary: #606070;
+  --color-text-primary: #fffff1;
+  --color-text-secondary: #9aa3bc;
+  --color-text-tertiary: #4e5872;
 
-  --color-border: rgba(255, 255, 255, 0.11);
-  --color-border-strong: rgba(255, 255, 255, 0.2);
-  --color-border-accent: rgba(77, 166, 255, 0.38);
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+  --color-border-accent: rgba(111, 137, 252, 0.35);
 
   --font-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --font-body: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
@@ -64,6 +67,23 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* ── Dotted background texture — matches the bento reference ──────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Push all page content above the dot layer */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
 /* ── Square card aspect ratio enforcement ─────────────────────────────── */
 .square-card {
   aspect-ratio: 1 / 1;
@@ -80,7 +100,6 @@ h6 {
   letter-spacing: -0.03em;
   line-height: 1.1;
 }
-
 p {
   margin: 0;
 }
@@ -107,19 +126,12 @@ svg {
   max-width: 100%;
 }
 
-/* ── Utility ──────────────────────────────────────────────────────────── */
-
-/* Apple-style glass card */
+/* ── Solid card — dark like Cyanic Bento ─────────────────────────────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px) saturate(180%);
-  will-change: transform;
-  transform: translateZ(0);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-2xl);
-  box-shadow:
-    0 2px 16px rgba(0, 0, 0, 0.12),
-    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
   transition:
     background 0.2s var(--ease-apple),
     border-color 0.2s var(--ease-apple),
@@ -127,13 +139,13 @@ svg {
     transform 0.2s var(--ease-apple);
 }
 .glass-card:hover {
-  border-color: rgba(77, 166, 255, 0.35);
+  border-color: rgba(111, 137, 252, 0.4);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(77, 166, 255, 0.12);
+    0 6px 24px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(111, 137, 252, 0.12);
 }
 
-/* Scroll reveal */
+/* ── Scroll reveal ────────────────────────────────────────────────────── */
 @keyframes fade-up {
   from {
     opacity: 0;

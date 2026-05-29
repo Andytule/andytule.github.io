@@ -15,7 +15,7 @@ const Projects: React.FC = () => {
       <SectionHeader
         title={
           <>
-            My <span className="text-[#3b9eff]">Projects.</span>
+            My <span className="text-[var(--color-accent)]">Projects.</span>
           </>
         }
       />

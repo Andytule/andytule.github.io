@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="text-[0.8125rem] text-[var(--color-text-tertiary)] transition-colors duration-150 hover:text-[#f0f0f5]"
+                className="text-[0.8125rem] text-[var(--color-text-tertiary)] transition-colors duration-150 hover:text-[var(--color-cream)]"
               >
                 {link.label}
               </a>

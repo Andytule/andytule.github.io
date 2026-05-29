@@ -10,7 +10,7 @@ const WorkExperience: React.FC = () => (
     <SectionHeader
       title={
         <>
-          Work <span className="text-[#3b9eff]">Experience.</span>
+          Work <span className="text-[var(--color-accent)]">Experience.</span>
         </>
       }
     />

@@ -3,15 +3,15 @@ import React from 'react';
 
 export type IconFC = React.FC<{ size?: number; color?: string }>;
 
-export const CalIcon: IconFC = ({ size = 28, color = '#3b9eff' }) => (
+export const CalIcon: IconFC = ({ size = 28, color = 'var(--color-accent)' }) => (
   <Calendar size={size} color={color} />
 );
 
-export const MailIcon: IconFC = ({ size = 28, color = '#3b9eff' }) => (
+export const MailIcon: IconFC = ({ size = 28, color = 'var(--color-accent)' }) => (
   <Mail size={size} color={color} />
 );
 
-export const GHIcon: IconFC = ({ size = 28, color = '#3b9eff' }) => (
+export const GHIcon: IconFC = ({ size = 28, color = 'var(--color-accent)' }) => (
   <svg
     width={size}
     height={size}
@@ -23,7 +23,7 @@ export const GHIcon: IconFC = ({ size = 28, color = '#3b9eff' }) => (
   </svg>
 );
 
-export const LIIcon: IconFC = ({ size = 28, color = '#3b9eff' }) => (
+export const LIIcon: IconFC = ({ size = 28, color = 'var(--color-accent)' }) => (
   <svg
     width={size}
     height={size}

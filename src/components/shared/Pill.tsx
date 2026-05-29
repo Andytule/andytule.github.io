@@ -16,16 +16,16 @@ interface PillProps {
 const variantClasses: Record<PillVariant, string> = {
   default:
     'bg-[var(--color-surface-high)] text-[var(--color-text-secondary)] border-[var(--color-border)]',
-  accent: 'bg-[rgba(77,166,255,0.10)] text-[var(--color-accent)] border-[rgba(77,166,255,0.22)]',
-  green: 'bg-[rgba(48,209,88,0.10)] text-[var(--color-green)] border-[rgba(48,209,88,0.22)]',
-  purple: 'bg-[rgba(139,92,246,0.10)] text-[#a78bfa] border-[rgba(139,92,246,0.24)]',
+  accent: 'bg-[rgba(111,137,252,0.12)] text-[#6f89fc] border-[rgba(111,137,252,0.28)]',
+  green: 'bg-[rgba(71,227,255,0.10)]  text-[#47e3ff] border-[rgba(71,227,255,0.28)]',
+  purple: 'bg-[rgba(161,99,247,0.12)]  text-[#a163f7] border-[rgba(161,99,247,0.28)]',
 };
 
 const dotColors: Record<PillVariant, string> = {
   default: 'bg-[var(--color-text-tertiary)]',
-  accent: 'bg-[var(--color-accent)]',
-  green: 'bg-[var(--color-green)]',
-  purple: 'bg-[#a78bfa]',
+  accent: 'bg-[#6f89fc]',
+  green: 'bg-[#47e3ff]',
+  purple: 'bg-[#a163f7]',
 };
 
 export const Pill: React.FC<PillProps> = ({

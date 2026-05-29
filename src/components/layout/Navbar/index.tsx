@@ -22,7 +22,12 @@ const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 h-[60px]">
-      <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-8">
+      {/* Frosted bar matching dark surface */}
+      <div
+        className="absolute inset-0 border-b border-white/[0.06]"
+        style={{ background: 'rgba(18,21,30,0.85)', backdropFilter: 'blur(16px)' }}
+      />
+      <div className="relative mx-auto flex h-full max-w-[1200px] items-center justify-between px-8">
         <span className="font-[var(--font-display)] text-[1.1875rem] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">
           Andy<span className="text-[var(--color-accent)]"> Le</span>
         </span>

@@ -33,7 +33,7 @@ const Resume: React.FC = () => {
       <SectionHeader
         title={
           <>
-            My <span className="text-[#3b9eff]">Résumé.</span>
+            My <span className="text-[var(--color-accent)]">Résumé.</span>
           </>
         }
       />

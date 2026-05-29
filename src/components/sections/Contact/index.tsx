@@ -8,7 +8,7 @@ const Contact: React.FC = () => (
   <section id="contact" className="mx-auto max-w-[1200px] px-6 md:px-8 py-24">
     <div className="mb-14">
       <h2 className="text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-[var(--color-text-primary)] tracking-[-0.03em] leading-[1.1]">
-        Let's build something <span className="text-[#3b9eff]">great together.</span>
+        Let's build something <span className="text-[var(--color-accent)]">great together.</span>
       </h2>
     </div>
     <div className="grid md:grid-cols-2 gap-8 items-center">

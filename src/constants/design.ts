@@ -1,7 +1,7 @@
 export const COLORS = {
   accent: '#2997ff',
   accentHover: '#0077ed',
-  green: '#30d158',
+  green: 'var(--color-green)',
   textPrimary: '#f5f5f7',
   textSecondary: '#86868b',
   textTertiary: '#48484a',

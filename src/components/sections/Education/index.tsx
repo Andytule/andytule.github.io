@@ -10,7 +10,7 @@ const Education: React.FC = () => (
     <SectionHeader
       title={
         <>
-          My <span className="text-[#3b9eff]">Education.</span>
+          My <span className="text-[var(--color-accent)]">Education.</span>
         </>
       }
     />

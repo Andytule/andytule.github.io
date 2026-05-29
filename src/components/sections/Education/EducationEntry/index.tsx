@@ -80,7 +80,7 @@ const EducationEntryCard: React.FC<EducationEntryProps> = ({ entry, isLast }) =>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-1.5">
-            <span className="text-[0.8125rem] font-medium text-[#4da6ff] transition-colors duration-150">
+            <span className="text-[0.8125rem] font-medium text-[var(--color-accent)] transition-colors duration-150">
               {entry.school}
             </span>
             <span className="text-white/20 text-[0.625rem] leading-none">·</span>

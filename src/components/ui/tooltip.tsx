@@ -23,7 +23,7 @@ const TooltipContent = forwardRef<
     ref={ref}
     sideOffset={sideOffset}
     className={cn(
-      'z-50 overflow-hidden rounded-xl border border-[rgba(255,255,255,0.08)] bg-[var(--color-surface-low)] px-3 py-1.5 text-xs text-[#f0f0f5] shadow-md animate-in fade-in-0 zoom-in-95',
+      'z-50 overflow-hidden rounded-xl border border-[rgba(255,255,255,0.08)] bg-[var(--color-surface-low)] px-3 py-1.5 text-xs text-[var(--color-cream)] shadow-md animate-in fade-in-0 zoom-in-95',
       className
     )}
     {...props}
